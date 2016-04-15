@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href=http://localhost:8080/Proyecto/websUsuario/nuevaRuta.html> Agregar una ruta nueva</a><br>
+
+Ruta X 	<a href=http://localhost:8080/Proyecto/servletsUsuario/Ruta> Ver ruta</a><br>
+		<a href=http://localhost:8080/Proyecto/servletsUsuario/EditarRuta> Editar ruta</a><br>
+		<a href=http://localhost:8080/Proyecto/servletsUsuario/EliminarRuta> Eliminar ruta</a><br>
+
+Ruta Y 	<a href=http://localhost:8080/Proyecto/servletsUsuario/Ruta> Ver ruta</a><br>
+		<a href=http://localhost:8080/Proyecto/servletsUsuario/EditarRuta> Editar ruta</a><br>
+		<a href=http://localhost:8080/Proyecto/servletsUsuario/EliminarRuta> Eliminar ruta</a><br>
+
+		
+<a href=http://localhost:8080/Proyecto/servletsUsuario/MisRutas> Listar mis rutas</a><br>
+Campo de Busqueda:  <a href=http://localhost:8080/Proyecto/servletsUsuario/Busqueda> Buscar</a><br>
+</body>
+</html>

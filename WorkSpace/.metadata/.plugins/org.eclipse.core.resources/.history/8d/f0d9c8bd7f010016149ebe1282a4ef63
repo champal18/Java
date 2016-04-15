@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home de usuario</title>
+</head>
+<body>
+<a href=nuevaRuta.html> Agregar una ruta nueva</a><br>
+<a href=MisRutas> Listar mis rutas</a><br>
+Campo de Busqueda:  <a href=BusquedaRuta> Buscar</a><br>
+</body>
+</html>

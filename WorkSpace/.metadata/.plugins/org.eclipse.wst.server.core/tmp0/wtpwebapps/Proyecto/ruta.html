@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>User Home</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="usuario.html">JRuteros</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Juan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Juan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Juan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Juan <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-user"></i> Perfil </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="CerrarSesion"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li >
+                        <a href="nuevaRuta.html"><i class="glyphicon glyphicon-plus"></i> Agregar ruta</a>
+                    </li>
+                    <li class="active">
+                        <a href="misRutas.html"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
+                    </li>
+                    <li>
+                        <a href="busquedaRuta.html"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+             	<!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           Camino de los 7 lagos
+                        </h1>
+                      
+                    </div>
+                    
+                    <div class="col-md-12">
+			<h2>
+				Descripción de la ruta
+			</h2>
+			<p>
+				Se denomina Camino de los Siete Lagos a un tramo de la Ruta Nacional 40 (ex 234)1 en la provincia del Neuquén, Argentina.
+				
+				El tramo une a las localidades de San Martín de los Andes y Villa La Angostura y debe su nombre a que se avistan siete lagos durante su recorrido.
+				
+				Posee una longitud de aproximadamente 107 km donde pueden apreciarse las típicas características de la región de los Andes patagónicos: extensos bosques, cerros nevados y lagos.
+				
+				Este camino atraviesa dos parques nacionales: el Lanín y el Nahuel Huapi.			
+			</p>
+			
+			<div class="row">
+				<div class="col-md-6">
+				    <br>
+				    <br>
+				    <br>
+				    <br>
+				    <br>
+					<ul>
+						<li>
+							Privacidad: Pública
+						</li>
+						<li>
+							Recorrido: --
+						</li>
+						<li>
+							Formato: Circular
+						</li>
+						<li>
+							Distancia: 200km
+						</li>
+						<li>
+							Dificultad: Moderado
+						</li>
+						<li>
+							Actividad: Ciclismo
+						</li>
+						<li>
+							Tiempo: 100 horas
+						</li>
+						<li>
+							Fecha de realizacion: 15/03/2015
+						</li>
+					</ul>
+					
+					
+					<div class="checkbox">
+                           <label>
+                                  <input type="checkbox" value="">Hice esta ruta
+                           </label>
+                    </div>
+					
+				</div>
+			
+				
+				<div class="col-md-6">
+				
+					<img class="img-thumbnail" src="http://www.coolors.net/heviajado/blog/wp-content/mapas/ruta7lagos.gif" alt="">
+				
+					
+				</div>
+			
+			</div>
+			
+			
+			<h4>
+				Puntaje promedio: 4,5
+			</h4>
+			<h4>
+				Cantidad de veces realizada: 2743
+			</h4>
+			
+			<div class="form-group">
+                                <label>Valora esta ruta</label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox">1
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox">2
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox">3
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox">4
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox">5
+                                   
+                                </label>
+                            </div>
+		
+		
+		</div>
+                    
+                    
+                    
+                    
+                </div>
+               
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

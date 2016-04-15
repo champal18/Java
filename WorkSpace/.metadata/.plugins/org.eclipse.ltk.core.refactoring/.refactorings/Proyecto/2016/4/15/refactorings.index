@@ -1,0 +1,27 @@
+1459978468148	Rename resource 'Login.html'
+1460056376569	Move 'admin.html' to 'websAdmin'
+1460056380583	Move 'usuario.html' to 'websUsuario'
+1460056487853	Delete element
+1460056785564	Delete element
+1460057560090	Rename resource 'EditarRuta.html'
+1460057749502	Rename resource 'Ruta.html'
+1460057944637	Rename resource 'BusquedaRutas.html'
+1460062415899	Delete elements
+1460065811952	Encapsulate field 'nombre_usuario'
+1460065832405	Encapsulate field 'apellido'
+1460065836729	Encapsulate field 'nombre'
+1460065840211	Encapsulate field 'dni'
+1460065844386	Encapsulate field 'domicilio'
+1460065849680	Encapsulate field 'fecha_nacimiento'
+1460065852867	Encapsulate field 'email'
+1460066089240	Rename local variable 'nomb'
+1460066222367	Delete element
+1460066569148	Rename type 'Sexo'
+1460066584094	Rename type 'genero'
+1460066796918	Encapsulate field 'gen'
+1460067055756	Encapsulate field 'clave'
+1460068300368	Rename type 'Registro'
+1460068506326	Move 'registro.html' to 'WebContent'
+1460069209043	Delete element
+1460069281875	Move 'registro.html' to 'websUsuario'
+1460069783394	Move 'registro.html' to 'WebContent'

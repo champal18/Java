@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registro</title>
+</head>
+<body>
+<form action="/Proyecto/servletsUsuario/Registro" method="post">
+  Nombre de usuario:<br>
+  <input type="text" name="usuario"><br>
+  Apellido:<br>
+  <input type="text" name="apellido"><br>
+  Nombre:<br>
+  <input type="text" name="nombre"><br>
+  DNI:<br>
+  <input type="text" name="dni"><br>
+  Domicilio:<br>
+  <input type="text" name="domicilio"><br>
+  Fecha de nacimiento:<br>
+  <input type="text" name="fecha"><br>
+  Sexo:<br>
+  <input type="radio" name="genero" value="femenino" checked> Femenino<br>
+  <input type="radio" name="genero" value="masculino"> Masculino<br>
+  Email:<br>
+  <input type="text" name="email"><br>
+  
+  <input type="submit" value="Registrar">
+</form>
+</body>
+</html>

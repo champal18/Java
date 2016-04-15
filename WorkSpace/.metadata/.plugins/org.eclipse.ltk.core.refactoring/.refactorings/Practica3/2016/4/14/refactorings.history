@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Practica3/src/misservlets/Hola.java&apos; to &apos;holaServlet.java&apos;" description="Rename resource &apos;Hola.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/misservlets/Hola.java" name="holaServlet.java" stamp="1459626497953" updateReferences="true"/>
+</session>

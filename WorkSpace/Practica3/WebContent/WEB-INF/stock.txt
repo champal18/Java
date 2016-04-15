@@ -1,0 +1,10 @@
+Chocolates, 5
+Caramelos, 1
+Pastillas, 2
+Chicles, 3
+Chocolatines, 3
+Chupetines, 0.75
+Turrones, 4
+Alfajores, 7
+Galletitas, 10
+Gaseosa, 8

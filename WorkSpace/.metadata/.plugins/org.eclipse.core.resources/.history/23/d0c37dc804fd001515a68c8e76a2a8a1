@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Formulario para nueva actividad..
+<a href=http://localhost:8080/Proyecto/websadmin/admin.html> Volver al menu</a>
+</body>
+</html>

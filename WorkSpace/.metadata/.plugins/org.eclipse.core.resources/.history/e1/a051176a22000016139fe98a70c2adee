@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<meta charset="utf-8">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+<script src="js/bootstrap.min.js"></script> 
+
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#">JRuteros</a>
+				</li>
+				<li>
+					<a href="http://localhost:8080/Proyecto/login.html">Ingresar</a>
+				</li>
+				<li>
+					<a href="http://localhost:8080/Proyecto/registro.html">Registrarse</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<form action="LoginUsr" method = "post">
+  Nombre de usuario:<br>
+  <input type="text" name="nombre"><br>
+  Pass:<br>
+  <input type="text" name="clave"><br>
+  <input type="submit" value="Submit">
+</form>
+<a href=http://localhost:8080/Proyecto/registro.html>Registrarse</a>
+
+</body>
+</html>

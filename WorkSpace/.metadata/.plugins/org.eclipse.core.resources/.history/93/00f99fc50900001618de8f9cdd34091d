@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="Registro" method="post">
+  Nombre:<br>
+  <input type="text" name="nombre"><br>
+  Descripción:<br>
+  <input type="text" name="descripcion"><br>
+  Distancia:<br>
+  <input type="text" name="distancia"><br>
+  Actividad:<br>
+  <input type="text" name="actividad"><br>
+  Fecha de realizacion:<br>
+  <input type="text" name="fecha"><br>
+  Privacidad:<br>
+  <input type="radio" name="genero" value="femenino" checked> Público<br>
+  <input type="radio" name="genero" value="masculino"> Privado<br>
+  Tiempo estimado:<br>
+  <input type="text" name="tiempo"><br>
+  
+  <input type="submit" value="Registrar">
+</form>
+<a href=http://localhost:8080/Proyecto/NuevaRuta> Guardar</a>
+</body>
+</html>

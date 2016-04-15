@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Crear nueva ruta</title>
+</head>
+<body>
+<form action="NuevaRuta" method="post">
+  Nombre:<br>
+  <input type="text" name="nombre"><br>
+  Descripción:<br>
+  <input type="text" name="descripcion"><br>
+  Distancia (km):<br>
+  <input type="text" name="distancia"><br>
+  Fecha de realizacion:<br>
+  <input type="text" name="fecha"><br>
+  Privacidad:<br>
+  <input type="radio" name="privacidad" value="publico" checked> Público<br>
+  <input type="radio" name="privacidad" value="privado"> Privado<br>
+  Tiempo estimado:<br>
+  <input type="text" name="tiempo"><br>
+  Formato:<br>
+  <input type="radio" name="formato" value="ida" checked> Ida<br>
+  <input type="radio" name="formato" value="circular"> Circular<br>
+  Dificultad:<br>
+  <select name="dificultad">
+	  <option value="facil">Fácil</option>
+	  <option value="moderado">Moderado</option>
+	  <option value="dificil">Dificil</option>
+	  <option value="muyDificil">Muy dificil</option>
+	  <option value="expertos">Expertos</option>
+  </select><br>
+  
+  Actividad:<br>
+  <select name="actividad">
+	  <option value="mountainBike">Mountain bike</option>
+	  <option value="ciclismo">Ciclismo</option>
+	  <option value="cicloturismo">Cicloturismo</option>
+	  <option value="senderismo">Senderismo</option>
+	  <option value="carreraPorMontania">Carrera por montaña</option>
+	  <option value="alpinismo">Alpinismo</option>
+	  <option value="motociclismo">Motociclismo</option>
+	  <option value="cuatriciclo">Cuatriciclo</option>
+	  <option value="esqui">Esquí</option>
+	  <option value="kayak">Kayak</option>
+	  <option value="vela">Vela</option>
+	  <option value="caballo">A caballo</option>
+  </select><br>
+  Mapa:<br>
+  <input type="text" name="fecha"><br>
+  Fotos:<br>
+  <input type="text" name="fecha"><br>
+  
+  <input type="submit" value="Crear">
+</form>
+</body>
+</html>
