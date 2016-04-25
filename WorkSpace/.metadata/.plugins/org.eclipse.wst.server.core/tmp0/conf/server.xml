@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\juanpablo\Dropbox\Facultad 2016\Java\WorkSpace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\juanpablo\Dropbox\Facultad 2016\Java\WorkSpace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Proyecto" path="/Proyecto" reloadable="true" source="org.eclipse.jst.jee.server:Proyecto"/></Host>
+      <Context docBase="C:\Users\juanpablo\UNLP\5to año\JAVA\Java\WorkSpace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\juanpablo\UNLP\5to año\JAVA\Java\WorkSpace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Proyecto" path="/Proyecto" reloadable="true" source="org.eclipse.jst.jee.server:Proyecto"/><Context docBase="C:\Users\juanpablo\UNLP\5to año\JAVA\Java\WorkSpace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Practica4" path="/Practica4" reloadable="true" source="org.eclipse.jst.jee.server:Practica4"/></Host>
     </Engine>
   </Service>
 </Server>

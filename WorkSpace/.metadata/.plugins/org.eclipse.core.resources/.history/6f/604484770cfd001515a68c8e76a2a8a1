@@ -1,6 +1,0 @@
-package Estructuras;
-
-public enum Sexo 
-{
-	MASCULINO, FEMENINO
-}

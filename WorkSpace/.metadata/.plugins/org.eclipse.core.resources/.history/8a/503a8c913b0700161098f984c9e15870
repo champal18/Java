@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<body>
+
+<form action="LoginUser" method = "post">
+  Nombre:<br>
+  <input type="text" name="nombre"><br>
+  Apellido:<br>
+  <input type="text" name="apellido"><br>
+  Direccion postal:<br>
+  <input type="text" name="direccion"><br>
+  Pass:<br>
+  <input type="text" name="pass"><br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
