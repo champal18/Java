@@ -1,0 +1,29 @@
+package Modelo;
+import java.util.Vector;
+
+public class Ruta {
+
+  private String nombre;
+
+  private String descripcion;
+
+  private Boolean privacidad;
+
+  private Integer recorrido;
+
+  private Boolean formato;
+
+  private Integer distancia;
+
+  private Dificultad dificultad;
+
+  private Actividad actividad;
+
+  private Integer tiempo;
+
+  private Integer fecha;
+
+  private Integer fotos;
+
+
+}

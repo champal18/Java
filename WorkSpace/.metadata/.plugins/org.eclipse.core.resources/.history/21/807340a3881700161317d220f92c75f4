@@ -1,0 +1,30 @@
+package Modelo;
+public class Admin extends Persona {
+
+  private String nomAdmin;
+
+  public Admin(String nombre, String apellido, String nomAdmin, String pass, String domicilio, Integer dni, String fecha, String sexo, String mail) 
+  {
+	  
+  	this.setNombre(nombre);
+  	this.setApellido(apellido);
+  	this.nomAdmin = nomAdmin;
+  	this.pass = pass;
+  	this.setDomicilio(domicilio);
+  	this.dni = dni;
+  	this.fecha = fecha;
+  	this.sexo = sexo;
+  	this.mail = mail;
+  }
+
+  public String getNomAdmin() 
+  {
+  	return this.nomAdmin;
+  }
+
+  public setNomAdmin(String nomA)
+  {
+  	this.nomAdmin = nomA;
+  }
+
+}

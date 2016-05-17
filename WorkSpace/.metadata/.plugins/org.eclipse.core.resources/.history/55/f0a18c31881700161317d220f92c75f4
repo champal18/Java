@@ -1,0 +1,36 @@
+
+public class JRuteros {
+
+  // Lista de admins del sistema
+  private ArrayList<Admin> admins = new ArrayList<Admin>();
+
+  // Lista de rutas del sistema
+  private ArrayList<Ruta> rutas = new ArrayList<Ruta>();
+
+  // Lista de usuarios del sistema
+  private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
+  // Lista de actividades del sistema
+  private ArrayList<Actividad> actividades = new ArrayList<Actividad>();
+
+  public ArrayList<Usuario> getUsuarios() 
+  {
+    return this.usuarios;
+  }
+
+  public ArrayList<Actividad> getActividades()
+  {
+    return this.actividades;
+  }
+
+  public ArrayList<Admin> getAdmins()
+  {
+    return this.admins;
+  }
+
+  public ArrayList<Ruta> getRutas() 
+  {
+    return this.rutas;
+  }
+
+}

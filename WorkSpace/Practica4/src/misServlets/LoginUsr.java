@@ -56,6 +56,8 @@ public class LoginUsr extends HttpServlet {
 			// Redirecciona el requerimiento http al servlet Productos
 //			response.sendRedirect("/Practica4/Security/Productos");
 			
+			sesion.setAttribute("url", "/Practica4/Security/Productos");
+			
 			RequestDispatcher disp = request.getRequestDispatcher("/Security/Productos");
 			disp.forward(request, response);
 		} else {

@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 				DispatcherType.FORWARD, 
 				DispatcherType.INCLUDE
 		}
-					, urlPatterns = { "/Security/*" })
+					, urlPatterns = { "/Practica4/Security/*" })
 public class FiltroControlaSession implements Filter {
 
     /**
@@ -47,10 +47,16 @@ public class FiltroControlaSession implements Filter {
 
 		HttpSession sesion = ((HttpServletRequest)request).getSession();
 		if(sesion.getAttribute("nombre") != (null))
-			((HttpServletResponse)response).sendRedirect("Practica4/login.html");
+		{
+//			((HttpServletResponse)response).sendRedirect("/Practica4/login.html");
+			String url = (String) sesion.getAttribute("url");
+			((HttpServletResponse)response).sendRedirect(url);
+			System.out.println("Paso por el filtro y me mando a: "+ url);
+		}
 		else
 		{
 			// pass the request along the filter chain
+			System.out.println("Se filtro!");
 			chain.doFilter(request, response);
 		}
 		

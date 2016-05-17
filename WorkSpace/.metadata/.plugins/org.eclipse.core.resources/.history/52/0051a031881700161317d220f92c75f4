@@ -1,0 +1,15 @@
+public class Usuario extends Persona {
+
+  private String nomUsuario;
+
+  public Usuario(String nombre, String apellido, String nomUsuario, String pass, String domicilio, Integer dni, String fecha, String sexo, String mail) {
+  }
+
+  public String getNomUsuario() {
+  return null;
+  }
+
+  public setNomUsuario(String nomUsuario) {
+  }
+
+}

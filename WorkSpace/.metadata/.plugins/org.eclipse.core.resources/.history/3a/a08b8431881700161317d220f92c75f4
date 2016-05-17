@@ -1,0 +1,82 @@
+import java.util.Vector;
+
+public class Persona {
+
+  private String nombre;
+
+  private String apellido;
+
+  private String domicilio;
+
+  private Integer dni;
+
+  private String fechaNac;
+
+  private String sexo;
+
+  private String mail;
+
+  private String pass;
+
+  public Ruta misRutas;
+
+    public Vector  myRuta;
+    public Vector  myRuta;
+  
+  public String getNombre() {
+  return null;
+  }
+
+  public setNombre(String nom) {
+  }
+
+  public String getApellido() {
+  return null;
+  }
+
+  public setApellido(String ap) {
+  }
+
+  public String getDomicilio() {
+  return null;
+  }
+
+  public setDomicilio(String dom) {
+  }
+
+  public Integer getDni() {
+  return null;
+  }
+
+  public setDni(Integer dni) {
+  }
+
+  public String getFecha() {
+  return null;
+  }
+
+  public setFecha(String fecha) {
+  }
+
+  public String getSexo() {
+  return null;
+  }
+
+  public setSexo(String genero) {
+  }
+
+  public String getMail() {
+  return null;
+  }
+
+  public setMail(String mail) {
+  }
+
+  public String getPass() {
+  return null;
+  }
+
+  public setPass(String pass) {
+  }
+
+}

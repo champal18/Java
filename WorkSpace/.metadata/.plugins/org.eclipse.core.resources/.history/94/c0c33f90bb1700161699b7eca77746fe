@@ -1,0 +1,19 @@
+package Modelo;
+
+import java.awt.Paint;
+import java.awt.Point;
+import java.util.ArrayList;
+
+public class Recorrido {
+
+  private ArrayList<Point> puntos;
+
+  
+  public ArrayList<Point> getPuntos() {
+  return null;
+  }
+
+  public void setPuntos( array) {
+  }
+
+}

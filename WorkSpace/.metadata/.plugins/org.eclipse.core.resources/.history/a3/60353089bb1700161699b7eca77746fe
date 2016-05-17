@@ -1,0 +1,15 @@
+package Modelo;
+
+public class Recorrido {
+
+  private ArrayList<point> puntos;
+
+  
+  public ArrayList<point> getPuntos() {
+  return null;
+  }
+
+  public void setPuntos( array) {
+  }
+
+}
