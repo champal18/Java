@@ -1,0 +1,21 @@
+package BD;
+
+import java.sql.Connection;
+
+public class AccesoDAO 
+{
+	public void guardarAcceso(Acceso access)
+	{
+		BD_JYAA bd = new BD_JYAA();
+		Connection con;
+		try {
+			con = bd.getConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

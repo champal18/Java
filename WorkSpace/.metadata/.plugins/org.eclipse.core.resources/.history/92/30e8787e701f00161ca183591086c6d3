@@ -1,0 +1,10 @@
+package BD;
+
+public class AccesoDAO 
+{
+	public void guardarAcceso(Acceso access)
+	{
+		
+	}
+
+}

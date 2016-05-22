@@ -1,0 +1,10 @@
+package BD;
+
+public class Acceso 
+{
+	public localdate fecha_hora;
+	public String ip;
+	public String recurso;
+	public String navegador;
+
+}

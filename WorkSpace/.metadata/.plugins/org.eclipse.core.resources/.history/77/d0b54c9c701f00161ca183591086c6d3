@@ -1,0 +1,14 @@
+package BD;
+
+import com.mysql.jdbc.Connection;
+import BD.BD_JYAA.;
+
+public class AccesoDAO 
+{
+	public void guardarAcceso(Acceso access)
+	{
+		Connection con = getConnection();
+		
+	}
+
+}

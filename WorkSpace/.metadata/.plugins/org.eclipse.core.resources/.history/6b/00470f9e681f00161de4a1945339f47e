@@ -1,0 +1,77 @@
+package filtros;
+
+import java.io.IOException;
+import javax.servlet.DispatcherType;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet Filter implementation class filtro
+ */
+@WebFilter(dispatcherTypes = {
+				DispatcherType.REQUEST, 
+				DispatcherType.FORWARD
+		}
+					, urlPatterns = { "/security/*" })
+public class filtro implements Filter {
+
+    /**
+     * Default constructor. 
+     */
+    public filtro() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see Filter#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+	 */
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		// place your code here
+		
+		HttpServletRequest rqst = (HttpServletRequest) request;
+		HttpSession sesion = rqst.getSession(true);
+		
+		HttpServletResponse rsp = (HttpServletResponse) response;
+		
+		RequestDispatcher disp = rqst.getRequestDispatcher("/security/Productos");
+		
+		if(sesion.getAttribute("nombre") != null)
+		{
+			if(!sesion.getAttribute("nombre").equals("juan"))
+			{
+				disp.forward(rqst, rsp);
+			}
+		}
+		else
+		{
+			rsp.sendRedirect("login.html");
+		}
+		// pass the request along the filter chain
+		chain.doFilter(request, response);
+	}
+
+	/**
+	 * @see Filter#init(FilterConfig)
+	 */
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+}

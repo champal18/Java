@@ -1,0 +1,12 @@
+package BD;
+
+public class AccesoDAO 
+{
+	public void guardarAcceso(Acceso access)
+	{
+		BD_JYAA bd = new BD_JYAA();
+		Connection con = bd.getConnection();
+		
+	}
+
+}
