@@ -1,0 +1,13 @@
+<persistence>
+<persistence-unit name="miUP" transaction-type="RESOURCE_LOCAL">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>modelo.Actividad</class>
+	<properties>
+		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+		<property name="hibernate.connection.password" value=""/>
+		<property name="hibernate.connection.url" value="jdbc:mysql://localhost/jyaa"/>
+		<property name="hibernate.connection.username" value="root"/>
+		<property name="hibernate.connection.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+	</properties>
+</persistence-unit>
+</persistence>

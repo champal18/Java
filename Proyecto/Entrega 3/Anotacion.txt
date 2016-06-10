@@ -1,0 +1,8 @@
+en la filmina 16 de JAP-configuracion falta una linea que CREA todas las tablas create_table o algo asi
+la de schema no va.
+el emf = Persistence.createEntityManagerFactory(“miUP"); HACERLO UNA VEZ en un singleton
+
+1° la configuracion
+2° despues la entidad ("actividad")
+3° test de que conecte todo bien, que cree las tablas, que haga bien los mapeos.(para actividad)
+repetir para el resto de las clases.

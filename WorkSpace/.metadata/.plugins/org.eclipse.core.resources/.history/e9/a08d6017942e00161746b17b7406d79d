@@ -1,0 +1,31 @@
+package test;
+
+import javax.persistence.*;
+import Modelo.Actividad;
+import antlr.collections.List;
+
+public class Test_actividad {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("miUP");
+		EntityManager em = emf.createEntityManager();
+		
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		
+		// Creo una actividad y la persisto
+		Actividad a = new Actividad();
+		a.setHabilitada(true);
+		a.setNombre("Kayak");
+		em.persist(a);
+		
+		List<Actividad> actividades = (List)(em.createNamedQuery("from modelo.Actividad a")).getResultList();
+		for(Actividad act:actividades)
+		{System.out.println("Actividad: "+act.getNombre());}
+
+	}
+
+}
