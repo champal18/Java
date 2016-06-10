@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class Persona {
 
+	long id;
+	
 	private String nombre;
 
 	private String apellido;

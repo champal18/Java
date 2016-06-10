@@ -3,16 +3,18 @@ package modelo;
 import javax.persistence.*;
 
 @Entity
-//@Table(name="ACTIVIDADES")
 
 public class Actividad
 {
 	@Id @GeneratedValue
 	private long id;
 	
+	@Column(name = "nombre", unique=true)
 	private String nombre;
 
 	private Boolean habilitada;
+	
+	// La actividad puede pertenecer a 0 o n rutas
 	
 	public Actividad(){}
     

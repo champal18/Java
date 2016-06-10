@@ -1,6 +1,7 @@
 package test;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,7 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 import modelo.Actividad;
+import modeloDAO.ActividadDAO;
+import modeloDAO.SingletonEMF;
 
 /**
  * Servlet implementation class Test_act
@@ -34,26 +39,32 @@ public class Test_act extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("miUP");
-		EntityManager em = emf.createEntityManager();
-		
-		EntityTransaction etx = em.getTransaction();
-		etx.begin();
 		
 		// Creo una actividad y la persisto
-		Actividad a = new Actividad();
-		a.setHabilitada(true);
-		a.setNombre("Kayak");
-		em.persist(a);
+		/*
+		Actividad act = new Actividad();
+		act.setHabilitada(true);
+		act.setNombre("Kayak");
+		ActividadDAO actDao = new ActividadDAO();
+		actDao.guardarActividad(act);
+		*/
 		
-		List<Actividad> actividades = (List<Actividad>)(em.createQuery("from modelo.Actividad a order by a.nombre asc")).getResultList();
-		for(Actividad act:actividades)
-		{System.out.println("Actividad: "+act.getNombre());}
+		// Busco actividad por ID
+		ActividadDAO actDao = new ActividadDAO();
+		Actividad act = actDao.recuperarActividad(3);
+		response.getWriter().append("Actividad buscada: "+act.getNombre());
 		
-		etx.commit();
-		em.close();
-		
+		/*
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		List<Actividad> actividades = (List<Actividad>)(em.createQuery("from modelo.Actividad a order by a.nombre asc")).getResultList();				
+				
+		for(Actividad a:actividades)
+		{
+			System.out.println("Actividad: "+ act.getNombre());
+		}
+		*/
 	}
 
 	/**

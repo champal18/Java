@@ -4,6 +4,16 @@ import java.time.LocalDate;
 
 public class Ruta {
 
+	long id;
+	
+	/*
+	 * Puede ser de 1 actividad
+	 * Ver que onda los enumerativos
+	 * Puede tener 1 recorrido
+	 * Puede ser rutaRealizada 0-N veces
+	 * Puede pertenecer a 1 usuario
+	 */
+	
 	private String nombre;
 	
 	private String descripcion;
@@ -30,21 +40,7 @@ public class Ruta {
 	
 	private int cantRealizadas;
 
-    public Ruta(String nombre, String descripcion, Privacidad privacidad, Recorrido recorrido, Formato formato,
-    		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, LocalDate fecha, String fotos)
-    {
-    	this.nombre = nombre;
-    	this.descripcion = descripcion;
-    	this.privacidad = privacidad;
-    	this.recorrido = recorrido;
-    	this.formato = formato;
-    	this.distancia = distancia;
-    	this.dificultad = dificultad;
-    	this.actividad = actividad;
-    	this.tiempo = tiempo;
-    	this.fecha = fecha;
-    	this.fotos = fotos;
-    }
+    public Ruta(){}
 	
 	public String getNombre() {
 		return nombre;

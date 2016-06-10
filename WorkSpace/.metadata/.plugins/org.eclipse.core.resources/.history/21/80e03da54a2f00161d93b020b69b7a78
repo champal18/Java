@@ -1,0 +1,7 @@
+package modeloDAO;
+
+public class SingletonEMF
+{
+	private static SingletonEMF instance = new SingletonEMF();
+
+}

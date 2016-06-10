@@ -3,8 +3,10 @@ package modelo;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class Recorrido {
-
+public class Recorrido 
+{
+	long id;
+	
   private ArrayList<Point> puntos;
 
   

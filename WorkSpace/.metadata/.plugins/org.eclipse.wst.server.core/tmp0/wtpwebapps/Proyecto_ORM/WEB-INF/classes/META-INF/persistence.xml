@@ -7,6 +7,12 @@
 <persistence-unit name="miUP">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<class>modelo.Actividad</class>
+	<class>modelo.Admin</class>
+	<class>modelo.Persona</class>
+	<class>modelo.Recorrido</class>
+	<class>modelo.Ruta</class>
+	<class>modelo.RutaRealizada</class>
+	<class>modelo.Usuario</class>
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
 		<property name="hibernate.connection.password" value=""/>

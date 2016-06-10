@@ -4,23 +4,17 @@ import java.time.LocalDate;
 
 public class RutaRealizada 
 {
-	private int idRuta;
+	long id;
 	private int valoracion;
 	private LocalDate fechaRealizada;
 	
-	public RutaRealizada(int id, int valoracion, LocalDate fecha)
-	{
-		this.idRuta = id;
-		this.valoracion = valoracion;
-		this.fechaRealizada = fecha;
-	}
+	/*
+	 * Puede ser una sola ruta
+	 * Fue realizada por un solo usuario
+	 */
 	
-	public int getIdRuta() {
-		return idRuta;
-	}
-	public void setIdRuta(int idRuta) {
-		this.idRuta = idRuta;
-	}
+	public RutaRealizada(){}
+	
 	public int getValoracion() {
 		return valoracion;
 	}

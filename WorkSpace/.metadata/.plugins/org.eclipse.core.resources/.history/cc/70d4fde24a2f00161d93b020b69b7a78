@@ -1,0 +1,15 @@
+package modeloDAO;
+
+import javax.persistence.*;
+
+public class SingletonEMF
+{
+	private static SingletonEMF instance = new SingletonEMF();
+	private static EntityManagerFactory emf;
+	
+	private SingletonEMF()
+	{
+		
+	}
+
+}
