@@ -1,9 +1,13 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.List;
+import javax.persistence.*;
 
-public class Ruta {
-
+@Entity
+public class Ruta 
+{
+	@Id @GeneratedValue
 	long id;
 	
 	/*
@@ -20,6 +24,7 @@ public class Ruta {
 	
 	private Privacidad privacidad;
 	
+	@OneToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
 	private Recorrido recorrido;
 	
 	private Formato formato;
@@ -28,6 +33,7 @@ public class Ruta {
 	
 	private Dificultad dificultad;
 	
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Actividad actividad;
 	
 	private Integer tiempo;
@@ -39,8 +45,36 @@ public class Ruta {
 	private float promedio;
 	
 	private int cantRealizadas;
+	
+	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	private List<RutaRealizada> registroRealizadas;
 
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	private Persona owner;
+	
     public Ruta(){}
+    
+    public Ruta(String nombre, String descripcion, Privacidad privacidad, Recorrido recorrido, Formato formato,
+    		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, LocalDate fecha, String fotos, 
+    		float promedio, int cantR, List<RutaRealizada> registroR, Persona owner)
+    {
+    	this.nombre = nombre;
+    	this.descripcion = descripcion;
+    	this.privacidad = privacidad;
+    	this.recorrido = recorrido;
+    	this.formato = formato;
+    	this.distancia = distancia;
+    	this.dificultad = dificultad;
+    	this.actividad = actividad;
+    	this.tiempo = tiempo;
+    	this.fecha = fecha;
+    	this.fotos = fotos;
+    	
+    	this.promedio = promedio;
+    	this.cantRealizadas = cantR;
+    	this.registroRealizadas = registroR;
+    	this.owner = owner;
+    }
 	
 	public String getNombre() {
 		return nombre;
@@ -144,6 +178,22 @@ public class Ruta {
 
 	public void setCantRealizadas(int cantRealizadas) {
 		this.cantRealizadas = cantRealizadas;
+	}
+
+	public List<RutaRealizada> getRegistroRealizadas() {
+		return registroRealizadas;
+	}
+
+	public void setRegistroRealizadas(List<RutaRealizada> registroRealizadas) {
+		this.registroRealizadas = registroRealizadas;
+	}
+
+	public Persona getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Persona owner) {
+		this.owner = owner;
 	}
 
 }

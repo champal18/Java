@@ -1,0 +1,8 @@
+package modeloDAO;
+
+import interfazDAO.IRecorridoDAO;
+
+public class RecorridoDAO implements IRecorridoDAO
+{
+
+}

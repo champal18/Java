@@ -1,12 +1,7 @@
 package modelo;
 
-enum Sexo {
-
-  Masculino,
-
-  Femenino,
-
-  Otro;
-
-  
+public enum Sexo {
+	Masculino,
+	Femenino,
+	Otro;
 }

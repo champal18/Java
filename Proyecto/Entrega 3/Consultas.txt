@@ -1,1 +1,2 @@
 - ID autoincremental.
+- Consultar por el eliminar Actividad.

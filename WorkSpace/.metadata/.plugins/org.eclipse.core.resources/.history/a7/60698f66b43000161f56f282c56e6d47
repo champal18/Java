@@ -1,0 +1,51 @@
+package modeloDAO;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+
+import interfazDAO.IAdminDAO;
+import modelo.Admin;
+
+public class AdminDAO implements IAdminDAO
+{
+
+	@Override
+	public void guardarAdmin(Admin adm) {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		em.persist(adm);
+		etx.commit();
+		em.close();
+	}
+
+	@Override
+	public void modificarAdmin(Admin adm) {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		em.merge(adm);
+		etx.commit();
+		em.close();
+	}
+
+	@Override
+	public void eliminarAdmin(Admin adm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Admin recuperarAdmin(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

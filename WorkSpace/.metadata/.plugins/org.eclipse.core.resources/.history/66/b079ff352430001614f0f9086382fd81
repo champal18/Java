@@ -1,0 +1,8 @@
+package modeloDAO;
+
+import interfazDAO.IAdminDAO;
+
+public class AdminDAO implements IAdminDAO
+{
+
+}

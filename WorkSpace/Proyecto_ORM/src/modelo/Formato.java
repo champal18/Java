@@ -1,10 +1,7 @@
 package modelo;
 
-enum Formato {
+public enum Formato {
+	Circular,
+	SoloIda;
 
-  Circular,
-
-  SoloIda;
-
-  
 }

@@ -45,4 +45,18 @@ public class BD_JYAA
 		}
 	}
 	
+	public void borrarTodo()
+	{
+		Connection con;
+		try {
+			con = getConnection();
+			PreparedStatement borrar = con.prepareStatement("DROP TABLE `actividad`, `persona`, `recorrido`, `ruta`, `rutarealizada`;");
+			borrar.executeUpdate();
+			System.out.println("Se borraron todas las tablas");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

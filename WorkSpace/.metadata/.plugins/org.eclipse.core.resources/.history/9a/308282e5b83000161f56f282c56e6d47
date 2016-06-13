@@ -1,0 +1,10 @@
+package ejemplo;
+
+enum Formato {
+
+  Circular,
+
+  SoloIda;
+
+  
+}

@@ -1,0 +1,8 @@
+package modeloDAO;
+
+import interfazDAO.IRutaDAO;
+
+public class RutaDAO implements IRutaDAO
+{
+
+}

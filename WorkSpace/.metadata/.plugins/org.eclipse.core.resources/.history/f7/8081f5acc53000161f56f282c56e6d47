@@ -1,0 +1,8 @@
+package modeloDAO;
+
+import interfazDAO.IPersonaDAO;
+
+public class PersonaDAO implements IPersonaDAO
+{
+
+}

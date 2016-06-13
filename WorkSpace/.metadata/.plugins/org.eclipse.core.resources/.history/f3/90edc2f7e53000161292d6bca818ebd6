@@ -1,0 +1,39 @@
+package modelo;
+
+import java.time.LocalDate;
+import javax.persistence.*;
+
+@Entity
+public class RutaRealizada 
+{
+	@Id @GeneratedValue
+	long id;
+	private int valoracion;
+	private LocalDate fechaRealizada;
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+	private Ruta ruta;
+	
+//	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+	private Persona owner;
+	/*
+	 * Puede ser una sola ruta
+	 * Fue realizada por un solo usuario
+	 */
+	
+	public RutaRealizada(){}
+	
+	public int getValoracion() {
+		return valoracion;
+	}
+	public void setValoracion(int valoracion) {
+		this.valoracion = valoracion;
+	}
+	public LocalDate getFechaRealizada() {
+		return fechaRealizada;
+	}
+	public void setFechaRealizada(LocalDate fechaRealizada) {
+		this.fechaRealizada = fechaRealizada;
+	}
+
+}

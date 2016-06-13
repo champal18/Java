@@ -1,0 +1,11 @@
+package interfazDAO;
+
+import modelo.RutaRealizada;;
+
+public interface IRutaRealizada
+{
+	public void guardarRuta(RutaRealizada ruta);
+	public void modificarRuta(RutaRealizada ruta);
+	public void eliminarRuta(RutaRealizada ruta);
+	public RutaRealizada recuperarRutaRealizada(long id);
+}

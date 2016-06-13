@@ -3,7 +3,6 @@ package modelo;
 import javax.persistence.*;
 
 @Entity
-
 public class Actividad
 {
 	@Id @GeneratedValue
@@ -13,10 +12,15 @@ public class Actividad
 	private String nombre;
 
 	private Boolean habilitada;
-	
 	// La actividad puede pertenecer a 0 o n rutas
 	
 	public Actividad(){}
+	
+	public Actividad(String nombre, Boolean habilitacion)
+	{
+		this.nombre = nombre;
+		this.habilitada = habilitacion;
+	}
     
 	public String getNombre()
 	{

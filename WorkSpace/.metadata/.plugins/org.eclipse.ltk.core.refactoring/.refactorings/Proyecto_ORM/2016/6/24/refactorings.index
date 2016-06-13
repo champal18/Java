@@ -14,3 +14,26 @@
 1465584377320	Rename package 'Modelo'
 1465585719065	Delete element
 1465592255766	Delete element
+1465748085697	Move compilation unit
+1465748111994	Move compilation units
+1465748136541	Move compilation units
+1465748164337	Move compilation units
+1465748292220	Delete element
+1465751309971	Encapsulate field 'nombreUser'
+1465751506263	Encapsulate field 'tipo'
+1465753332978	Encapsulate field 'misRutas'
+1465753336792	Encapsulate field 'rutasRealizadas'
+1465753497587	Delete element
+1465753505433	Delete element
+1465761570168	Delete element
+1465763318008	Delete element
+1465763847010	Delete element
+1465763856593	Delete element
+1465764906114	Encapsulate field 'registroRealizadas'
+1465766461482	Encapsulate field 'ruta'
+1465766824614	Encapsulate field 'registroRealizadas'
+1465767037498	Encapsulate field 'owner'
+1465767494433	Encapsulate field 'owner'
+1465767581595	Encapsulate field 'owner'
+1465774788666	Rename local variable 'RR'
+1465774810709	Rename local variable 'rrDao'

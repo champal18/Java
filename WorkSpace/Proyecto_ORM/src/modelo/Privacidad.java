@@ -1,10 +1,6 @@
 package modelo;
 
-enum Privacidad {
-
-  Publico,
-
-  Privada;
-
-  
+public enum Privacidad {
+	Publico,
+	Privado;
 }

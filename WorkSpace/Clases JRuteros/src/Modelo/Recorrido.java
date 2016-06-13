@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Recorrido {
 
   private ArrayList<Point> puntos;
-
   
   public ArrayList<Point> getPuntos() 
   {

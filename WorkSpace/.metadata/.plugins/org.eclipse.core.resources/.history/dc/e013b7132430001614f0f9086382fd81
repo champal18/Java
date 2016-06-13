@@ -1,0 +1,10 @@
+package interfazDAO;
+
+
+public interface IAdminDAO
+{
+	public void guardarAdmin(Actividad act);
+	public void modificarAdmin(Actividad act);
+	public void eliminarAdmin(Actividad act);
+	public Admin recuperarAdmin(long id);
+}

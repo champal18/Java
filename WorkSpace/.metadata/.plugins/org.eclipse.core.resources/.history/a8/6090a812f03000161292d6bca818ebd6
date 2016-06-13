@@ -1,0 +1,44 @@
+package modeloDAO;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+
+import interfazDAO.IRutaDAO;
+import modelo.Ruta;
+
+public class RutaDAO implements IRutaDAO
+{
+
+	@Override
+	public void guardarRuta(Ruta ruta) {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		em.persist(ruta);
+		etx.commit();
+		em.close();
+	}
+
+	@Override
+	public void modificarRuta(Ruta ruta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarRuta(Ruta ruta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Ruta recuperarRuta(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

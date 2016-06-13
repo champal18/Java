@@ -28,11 +28,11 @@ public class Ej_BD extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		BD_JYAA bd = new BD_JYAA();
-		
-		if(bd.crearTabla())
-			response.getWriter().append("TABLA CREADA");
-		else
-			response.getWriter().append("ERROR!!!");
+		bd.borrarTodo();
+//		if(bd.crearTabla())
+//			response.getWriter().append("TABLA CREADA");
+//		else
+//			response.getWriter().append("ERROR!!!");
 	}
 
 	/**

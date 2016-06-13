@@ -1,0 +1,12 @@
+package ejemplo;
+
+enum Sexo {
+
+  Masculino,
+
+  Femenino,
+
+  Otro;
+
+  
+}

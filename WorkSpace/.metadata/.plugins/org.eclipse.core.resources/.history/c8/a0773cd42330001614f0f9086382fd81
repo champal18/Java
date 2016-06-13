@@ -1,0 +1,22 @@
+package modelo;
+
+import javax.persistence.*;
+
+@Entity
+public class Admin extends Persona
+{
+	@Id @GeneratedValue
+	long id;
+  private String nomAdmin;
+
+  public Admin(){}
+
+	public String getNomAdmin() {
+		return nomAdmin;
+	}
+	
+	public void setNomAdmin(String nomAdmin) {
+		this.nomAdmin = nomAdmin;
+	}
+
+}
