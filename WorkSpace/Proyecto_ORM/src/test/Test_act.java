@@ -213,26 +213,38 @@ public class Test_act extends HttpServlet {
 		Persona radm = new Persona();
 		PersonaDAO pDao = new PersonaDAO();
 		radm = pDao.recuperarPersona(1);
-		System.out.println("Parametros: nombre: "+radm.getNombre()+" app");
+		System.out.println("--- Admin recuperado ---");
+		System.out.println("Parametros ID: "+radm.getId()+" Nombre: "+radm.getNombre()+" Apellido: "+radm.getApellido()+" Domicilio: "+radm.getDomicilio()+" DNI: "+radm.getDni() +" Fecha de nac: "+radm.getFechaNac()+" Sexo: "+radm.getSexo()+"\n");
+		System.out.println("--------------------------------------------\n");
+		
 		
 		Persona rusr = new Persona();
 		rusr = pDao.recuperarPersona(2);
-		System.out.println("Parametros");
+		System.out.println("---Usuario recuperado  ---");
+		System.out.println("Parametros ID: "+rusr.getId()+" Nombre: "+rusr.getNombre()+" Apellido: "+rusr.getApellido()+" Domicilio: "+rusr.getDomicilio()+" DNI: "+rusr.getDni() +" Fecha de nac: "+rusr.getFechaNac()+" Sexo: "+rusr.getSexo()+"\n");
+		System.out.println("--------------------------------------------\n");
 		
 		Actividad ract = new Actividad();
 		ActividadDAO actDao = new ActividadDAO();
 		ract = actDao.recuperarActividad(1);
-		System.out.println("Parametros");
+		System.out.println("--- Actividad recuperada ---");
+		System.out.println("Parametros ID: "+ract.getId()+" Nombre: "+ract.getNombre()+" Habilitada: "+ract.getHabilitada()+"\n");
+		System.out.println("--------------------------------------------\n");
+		
 		
 		Ruta rruta = new Ruta();
 		RutaDAO rutaDao = new RutaDAO();
 		rruta = rutaDao.recuperarRuta(1);
-		System.out.println("Parametros");
+		System.out.println("--- Ruta recuperada ---");
+		System.out.println("Parametros ID de la ruta: "+rruta.getId()+"ID del dueño: "+rruta.getOwner().getId()+" Nombre: "+rruta.getNombre()+" Descripcion: "+rruta.getDescripcion()+" Privacidad: "+rruta.getPrivacidad()+" Formato: "+rruta.getFormato() +" Distancia: "+rruta.getDistancia()+" Dificultad: "+rruta.getDificultad()+" Actividad: "+rruta.getActividad().getNombre()+"Cant realizadas: "+rruta.getCantRealizadas()+" Tiempo: "+rruta.getTiempo()+"\n");
+		System.out.println("--------------------------------------------\n");
 		
 		RutaRealizada rutaRealizadaRecup = new RutaRealizada();
 		RutaRealizadaDAO rutaRDao = new RutaRealizadaDAO();
 		rutaRealizadaRecup = rutaRDao.recuperarRutaRealizada(1);
-		System.out.println("Parametros");
+		System.out.println("--- Ruta realizada recuperada ---");
+		System.out.println("Parametros ID: "+rutaRealizadaRecup.getId()+" Valoracion: "+rutaRealizadaRecup.getValoracion()+" Fecha realizada: "+rutaRealizadaRecup.getFechaRealizada()+" Ruta: "+rutaRealizadaRecup.getRuta().getNombre()+"ID del Usuario que la realizo: "+rutaRealizadaRecup.getOwner().getId()+"\n");
+		System.out.println("--------------------------------------------\n");
 		
 	}
 

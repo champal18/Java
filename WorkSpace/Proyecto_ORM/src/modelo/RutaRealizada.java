@@ -27,7 +27,7 @@ public class RutaRealizada
 	{
 		this.valoracion = valoracion;
 		this.fechaRealizada = fecha;
-		this.ruta = ruta;
+		this.setRuta(ruta);
 		this.owner = owner;
 	}
 	
@@ -58,6 +58,14 @@ public class RutaRealizada
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Ruta getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
 	}
 
 }
