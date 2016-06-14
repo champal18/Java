@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class RutaRealizada 
 {
 	@Id @GeneratedValue
-	long id;
+	private long id;
 	private int valoracion;
 	private LocalDate fechaRealizada;
 	
@@ -50,6 +50,14 @@ public class RutaRealizada
 
 	public void setOwner(Persona owner) {
 		this.owner = owner;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

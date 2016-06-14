@@ -55,7 +55,21 @@ public class ActividadDAO implements IActividadDAO
 	public void eliminarActividad(Actividad act) 
 	{
 		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		try
+		{
+			em.remove(em.find(Actividad.class, act.getId()));
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
 		
+		etx.commit();
+		em.close();
 	}
 
 	@Override

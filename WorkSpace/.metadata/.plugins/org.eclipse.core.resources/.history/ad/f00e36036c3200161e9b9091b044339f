@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Test modificar</title>
+</head>
+<body>
+La etapa de "altas" a la bd fue realizada con exito!<br>
+Segunda etapa del test: <br>
+Al darle clic al boton se espera modificar atributos de cada tupla agregada en la etapa previa. <br>
+Detalles: <br>
+- Modificacion de actividad: Kayak <br>
+- Modificacion de administrador: Admin_0 - Juan - Labrune <br>
+- Modificacion de usuario: User_0 - Facundo - Fuentes <br>
+- Modificacion de recorrido: Para la ruta "Bosque" <br>
+- Modificacion de ruta: Bosque <br>
+- Modificacion de ruta realizada: Entre el usuario "User_0" y la ruta "Bosque" <br>
+	
+  	<input type="submit" name="accion" value="agregar">
+</body>
+</html>

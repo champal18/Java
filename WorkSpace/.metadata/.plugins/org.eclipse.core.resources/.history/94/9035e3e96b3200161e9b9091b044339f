@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Test modificar</title>
+</head>
+<body>
+La etapa de "altas" a la bd fue realizada con exito!<br>
+ del test: <br>
+Al darle clic al boton se espera crear una tupla para cada una de las tablas definidas. <br>
+Detalles: <br>
+- Alta de actividad: Kayak <br>
+- Alta de administrador: Admin_0 - Juan - Labrune <br>
+- Alta de usuario: User_0 - Facundo - Fuentes <br>
+- Alta de recorrido: Para la ruta "Bosque" <br>
+- Alta de ruta: Bosque <br>
+- Alta de ruta realizada: Entre el usuario "User_0" y la ruta "Bosque" <br>
+	
+  	<input type="submit" name="accion" value="agregar">
+</body>
+</html>

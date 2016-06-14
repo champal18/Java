@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Ruta 
 {
 	@Id @GeneratedValue
-	long id;
+	private long id;
 	
 	/*
 	 * Puede ser de 1 actividad
@@ -194,6 +194,14 @@ public class Ruta
 
 	public void setOwner(Persona owner) {
 		this.owner = owner;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

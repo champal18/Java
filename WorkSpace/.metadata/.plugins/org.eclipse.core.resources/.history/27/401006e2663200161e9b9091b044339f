@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inicio del test</title>
+</head>
+<body>
+<form action="Test_act1" method = "post">
+Inicio del test: <br>
+Al darle clic al boton se espera crear una tupla para cada una de las tablas definidas. <br>
+Detalles: <br>
+- Alta de actividad: Kayak
+- Alta de administrador: Admin_0 - Juan - Labrune
+- Alta de usuario: User_0 - Facundo - Fuentes
+- Alta de ruta:
+- Alta de recorrido:
+- Alta de ruta realizada:
+	<input type="text" name="accion" value="agregar"><br>
+  	<input type="submit" value="Agregar datos a BD">
+</form>
+
+</body>
+</html>

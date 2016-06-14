@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Recorrido 
 {
 	@Id @GeneratedValue
-	long id;
+	private long id;
 	private ArrayList<Point> puntos;
 	
 	public Recorrido(){}
@@ -27,6 +27,14 @@ public class Recorrido
 	public void setPuntos(ArrayList<Point> array) 
 	{
 		this.puntos = array;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

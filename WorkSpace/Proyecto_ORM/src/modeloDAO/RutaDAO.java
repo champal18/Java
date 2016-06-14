@@ -50,7 +50,21 @@ public class RutaDAO implements IRutaDAO
 	@Override
 	public void eliminarRuta(Ruta ruta) {
 		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		try
+		{
+			em.remove(em.find(Ruta.class, ruta.getId()));
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
 		
+		etx.commit();
+		em.close();
 	}
 
 	@Override

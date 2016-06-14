@@ -50,7 +50,21 @@ public class RutaRealizadaDAO implements IRutaRealizada
 	@Override
 	public void eliminarRuta(RutaRealizada rutaR) {
 		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		try
+		{
+			em.remove(em.find(RutaRealizada.class, rutaR.getId()));
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
 		
+		etx.commit();
+		em.close();
 	}
 
 	@Override
