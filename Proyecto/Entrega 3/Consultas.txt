@@ -1,2 +1,4 @@
-- ID autoincremental.
-- Consultar por el eliminar Actividad.
+- Excepciones - Crash - duplicados
+- Tabla para fotos?
+- Tabla recorrido?
+- Tabla para enumerativos?
