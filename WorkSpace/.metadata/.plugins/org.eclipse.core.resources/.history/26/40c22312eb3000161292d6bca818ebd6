@@ -1,8 +1,0 @@
-package modeloDAO;
-
-import interfazDAO.IRutaRealizada;
-
-public class RutaRealizadaDAO implements IRutaRealizada
-{
-
-}

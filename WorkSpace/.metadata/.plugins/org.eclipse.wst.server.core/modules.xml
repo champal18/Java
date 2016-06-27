@@ -7,4 +7,5 @@
   <module moduleId="org.eclipse.jst.jee.server:Practica2" serverId="Tomcat v8.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:Proyecto" serverId="Tomcat v8.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:Proyecto_ORM" serverId="Tomcat v8.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:RESTful Services CRUD" serverId="Tomcat v8.0 Server at localhost"/>
 </modules>

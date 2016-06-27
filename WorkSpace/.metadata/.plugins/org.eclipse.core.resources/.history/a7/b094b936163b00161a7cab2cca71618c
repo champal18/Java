@@ -1,0 +1,36 @@
+package rest;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.javapapers.webservices.rest.jersey.Animal;
+
+public class PuntoService 
+{
+	PuntoDao puntoDao;
+	
+	public PuntoService()
+	{
+		puntoDao = PuntoDao.instance;
+	}
+	
+	public void createPunto(Punto p)
+	{
+		puntoDao.getPuntos().put(p.getId(), p);
+	}
+	
+	public Map<Long, Punto> getPuntos()
+	{
+		return puntoDao.getPuntos();
+	}
+	
+	public List<Punto> getAnimalAsList() {
+		List<Animal> animalList = new ArrayList<Animal>();
+		animalList.addAll(animalDao.getAnimals().values());
+		return animalList;
+	}
+	
+	
+
+}

@@ -1,4 +1,4 @@
-- Excepciones - Crash - duplicados
-- Tabla para fotos?
+- Excepciones - Crash - duplicados -- Por codigo!
+- Tabla para fotos? Entidad foto (id y campo de tipo BLOBs)
 - Tabla recorrido?
 - Tabla para enumerativos?

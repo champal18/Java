@@ -1,0 +1,9 @@
+package rest;
+
+public class PuntoDAO 
+{ 
+	instance;
+
+	private Map<long, Punto>
+
+}

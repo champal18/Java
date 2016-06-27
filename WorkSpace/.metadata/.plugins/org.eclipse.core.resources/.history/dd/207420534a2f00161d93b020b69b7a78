@@ -1,8 +1,0 @@
-package modeloDAO;
-
-import interfazDAO.IActividadDAO;
-
-public class ActividadDAO implements IActividadDAO
-{
-
-}

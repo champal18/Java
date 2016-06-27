@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-<fullyQualifiedTypeName name="Estructuras.Usuario"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
-<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
-<fullyQualifiedTypeName name="javax.xml.ws.spi.http.HttpContext"/>
-<fullyQualifiedTypeName name="Modelo.Persona"/>
-<fullyQualifiedTypeName name="Modelo.Privacidad"/>
-<fullyQualifiedTypeName name="Modelo.Recorrido"/>
-<fullyQualifiedTypeName name="Modelo.Formato"/>
-<fullyQualifiedTypeName name="Modelo.RutaRealizada"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-<fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
@@ -46,7 +31,6 @@
 <fullyQualifiedTypeName name="interfazDAO.IRecorridoDAO"/>
 <fullyQualifiedTypeName name="interfazDAO.IRutaDAO"/>
 <fullyQualifiedTypeName name="interfazDAO.IRutaRealizada"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="modelo.Recorrido"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
@@ -60,4 +44,20 @@
 <fullyQualifiedTypeName name="modeloDAO.RutaRealizadaDAO"/>
 <fullyQualifiedTypeName name="modeloDAO.RecorridoDAO"/>
 <fullyQualifiedTypeName name="modelo.RutaRealizada"/>
+<fullyQualifiedTypeName name="modelo.Punto"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
+<fullyQualifiedTypeName name="rest.RecorridoResource"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.UriInfo"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.Request"/>
+<fullyQualifiedTypeName name="rest.RecorridoService"/>
+<fullyQualifiedTypeName name="javax.ws.rs.FormParam"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="rest.PuntosResource"/>
+<fullyQualifiedTypeName name="rest.PuntoService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="rest.Punto"/>
 </qualifiedTypeNameHistroy>

@@ -1,9 +1,0 @@
-package interfazDAO;
-
-public interface IPersonaDAO 
-{
-	public void guardarPersona(Persona p);
-	public void modificarActividad(Persona p);
-	public void eliminarActividad(Persona p);
-	public Actividad recuperarActividad(long id);
-}

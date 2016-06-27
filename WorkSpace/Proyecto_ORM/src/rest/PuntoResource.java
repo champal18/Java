@@ -1,0 +1,59 @@
+package rest;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+
+@Path("/rutas")
+public class PuntoResource 
+{
+	@Context
+	UriInfo uriInfo;
+	@Context
+	Request request;
+	long id;
+	
+	PuntoService puntoService;
+	
+	public PuntoResource(UriInfo uriInfo, Request request, long id)
+	{
+		this.uriInfo = uriInfo;
+		this.request = request;
+		this.id = id;
+		puntoService = new PuntoService();
+	}
+	
+	// Recuperar todos los puntos del recorrido
+	@GET
+	@Produces({MediaType.APPLICATION_JSON})
+	public ArrayList<Punto> getPuntos()
+	{
+		ArrayList<Punto> puntos = (ArrayList<Punto>) puntoService.getPuntoAsList();
+		return puntos;
+	}
+	
+	// Agregar un punto al recorrido
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public void postPunto(@FormParam("punto") Punto punto)//@FormParam("longitud") long longitud, @FormParam("longitud") long latitud)
+	throws IOException {
+		Punto puntoNuevo = new Punto(punto.getLongitud(),punto.getLatitud());
+		puntoService.createPunto(puntoNuevo);
+	}
+
+//	// Eliminar un punto
+//	@DELETE
+//	public void deletePunto(@FormParam("id")long id)
+//	{
+//		puntoService.deletePunto(id);
+//	}
+	
+	// Eliminar todos los puntos
+	@DELETE
+	public void deleteAllPuntos()
+	{
+		puntoService.deleteAllPuntos();
+	}
+	
+}

@@ -1,0 +1,16 @@
+1466627261636	Copy compilation unit
+1466627275072	Copy compilation unit
+1466627282439	Copy compilation unit
+1466627455672	Copy compilation unit
+1466627922864	Copy compilation unit
+1466627927926	Delete element
+1466628434400	Move 2 resources to 'WebContent'
+1466879263237	Copy compilation units
+1466879382419	Rename package 'REST'
+1466879890097	Delete elements
+1466882052555	Copy compilation unit
+1466882082569	Rename type 'RecorridoDAO'
+1466882089883	Rename compilation unit 'RecorridoResource.java'
+1466882122236	Rename type 'RecorridoService'
+1466882268518	Encapsulate field 'id'
+1466887749780	Rename local variable 'animalList'

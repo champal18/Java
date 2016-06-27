@@ -1,0 +1,17 @@
+package rest;
+
+import javax.ws.rs.Path;
+import javax.ws.rs.core.*;
+
+@Path("/rest/rutas/1")
+public class PuntosResource 
+{
+
+	@Context
+	UriInfo uriInfo;
+	@Context
+	Request request;
+
+	PuntoService puntoService;
+	
+}

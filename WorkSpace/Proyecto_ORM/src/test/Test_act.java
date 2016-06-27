@@ -136,11 +136,6 @@ public class Test_act extends HttpServlet {
 			response.sendRedirect("Fin_test.html");
 			break;
 		}
-		case "reset":
-		{
-			this.destroy();
-			response.sendRedirect("Inicio_test.html");
-		}
 		}
 	}
 

@@ -1,0 +1,12 @@
+package rest;
+
+public class PuntoService 
+{
+	PuntoDao puntoDao;
+	
+	public PuntoService()
+	{
+		puntoDao = PuntoDao.instance;
+	}
+
+}
