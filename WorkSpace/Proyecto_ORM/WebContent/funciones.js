@@ -1,5 +1,5 @@
 var map;
-var myURI = "/Mapas/rest/rutas/1";
+var myURI = "/Proyecto_ORM/rest/rutas/1";
 var mapProp = {
 	center : new google.maps.LatLng(-34.9038055, -57.9392111, 18),
 	zoom : 5,
@@ -140,7 +140,7 @@ function borrarMarker(id) {
 	};
 	$.ajax({
 		data : punto,
-		url : myURI ,
+		url : myURI+"/"+id ,
 		type : "DELETE",
 		success : function(result) {
 			initialize();

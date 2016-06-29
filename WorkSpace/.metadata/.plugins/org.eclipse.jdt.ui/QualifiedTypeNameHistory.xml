@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="BD.BD_JYAA"/>
 <fullyQualifiedTypeName name="BD.AccesoDAO"/>
@@ -31,9 +28,7 @@
 <fullyQualifiedTypeName name="interfazDAO.IRecorridoDAO"/>
 <fullyQualifiedTypeName name="interfazDAO.IRutaDAO"/>
 <fullyQualifiedTypeName name="interfazDAO.IRutaRealizada"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="modelo.Recorrido"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
 <fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="modeloDAO.PersonaDAO"/>
@@ -59,5 +54,10 @@
 <fullyQualifiedTypeName name="rest.PuntosResource"/>
 <fullyQualifiedTypeName name="rest.PuntoService"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
 </qualifiedTypeNameHistroy>

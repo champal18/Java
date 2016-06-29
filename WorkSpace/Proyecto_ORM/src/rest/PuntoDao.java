@@ -12,5 +12,4 @@ public enum PuntoDao
 	{
 		return puntos;
 	}
-
 }

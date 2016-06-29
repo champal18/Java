@@ -1,7 +1,0 @@
-package rest;
-
-public class PuntoService 
-{
-	PuntoDao puntoDao;
-
-}

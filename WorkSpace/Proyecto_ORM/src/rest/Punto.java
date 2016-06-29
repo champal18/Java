@@ -6,29 +6,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Punto 
 {
 	private static long idstatic;
-	private long id;
-	private long latitud;
-	private long longitud;
+	public long id;
+	public double lat;
+	public double lon;
 	
-	public Punto(long latitud, long longitud)
+	public Punto(double latitud, double longitud)
 	{
 		idstatic++;
 		this.id = idstatic;
-		this.latitud = latitud;
-		this.longitud = longitud;
+		this.lat = latitud;
+		this.lon = longitud;
 	}
 	
-	public long getLatitud() {
-		return latitud;
+	public double getLatitud() {
+		return lat;
 	}
-	public void setLatitud(long latitud) {
-		this.latitud = latitud;
+	public void setLatitud(double latitud) {
+		this.lat = latitud;
 	}
-	public long getLongitud() {
-		return longitud;
+	public double getLongitud() {
+		return lon;
 	}
-	public void setLongitud(long longitud) {
-		this.longitud = longitud;
+	public void setLongitud(double longitud) {
+		this.lon = longitud;
 	}
 
 	public long getId() {
