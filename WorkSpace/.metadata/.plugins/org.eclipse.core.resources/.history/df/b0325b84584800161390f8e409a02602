@@ -1,0 +1,8 @@
+package controller;
+
+public class PersonaBean 
+{
+	import javax.faces.context.FacesContext;
+	
+
+}

@@ -1,0 +1,8 @@
+package servletsBean;
+
+public class Snippet {
+	public static void main(String[] args) {
+		import java.util.UUID;
+	}
+}
+

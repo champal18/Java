@@ -1,0 +1,13 @@
+package controller;
+
+import javax.faces.context.FacesContext;
+
+import modelo.Persona;
+import modeloDAO.PersonaDAO;
+
+public class PersonaBean 
+{
+	private PersonaDAO pDao = new PersonaDAO();
+	private Persona usr = new Persona();
+
+}

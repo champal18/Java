@@ -1,0 +1,3 @@
+Project Facets
+-> JavaServer Faces 2.1
+-> MyFaces o Mojarra

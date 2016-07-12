@@ -1,9 +1,0 @@
-package rest;
-
-public class PuntoDAO 
-{ 
-	instance;
-
-	private Map<long, Punto> puntos = new HashMap<long,Punto>();
-
-}
