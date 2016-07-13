@@ -3,6 +3,7 @@ package servletsBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ import modelo.RutaRealizada;
 @WebServlet("/Registro")
 public class Registro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static HashMap<String,String> usuariosRegistrados = new HashMap<String,String>();   
 	
 	//public static HashMap<String,String> usuariosRegistrados = new HashMap<String,String>();
        
@@ -36,7 +38,6 @@ public class Registro extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String nombreUser = request.getParameter("txtNombreUser");
-		
 		String nombre = request.getParameter("txtNombre");
 		String apellido = request.getParameter("txtApellido");
 		String dni = request.getParameter("txtDni");
@@ -66,6 +67,8 @@ public class Registro extends HttpServlet {
 			response.sendRedirect("registroExitoso.html");
 		 * 
 		 */
+		
+		response.sendRedirect("registro2.xhtml");
 		
 	}
 

@@ -1,0 +1,8 @@
+Tomcat:
+war -> exportar con config de sql de la catedra
+admin
+javaLaboratorio2015@
+archivo war a desplegar -> selec archivo
+
+phpmyadmin:
+

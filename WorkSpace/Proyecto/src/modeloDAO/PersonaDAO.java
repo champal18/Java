@@ -1,5 +1,8 @@
 package modeloDAO;
 
+import java.util.Collections;
+import java.util.List;
+
 import javax.persistence.*;
 import interfazDAO.IPersonaDAO;
 import modelo.Persona;
@@ -87,6 +90,25 @@ public class PersonaDAO implements IPersonaDAO
 		em.close();
 		
 		return p;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Persona> recuperarUsuarios() {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Persona> usrs = null;
+		try {
+			Query q = em.createQuery("FROM persona");
+			usrs = Collections.checkedList(q.getResultList(), Persona.class);	
+		} catch (Exception e) {
+			usrs = null;
+		}
+		
+		em.close();
+		return usrs;
 	}
 
 }

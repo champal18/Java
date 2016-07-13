@@ -1,0 +1,43 @@
+package controller;
+
+import java.util.UUID;
+
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
+import modelo.Persona;
+import modeloDAO.PersonaDAO;
+
+@ManagedBean(name="PersonaBear")
+@ApplicationScoped
+public class PersonaBean 
+{
+	private PersonaDAO pDao = new PersonaDAO();
+	private Persona usr = new Persona();
+	
+	public Persona getUsr() {
+		return usr;
+	}
+
+	public void setUsr(Persona usr) {
+		this.usr = usr;
+	}
+
+	public PersonaBean(){}
+	
+	public String altaPersona()
+	{
+		String pass = UUID.randomUUID().toString().substring(0, 6);
+		usr.setPass(pass);
+		pDao.guardarPersona(usr);
+		return "exito";
+	}
+	
+	public void modificarPersona()
+	{
+		pDao.modificarPersona(usr);
+	}
+	
+	
+
+}

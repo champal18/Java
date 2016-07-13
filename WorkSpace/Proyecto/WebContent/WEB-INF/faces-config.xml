@@ -5,4 +5,19 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
 
+	<managed-bean>
+		<managed-bean-name>PersonaBean</managed-bean-name>
+		<managed-bean-class>controller.PersonaBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+<navigation-rule> 
+  <from-view-id>registro2.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>exito</from-outcome>
+      <to-view-id>/index2.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+
 </faces-config>
