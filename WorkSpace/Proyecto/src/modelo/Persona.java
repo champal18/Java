@@ -27,6 +27,8 @@ public class Persona {
 	
 	private String pass;
 	
+	private boolean habilitado;
+	
 	// Modificacion
 	@Column(name = "nombreUser", unique=true)
 	private String nombreUser;
@@ -48,7 +50,7 @@ public class Persona {
 	public Persona(){}
 	
 	public Persona(String nombre, String apellido, String domicilio, Integer dni, LocalDate fechaNac, Sexo sexo, String mail,
-			String pass, String nombreUser, Tipo_USER tipo, List<Ruta> misRutas, List<RutaRealizada> rutasRealizadas)
+			String pass, String nombreUser, Tipo_USER tipo, List<Ruta> misRutas, List<RutaRealizada> rutasRealizadas, boolean habilitado)
 	{
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -62,6 +64,7 @@ public class Persona {
 		this.tipo = tipo;
 		this.misRutas = misRutas;
 		this.rutasRealizadas = rutasRealizadas;
+		this.habilitado = habilitado;
 	}
 	
 	public String getNombre() {
@@ -166,6 +169,14 @@ public class Persona {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public boolean getHabilitado() {
+		return habilitado;
+	}
+
+	public void setHabilitado(boolean habilitado) {
+		this.habilitado = habilitado;
 	}
 
   

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="test.BD_JYAA"/>
-<fullyQualifiedTypeName name="javax.persistence.Persistence"/>
 <fullyQualifiedTypeName name="modeloDAO.SingletonEMF"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
@@ -42,7 +40,6 @@
 <fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="java.lang.Long"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
 <fullyQualifiedTypeName name="modeloDAO.PersonaDAO"/>
 <fullyQualifiedTypeName name="controller.PersonaBean"/>
@@ -51,7 +48,6 @@
 <fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="modelo.Tipo_USER"/>
 <fullyQualifiedTypeName name="modelo.RutaRealizada"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.time.LocalDate"/>
 <fullyQualifiedTypeName name="servletsBean.Registro"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="antlr.collections.List"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.faces.model.DataModel"/>
+<fullyQualifiedTypeName name="javax.faces.model.ListDataModel"/>
 </qualifiedTypeNameHistroy>

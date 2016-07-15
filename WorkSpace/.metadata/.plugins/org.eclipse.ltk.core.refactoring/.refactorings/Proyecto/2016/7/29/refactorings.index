@@ -5,3 +5,5 @@
 1468348884444	Move 20 resources to 'Entrega1'
 1468434018263	Delete element
 1468444778100	Rename resource 'listaUsuarios 2.xhtml'
+1468530764805	Encapsulate field 'personaModel'
+1468537495834	Encapsulate field 'habilitado'

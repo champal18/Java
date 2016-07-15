@@ -100,11 +100,13 @@ public class PersonaDAO implements IPersonaDAO
 		EntityManager em = emf.createEntityManager();
 		
 		List<Persona> usrs = null;
+		
 		try {
-			Query q = em.createQuery("FROM persona");
+			Query q = em.createQuery("FROM Persona");
 			usrs = Collections.checkedList(q.getResultList(), Persona.class);	
 		} catch (Exception e) {
 			usrs = null;
+			System.out.println("Excepcion!");
 		}
 		
 		em.close();

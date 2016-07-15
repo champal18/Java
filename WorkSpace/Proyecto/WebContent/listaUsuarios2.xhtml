@@ -190,52 +190,45 @@
 		<option value="desc">Descendente</option>
 		</select><br /><br />
 		         
-		<div class="row">
-		
-	   <h:form>
-	       <ui:repeat value="#{PersonaBean.listaUsuarios}" var="item">
-	           <h:commandButton value="#{item}" />
-	           
-	       </ui:repeat>   
-	   </h:form>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://www.coordinadora.com/wp-content/uploads/sidebar_usuario-corporativo.png" alt="" />
-                            <div styleclass="caption">
-                                <h4><a href="#">Usuario 1</a>
-                                </h4>
-                                <input type="radio" name="selec" value="habilitar" checked="checked" /> Habilitar
-								<input type="radio" name="selec" value="deshabilitar" /> Deshabilitar<br />
-                            </div>
-                        </div>
-                    </div>
+		<div class="row">	
+    		<h:form>
+    		<h:dataTable class="table" value="#{PersonaBean.listaUsuarios}" var="o"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://www.coordinadora.com/wp-content/uploads/sidebar_usuario-corporativo.png" alt="" />
-                            <div class="caption">
-                                <h4><a href="#">Usuario 2</a>
-                                </h4>
-                                <input type="radio" name="selec2" value="habilitar" checked="checked" /> Habilitar
-								<input type="radio" name="selec2" value="deshabilitar" /> Deshabilitar<br />
-                            </div>
-                        </div>
-                    </div>
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">#ID</f:facet>
+    				<!-- row record -->
+    				#{o.id}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Usuario</f:facet>
+    				#{o.nombreUser}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Mail</f:facet>
+    				#{o.mail}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Habilitado</f:facet>
+    				#{o.habilitado}
+    			</h:column>
+<!--     			Boton para cambiar de estado con el BEAN -->
+    			<h:column>
+    				<f:facet name="header">Cambiar estado</f:facet>
+    				<h:commandButton value="Cambiar" action="#{PersonaBean.habilitarPersona(o)}" />
+    			</h:column>
+    		
+    		</h:dataTable>
+    		</h:form>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://www.coordinadora.com/wp-content/uploads/sidebar_usuario-corporativo.png" alt="" />
-                            <div class="caption">
-                                <h4><a href="#">Usuario 3</a>
-                                </h4>
-                                <input type="radio" name="selec3" value="habilitar" checked="checked" /> Habilitar
-								<input type="radio" name="selec3" value="deshabilitar" /> Deshabilitar<br />
-							</div>
-                        </div>
-                    </div>
-                    </div>         
-		
-		         
+      	</div>
 		         
 	    </div>
         <!-- /.container-fluid -->
