@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import modelo.Persona;
+import modelo.Tipo_USER;
+import modeloDAO.PersonaDAO;
+
 /**
  * Servlet implementation class LoginUsr
  */
@@ -33,6 +37,7 @@ public class LoginUsr extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		// TODO Auto-generated method stub
+		/*
 		ServletContext context = getServletContext();
 		String name = context.getInitParameter("usu1");
 		String pass = context.getInitParameter("pass1");
@@ -65,7 +70,39 @@ public class LoginUsr extends HttpServlet {
 					disp.forward(request, response);
 			}
 		}
+		*/
 		
+		// Probando
+		
+		ServletContext context = getServletContext();
+		String name = request.getParameter("nombre");
+		String pass = request.getParameter("clave");
+		
+		PersonaDAO pDao = new PersonaDAO();
+		Persona p = pDao.recuperarPersona(name);
+		if(p != null)
+		{
+			if(p.getPass().equals(pass))
+			{
+				HttpSession sesion = request.getSession(true);
+				sesion.setAttribute("usrId", p.getId());
+				RequestDispatcher disp;
+				if(p.getTipo() == Tipo_USER.Usuario)
+					disp = context.getRequestDispatcher("/usuario.html");
+				else
+					disp = context.getRequestDispatcher("/admin.html");
+				if(disp != null)
+					disp.forward(request, response);
+			}
+		}
+		else
+		{
+			RequestDispatcher disp = context.getRequestDispatcher("/error.html");
+			if(disp != null)
+				disp.forward(request, response);
+		}
+		
+		// Fin de prueba
 	}
 
 	/**

@@ -91,6 +91,26 @@ public class PersonaDAO implements IPersonaDAO
 		
 		return p;
 	}
+	
+	public Persona recuperarPersona(String nombreUsr)
+	{
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		Persona p = null;
+
+		try {
+			Query q = em.createQuery("FROM Persona P WHERE P.nombreUser ='"+nombreUsr+"'");
+			p = (Persona) q.getSingleResult();			
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		em.close();
+		return p;
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Persona> recuperarUsuarios() {

@@ -1,8 +1,7 @@
 package modelo;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,7 +18,7 @@ public class Persona {
 		
 	private Integer dni;
 	
-	private LocalDate fechaNac;
+	private Date fechaNac;
 	
 	private Sexo sexo;
 	
@@ -49,7 +48,7 @@ public class Persona {
 
 	public Persona(){}
 	
-	public Persona(String nombre, String apellido, String domicilio, Integer dni, LocalDate fechaNac, Sexo sexo, String mail,
+	public Persona(String nombre, String apellido, String domicilio, Integer dni, Date fechaNac, Sexo sexo, String mail,
 			String pass, String nombreUser, Tipo_USER tipo, List<Ruta> misRutas, List<RutaRealizada> rutasRealizadas, boolean habilitado)
 	{
 		this.nombre = nombre;
@@ -99,11 +98,11 @@ public class Persona {
 		this.dni = dni;
 	}
 	
-	public LocalDate getFechaNac() {
+	public Date getFechaNac() {
 		return fechaNac;
 	}
 	
-	public void setFechaNac(LocalDate fechaNac) {
+	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	

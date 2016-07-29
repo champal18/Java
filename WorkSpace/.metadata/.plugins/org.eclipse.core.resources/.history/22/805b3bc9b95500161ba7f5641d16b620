@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14684175544550" configfile="/Proyecto/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="registro2.xhtml" x="122" y="178" id="pf146844087564111" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14696320728380" path="registro2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index2.xhtml" x="338" y="178" id="pf14696320728381" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14696320728380" path="/index2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarPerfil.xhtml" id="pf14696320728382" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14696320728383" path="editarPerfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="perfilUsuario.xhtml" id="pf14696320728384" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14696320728383" path="/perfilUsuario.xhtml"/>
+  <links id="pf14696320728380" target="pf14696320728381" source="pf146844087564111" outcome="exito"/>
+  <links id="pf14696320728383" target="pf14696320728384" source="pf14696320728382" outcome="editarExitoso"/>
+</pageflow:Pageflow>

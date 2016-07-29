@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      lang="es">
+      
+<head>
+
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>User Home</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="usuario.html">JRuteros</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""  />
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Juan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Juan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Juan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Juan <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-user"></i> Perfil </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="CerrarSesion"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li >
+                        <a href="nuevaRuta.html"><i class="glyphicon glyphicon-plus"></i> Agregar ruta</a>
+                    </li>
+                    <li>
+                        <a href="misRutas.html"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
+                    </li>
+                    <li>
+                        <a href="busquedaRuta.html"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+<!--            <div class="container"> -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                      <div class="col-lg-8">
+                      
+                      <h:form class="form-horizontal">
+				
+						<div class="form-group">
+			            <label for="inputNameUsr" class="col-sm-2 control-label">Nombre de usuario</label>
+			            <div class="col-sm-4">
+			              	<h:inputText styleClass="form-control" id="inputNameUsr" value="#{PersonaBean.usr.nombreUser}"></h:inputText>
+			           		<p:inputText id="search_input_id" value="#{watermarkBean.keyword}" 
+   	 							required="true" label="Keyword" placeholder="search" /> 
+			            </div>
+			          </div>
+				
+				
+						<div class="form-group">
+							 
+							<label for="inputLast" class="col-sm-2 control-label">
+								Apellido
+							</label>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" id="inputLast" value="#{PersonaBean.usr.apellido}" placeholder="Apellido"></h:inputText>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label for="inputName" class="col-sm-2 control-label">
+								Nombre
+							</label>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" id="inputName" value="#{PersonaBean.usr.nombre}" placeholder="Nombre"></h:inputText>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label for="inputDni" class="col-sm-2 control-label">
+								DNI
+							</label>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" id="inputDni" value="#{PersonaBean.usr.dni}" placeholder="DNI"></h:inputText>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label for="inputDomicilio" class="col-sm-2 control-label">
+								Domicilio
+							</label>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" id="inputDomicilio" value="#{PersonaBean.usr.domicilio}" placeholder="Domicilio"></h:inputText>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label for="inputPassword3" class="col-sm-2 control-label">
+								Fecha de Nacimiento
+							</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="Ingrese su fecha de nacimiento con formato dd/mm/aa" name="fecha" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label for="inputPassword3" class="col-sm-2 control-label">
+								Sexo
+							</label>
+							<div class="col-sm-4">
+								<input type="radio" name="genero" value="femenino" checked="checked" /> Femenino<br />
+  								<input type="radio" name="genero" value="masculino" /> Masculino<br />
+  								<input type="radio" name="genero" value="masculino" /> Otro<br />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label for="inputMail" class="col-sm-2 control-label">
+								Email
+							</label>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" id="inputMail" value="#{PersonaBean.usr.mail}" placeholder="Mail"></h:inputText>
+							</div>
+						</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+							<h:commandButton class="btn btn-default" value="Registrarme" action="#{PersonaBean.altaPersona}"></h:commandButton>
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+							<h:commandButton class="btn btn-default" value="Login" action="#{PersonaBean.setUsrLogin}"></h:commandButton>
+					</div>
+					
+				</div>
+			</h:form>
+                    </div>
+                </div>
+            </div>
+
+<!--         </div> -->
+        <!-- /.container -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

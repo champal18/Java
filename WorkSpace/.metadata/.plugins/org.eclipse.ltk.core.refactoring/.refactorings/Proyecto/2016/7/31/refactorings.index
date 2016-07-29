@@ -1,0 +1,21 @@
+1469473821978	Move 'usuario.html' to 'WebContent'
+1469474796795	Rename resource 'editarPerfil.html'
+1469474805338	Rename resource 'perfil.html'
+1469475657290	Rename resource 'perfil.xhtml'
+1469479224616	Encapsulate field 'usrLogin'
+1469555248030	Encapsulate field 'usrLogin'
+1469556133937	Move 19 resources to 'WebContent'
+1469556137982	Delete element
+1469562267291	Move 24 resources to 'Entrega'
+1469562552341	Move 24 resources to 'WebContent'
+1469562555227	Delete element
+1469632081650	Rename resource 'perfil.html'
+1469632215296	Rename resource 'perfilUsuario.html'
+1469719077838	Move 16 resources to 'Entrega 1'
+1469816168172	Move 'error.html' to 'WebContent'
+1469816413064	Rename resource 'registroExitoso.html'
+1469816560091	Encapsulate field 'pass'
+1469816800483	Delete element
+1469816838394	Rename resource 'registro2.xhtml'
+1469827134808	Move 15 resources to 'WebContent'
+1469827138415	Delete element

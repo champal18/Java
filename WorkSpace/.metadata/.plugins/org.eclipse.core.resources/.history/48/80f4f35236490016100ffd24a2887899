@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14684175544550" configfile="/Proyecto/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="registro2.xhtml" id="pf14684408196486" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf14684408196487" inlinks="pf14684408196487" path="registro2.xhtml"/>
-  <links id="pf14684408196487" target="pf14684408196486" source="pf14684408196486" outcome="exito"/>
-</pageflow:Pageflow>

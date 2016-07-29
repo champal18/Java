@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14684175544550" configfile="/Proyecto/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="registro2.xhtml" id="pf146844087564111" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf146844087564112" inlinks="pf146844087564112" path="registro2.xhtml"/>
-  <links id="pf146844087564112" target="pf146844087564111" source="pf146844087564111" outcome="exito"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarPerfil.xhtml" id="pf14696320728382" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14696320728383" path="editarPerfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="perfilUsuario.xhtml" id="pf14696320728384" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14696320728383" path="/perfilUsuario.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registro.xhtml" id="pf14698170546273" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14698170546274" path="registro.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registroExitoso.xhtml" id="pf14698170546275" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14698170546274" path="/registroExitoso.xhtml"/>
+  <links id="pf14696320728383" target="pf14696320728384" source="pf14696320728382" outcome="editarExitoso"/>
+  <links id="pf14698170546274" target="pf14698170546275" source="pf14698170546273" outcome="exito"/>
 </pageflow:Pageflow>
