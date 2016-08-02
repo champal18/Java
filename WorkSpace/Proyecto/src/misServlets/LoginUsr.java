@@ -82,18 +82,28 @@ public class LoginUsr extends HttpServlet {
 		Persona p = pDao.recuperarPersona(name);
 		if(p != null)
 		{
-			if(p.getPass().equals(pass))
+			if(p.getHabilitado())
 			{
-				HttpSession sesion = request.getSession(true);
-				sesion.setAttribute("usrId", p.getId());
-				RequestDispatcher disp;
-				if(p.getTipo() == Tipo_USER.Usuario)
-					disp = context.getRequestDispatcher("/usuario.html");
-				else
-					disp = context.getRequestDispatcher("/admin.html");
+				if(p.getPass().equals(pass))
+				{
+					HttpSession sesion = request.getSession(true);
+					sesion.setAttribute("usrId", p.getId());
+					RequestDispatcher disp;
+					if(p.getTipo() == Tipo_USER.Usuario)
+						disp = context.getRequestDispatcher("/usuario.html");
+					else
+						disp = context.getRequestDispatcher("/admin.html");
+					if(disp != null)
+						disp.forward(request, response);
+				}
+			}
+			else
+			{
+				RequestDispatcher disp = context.getRequestDispatcher("/errorDeshabilitado.html");
 				if(disp != null)
 					disp.forward(request, response);
 			}
+					
 		}
 		else
 		{
