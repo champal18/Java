@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui"
       lang="es">
       
-<head>
+<h:head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -28,7 +28,7 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-</head>
+</h:head>
 
 <body>
 
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="usuario.html">JRuteros</a>
+                <a class="navbar-brand" href="/Proyecto/faces/usuario.xhtml">JRuteros</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -129,10 +129,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Juan <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> #{PersonaBean.usrLogin.nombre} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="http://localhost:8080/Proyecto/faces/perfilUsuario.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a>
+                            <a href="/Proyecto/faces/perfilUsuario.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
@@ -252,13 +252,12 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:form><h:outputText value="#{PersonaBean.usrLogin.pass}"></h:outputText>
-								<h:commandButton class="btn btn-danger col-lg-offset-5" value="Cambiar" action="#{PersonaBean.cambiarPass}"></h:commandButton></h:form>
+								<h:outputText value="#{PersonaBean.usrLogin.pass}"></h:outputText>
 							</div>
 							
 						</div>
 			
-						<a href="http://localhost:8080/Proyecto/faces/editarPerfil.xhtml"><button type="button" class="btn btn-primary col-lg-12">EDITAR</button></a>
+						<a href="/Proyecto/faces/editarPerfil.xhtml"><button type="button" class="btn btn-primary col-lg-12">EDITAR</button></a>
                     </div>
                     </div>
             <!-- /.container-fluid -->

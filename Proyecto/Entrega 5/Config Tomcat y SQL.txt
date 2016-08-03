@@ -1,0 +1,18 @@
+Tomcat:
+
+war -> exportar con config de sql de la catedra
+admin
+javaLaboratorio2015@
+archivo war a desplegar -> selec archivo
+
+phpmyadmin:
+
+Servidor: mysql.java.linti.unlp.edu.ar
+Base de datos: jyaa_sala_bd#      
+Usuario: jyaa_sala_usr# 
+Clave: <solicitar al ayudante>
+#=número de grupo
+phpmyadmin --> http://java.linti.unlp.edu.ar/phpmyadmin
+
+usuario:jyaa_sala_usr6
+pass: jyaa_sala_pwd6

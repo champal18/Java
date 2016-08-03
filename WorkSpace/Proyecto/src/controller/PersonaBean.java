@@ -12,8 +12,6 @@ import modelo.Sexo;
 import modelo.Tipo_USER;
 import modeloDAO.PersonaDAO;
 
-//@ManagedBean(name="PersonaBean")
-//@ApplicationScoped
 public class PersonaBean 
 {
 	private PersonaDAO pDao = new PersonaDAO();
@@ -52,6 +50,7 @@ public class PersonaBean
 			this.usrLogin = pDao.recuperarPersona(id);
 		}
 	}
+	
 	
 	public String altaPersona()
 	{

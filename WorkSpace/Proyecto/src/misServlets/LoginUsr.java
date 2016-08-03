@@ -1,8 +1,6 @@
 package misServlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -36,41 +34,6 @@ public class LoginUsr extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		// TODO Auto-generated method stub
-		/*
-		ServletContext context = getServletContext();
-		String name = context.getInitParameter("usu1");
-		String pass = context.getInitParameter("pass1");
-		if((name.equals(request.getParameter("nombre"))) && (pass.equals(request.getParameter("clave"))))
-		{
-			RequestDispatcher disp = context.getRequestDispatcher("/usuario.html");
-			HttpSession sesion = request.getSession(true);
-			sesion.setAttribute("tipo", (String)"usuario");
-			sesion.setAttribute("nombre", name);
-			if(disp != null)
-				disp.forward(request, response);
-		}
-		else
-		{
-			name = context.getInitParameter("adm1");
-			pass = context.getInitParameter("apass1");
-			if((name.equals(request.getParameter("nombre"))) && (pass.equals(request.getParameter("clave"))))
-			{
-				RequestDispatcher disp = context.getRequestDispatcher("/admin.html");
-				HttpSession sesion = request.getSession(true);
-				sesion.setAttribute("tipo", (String)"admin");
-				sesion.setAttribute("nombre", name);
-				if(disp != null)
-					disp.forward(request, response);
-			}
-			else
-			{
-				RequestDispatcher disp = context.getRequestDispatcher("/error.html");
-				if(disp != null)
-					disp.forward(request, response);
-			}
-		}
-		*/
 		
 		// Probando
 		
@@ -90,7 +53,7 @@ public class LoginUsr extends HttpServlet {
 					sesion.setAttribute("usrId", p.getId());
 					RequestDispatcher disp;
 					if(p.getTipo() == Tipo_USER.Usuario)
-						disp = context.getRequestDispatcher("/usuario.html");
+						disp = context.getRequestDispatcher("/faces/usuario.xhtml");
 					else
 						disp = context.getRequestDispatcher("/admin.html");
 					if(disp != null)

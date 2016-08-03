@@ -1,0 +1,8 @@
+usrLogin -> actualizar cuando apreto el boton Perfil.
+
+Solucionar problemas Session vs Bean
+
+Links -> NO hardcodear las direcciones (CAMBIAR "Proyecto")
+
+En la session manejar el nombre e ID!
+
