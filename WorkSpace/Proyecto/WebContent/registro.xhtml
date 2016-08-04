@@ -56,161 +56,190 @@
     <!-- Header -->
     <a name="about"></a>
     <div class="intro-header">
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                    <h1>JRuteros</h1>
-                    <h3></h3>
-                      <div class="col-lg-5 col-lg-offset-3">
-                      
-                      <h:form class="form-horizontal">
+                <div class="col-md-12">
+                    	<h2>JRuteros</h2>	
+    			</div>
+    		</div>
+    		
+    		<div class="row">
+                     	<div class="col-md-12">
+                     	
+                        <div class="row">
+                        
+                     	<h:form class="form-horizontal">
 				
-						<div class="form-group">
-			            <label for="inputNameUsr" class="col-sm-2 control-label">Nombre de usuario</label>
-			            <div class="col-sm-10">
-			            <h:inputText styleClass="form-control" id="inputNameUsr" value="#{PersonaBean.usr.nombreUser}" 
-			              	validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
-							required="true" requiredMessage="Nombre de usuario es un campo obligatorio">
-							<f:validateLength minimum="3" maximum="20"/>
-						  	<f:validateRegex pattern="[A-Za-z0-9]+"/>
-						</h:inputText>
-						<p:messages for="inputNameUsr" autoUpdate="true" />
-			            </div>
-			          </div>
+							<div class="form-group">
+			           			<label for="inputNameUsr" class="col-sm-offset-1 col-sm-2 control-label">
+			           				Nombre de usuario
+			           			</label>
+			            		<div class="col-sm-3">
+			            			<h:inputText styleClass="form-control" id="inputNameUsr" value="#{PersonaBean.usr.nombreUser}" 
+			              			validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+									required="true" requiredMessage="Nombre de usuario es un campo obligatorio">
+									<f:validateLength minimum="3" maximum="20"/>
+						  			<f:validateRegex pattern="[A-Za-z0-9]+"/>
+									</h:inputText>
+									
+			            		</div>
+			            		<div class="col-sm-4">
+			            			<p:messages for="inputNameUsr" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
+			        		</div>
 				
-				
-						<div class="form-group">
-							 
-							<label for="inputLast" class="col-sm-2 control-label">
-								Apellido
-							</label>
-							<div class="col-sm-10">
-								<h:inputText styleClass="form-control" id="inputLast" value="#{PersonaBean.usr.apellido}" placeholder="Apellido" 
-								validatorMessage="Apellido: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
-								required="true" requiredMessage="Apellido es un campo obligatorio">
+							<div class="form-group">
+							 	<label for="inputLast" class="col-sm-offset-1 col-sm-2 control-label">
+										Apellido
+								</label>
+								<div class="col-sm-3">
+									<h:inputText styleClass="form-control" id="inputLast" value="#{PersonaBean.usr.apellido}" placeholder="Apellido" 
+									validatorMessage="Apellido: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+									required="true" requiredMessage="Apellido es un campo obligatorio">
 									<f:validateLength minimum="3" maximum="20" />
 									<f:validateRegex pattern="[a-zA-Z ]+" />
-								</h:inputText>
-								<p:messages for="inputLast" autoUpdate="true" />
+									</h:inputText>
+								</div>
+								<div class="col-sm-4">
+			            			<p:messages for="inputLast" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="inputName" class="col-sm-2 control-label">
-								Nombre
-							</label>
-							<div class="col-sm-10">
-								<h:inputText styleClass="form-control" id="inputName" value="#{PersonaBean.usr.nombre}" placeholder="Nombre" 
-								validatorMessage="Nombre: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
-								required="true" requiredMessage="Nombre es un campo obligatorio">
+							<div class="form-group">		 
+								<label for="inputName" class="col-sm-offset-1 col-sm-2 control-label">
+										Nombre
+								</label>
+								<div class="col-sm-3">
+									<h:inputText styleClass="form-control" id="inputName" value="#{PersonaBean.usr.nombre}" placeholder="Nombre" 
+									validatorMessage="Nombre: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+									required="true" requiredMessage="Nombre es un campo obligatorio">
 									<f:validateLength minimum="3" maximum="20"/>
 						  			<f:validateRegex pattern="[a-zA-Z ]+"/>
-								</h:inputText>
-								<p:messages for="inputName" autoUpdate="true" />
+									</h:inputText>
+								</div>
+								<div class="col-sm-4">
+			            			<p:messages for="inputName" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="inputDni" class="col-sm-2 control-label">
-								DNI
-							</label>
-							<div class="col-sm-10">
-								<h:inputText styleClass="form-control" id="inputDni" value="#{PersonaBean.usr.dni}" placeholder="DNI" 
-								required="true" requiredMessage="DNI es un campo obligatorio" validatorMessage="Dni: solo caracteres numericos">
-<!-- 									<f:validateRegex pattern="[0-9]+" /> -->
-								</h:inputText>
-								<p:messages for="inputDni" autoUpdate="true" />
+							<div class="form-group">
+							 	<label for="inputDni" class="col-sm-offset-1 col-sm-2 control-label">
+										DNI
+								</label>
+								<div class="col-sm-3">
+									<h:inputText styleClass="form-control" id="inputDni" value="#{PersonaBean.usr.dni}" placeholder="DNI" 
+									required="true" requiredMessage="DNI es un campo obligatorio" validatorMessage="Dni: solo caracteres numericos">
+<!-- 								<f:validateRegex pattern="[0-9]+" /> -->
+									</h:inputText>
+								</div>
+								<div class="col-sm-4">
+			            			<p:messages for="inputDni" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
+			            		
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="inputDomicilio" class="col-sm-2 control-label">
-								Domicilio
-							</label>
-							<div class="col-sm-10">
-								<h:inputText styleClass="form-control" id="inputDomicilio" value="#{PersonaBean.usr.domicilio}" placeholder="Domicilio" 
-								required="true" requiredMessage="Domicilio es un campo obligatorio" validatorMessage="Domicilio: Long. minima: 5 | Long. maxima: 30">
+							<div class="form-group"> 
+								<label for="inputDomicilio" class="col-sm-offset-1 col-sm-2 control-label">
+										Domicilio
+								</label>
+								<div class="col-sm-3">
+									<h:inputText styleClass="form-control" id="inputDomicilio" value="#{PersonaBean.usr.domicilio}" placeholder="Domicilio" 
+									required="true" requiredMessage="Domicilio es un campo obligatorio" validatorMessage="Domicilio: Long. minima: 5 | Long. maxima: 30">
 									<f:validateLength minimum="5" maximum="30"/>
-								</h:inputText>
-								<p:messages for="inputDomicilio" autoUpdate="true" />
+									</h:inputText>
+								</div>
+								<div class="col-sm-4">
+			            			<p:messages for="inputDomicilio" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="inputFecha" class="col-sm-2 control-label">
-								Fecha de Nacimiento
-							</label>
-							<div class="col-sm-10">
-							<p:inputText styleClass="form-control" id="inputFecha" value="#{PersonaBean.usr.fechaNac}" placeholder="DD/MM/AAAA" 
-								required="true" requiredMessage="Fecha de nacimiento es un campo obligatorio">  
-							   <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
-						   
-							</p:inputText>
-							<p:messages for="inputFecha" autoUpdate="true" />
+							<div class="form-group"> 
+								<label for="inputFecha" class="col-sm-offset-1 col-sm-2 control-label">
+										Fecha de Nacimiento
+								</label>
+								<div class="col-sm-3">
+									<p:inputText styleClass="form-control" id="inputFecha" value="#{PersonaBean.usr.fechaNac}" placeholder="DD/MM/AAAA" 
+									required="true" requiredMessage="Fecha de nacimiento es un campo obligatorio">  
+							   		<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+						   			</p:inputText>
+								</div>
+								<div class="col-sm-4">
+			            			<p:messages for="inputFecha" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="inputSexo" class="col-sm-2 control-label">
-								Sexo
-							</label>
-							<div class="col-sm-4">
-								<h:selectOneMenu id="gender" value="#{PersonaBean.usr.sexo}" styleClass="form-control" 
-								required="true" requiredMessage="Sexo es un campo obligatorio">
-								  <f:selectItems value="#{PersonaBean.getGenderValues()}" />
-								</h:selectOneMenu>
+							<div class="form-group"> 
+								<label for="inputSexo" class="col-sm-offset-1 col-sm-2 control-label">
+										Sexo
+								</label>
+								<div class="col-sm-3">
+									<h:selectOneMenu id="gender" value="#{PersonaBean.usr.sexo}" styleClass="form-control" 
+									required="true" requiredMessage="Sexo es un campo obligatorio">
+								  	<f:selectItems value="#{PersonaBean.getGenderValues()}" />
+									</h:selectOneMenu>
+								</div>
+								
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="inputMail" class="col-sm-2 control-label">
-								Email
-							</label>
-							<div class="col-sm-10">
-								<h:inputText styleClass="form-control" id="inputMail" value="#{PersonaBean.usr.mail}" placeholder="Mail" 
-								required="true" requiredMessage="Email es un campo obligatorio" validatorMessage="Email: formato no valido">
+							<div class="form-group"> 
+								<label for="inputMail" class="col-sm-offset-1 col-sm-2 control-label">
+										Email
+								</label>
+								<div class="col-sm-3">
+									<h:inputText styleClass="form-control" id="inputMail" value="#{PersonaBean.usr.mail}" placeholder="Mail" 
+									required="true" requiredMessage="Email es un campo obligatorio" validatorMessage="Email: formato no valido">
 									<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-								</h:inputText>
-								<p:messages for="inputMail" autoUpdate="true" />
+									</h:inputText>
+								</div>
+								<div class="col-sm-4">
+			            			<p:messages for="inputMail" autoUpdate="true" />
+			            		</div>
+			            		<div class="col-sm-2">
+			            		</div>
 							</div>
-						</div>
 						
-						<div class="form-group">
-							 
-							<label for="tipo" class="col-sm-2 control-label">
-								Tipo
-							</label>
-							<div class="col-sm-4">
-								<h:selectOneMenu id="tipo" value="#{PersonaBean.usr.tipo}" styleClass="form-control" 
-								required="true" requiredMessage="Tipo es un campo obligatorio">
-								  <f:selectItems value="#{PersonaBean.getTipoValues()}" />
-								</h:selectOneMenu>
+							<div class="form-group"> 
+								<label for="tipo" class="col-sm-offset-1 col-sm-2 control-label">
+										Tipo
+								</label>
+								<div class="col-sm-3">
+									<h:selectOneMenu id="tipo" value="#{PersonaBean.usr.tipo}" styleClass="form-control" 
+									required="true" requiredMessage="Tipo es un campo obligatorio">
+								  	<f:selectItems value="#{PersonaBean.getTipoValues()}" />
+									</h:selectOneMenu>
+								</div>
 							</div>
-						</div>
 				
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-							<h:commandButton class="btn btn-default" value="Registrarme" action="#{PersonaBean.altaPersona}"></h:commandButton>
-					</div>
-				</div>
-			</h:form>
-                    </div>
-                </div>
-                </div>
-            </div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<h:commandButton class="btn btn-default" value="Registrarme" action="#{PersonaBean.altaPersona}"></h:commandButton>
+								</div>
+							</div>
+						</h:form>
+						</div>
+                    	</div>
+               </div>
 
-        </div>
+          </div>
+
+	</div>
+     
         <!-- /.container -->
 
-    </div>
+    
     <!-- /.intro-header -->
 
     <!-- Page Content -->
