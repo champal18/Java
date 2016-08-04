@@ -18,7 +18,6 @@ public class PersonaBean
 	private Persona usr = new Persona();
 	private Persona usrLogin;
 	private List<Persona> listaUsuarios = pDao.recuperarUsuarios();
-	private String pass;
 	
 	
 	public List<Persona> getListaUsuarios() {
@@ -39,16 +38,7 @@ public class PersonaBean
 
 	public PersonaBean()
 	{
-		HttpSession session;
-		FacesContext context = FacesContext.getCurrentInstance();
-	    session = (HttpSession) context.getExternalContext().getSession(true);
-	    
-		    
-		Long id = (Long) session.getAttribute("usrId");
-		if(id != null)
-		{
-			this.usrLogin = pDao.recuperarPersona(id);
-		}
+		
 	}
 	
 	
@@ -58,7 +48,6 @@ public class PersonaBean
 		usr.setPass(pass);
 		usr.setHabilitado(true);
 		pDao.guardarPersona(usr);
-		this.pass = pass;
 		return "exito";
 	}
 	
@@ -113,14 +102,6 @@ public class PersonaBean
 		pDao.modificarPersona(usrLogin);
 		return "cambioPass";
 	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
 	
 	// Prueba para usar enumerativo en JSF
 	public SelectItem[] getGenderValues()
@@ -143,5 +124,22 @@ public class PersonaBean
 		      items[i++] = new SelectItem(g, g.name());
 		    }
 		    return items;
+		}
+		
+		public String actualizar()
+		{
+			if(this.usrLogin == null)
+			{	
+				HttpSession session;
+				FacesContext context = FacesContext.getCurrentInstance();
+			    session = (HttpSession) context.getExternalContext().getSession(true);
+			       
+				Long id = (Long) session.getAttribute("usrId");
+				if(id != null)
+				{
+					this.usrLogin = pDao.recuperarPersona(id);
+				}
+			}
+			return "usuarioPerfil";
 		}
 }

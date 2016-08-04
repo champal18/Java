@@ -53,11 +53,11 @@
 <fullyQualifiedTypeName name="modeloDAO.PersonaDAO"/>
 <fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.sun.net.httpserver.HttpContext"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
 <fullyQualifiedTypeName name="modelo.Sexo"/>
 <fullyQualifiedTypeName name="misServlets.LoginUsr"/>
 <fullyQualifiedTypeName name="modelo.Tipo_USER"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

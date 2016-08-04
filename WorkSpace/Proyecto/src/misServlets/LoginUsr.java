@@ -51,11 +51,18 @@ public class LoginUsr extends HttpServlet {
 				{
 					HttpSession sesion = request.getSession(true);
 					sesion.setAttribute("usrId", p.getId());
+					sesion.setAttribute("usrName", p.getNombre());
 					RequestDispatcher disp;
 					if(p.getTipo() == Tipo_USER.Usuario)
 						disp = context.getRequestDispatcher("/faces/usuario.xhtml");
 					else
 						disp = context.getRequestDispatcher("/admin.html");
+					if(disp != null)
+						disp.forward(request, response);
+				}
+				else
+				{
+					RequestDispatcher disp = context.getRequestDispatcher("/error.html");
 					if(disp != null)
 						disp.forward(request, response);
 				}
@@ -66,7 +73,6 @@ public class LoginUsr extends HttpServlet {
 				if(disp != null)
 					disp.forward(request, response);
 			}
-					
 		}
 		else
 		{

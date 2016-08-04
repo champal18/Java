@@ -26,4 +26,12 @@
   </navigation-case>
 </navigation-rule>
 
+<navigation-rule> 
+  <from-view-id>*</from-view-id> 
+  <navigation-case>
+    <from-outcome>usuarioPerfil</from-outcome>
+      <to-view-id>/perfilUsuario.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
 </faces-config>
