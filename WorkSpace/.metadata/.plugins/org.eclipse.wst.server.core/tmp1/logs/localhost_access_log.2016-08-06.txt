@@ -1,0 +1,10 @@
+127.0.0.1 - - [06/Aug/2016:14:39:52 -0300] "GET / HTTP/1.1" 404 1004
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/index.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1098
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/js/jquery.js HTTP/1.1" 404 1048
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/css/estilo.css HTTP/1.1" 404 1052
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/css/bootstrap-responsive.min.css HTTP/1.1" 404 1088
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1098
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:15 -0300] "GET /JRuretos6/js/jquery.js HTTP/1.1" 404 1048
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:17 -0300] "GET /favicon.ico HTTP/1.1" 404 1026
+0:0:0:0:0:0:0:1 - - [06/Aug/2016:14:40:20 -0300] "GET /Proyecto/login.html HTTP/1.1" 404 1042
