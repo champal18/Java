@@ -19,10 +19,10 @@
   </navigation-case>
 </navigation-rule>
 <navigation-rule> 
-  <from-view-id>editarPerfil.xhtml</from-view-id> 
+  <from-view-id>usuario_editarPerfil.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editarExitoso</from-outcome>
-      <to-view-id>/perfilUsuario.xhtml</to-view-id> 
+      <to-view-id>/usuario_perfil.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -30,7 +30,7 @@
   <from-view-id>*</from-view-id> 
   <navigation-case>
     <from-outcome>usuarioPerfil</from-outcome>
-      <to-view-id>/perfilUsuario.xhtml</to-view-id> 
+      <to-view-id>/usuario_perfil.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
