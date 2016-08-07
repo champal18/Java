@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      lang="es">
 
-<head>
+<h:head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-    <title>Editar ruta</title>
+    <title>Crear nueva ruta</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet" />
 
     <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,79 +36,24 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-</head>
+</h:head>
 
 <body>
 
     <div id="wrapper">
-
         <!-- Navigation -->
+        
+<!--    ACA SE DEFINEN LA BARRA SUPERIOR E IZQUIERDA DEL TEMPLATE -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="usuario.html">JRuteros</a>
+                <a class="navbar-brand" href="/JRuteros6/faces/usuario.xhtml">JRuteros</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>Juan</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>Juan</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>Juan</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
+               
+               
+			<!-- PANEL DE ALERTAS -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
@@ -130,11 +81,17 @@
                         </li>
                     </ul>
                 </li>
+            <!-- FIN DEL PANEL DE ALERTAS -->
+            <!-- DROPDOWN -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Juan <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> #{sessionScope.usrName} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-user"></i> Perfil </a>
+                        	<h:form>
+                        		<h:commandLink action="#{PersonaBean.actualizar}">
+                        			<i class="glyphicon glyphicon-user"></i> Perfil
+                        		</h:commandLink>
+                        	</h:form>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
@@ -149,59 +106,67 @@
                     </ul>
                 </li>
             </ul>
+            <!-- FIN DEL DROPDOWN -->
+            
+            <!-- PANEL DE OPCIONES PARA EL USUARIO -->
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="nuevaRuta.html"><i class="glyphicon glyphicon-plus"></i> Agregar ruta</a>
+                    <li >
+                        <a href="/JRuteros6/faces/usuario_nuevaRuta.xhtml"><i class="glyphicon glyphicon-plus"></i> Agregar ruta</a>
                     </li>
                     <li>
-                        <a href="misRutas.html"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
+                        <a href="/JRuteros6/faces/usuario_misRutas.xhtml"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
                     </li>
                     <li>
-                        <a href="BusquedaRuta"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+                        <a href="/JRuteros6/faces/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
                     </li>
                 </ul>
             </div>
+            <!-- FIN DEL PANEL DE OPCIONES PARA EL USUARIO -->
             <!-- /.navbar-collapse -->
         </nav>
+<!--    FIN DE DEFINICION DE LA BARRA SUPERIOR E IZQUIERDA DEL TEMPLATE -->
 
+<!-- PANEL CENTRAL -->
         <div id="page-wrapper">
         
-        		<!-- Page Heading -->
+			<!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Editar ruta
+                            Agregar una nueva ruta
                         </h1>
                       
                     </div>
                 </div>
                 <!-- /.row -->        
 
-             	<form action="EditarRuta" method="post">
+            <div class="container-fluid">
+            		
+					<form action="NuevaRuta" method="post">
 					  
 		   
 					   <div class="form-group">
                            <label>Nombre</label>
-                           <input class="form-control" placeholder="Ingrese su nombre" type="text" name="nombre" value="Nombre de la ruta">
+                           <input class="form-control" placeholder="Ingrese su nombre" type="text" name="nombre" />
                        </div>
 					  
 					  
 					  <div class="form-group">
                            <label>Descripción</label>
-                           <input class="form-control" placeholder="Ingrese la descripcion de la ruta" type="text" name="descripcion" value="Descripcion">
+                           <input class="form-control" placeholder="Ingrese la descripcion de la ruta" type="text" name="descripcion" />
                        </div>
 					  
 					  
 					  <div class="form-group">
                            <label>Distancia (km)</label>
-                           <input class="form-control" placeholder="Ingrese la distancia en kilometros" type="text" name="distancia" value="200">
+                           <input class="form-control" placeholder="Ingrese la distancia en kilometros" type="text" name="distancia" />
                        </div>
 					  
 					  <div class="form-group">
                            <label>Fecha de realización</label>
-                           <input class="form-control" placeholder="Ingrese la fecha con formato dd/mm/aa" type="text" name="fecha" value="15/03/2015">
+                           <input class="form-control" placeholder="Ingrese la fecha con formato dd/mm/aa" type="text" name="fecha" />
                        </div>
 					 
 					  
@@ -209,12 +174,12 @@
                                 <label>Privacidad</label>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="privacidad" value="publico" checked>Publico
+                                        <input type="radio" name="privacidad" value="publico" checked="checked" />Publico
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="privacidad" value="privado">Privado
+                                        <input type="radio" name="privacidad" value="privado" />Privado
                                     </label>
                                 </div>
              
@@ -224,7 +189,7 @@
 					  
 					  <div class="form-group">
                            <label>Tiempo estimado</label>
-                           <input class="form-control" placeholder="Ingrese en tiempo estimado en horas" type="text" name="tiempo" value="100">
+                           <input class="form-control" placeholder="Ingrese en tiempo estimado en horas" type="text" name="tiempo" />
                        </div>
 					  
 					 
@@ -232,12 +197,12 @@
                                 <label>Formato</label>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="formato" value="ida" checked>Ida
+                                        <input type="radio" name="formato" value="ida" checked="checked" />Ida
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="formato" value="circular">Circular
+                                        <input type="radio" name="formato" value="circular" />Circular
                                     </label>
                                 </div>
              
@@ -249,7 +214,7 @@
                                 <label>Dificultad</label>
                                 <select class="form-control" name="dificultad">
                                    	<option value="facil">Fácil</option>
-								   	<option value="moderado" selected>Moderado</option>
+								   	<option value="moderado">Moderado</option>
 								   	<option value="dificil">Dificil</option>
 									<option value="muyDificil">Muy dificil</option>
 									<option value="expertos">Expertos</option>
@@ -261,7 +226,7 @@
                                 <label>Actividad</label>
                                 <select class="form-control" name="actividad">
                                   <option value="mountainBike">Mountain bike</option>
-								  <option value="ciclismo" selected>Ciclismo</option>
+								  <option value="ciclismo">Ciclismo</option>
 								  <option value="cicloturismo">Cicloturismo</option>
 								  <option value="senderismo">Senderismo</option>
 								  <option value="carreraPorMontania">Carrera por montaña</option>
@@ -279,30 +244,44 @@
 					  
 					  <div class="form-group">
                                 <label>Mapa (archivo .kml)</label>
-                                <input type="file" name="mapa">
+                                <input type="file" name="mapa" />
                       </div>
 					  
 					
 					  
 					  <div class="form-group">
                                 <label>Fotos</label>
-                                <input type="file" name="foto">
+                                <input type="file" name="foto" />
                       </div>
 					  
 					 
-					  <button type="submit" class="btn btn-default">Editar ruta</button>
-					  
-					  
-	
+					  <button type="submit" class="btn btn-primary">Crear ruta</button>
 					  
 					  
 					</form>
+                
+            </div>
             <!-- /.container-fluid -->
 
         </div>
+        <!-- FIN DEL PANEL CENTRAL -->
         <!-- /#page-wrapper -->
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     </div>
+    
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -319,12 +298,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-  
- 
