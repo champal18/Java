@@ -14,7 +14,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>User Home</title>
+    <title>Eliminar ruta</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap Core CSS -->
@@ -129,107 +129,23 @@
 <!--    FIN DE DEFINICION DE LA BARRA SUPERIOR E IZQUIERDA DEL TEMPLATE -->
 
 <!-- PANEL CENTRAL -->
+
         <div id="page-wrapper">
 
-                    <div class="row">
-                	<div class="col-lg-3">
-                	
-                	<h3>Informacion de perfil</h3>
+             	<h4>
+					Desea eliminar la ruta seleccionada??
+				</h4>
+				
+             	<p>
+                    <a href="/JRuteros6/faces/usuario_misRutas.xhtml">  <button  type="button" class="btn btn-lg btn-success">Si</button></a>
+                    <a href="/JRuteros6/faces/usuario_misRutas.xhtml">  <button  type="button" class="btn btn-lg btn-danger">No</button></a>
+         
                     
-	                    <div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Nombre de usuario
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.nombreUser}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Apellido
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.apellido}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Nombre
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.nombre}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									DNI
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.dni}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Domicilio
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.domicilio}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Fecha de nacimiento
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.fechaNac}">
-									<f:convertDateTime type="date"  timeZone="America/Argentina/Catamarca" />
-								</h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Sexo
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.sexo}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Email
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.mail}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Contraseña
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.pass}"></h:outputText>
-							</div>
-							
-						</div>
-			
-						<a href="/JRuteros6/faces/usuario_editarPerfil.xhtml"><button type="button" class="btn btn-primary col-lg-12">EDITAR</button></a>
-                    </div>
-                    </div>
+                </p>
             <!-- /.container-fluid -->
 
         </div>
-<!-- FIN DEL PANEL CENTRAL -->
-        
+        <!-- FIN DEL PANEL CENTRAL -->
         
         <!-- /#page-wrapper -->
 

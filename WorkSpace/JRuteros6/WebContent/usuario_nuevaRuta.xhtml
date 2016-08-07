@@ -14,7 +14,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>User Home</title>
+    <title>Crear nueva ruta</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap Core CSS -->
@@ -130,110 +130,158 @@
 
 <!-- PANEL CENTRAL -->
         <div id="page-wrapper">
+        
+			<!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Agregar una nueva ruta
+                        </h1>
+                      
+                    </div>
+                </div>
+                <!-- /.row -->        
 
-                    <div class="row">
-                	<div class="col-lg-3">
-                	
-                	<h3>Informacion de perfil</h3>
-                    
-	                    <div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Nombre de usuario
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.nombreUser}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Apellido
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.apellido}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Nombre
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.nombre}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									DNI
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.dni}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Domicilio
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.domicilio}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Fecha de nacimiento
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.fechaNac}">
-									<f:convertDateTime type="date"  timeZone="America/Argentina/Catamarca" />
-								</h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Sexo
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.sexo}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Email
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.mail}"></h:outputText>
-							</div>
-							
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Contraseña
-								</h3>
-							</div>
-							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.pass}"></h:outputText>
-							</div>
-							
-						</div>
-			
-						<a href="/JRuteros6/faces/usuario_editarPerfil.xhtml"><button type="button" class="btn btn-primary col-lg-12">EDITAR</button></a>
-                    </div>
-                    </div>
+            <div class="container-fluid">
+            		
+					<form action="NuevaRuta" method="post">
+					  
+		   
+					   <div class="form-group">
+                           <label>Nombre</label>
+                           <input class="form-control" placeholder="Ingrese su nombre" type="text" name="nombre" />
+                       </div>
+					  
+					  
+					  <div class="form-group">
+                           <label>Descripción</label>
+                           <input class="form-control" placeholder="Ingrese la descripcion de la ruta" type="text" name="descripcion" />
+                       </div>
+					  
+					  
+					  <div class="form-group">
+                           <label>Distancia (km)</label>
+                           <input class="form-control" placeholder="Ingrese la distancia en kilometros" type="text" name="distancia" />
+                       </div>
+					  
+					  <div class="form-group">
+                           <label>Fecha de realización</label>
+                           <input class="form-control" placeholder="Ingrese la fecha con formato dd/mm/aa" type="text" name="fecha" />
+                       </div>
+					 
+					  
+					   <div class="form-group">
+                                <label>Privacidad</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="privacidad" value="publico" checked="checked" />Publico
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="privacidad" value="privado" />Privado
+                                    </label>
+                                </div>
+             
+                     </div>
+					  
+					
+					  
+					  <div class="form-group">
+                           <label>Tiempo estimado</label>
+                           <input class="form-control" placeholder="Ingrese en tiempo estimado en horas" type="text" name="tiempo" />
+                       </div>
+					  
+					 
+					 <div class="form-group">
+                                <label>Formato</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="formato" value="ida" checked="checked" />Ida
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="formato" value="circular" />Circular
+                                    </label>
+                                </div>
+             
+                     </div>
+					 
+					 
+					  
+					  <div class="form-group">
+                                <label>Dificultad</label>
+                                <select class="form-control" name="dificultad">
+                                   	<option value="facil">Fácil</option>
+								   	<option value="moderado">Moderado</option>
+								   	<option value="dificil">Dificil</option>
+									<option value="muyDificil">Muy dificil</option>
+									<option value="expertos">Expertos</option>
+                                </select>
+                      </div>
+					 
+					  
+					  <div class="form-group">
+                                <label>Actividad</label>
+                                <select class="form-control" name="actividad">
+                                  <option value="mountainBike">Mountain bike</option>
+								  <option value="ciclismo">Ciclismo</option>
+								  <option value="cicloturismo">Cicloturismo</option>
+								  <option value="senderismo">Senderismo</option>
+								  <option value="carreraPorMontania">Carrera por montaña</option>
+								  <option value="alpinismo">Alpinismo</option>
+								  <option value="motociclismo">Motociclismo</option>
+								  <option value="cuatriciclo">Cuatriciclo</option>
+								  <option value="esqui">Esquí</option>
+								  <option value="kayak">Kayak</option>
+								  <option value="vela">Vela</option>
+								  <option value="caballo">A caballo</option>
+                                </select>
+                      </div>
+					  
+		
+					  
+					  <div class="form-group">
+                                <label>Mapa (archivo .kml)</label>
+                                <input type="file" name="mapa" />
+                      </div>
+					  
+					
+					  
+					  <div class="form-group">
+                                <label>Fotos</label>
+                                <input type="file" name="foto" />
+                      </div>
+					  
+					 
+					  <button type="submit" class="btn btn-primary">Crear ruta</button>
+					  
+					  
+					</form>
+                
+            </div>
             <!-- /.container-fluid -->
 
         </div>
-<!-- FIN DEL PANEL CENTRAL -->
-        
-        
+        <!-- FIN DEL PANEL CENTRAL -->
         <!-- /#page-wrapper -->
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     </div>
+    
     <!-- /#wrapper -->
 
     <!-- jQuery -->
