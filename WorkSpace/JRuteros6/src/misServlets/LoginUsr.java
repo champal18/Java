@@ -56,7 +56,7 @@ public class LoginUsr extends HttpServlet {
 					if(p.getTipo() == Tipo_USER.Usuario)
 						disp = context.getRequestDispatcher("/faces/usuario.xhtml");
 					else
-						disp = context.getRequestDispatcher("/admin.xhtml");
+						disp = context.getRequestDispatcher("/faces/admin.xhtml");
 					if(disp != null)
 						disp.forward(request, response);
 				}
