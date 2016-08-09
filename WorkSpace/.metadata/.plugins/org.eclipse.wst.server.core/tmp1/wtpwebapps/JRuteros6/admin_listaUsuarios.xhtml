@@ -54,7 +54,7 @@
                         <li>
                             <!-- <a href="/JRuteros6/faces/admin_perfil.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a> -->
                             <h:form>
-                                <h:commandLink action="#{PersonaBean.actualizar}">
+                                <h:commandLink action="#{AdminBean.actualizar}">
                                     <i class="glyphicon glyphicon-user"></i> Perfil
                                 </h:commandLink>
                             </h:form>
@@ -110,7 +110,7 @@
 		         
 		<div class="row">	
     		<h:form>
-    		<h:dataTable class="table" value="#{PersonaBean.listaUsuarios}" var="o"
+    		<h:dataTable class="table" value="#{AdminBean.listaUsuarios}" var="o"
     			styleClass="order-table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row"
@@ -140,7 +140,7 @@
 <!--     			Boton para cambiar de estado con el BEAN -->
     			<h:column>
     				<f:facet name="header">Cambiar estado</f:facet>
-    				<h:commandButton value="Cambiar" action="#{PersonaBean.habilitarPersona(o)}" />
+    				<h:commandButton value="Cambiar" action="#{AdminBean.habilitarPersona(o)}" />
     			</h:column>
     		
     		</h:dataTable>

@@ -50,7 +50,7 @@
                         <li>
                             <!-- <a href="/JRuteros6/faces/admin_perfil.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a> -->
                             <h:form>
-                                <h:commandLink action="#{PersonaBean.actualizar}">
+                                <h:commandLink action="#{AdminBean.actualizar}">
                                     <i class="glyphicon glyphicon-user"></i> Perfil
                                 </h:commandLink>
                             </h:form>
@@ -102,7 +102,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.nombreUser}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.nombreUser}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -111,7 +111,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.apellido}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.apellido}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -120,7 +120,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.nombre}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.nombre}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -129,7 +129,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.dni}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.dni}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -138,7 +138,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.domicilio}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.domicilio}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -147,7 +147,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.fechaNac}">
+								<h:outputText value="#{AdminBean.adminLogin.fechaNac}">
 									<f:convertDateTime type="date"  timeZone="America/Argentina/Catamarca" />
 								</h:outputText>
 							</div>
@@ -158,7 +158,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.sexo}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.sexo}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -167,7 +167,7 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.mail}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.mail}"></h:outputText>
 							</div>
 							
 							<div class="panel-heading">
@@ -176,12 +176,12 @@
 								</h3>
 							</div>
 							<div class="panel-body">
-								<h:outputText value="#{PersonaBean.usrLogin.pass}"></h:outputText>
+								<h:outputText value="#{AdminBean.adminLogin.pass}"></h:outputText>
 							</div>
 							
 						</div>
 			
-						<a href="/Proyecto/faces/editarPerfil.xhtml"><button type="button" class="btn btn-primary col-lg-12">EDITAR</button></a>
+						<a href="/JRuteros6/faces/admin_editarPerfil.xhtml"><button type="button" class="btn btn-primary col-lg-12">EDITAR</button></a>
                     </div>
                     </div>
             <!-- /.container-fluid -->

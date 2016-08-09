@@ -32,7 +32,6 @@ public class PersonaBean
 		return "exito";
 	}
 	
-	// Prueba para usar enumerativo en JSF
 	public SelectItem[] getGenderValues()
 	{
 		SelectItem[] items = new SelectItem[Sexo.values().length];
