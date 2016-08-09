@@ -1,0 +1,27 @@
+package controller;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+public class UsrBean 
+{
+	
+	
+	public String actualizar()
+	{
+		if(this.adminLogin == null)
+		{	
+			HttpSession session;
+			FacesContext context = FacesContext.getCurrentInstance();
+		    session = (HttpSession) context.getExternalContext().getSession(true);
+		       
+			Long id = (Long) session.getAttribute("usrId");
+			if(id != null)
+			{
+				this.adminLogin = pDao.recuperarPersona(id);
+			}
+		}
+		return "adminPerfil";
+	}
+
+}
