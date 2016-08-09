@@ -1,9 +1,11 @@
 package controller;
 
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
 import modelo.Persona;
+import modelo.Sexo;
 import modeloDAO.PersonaDAO;
 
 public class UsrBean 
@@ -32,6 +34,17 @@ public class UsrBean
 	{
 		pDao.modificarPersona(usrLogin);
 		return "editarUsr";
+	}
+	
+	public SelectItem[] getGenderValues()
+	{
+		SelectItem[] items = new SelectItem[Sexo.values().length];
+	    int i = 0;
+	    for(Sexo g: Sexo.values())
+	    {
+	      items[i++] = new SelectItem(g, g.name());
+	    }
+	    return items;
 	}
 	
 	public Persona getUsrLogin() {
