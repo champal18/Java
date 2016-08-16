@@ -18,7 +18,7 @@ import modeloDAO.PersonaDAO;
  * Servlet implementation class LoginUsr
  */
 
-@WebServlet("/LoginUsr")
+@WebServlet("/faces/LoginUsr")
 public class LoginUsr extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -62,21 +62,21 @@ public class LoginUsr extends HttpServlet {
 				}
 				else
 				{
-					RequestDispatcher disp = context.getRequestDispatcher("/error.html");
+					RequestDispatcher disp = context.getRequestDispatcher("/faces/login_error.xhtml");
 					if(disp != null)
 						disp.forward(request, response);
 				}
 			}
 			else
 			{
-				RequestDispatcher disp = context.getRequestDispatcher("/errorDeshabilitado.html");
+				RequestDispatcher disp = context.getRequestDispatcher("/faces/login_errorDeshabilitado.xhtml");
 				if(disp != null)
 					disp.forward(request, response);
 			}
 		}
 		else
 		{
-			RequestDispatcher disp = context.getRequestDispatcher("/error.html");
+			RequestDispatcher disp = context.getRequestDispatcher("/faces/login_error.xhtml");
 			if(disp != null)
 				disp.forward(request, response);
 		}
