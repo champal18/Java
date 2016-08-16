@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
@@ -38,7 +39,7 @@ public class Ruta
 	
 	private Integer tiempo;
 	
-	private LocalDate fecha;
+	private Date fecha;
 	
 	private String fotos;
 	
@@ -55,7 +56,7 @@ public class Ruta
     public Ruta(){}
     
     public Ruta(String nombre, String descripcion, Privacidad privacidad, Recorrido recorrido, Formato formato,
-    		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, LocalDate fecha, String fotos, 
+    		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, Date fecha, String fotos, 
     		float promedio, int cantR, List<RutaRealizada> registroR, Persona owner)
     {
     	this.nombre = nombre;
@@ -148,11 +149,11 @@ public class Ruta
 		this.tiempo = tiempo;
 	}
 	
-	public LocalDate getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 	
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	
