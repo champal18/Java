@@ -1,0 +1,20 @@
+package controller;
+
+import modelo.Actividad;
+import modeloDAO.ActividadDAO;
+
+public class ActividadBean 
+{
+	private ActividadDAO actDao = new ActividadDAO();
+	private Actividad act = new Actividad();
+	
+	
+	public ActividadDAO getActDao() {
+		return actDao;
+	}
+
+	public void setActDao(ActividadDAO actDao) {
+		this.actDao = actDao;
+	}
+	
+}

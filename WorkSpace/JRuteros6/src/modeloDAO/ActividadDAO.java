@@ -1,8 +1,13 @@
 package modeloDAO;
 
+import java.util.Collections;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
 import interfazDAO.IActividadDAO;
 import modelo.Actividad;
 
@@ -91,6 +96,27 @@ public class ActividadDAO implements IActividadDAO
 		
 		return a;
 		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Actividad> recuperarActividades() {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Actividad> acts = null;
+		
+		try {
+			Query q = em.createQuery("FROM Actividad");
+			acts = Collections.checkedList(q.getResultList(), Actividad.class);	
+		} catch (Exception e) {
+			acts = null;
+			System.out.println("Excepcion!");
+		}
+		
+		em.close();
+		return acts;
 	}
 
 }
