@@ -91,28 +91,41 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-            <div class="col-lg-5">
-                      <form class="form-horizontal" role="form" action="EditarActividad" method = "post">
-				
-				<div class="form-group">
-					 
-					<label for="inputEmail3" class="col-sm control-label">
-						Nuevo nombre de la actividad
-					</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" name="nombre" />
+            <div class="col-lg-5">	
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Nombre actual de actividad
+						</h3>
+					</div>
+					<div class="panel-body">
+						<h:outputText value="#{ActividadBean.actEditada.nombre}"></h:outputText>
+					</div>
+					
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Nombre nuevo de actividad
+						</h3>
+					</div>
+					<div class="panel-body">
+						<h:form styleClass="form-horizontal">
+							<h:inputText styleClass="form-control" id="nameActividad" value="#{ActividadBean.actEditada.nombre}" 
+			              			validatorMessage="Nombre de actividad: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+									required="true" requiredMessage="Nombre de actividad es un campo obligatorio">
+									<f:validateLength minimum="4" maximum="20"/>
+						  			<f:validateRegex pattern="[A-Za-z]+"/>
+								</h:inputText>
+							<br><p:messages for="nameActividad" autoUpdate="true" /></br>
+							<div class="form-group">
+								<div class="col-sm-10">
+									<h:commandButton class="btn btn-primary" value="CONFIRMAR CAMBIOS" action="#{ActividadBean.editarActividad}"></h:commandButton>
+									<a href="/JRuteros6/faces/admin_listaActividades.xhtml"><button type="button" class="btn btn-primary">CANCELAR</button></a>
+								</div>
+							</div>			
+						</h:form>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-10">
-						 
-						<button type="submit" class="btn btn-primary">
-							Editar
-						</button>
-					</div>
-				</div>
-			</form>
-                    </div>
+            </div>
 
             </div>
             <!-- /.container-fluid -->

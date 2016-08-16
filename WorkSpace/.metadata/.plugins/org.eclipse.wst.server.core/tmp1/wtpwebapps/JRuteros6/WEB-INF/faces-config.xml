@@ -91,4 +91,12 @@
   </navigation-case>
 </navigation-rule>
 
+<navigation-rule> 
+  <from-view-id>admin_listaActividades.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>editar_actividad</from-outcome>
+      <to-view-id>/faces/admin_editarActividad.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
 </faces-config>

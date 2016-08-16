@@ -8,7 +8,10 @@ public class ActividadBean
 {
 	private ActividadDAO actDao = new ActividadDAO();
 	private Actividad act = new Actividad();
-	private List<Actividad> listaActividades = actDao.recuperarActividades();
+	private List<Actividad> listaActividades;
+	private Actividad actEditada = new Actividad();
+	
+	public ActividadBean(){}
 	
 	public String altaActividad()
 	{
@@ -34,6 +37,7 @@ public class ActividadBean
 	}
 
 	public List<Actividad> getListaActividades() {
+		this.listaActividades = actDao.recuperarActividades();
 		return listaActividades;
 	}
 
@@ -41,11 +45,31 @@ public class ActividadBean
 		this.listaActividades = listaActividades;
 	}
 	
-	public String habilitarPersona(Actividad selec)	// --> parametro enviado desde el xhtml
+	public String habilitarActividad(Actividad selec)	// --> parametro enviado desde el xhtml
 	{
 		selec.setHabilitada(!selec.getHabilitada());
 		actDao.modificarActividad(selec);
 		return null;
+	}
+	
+	public String selecActividad(Actividad selec)
+	{
+		this.actEditada = selec;
+		return "editar_actividad";
+	}
+	
+	public String editarActividad()
+	{
+		actDao.modificarActividad(actEditada);
+		return "admin_opOk";
+	}
+
+	public Actividad getActEditada() {
+		return actEditada;
+	}
+
+	public void setActEditada(Actividad actEditada) {
+		this.actEditada = actEditada;
 	}
 	
 }

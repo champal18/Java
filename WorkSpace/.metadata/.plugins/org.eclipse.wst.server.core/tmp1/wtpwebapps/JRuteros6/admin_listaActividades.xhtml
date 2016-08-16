@@ -91,80 +91,66 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-            	<h1>Lista de actividades</h1><br></br>
             
-            <div class="row">
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://www.blogcdn.com/es.engadget.com/media/2007/07/jetkayak_485.jpg" WIDTH="300" HEIGHT="200" alt="" />
-                            <div class="caption">
-                                <h4><a href="#">Actividad 1</a>
-                                </h4>
-                                <input type="radio" name="selec" value="habilitar" checked="checked" /> Habilitar
-								<input type="radio" name="selec" value="deshabilitar" /> Deshabilitar<br />
-                                <a href="/JRuteros6/faces/admin_editarActividad.xhtml"> <button type="button" class="btn btn-primary">Editar</button></a>
-								<a href="/JRuteros6/faces/admin_eliminarActividad.xhtml"> <button type="button" class="btn btn-primary">Eliminar</button></a><br />
-                            </div>
-                            <div class="ratings">
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://www.blogcdn.com/es.engadget.com/media/2007/07/jetkayak_485.jpg" WIDTH="300" HEIGHT="200" alt="" />
-                            <div class="caption">
-                                <h4><a href="#">Actividad 2</a>
-                                </h4>
-                                <input type="radio" name="selec" value="habilitar" checked="checked" /> Habilitar
-								<input type="radio" name="selec" value="deshabilitar" /> Deshabilitar<br />
-                                <a href="/JRuteros6/faces/admin_editarActividad.xhtml"> <button type="button" class="btn btn-primary">Editar</button></a>
-								<a href="/JRuteros6/faces/admin_eliminarActividad.xhtml"> <button type="button" class="btn btn-primary">Eliminar</button></a><br />
-                            </div>
-                            <div class="ratings">
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://www.blogcdn.com/es.engadget.com/media/2007/07/jetkayak_485.jpg" WIDTH="300" HEIGHT="200" alt="" />
-                            <div class="caption">
-                                <h4><a href="#">Actividad 3</a>
-                                </h4>
-                                <input type="radio" name="selec" value="habilitar" checked="checked" /> Habilitar
-								<input type="radio" name="selec" value="deshabilitar" /> Deshabilitar<br />
-                                <a href="/JRuteros6/faces/admin_editarActividad.xhtml"> <button type="button" class="btn btn-primary">Editar</button></a>
-								<a href="/JRuteros6/faces/admin_eliminarActividad.xhtml"> <button type="button" class="btn btn-primary">Eliminar</button></a><br />
-                            </div>
-                            <div class="ratings">
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-            </div>
+		        <h1>Lista de actividades<br /><br /></h1>
+				Orden<select name="orden" class="btn btn-default">
+				<option value="nombre">Nombre</option>
+				<option value="cantRutas">Cantidad de rutas</option>
+				</select>
+				Criterio
+				<select name="orden2" class="btn btn-default">
+				<option value="asc">Ascendente</option>
+				<option value="desc">Descendente</option>
+				</select><br /><br />
+				         
+				<div class="row">	
+		    		<h:form>
+		    		<h:dataTable class="table" value="#{ActividadBean.listaActividades}" var="o"
+		    			styleClass="order-table"
+		    			headerClass="order-table-header"
+		    			rowClasses="order-table-odd-row,order-table-even-row"
+		    		>
+		
+		    			<h:column>
+		    				<!-- column header -->
+		    				<f:facet name="header">#ID</f:facet>
+		    				<!-- row record -->
+		    				#{o.id}
+		    			</h:column>
+		    			
+		    			<h:column>
+		    				<f:facet name="header">Usuario</f:facet>
+		    				#{o.nombre}
+		    			</h:column>
+		    			
+		    			<h:column>
+		    				<f:facet name="header">Habilitado</f:facet>
+		    				#{o.habilitada}
+		    			</h:column>
+		<!--	Boton para cambiar de estado con el BEAN	-->
+		    			<h:column>
+		    				<f:facet name="header">Cambiar estado</f:facet>
+		    				<h:commandButton value="Cambiar" action="#{ActividadBean.habilitarActividad(o)}" />
+		    			</h:column>
+		    			
+		<!--	Boton para cambiar de estado con el BEAN	-->
+		    			<h:column>
+		    				<f:facet name="header">Modificar</f:facet>
+		    				<h:commandButton value="Editar" action="#{ActividadBean.selecActividad(o)}" />
+		    			</h:column>
+		    			
+		<!--	Boton para cambiar de estado con el BEAN	-->
+		    			<h:column>
+		    				<f:facet name="header">Cambiar estado</f:facet>
+		    				<h:commandButton value="Eliminar" action="#{ActividadBean.eliminarActividad(o)}" />
+		    			</h:column> 			
+		    		
+		    		</h:dataTable>
+		    		</h:form>
+		
+		      	</div>
+				         
+			</div>
             <!-- /.container-fluid -->
 
         </div>
