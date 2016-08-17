@@ -31,13 +31,7 @@ public class ActividadBean
 		this.actDao = actDao;
 	}
 
-	public Actividad getAct() 
-	{
-		if(!control)
-		{
-			this.control = true;
-			this.act = new Actividad();
-		}
+	public Actividad getAct() {
 		return act;
 	}
 
@@ -79,12 +73,6 @@ public class ActividadBean
 
 	public void setActEditada(Actividad actEditada) {
 		this.actEditada = actEditada;
-	}
-	
-	public String eliminarActividad(Actividad Selec)
-	{
-		this.actDao.eliminarActividad(Selec);
-		return "admin_opOk";
 	}
 	
 }

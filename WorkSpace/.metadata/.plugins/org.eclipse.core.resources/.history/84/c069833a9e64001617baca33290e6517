@@ -35,12 +35,6 @@ public class AdminBean
 	
 	public String actualizar()
 	{
-		
-		return "adminPerfil";
-	}
-	
-	public Persona getAdminLogin()
-	{
 		if(this.adminLogin == null)
 		{	
 			HttpSession session;
@@ -53,6 +47,10 @@ public class AdminBean
 				this.adminLogin = pDao.recuperarPersona(id);
 			}
 		}
+		return "adminPerfil";
+	}
+	
+	public Persona getAdminLogin() {
 		return adminLogin;
 	}
 

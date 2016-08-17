@@ -10,20 +10,17 @@ public class ActividadBean
 	private Actividad act = new Actividad();
 	private List<Actividad> listaActividades;
 	private Actividad actEditada = new Actividad();
-	private boolean control = false;
 	
 	public ActividadBean(){}
 	
 	public String altaActividad()
 	{
-		this.control = false;
 		act.setHabilitada(true);
 		actDao.guardarActividad(act);
 		return "admin_opOk";
 	}
 	
-	public ActividadDAO getActDao() 
-	{
+	public ActividadDAO getActDao() {
 		return actDao;
 	}
 
@@ -31,13 +28,7 @@ public class ActividadBean
 		this.actDao = actDao;
 	}
 
-	public Actividad getAct() 
-	{
-		if(!control)
-		{
-			this.control = true;
-			this.act = new Actividad();
-		}
+	public Actividad getAct() {
 		return act;
 	}
 
@@ -79,12 +70,6 @@ public class ActividadBean
 
 	public void setActEditada(Actividad actEditada) {
 		this.actEditada = actEditada;
-	}
-	
-	public String eliminarActividad(Actividad Selec)
-	{
-		this.actDao.eliminarActividad(Selec);
-		return "admin_opOk";
 	}
 	
 }

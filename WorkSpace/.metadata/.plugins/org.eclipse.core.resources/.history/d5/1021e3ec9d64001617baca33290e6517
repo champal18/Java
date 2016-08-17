@@ -13,7 +13,7 @@ public class AdminBean
 	private PersonaDAO pDao = new PersonaDAO();
 	private Persona adminLogin;
 
-	private List<Persona> listaUsuarios = pDao.recuperarUsuarios();
+	private List<Persona> listaUsuarios; 
 
 	public List<Persona> getListaUsuarios()
 	{
@@ -26,11 +26,6 @@ public class AdminBean
 	}
 
 	public AdminBean(){}
-	
-	public List<Persona> recuperarUsuarios()
-	{
-		
-	}
 	
 	public String habilitarPersona(Persona selec)	// --> parametro enviado desde el xhtml
 	{

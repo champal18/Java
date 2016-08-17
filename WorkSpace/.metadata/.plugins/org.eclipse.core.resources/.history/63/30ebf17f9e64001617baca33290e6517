@@ -83,8 +83,7 @@ public class ActividadBean
 	
 	public String eliminarActividad(Actividad Selec)
 	{
-		this.actDao.eliminarActividad(Selec);
-		return "admin_opOk";
+		
 	}
 	
 }
