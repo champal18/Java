@@ -10,6 +10,7 @@ import modelo.Dificultad;
 import modelo.Formato;
 import modelo.Persona;
 import modelo.Privacidad;
+import modeloDAO.ActividadDAO;
 import modeloDAO.PersonaDAO;
 import modeloDAO.RutaDAO;
 
@@ -18,6 +19,7 @@ public class RutaBean {
 
 	private RutaDAO rDao = new RutaDAO();
 	private Ruta ruta = new Ruta();
+	private long idActividad;
 	
 	private boolean control = true;
 
@@ -40,6 +42,8 @@ public class RutaBean {
 	{
 		PersonaDAO pDAO= new PersonaDAO();
 		Persona persona= new Persona();
+		ActividadDAO aDAO= new ActividadDAO();
+		Actividad actividad=new Actividad();
 		
 		HttpSession session;
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -48,6 +52,7 @@ public class RutaBean {
 		Long id = (Long) session.getAttribute("usrId");
 		
 		persona=pDAO.recuperarPersona(id);
+		actividad=aDAO.recuperarActividad(idActividad);
 		
 		ruta.setPromedio(0);
 		ruta.setCantRealizadas(0);
@@ -55,7 +60,7 @@ public class RutaBean {
 		ruta.setRecorrido(null);
 		ruta.setOwner(persona);
 		ruta.setRegistroRealizadas(null);
-		ruta.setActividad(null);
+		ruta.setActividad(actividad);
 
 		
 		rDao.guardarRuta(ruta);
@@ -95,6 +100,13 @@ public class RutaBean {
 	    }
 	    return items;
 	}
-	
 
+	public long getIdActividad() {
+		return idActividad;
+	}
+
+	public void setIdActividad(long idActividad) {
+		this.idActividad = idActividad;
+	}
+	
 }

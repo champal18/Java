@@ -1,7 +1,11 @@
 package controller;
 
 import java.util.List;
+
+import javax.faces.model.SelectItem;
+
 import modelo.Actividad;
+import modelo.Dificultad;
 import modeloDAO.ActividadDAO;
 
 public class ActividadBean 
@@ -86,5 +90,17 @@ public class ActividadBean
 		this.actDao.eliminarActividad(Selec);
 		return "admin_opOk";
 	}
+	
+	public SelectItem[] getActividadValues()
+	{
+		SelectItem[] items = new SelectItem[listaActividades.size()];
+	    int i = 0;
+	    for(i=0;i<listaActividades.size();i++)
+	    {
+	      items[i] = new SelectItem(listaActividades.get(i).getId(), listaActividades.get(i).getNombre());
+	    }
+	    return items;
+	}
+	
 	
 }

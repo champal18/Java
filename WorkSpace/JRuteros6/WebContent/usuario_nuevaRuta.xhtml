@@ -152,9 +152,9 @@
                             </label>
                             <div class="col-sm-3">
                                 <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.ruta.nombre}" 
-                                validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+                                validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 40"
                                 required="true" requiredMessage="Nombre de ruta es un campo obligatorio">
-                                <f:validateLength minimum="4" maximum="20"/>
+                                <f:validateLength minimum="4" maximum="40"/>
                                 <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
                                 </h:inputText>
                             </div>
@@ -287,18 +287,25 @@
                         </div>
 
 		
-<!-- 					  <div class="form-group">  -->
-<!--                                 <label for="inputActividad" class="col-sm-offset-1 col-sm-2 control-label"> -->
-<!--                                         Actividad -->
-<!--                                 </label> -->
-<!--                                 <div class="col-sm-3"> -->
-<!--                                     <h:selectOneMenu id="actividad" value="#{PersonaBean.usr.sexo}" styleClass="form-control"  -->
-<!--                                     required="true" requiredMessage="Actividad es un campo obligatorio"> -->
-<!--                                     <f:selectItems value="#{PersonaBean.getGenderValues()}" /> -->
-<!--                                     </h:selectOneMenu> -->
-<!--                                 </div> -->
+					  <div class="form-group"> 
+                                <label for="inputActividad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Actividad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="actividad" value="#{RutaBean.idActividad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Actividad es un campo obligatorio">
+<!--                                     <f:selectItems value="#{ActividadBean.listaActividades}" var="act" itemValue="#{act.id}" itemlabel="#{act.nombre}"/> -->
+                                    <f:selectItems value="#{ActividadBean.getActividadValues()}" />
+                                    </h:selectOneMenu>
+                                    
+<!--                                     <h:selectOneMenu value="#{bean.userName}"> -->
+<!--     								<f:selectItems value="#{bean.users}" var="user" itemValue="#{user.name}" /> -->
+<!-- 									</h:selectOneMenu> -->
+                                    
+                                    
+                                </div>
                                 
-<!--                         </div> -->
+                        </div>
 
 
 <!-- 					  <div class="form-group"> -->
