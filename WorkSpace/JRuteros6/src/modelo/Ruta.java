@@ -1,6 +1,5 @@
 package modelo;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -41,8 +40,6 @@ public class Ruta
 	
 	private Date fecha;
 	
-	private String fotos;
-	
 	private float promedio;
 	
 	private int cantRealizadas;
@@ -53,10 +50,16 @@ public class Ruta
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
 	private Persona owner;
 	
+	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	private List<Foto> fotos;
+	
+	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	private List<Punto> Puntos;
+	
     public Ruta(){}
     
     public Ruta(String nombre, String descripcion, Privacidad privacidad, Recorrido recorrido, Formato formato,
-    		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, Date fecha, String fotos, 
+    		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, Date fecha, List<Foto> fotos, 
     		float promedio, int cantR, List<RutaRealizada> registroR, Persona owner)
     {
     	this.nombre = nombre;
@@ -157,11 +160,11 @@ public class Ruta
 		this.fecha = fecha;
 	}
 	
-	public String getFotos() {
+	public List<Foto> getFotos() {
 		return fotos;
 	}
 	
-	public void setFotos(String fotos) {
+	public void setFotos(List<Foto> fotos) {
 		this.fotos = fotos;
 	}
 

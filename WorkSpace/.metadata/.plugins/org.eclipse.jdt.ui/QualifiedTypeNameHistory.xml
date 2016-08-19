@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.UniqueConstraint"/>
-<fullyQualifiedTypeName name="interfazDAO.IActividadDAO"/>
-<fullyQualifiedTypeName name="interfazDAO.IAdminDAO"/>
 <fullyQualifiedTypeName name="modelo.Admin"/>
 <fullyQualifiedTypeName name="modeloDAO.AdminDAO"/>
 <fullyQualifiedTypeName name="interfazDAO.IPersonaDAO"/>
@@ -12,11 +9,9 @@
 <fullyQualifiedTypeName name="interfazDAO.IRutaRealizada"/>
 <fullyQualifiedTypeName name="modelo.Recorrido"/>
 <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
-<fullyQualifiedTypeName name="modelo.Ruta"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaRealizadaDAO"/>
 <fullyQualifiedTypeName name="modeloDAO.RecorridoDAO"/>
-<fullyQualifiedTypeName name="modelo.Punto"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
 <fullyQualifiedTypeName name="rest.RecorridoResource"/>
 <fullyQualifiedTypeName name="javax.ws.rs.core.UriInfo"/>
@@ -29,7 +24,6 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="rest.PuntosResource"/>
 <fullyQualifiedTypeName name="rest.PuntoService"/>
-<fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="java.lang.Long"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="modeloDAO.ActividadDAO"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Blob"/>
+<fullyQualifiedTypeName name="modelo.Punto"/>
+<fullyQualifiedTypeName name="interfazDAO.IPuntoDAO"/>
+<fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
+<fullyQualifiedTypeName name="modelo.Ruta"/>
+<fullyQualifiedTypeName name="rest.Punto"/>
 </qualifiedTypeNameHistroy>

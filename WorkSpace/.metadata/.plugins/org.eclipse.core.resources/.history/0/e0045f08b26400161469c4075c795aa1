@@ -1,0 +1,23 @@
+package modelo;
+
+import javax.persistence.*;
+
+@Entity
+public class Foto 
+{
+	@Id @GeneratedValue
+	private long id;
+	
+	private blob img;
+	
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+}
