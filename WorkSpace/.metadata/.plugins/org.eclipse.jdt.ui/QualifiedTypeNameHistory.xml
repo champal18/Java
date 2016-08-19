@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="modelo.Admin"/>
-<fullyQualifiedTypeName name="modeloDAO.AdminDAO"/>
-<fullyQualifiedTypeName name="interfazDAO.IPersonaDAO"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
 <fullyQualifiedTypeName name="interfazDAO.IRecorridoDAO"/>
 <fullyQualifiedTypeName name="interfazDAO.IRutaDAO"/>
@@ -57,7 +54,10 @@
 <fullyQualifiedTypeName name="com.mysql.jdbc.Blob"/>
 <fullyQualifiedTypeName name="modelo.Punto"/>
 <fullyQualifiedTypeName name="interfazDAO.IPuntoDAO"/>
+<fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modelo.Ruta"/>
-<fullyQualifiedTypeName name="rest.Punto"/>
+<fullyQualifiedTypeName name="modelo.Foto"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
 </qualifiedTypeNameHistroy>

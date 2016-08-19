@@ -3,6 +3,9 @@ package rest;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import modelo.Persona;
+import modelo.Ruta;
+
 @Entity
 @XmlRootElement
 public class Punto 
@@ -19,6 +22,17 @@ public class Punto
 	public double lat;
 	public double lon;
 	
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+	private Ruta ruta;
+	
+	public Ruta getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
+	}
+
 	public Punto(){};
 	
 	public Punto(double latitud, double longitud)
@@ -57,7 +71,6 @@ public class Punto
 	public void setIndice(long indice) {
 		this.indice = indice;
 	}
-	
 	
 
 }

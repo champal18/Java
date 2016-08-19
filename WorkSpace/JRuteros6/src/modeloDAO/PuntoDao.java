@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.persistence.*;
 import interfazDAO.IPuntoDAO;
+import modelo.Ruta;
 import rest.Punto;
 
 public enum PuntoDao implements IPuntoDAO
@@ -18,7 +19,7 @@ public enum PuntoDao implements IPuntoDAO
 	}
 
 	@Override
-	public void guardarPuntos() 
+	public void guardarPuntos(Ruta ruta) 
 	{
 		// TODO Auto-generated method stub
 		
@@ -35,6 +36,7 @@ public enum PuntoDao implements IPuntoDAO
 			{
 				long j = i;
 				Punto p = puntos.get(j+1);
+				p.setRuta(ruta);
 				em.persist(p);
 			} catch (Exception e)
 			{

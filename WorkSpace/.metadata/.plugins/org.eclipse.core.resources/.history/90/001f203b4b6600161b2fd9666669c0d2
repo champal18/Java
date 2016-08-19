@@ -1,0 +1,24 @@
+package modelo;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		PreparedStatement stmt = conexion.prepareStatement(sql);
+		
+		File imagen = new File("C:/Users/juanpablo/Pictures/Casla/1.jpg");
+		FileInputStream   fis = new FileInputStream(imagen);
+		//Lo convertimos en un Stream
+		stmt.setBinaryStream(1, fis, (int) imagen.length());
+		
+		Foto f = new Foto();
+		f.setImg(img);
+		
+	}
+
+}

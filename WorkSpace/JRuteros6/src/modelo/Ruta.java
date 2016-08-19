@@ -26,9 +26,6 @@ public class Ruta
 	
 	private Privacidad privacidad;
 	
-	@OneToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH})
-	private Recorrido recorrido;
-	
 	private Formato formato;
 	
 	private Integer distancia;
@@ -52,22 +49,21 @@ public class Ruta
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
 	private Persona owner;
 	
-	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
 	private List<Foto> fotos;
 	
-//	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
-//	private List<Punto> Puntos;
+	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	private List<Punto> Puntos;
 	
     public Ruta(){}
     
-    public Ruta(String nombre, String descripcion, Privacidad privacidad, Recorrido recorrido, Formato formato,
+    public Ruta(String nombre, String descripcion, Privacidad privacidad, Formato formato,
     		Integer distancia, Dificultad dificultad, Actividad actividad, Integer tiempo, Date fecha, List<Foto> fotos, 
     		float promedio, int cantR, List<RutaRealizada> registroR, Persona owner)
     {
     	this.nombre = nombre;
     	this.descripcion = descripcion;
     	this.privacidad = privacidad;
-    	this.recorrido = recorrido;
     	this.formato = formato;
     	this.distancia = distancia;
     	this.dificultad = dificultad;
@@ -104,14 +100,6 @@ public class Ruta
 	
 	public void setPrivacidad(Privacidad privacidad) {
 		this.privacidad = privacidad;
-	}
-	
-	public Recorrido getRecorrido() {
-		return recorrido;
-	}
-	
-	public void setRecorrido(Recorrido recorrido) {
-		this.recorrido = recorrido;
 	}
 	
 	public Formato getFormato() {

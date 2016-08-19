@@ -9,7 +9,6 @@
 	<class>modelo.Actividad</class>
 	<class>modelo.Persona</class>
 	<class>modelo.RutaRealizada</class>
-	<class>modelo.Recorrido</class>
 	<class>modelo.Ruta</class>
 	<class>modelo.Foto</class>
 	<class>rest.Punto</class>
