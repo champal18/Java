@@ -2,11 +2,8 @@ package rest;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-
-import modelo.Punto;
 
 @Path("/rutas/1")
 public class PuntoResource 

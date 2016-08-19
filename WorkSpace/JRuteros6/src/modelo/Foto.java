@@ -1,8 +1,8 @@
 package modelo;
 
-import javax.persistence.*;
+import java.sql.Blob;
 
-import com.mysql.jdbc.Blob;
+import javax.persistence.*;
 
 @Entity
 public class Foto 

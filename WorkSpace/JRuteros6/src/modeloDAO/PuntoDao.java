@@ -2,12 +2,9 @@ package modeloDAO;
 
 import java.util.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.*;
 import interfazDAO.IPuntoDAO;
-import modelo.Punto;
+import rest.Punto;
 
 public enum PuntoDao implements IPuntoDAO
 { 
@@ -21,24 +18,31 @@ public enum PuntoDao implements IPuntoDAO
 	}
 
 	@Override
-	public void guardarPunto(Punto p) 
+	public void guardarPuntos() 
 	{
 		// TODO Auto-generated method stub
-		SingletonEMF single = SingletonEMF.getIns();
-		EntityManagerFactory emf = single.getEMF();
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction etx = em.getTransaction();
-		etx.begin();
 		
-		try
+		int i;
+		for(i=0;i<this.puntos.size();i++)
 		{
-			em.persist(p);
-		} catch (Exception e)
-		{
-			System.out.println(e.toString());
+			
+			SingletonEMF single = SingletonEMF.getIns();
+			EntityManagerFactory emf = single.getEMF();
+			EntityManager em = emf.createEntityManager();
+			EntityTransaction etx = em.getTransaction();
+			etx.begin();
+			try
+			{
+				long j = i;
+				Punto p = puntos.get(j+1);
+				em.persist(p);
+			} catch (Exception e)
+			{
+				System.out.println(e.toString());
+			}
+			etx.commit();
+			em.close();
 		}
-		etx.commit();
-		em.close();
 		
 	}
 

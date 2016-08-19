@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
+import rest.Punto;
+
 @Entity
 public class Ruta 
 {
@@ -53,8 +55,8 @@ public class Ruta
 	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
 	private List<Foto> fotos;
 	
-	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
-	private List<Punto> Puntos;
+//	@OneToMany(mappedBy="ruta", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+//	private List<Punto> Puntos;
 	
     public Ruta(){}
     

@@ -11,6 +11,8 @@
 	<class>modelo.RutaRealizada</class>
 	<class>modelo.Recorrido</class>
 	<class>modelo.Ruta</class>
+	<class>modelo.Foto</class>
+	<class>rest.Punto</class>
 <!-- 	<properties> -->
 <!-- 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> -->
 <!-- 		<property name="hibernate.connection.url" value="jdbc:mysql://mysql.java.linti.unlp.edu.ar/jyaa_sala_bd6"/> -->

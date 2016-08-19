@@ -12,6 +12,7 @@ import modelo.Persona;
 import modelo.Privacidad;
 import modeloDAO.ActividadDAO;
 import modeloDAO.PersonaDAO;
+import modeloDAO.PuntoDao;
 import modeloDAO.RutaDAO;
 
 public class RutaBean {
@@ -107,6 +108,12 @@ public class RutaBean {
 
 	public void setIdActividad(long idActividad) {
 		this.idActividad = idActividad;
+	}
+	
+	public void puntos()
+	{
+		PuntoDao pDao = PuntoDao.instance;
+		pDao.guardarPuntos();
 	}
 	
 }

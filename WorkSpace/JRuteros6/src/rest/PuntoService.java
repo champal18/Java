@@ -3,8 +3,6 @@ package rest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import modelo.Punto;
 import modeloDAO.PuntoDao;
 
 public class PuntoService 
@@ -18,7 +16,7 @@ public class PuntoService
 	
 	public void createPunto(Punto p)
 	{
-		puntoDao.getPuntos().put(p.getId(), p);
+		puntoDao.getPuntos().put(p.getIndice(), p);
 	}
 	
 	public Map<Long, Punto> getPuntos()

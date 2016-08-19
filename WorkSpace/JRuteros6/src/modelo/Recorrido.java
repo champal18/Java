@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
-import modelo.Punto;
+import rest.Punto;
+
 
 @Entity
 public class Recorrido 
