@@ -1,17 +1,37 @@
 package controller;
 
+import java.util.List;
+
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
 import modelo.Persona;
+import modelo.Ruta;
 import modelo.Sexo;
 import modeloDAO.PersonaDAO;
+import modeloDAO.RutaDAO;
 
 public class UsrBean 
 {
+	
+	
 	private Persona usrLogin;
 	private PersonaDAO pDao = new PersonaDAO();
+	private RutaDAO rDao=new RutaDAO();
+	private List<Ruta> listaRutas; 
+	
+	public List<Ruta> getListaRutas()
+	{
+		this.listaRutas =  rDao.recuperarRutasUsuario(this.getUsrLogin().getId());
+		return listaRutas;
+	}
+
+	public void setListaRutas(List<Ruta> listaRutas) {
+		this.listaRutas = listaRutas;
+	}
+	
+	
 	
 	public String editarPersona()
 	{

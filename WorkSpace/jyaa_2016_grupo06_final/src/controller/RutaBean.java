@@ -72,6 +72,13 @@ public class RutaBean {
 		return "usuario_opOk";
 	}
 	
+	public void eliminarRuta(Ruta ruta)	// --> parametro enviado desde el xhtml
+	{
+		rDao.eliminarRuta(ruta);
+	}
+	
+	
+	
 	public SelectItem[] getPrivacidadValues()
 	{
 		SelectItem[] items = new SelectItem[Privacidad.values().length];

@@ -46,7 +46,7 @@ public class Ruta
 	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
 	private List<RutaRealizada> registroRealizadas;
 
-	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Persona owner;
 	
 	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})

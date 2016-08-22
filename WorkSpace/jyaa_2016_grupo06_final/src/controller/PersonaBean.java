@@ -10,9 +10,12 @@ import modeloDAO.PersonaDAO;
 
 public class PersonaBean 
 {
+	
+	
 	private PersonaDAO pDao = new PersonaDAO();
 	private Persona usr = new Persona();
 
+	
 	public PersonaBean(){}
 	
 	public Persona getUsr() {
