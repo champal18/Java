@@ -1,0 +1,12 @@
+package interfazDAO;
+
+import modelo.Foto;
+import modelo.Ruta;
+
+public interface IFotoDAO 
+{
+	public void guardarFoto(Foto f);
+	public void modificarFoto(Foto f);
+	public void eliminarFoto(Foto f);
+	public List<Foto> recuperarFotos(long idRuta);
+}

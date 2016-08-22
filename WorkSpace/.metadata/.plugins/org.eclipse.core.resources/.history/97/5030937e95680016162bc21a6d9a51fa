@@ -1,0 +1,35 @@
+package modeloDAO;
+
+import interfazDAO.IFotoDAO;
+import modelo.Foto;
+import modelo.Ruta;
+
+public class FotoDAO implements IFotoDAO
+{
+
+	@Override
+	public void guardarFoto(Foto f)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modificarFoto(Foto f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarFoto(Foto f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Foto recuperarFotos(long idRuta) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

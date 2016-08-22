@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="interfazDAO.IRecorridoDAO"/>
-<fullyQualifiedTypeName name="interfazDAO.IRutaDAO"/>
-<fullyQualifiedTypeName name="interfazDAO.IRutaRealizada"/>
-<fullyQualifiedTypeName name="modelo.Recorrido"/>
-<fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
-<fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
-<fullyQualifiedTypeName name="modeloDAO.RutaRealizadaDAO"/>
-<fullyQualifiedTypeName name="modeloDAO.RecorridoDAO"/>
-<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
-<fullyQualifiedTypeName name="rest.RecorridoResource"/>
-<fullyQualifiedTypeName name="javax.ws.rs.core.UriInfo"/>
-<fullyQualifiedTypeName name="javax.ws.rs.core.Request"/>
-<fullyQualifiedTypeName name="rest.RecorridoService"/>
-<fullyQualifiedTypeName name="javax.ws.rs.FormParam"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -34,7 +19,6 @@
 <fullyQualifiedTypeName name="javax.faces.bean.ApplicationScoped"/>
 <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
 <fullyQualifiedTypeName name="antlr.collections.List"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.faces.model.DataModel"/>
@@ -57,7 +41,23 @@
 <fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modelo.Ruta"/>
-<fullyQualifiedTypeName name="modelo.Foto"/>
+<fullyQualifiedTypeName name="interfazDAO.IFotoDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="modelo.Foto"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistry"/>
+<fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
+<fullyQualifiedTypeName name="org.hibernate.Hibernate"/>
+<fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistryBuilder"/>
+<fullyQualifiedTypeName name="java.sql.Blob"/>
+<fullyQualifiedTypeName name="sun.misc.IOUtils"/>
+<fullyQualifiedTypeName name="java.io.DataInputStream"/>
+<fullyQualifiedTypeName name="jersey.repackaged.com.google.common.io.ByteStreams"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.IOUtils"/>
+<fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>

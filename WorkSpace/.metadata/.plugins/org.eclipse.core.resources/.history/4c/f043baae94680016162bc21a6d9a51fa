@@ -1,0 +1,9 @@
+package interfazDAO;
+
+public interface IFotoDAO 
+{
+	public void guardarActividad(Actividad act);
+	public void modificarActividad(Actividad act);
+	public void eliminarActividad(Actividad act);
+	public Actividad recuperarActividad(long id);
+}

@@ -1,6 +1,5 @@
 package modelo;
 
-import java.sql.Blob;
 import javax.persistence.*;
 
 @Entity
@@ -9,11 +8,21 @@ public class Foto
 	@Id @GeneratedValue
 	private long id;
 	
-//	private Blob img;
-	private String img;
+	@Lob
+	@Column(name="imagen", nullable=false)
+	private byte[] img;
+//	private String img;
 	
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Ruta ruta;
+
+	public Ruta getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
+	}
 
 	public long getId() {
 		return id;
@@ -23,20 +32,20 @@ public class Foto
 		this.id = id;
 	}
 
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
-//	public Blob getImg() {
+//	public String getImg() {
 //		return img;
 //	}
 //
-//	public void setImg(Blob img) {
+//	public void setImg(String img) {
 //		this.img = img;
 //	}
+
+	public byte[] getImg() {
+		return img;
+	}
+
+	public void setImg(byte[] img) {
+		this.img = img;
+	}
 
 }

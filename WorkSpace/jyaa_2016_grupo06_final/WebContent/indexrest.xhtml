@@ -9,21 +9,14 @@
       lang="es">
       
 <h:head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
-<script src="funciones.js"> </script>
 
 </h:head>
 
 <body>
 
-<div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
-
-<div id="googleMap" style="width:500px;height:380px;"></div>
-
 <div>
 <h:form>
-	<h:commandButton styleClass="btn btn-default" value="Registrarme" action="#{RutaBean.puntos}"></h:commandButton>
+	<h:commandButton styleClass="btn btn-default" value="Subir foto" action="#{RutaBean.guardarFoto}"></h:commandButton>
 </h:form>
 </div>
 </body>

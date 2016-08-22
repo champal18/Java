@@ -1,0 +1,8 @@
+package modeloDAO;
+
+import interfazDAO.IFotoDAO;
+
+public class FotoDAO implements IFotoDAO
+{
+
+}

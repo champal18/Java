@@ -1,0 +1,5 @@
+package interfazDAO;
+
+public interface IFotoDAO {
+
+}
