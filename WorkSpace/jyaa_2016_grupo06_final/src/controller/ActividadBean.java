@@ -6,13 +6,14 @@ import javax.faces.model.SelectItem;
 
 import modelo.Actividad;
 import modeloDAO.ActividadDAO;
+import modeloDAO.RutaDAO;
 
 public class ActividadBean 
 {
 	private ActividadDAO actDao = new ActividadDAO();
 	private Actividad act = new Actividad();
 	private List<Actividad> listaActividades;
-	private Actividad actSeleccionada = new Actividad();
+	private Actividad actSeleccionada;
 	private boolean control = false;
 	
 	public ActividadBean(){}
@@ -64,6 +65,14 @@ public class ActividadBean
 		return null;
 	}
 	
+	public Actividad getActSeleccionada() {
+		return actSeleccionada;
+	}
+
+	public void setActSeleccionada(Actividad actSeleccionada) {
+		this.actSeleccionada = actSeleccionada;
+	}
+	
 	public String selecEditar(Actividad selec)
 	{
 		this.actSeleccionada = selec;
@@ -81,24 +90,18 @@ public class ActividadBean
 		return "admin_opOk";
 	}
 
-	public Actividad getActSeleccionada() {
-		return actSeleccionada;
-	}
-
-	public void setActSeleccionada(Actividad actSelec) {
-		this.actSeleccionada = actSelec;
-	}
-	
-//	public String eliminarActividad(Actividad Selec)
-//	{
-//		this.actDao.eliminarActividad(Selec);
-//		return "admin_opOk";
-//	}
 	
 	public String eliminarSelec()
 	{
-		this.actDao.eliminarActividad(this.actSeleccionada);
-		return "admin_opOk";
+		RutaDAO rDao = new RutaDAO();
+		if(rDao.recuperarRutasCategoria(this.actSeleccionada.getId()) == null)
+		{
+			this.actDao.eliminarActividad(this.actSeleccionada);
+			return "admin_opOk";
+		}
+		else
+			return null;	// Redireccionar desde faceConfig a una pagina de error!
+		
 	}
 	
 	public SelectItem[] getActividadValues()
