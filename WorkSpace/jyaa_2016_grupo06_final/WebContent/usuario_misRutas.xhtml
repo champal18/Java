@@ -156,9 +156,6 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">
-							
-							
-									<div class="row">	
 									
 								    		<h:form>
 								    		<h:dataTable class="table" value="#{UsrBean.listaRutas}" var="r"
@@ -166,7 +163,11 @@
 								    			headerClass="order-table-header"
 								    			rowClasses="order-table-odd-row,order-table-even-row"
 								    		>
-								
+								    			
+								    			<h:column>
+								    					<f:facet name="header">Imagen</f:facet>
+												 		<a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/128/128/" class="media-object" /></a>
+												</h:column>
 								    			<h:column>
 								    				<!-- column header -->
 								    				<f:facet name="header">Nombre</f:facet>
@@ -188,19 +189,17 @@
 								    			<h:column>
 								    				<f:facet name="header"> </f:facet>
 														<a href="/jyaa_2016_grupo06_final/faces/usuario_editarRuta.xhtml"><button type="button" class="btn btn-primary">Editar</button></a>
-								    					<h:commandButton value="Eliminar" action="#{RutaBean.eliminarRuta(r)}" />
+								    					<h:commandButton value="Eliminar" class="btn btn-danger" action="#{RutaBean.eliminarRuta(r)}" />
 								    			</h:column>
 								    			
 <!-- 								    			<h:column> -->
 <!-- 								    				<f:facet name="header"> </f:facet> -->
 <!-- 								    				<h:commandButton value="Eliminar" action="#{AdminBean.habilitarPersona(o)}" /> -->
 <!-- 								    			</h:column> -->
-								    			
-								    		
+								    				
 								    		</h:dataTable>
 								    		</h:form>
 								
-								      	</div>
 							
 							
 							
