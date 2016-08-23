@@ -29,10 +29,11 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
+	
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
 	<script src="funciones.js"> </script>
-
 </h:head>
 
 <body>
@@ -84,11 +85,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> #{sessionScope.usrName} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                        	<h:form>
-                        		<h:commandLink action="#{UsrBean.actualizar}">
-                        			<i class="glyphicon glyphicon-user"></i> Perfil
-                        		</h:commandLink>
-                        	</h:form>
+                        	<a href="/jyaa_2016_grupo06_final/faces/usuario_perfil.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
@@ -175,8 +172,9 @@
                                     required="true" requiredMessage="Descripcion es un campo obligatorio">
                                     <f:validateLength minimum="4" maximum="500"/>
                                     <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
-                                    </h:inputText>
                                     
+                                    </h:inputText>
+                                  
                                 </div>
                                 <div class="col-sm-4">
                                     <p:messages for="inputRutaDesc" autoUpdate="true" />
@@ -187,13 +185,13 @@
 
                         <div class="form-group">
                                 <label for="inputDistancia" class="col-sm-offset-1 col-sm-2 control-label">
-                                        Distancia(km)
+                                        Distancia
                                 </label>
                                 <div class="col-sm-3">
-                                    <h:inputText styleClass="form-control" id="inputDistancia" value="#{RutaBean.ruta.distancia}" placeholder="Distancia" 
+                                    <p:inputText styleClass="form-control" id="inputDistancia" value="#{RutaBean.ruta.distancia}" placeholder="Ingrese la distancia en kilometros" 
                                     required="true" requiredMessage="Distancia es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
 <!--                                <f:validateRegex pattern="[0-9]+" /> -->
-                                    </h:inputText>
+                                    </p:inputText>
                                 </div>
                                 <div class="col-sm-4">
                                     <p:messages for="inputDistancia" autoUpdate="true" />
@@ -242,10 +240,10 @@
                                         Tiempo Estimado
                                 </label>
                                 <div class="col-sm-3">
-                                    <h:inputText styleClass="form-control" id="inputTiempo" value="#{RutaBean.ruta.tiempo}" placeholder="Tiempo de realizacion" 
+                                    <p:inputText styleClass="form-control" id="inputTiempo" value="#{RutaBean.ruta.tiempo}" placeholder="Ingrese el tiempo en horas" 
                                     required="true" requiredMessage="Tiempo es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
 <!--                                <f:validateRegex pattern="[0-9]+" /> -->
-                                    </h:inputText>
+                                    </p:inputText>
                                 </div>
                                 <div class="col-sm-4">
                                     <p:messages for="inputTiempo" autoUpdate="true" />
@@ -306,13 +304,20 @@
 
 
 					  <div class="form-group">
-                                <label>Mapa</label>
-                                <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
-								<div id="googleMap" style="width:500px;height:380px;"></div>
+                                 <label for="inputActividad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Mapa
+                                </label>
+                                <div id="googleMap" style="width:500px;height:380px;" ></div>
+                                <div><input type="button" class="col-sm-offset-5 col-sm-2" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
+								
                       </div>
+					  <div class="form-group">
+					  		<img id="blah" alt="your image" width="100" height="100" />
+
+								<input type="file" 
+   								 onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
 					  
-					
-					  
+					  </div>
 <!-- 					  <div class="form-group"> -->
 <!--                                 <label>Fotos</label> -->
 <!--                                 <input type="file" name="foto" /> -->
@@ -321,7 +326,7 @@
 					 
 					  		<div class="form-group">
 								<div class="col-sm-12">
-									<h:commandButton class="btn btn-default" value="Crear ruta" action="#{RutaBean.altaRuta}"></h:commandButton>
+									<h:commandButton  class="btn btn-success btn-lg btn-block" value="Crear ruta"  action="#{RutaBean.altaRuta}"></h:commandButton>
 								</div>
 							</div>
 					  

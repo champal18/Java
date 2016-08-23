@@ -87,11 +87,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> #{sessionScope.usrName} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                        	<h:form>
-                        		<h:commandLink action="#{UsrBean.actualizar}">
-                        			<i class="glyphicon glyphicon-user"></i> Perfil
-                        		</h:commandLink>
-                        	</h:form>
+                      		 <a href="/jyaa_2016_grupo06_final/faces/usuario_perfil.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
@@ -132,7 +128,7 @@
 
         <div id="page-wrapper">
         
-        		<!-- Page Heading -->
+			<!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
@@ -143,124 +139,201 @@
                 </div>
                 <!-- /.row -->        
 
-             	<form action="EditarRuta" method="post">
+            <div class="container-fluid">
+            		
+					<h:form class="form-horizontal">
 					  
-		   
-					   <div class="form-group">
-                           <label>Nombre</label>
-                           <input class="form-control" placeholder="Ingrese su nombre" type="text" name="nombre" value="Nombre de la ruta" />
-                       </div>
-					  
-					  
-					  <div class="form-group">
-                           <label>Descripción</label>
-                           <input class="form-control" placeholder="Ingrese la descripcion de la ruta" type="text" name="descripcion" value="Descripcion" />
-                       </div>
-					  
-					  
-					  <div class="form-group">
-                           <label>Distancia (km)</label>
-                           <input class="form-control" placeholder="Ingrese la distancia en kilometros" type="text" name="distancia" value="200" />
-                       </div>
-					  
-					  <div class="form-group">
-                           <label>Fecha de realización</label>
-                           <input class="form-control" placeholder="Ingrese la fecha con formato dd/mm/aa" type="text" name="fecha" value="15/03/2015" />
-                       </div>
-					 
-					  
-					   <div class="form-group">
-                                <label>Privacidad</label>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="privacidad" value="publico" checked="checked" />Publico
-                                    </label>
+                       <div class="form-group">
+                            <label for="inputNameRuta" class="col-sm-offset-1 col-sm-2 control-label">
+                                Nombre de ruta
+                            </label>
+                            <div class="col-sm-3">
+                                <p:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.ruta.nombre}" 
+                                placeholder="#{RutaBean.ruta.nombre}"
+                                validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 40"
+                                required="true" requiredMessage="Nombre de ruta es un campo obligatorio">
+                                <f:validateLength minimum="4" maximum="40"/>
+                                <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
+                                </p:inputText>
+                            </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputNameRuta" autoUpdate="true" />
                                 </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="privacidad" value="privado" />Privado
-                                    </label>
+                                <div class="col-sm-2">
                                 </div>
-             
-                     </div>
+                        </div>
+
+
 					  
-					
 					  
 					  <div class="form-group">
-                           <label>Tiempo estimado</label>
-                           <input class="form-control" placeholder="Ingrese en tiempo estimado en horas" type="text" name="tiempo" value="100" />
-                       </div>
-					  
-					 
-					 <div class="form-group">
-                                <label>Formato</label>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="formato" value="ida" checked="checked" />Ida
-                                    </label>
+                                <label for="inputRutaDesc" class="col-sm-offset-1 col-sm-2 control-label">
+                                    Descripcion
+                                </label>
+                                <div class="col-sm-3">
+                                    <p:inputText styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.ruta.descripcion}" 
+                                    placeholder="#{RutaBean.ruta.descripcion}"
+                                    validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 500"
+                                    required="true" requiredMessage="Descripcion es un campo obligatorio">
+                                    <f:validateLength minimum="4" maximum="500"/>
+                                    <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
+                                    </p:inputText>
+                                    
                                 </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="formato" value="circular" />Circular
-                                    </label>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputRutaDesc" autoUpdate="true" />
                                 </div>
-             
-                     </div>
-					 
+                                <div class="col-sm-2">
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="inputDistancia" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Distancia
+                                </label>
+                                <div class="col-sm-3">
+                                    <p:inputText styleClass="form-control" id="inputDistancia" value="#{RutaBean.ruta.distancia}" 
+									placeholder="#{RutaBean.ruta.distancia}"
+                                    required="true" requiredMessage="Distancia es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
+<!--                                <f:validateRegex pattern="[0-9]+" /> -->
+                                    </p:inputText>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputDistancia" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                                
+                        </div>
+
+                       <div class="form-group"> 
+                                <label for="inputFecha" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Fecha de Realizacion
+                                </label>
+                                <div class="col-sm-3">
+                                    <p:inputText styleClass="form-control" id="inputFecha" value="#{RutaBean.ruta.fecha}" 
+                                    placeholder="#{RutaBean.ruta.fecha}"
+                                    required="true" requiredMessage="Fecha de realizacion es un campo obligatorio">  
+                                    <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+                                    </p:inputText>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputFecha" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+
+
 					 
 					  
-					  <div class="form-group">
-                                <label>Dificultad</label>
-                                <select class="form-control" name="dificultad">
-                                   	<option value="facil">Fácil</option>
-								   	<option value="moderado" selected="selected">Moderado</option>
-								   	<option value="dificil">Dificil</option>
-									<option value="muyDificil">Muy dificil</option>
-									<option value="expertos">Expertos</option>
-                                </select>
-                      </div>
+							<div class="form-group"> 
+                                <label for="inputPrivacidad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Privacidad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="privacidad" value="#{RutaBean.ruta.privacidad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Privacidad es un campo obligatorio">
+                                    <f:selectItems value="#{RutaBean.getPrivacidadValues()}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                
+                            </div>
+
+
+                        <div class="form-group">
+                                <label for="inputTiempo" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Tiempo Estimado
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:inputText styleClass="form-control" id="inputTiempo" value="#{RutaBean.ruta.tiempo}" 
+                                    placeholder="#{RutaBean.ruta.tiempo}" 
+                                    required="true" requiredMessage="Tiempo es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
+<!--                                <f:validateRegex pattern="[0-9]+" /> -->
+                                    </h:inputText>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputTiempo" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                                
+                        </div>
+					  
 					 
+					 <div class="form-group"> 
+                                <label for="inputFormato" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Formato
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="formato" value="#{RutaBean.ruta.formato}" styleClass="form-control" 
+                                    required="true" requiredMessage="Formato es un campo obligatorio">
+                                    <f:selectItems value="#{RutaBean.getFormatoValues()}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                
+                            </div>
 					  
-					  <div class="form-group">
-                                <label>Actividad</label>
-                                <select class="form-control" name="actividad">
-                                  <option value="mountainBike">Mountain bike</option>
-								  <option value="ciclismo" selected="selected">Ciclismo</option>
-								  <option value="cicloturismo">Cicloturismo</option>
-								  <option value="senderismo">Senderismo</option>
-								  <option value="carreraPorMontania">Carrera por montaña</option>
-								  <option value="alpinismo">Alpinismo</option>
-								  <option value="motociclismo">Motociclismo</option>
-								  <option value="cuatriciclo">Cuatriciclo</option>
-								  <option value="esqui">Esquí</option>
-								  <option value="kayak">Kayak</option>
-								  <option value="vela">Vela</option>
-								  <option value="caballo">A caballo</option>
-                                </select>
-                      </div>
-					  
+					 
+					  <div class="form-group"> 
+                                <label for="inputDificultad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Dificultad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="dificultad" value="#{RutaBean.ruta.dificultad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Dificultad es un campo obligatorio">
+                                    <f:selectItems value="#{RutaBean.getDificultadValues()}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                
+                        </div>
+
 		
-					  
+					  <div class="form-group"> 
+                                <label for="inputActividad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Actividad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="actividad" value="#{RutaBean.idActividad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Actividad es un campo obligatorio">
+<!--                                     <f:selectItems value="#{ActividadBean.listaActividades}" var="act" itemValue="#{act.id}" itemlabel="#{act.nombre}"/> -->
+                                    <f:selectItems value="#{ActividadBean.getActividadValues()}" />
+                                    </h:selectOneMenu>
+                                    
+<!--                                     <h:selectOneMenu value="#{bean.userName}"> -->
+<!--     								<f:selectItems value="#{bean.users}" var="user" itemValue="#{user.name}" /> -->
+<!-- 									</h:selectOneMenu> -->
+                                    
+                                    
+                                </div>
+                                
+                        </div>
+
+
 					  <div class="form-group">
-                                <label>Mapa (archivo .kml)</label>
-                                <input type="file" name="mapa" />
+                                <label>Mapa</label>
+                                <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
+								<div id="googleMap" style="width:500px;height:380px;"></div>
                       </div>
 					  
 					
 					  
-					  <div class="form-group">
-                                <label>Fotos</label>
-                                <input type="file" name="foto" />
-                      </div>
+<!-- 					  <div class="form-group"> -->
+<!--                                 <label>Fotos</label> -->
+<!--                                 <input type="file" name="foto" /> -->
+<!--                       </div> -->
 					  
 					 
-					  <button type="submit" class="btn btn-default">Editar ruta</button>
+					  		<div class="form-group">
+								<div class="col-sm-12">
+									<h:commandButton class="btn btn-default" value="Crear ruta" action="#{RutaBean.altaRuta}"></h:commandButton>
+								</div>
+							</div>
 					  
 					  
-	
-					  
-					  
-					</form>
+					</h:form>
+                
+            </div>
             <!-- /.container-fluid -->
 
         </div>

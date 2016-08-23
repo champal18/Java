@@ -122,22 +122,25 @@
 		    				<f:facet name="header">Habilitado</f:facet>
 		    				#{o.habilitada}
 		    			</h:column>
-		<!--	Boton para cambiar de estado con el BEAN	-->
+						<!--	Boton para cambiar de estado con el BEAN	-->
 		    			<h:column>
 		    				<f:facet name="header">Cambiar estado</f:facet>
 		    				<h:commandButton value="Cambiar" action="#{ActividadBean.habilitarActividad(o)}" />
 		    			</h:column>
 		    			
-		<!--	Boton para cambiar de estado con el BEAN	-->
+						<!--	Boton para cambiar de estado con el BEAN	-->
 		    			<h:column>
 		    				<f:facet name="header">Modificar</f:facet>
-		    				<h:commandButton value="Editar" action="#{ActividadBean.selecActividad(o)}" />
+		    				<h:commandButton value="Editar" action="#{ActividadBean.selecEditar(o)}" />
 		    			</h:column>
 		    			
-		<!--	Boton para cambiar de estado con el BEAN	-->
+						<!--	Boton para cambiar de estado con el BEAN	-->
 		    			<h:column>
-		    				<f:facet name="header">Cambiar estado</f:facet>
-		    				<h:commandButton value="Eliminar" action="#{ActividadBean.eliminarActividad(o)}" />
+		    				<f:facet name="header">Eliminar</f:facet>
+							<h:form>
+<!-- 							<h:commandButton value="Eliminar" onclick="$('#myModal').modal('show');" update=":myForm" immediate="true" action="#{ActividadBean.selecEliminar(o)}" /> -->							
+								<p:commandButton value="Eliminar" onclick="$('#myModal').modal('show');" update=":myForm" immediate="true" action="#{ActividadBean.selecEliminar(o)}" />	
+							</h:form>
 		    			</h:column> 			
 		    		
 		    		</h:dataTable>
@@ -147,6 +150,28 @@
 				         
 			</div>
             <!-- /.container-fluid -->
+
+<!-- MODAL -->
+
+	  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+		    <div class="modal-content">
+		        <h:form id="myForm">
+		            <div class="modal-header">
+		                <h4 class="modal-title">Eliminar actividad</h4>
+		            </div>
+		            <div class="modal-body">
+		                Está seguro?
+		            </div>
+		            <h:panelGroup layout="block" styleClass="modal-footer">
+		                <p:commandLink value="Cancelar" immediate="true" styleClass="btn btn-default" oncomplete="$('#myModal').modal('hide');" />
+		            	<p:commandLink value="Eliminar" styleClass="btn btn-default" action="#{ActividadBean.eliminarSelec}" />
+		            </h:panelGroup>
+		        </h:form>
+		    </div>
+		</div>
+	</div>
+
 
         </div>
         <!-- /#page-wrapper -->

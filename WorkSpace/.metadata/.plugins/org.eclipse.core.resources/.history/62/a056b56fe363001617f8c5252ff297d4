@@ -1,8 +1,0 @@
-package controller;
-
-import modeloDAO.ActividadDAO;
-
-public class ActividadBean 
-{
-	private ActividadDAO actDao = 
-}

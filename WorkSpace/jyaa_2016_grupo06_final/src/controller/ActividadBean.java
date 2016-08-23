@@ -5,7 +5,6 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 import modelo.Actividad;
-import modelo.Dificultad;
 import modeloDAO.ActividadDAO;
 
 public class ActividadBean 
@@ -13,7 +12,7 @@ public class ActividadBean
 	private ActividadDAO actDao = new ActividadDAO();
 	private Actividad act = new Actividad();
 	private List<Actividad> listaActividades;
-	private Actividad actEditada = new Actividad();
+	private Actividad actSeleccionada = new Actividad();
 	private boolean control = false;
 	
 	public ActividadBean(){}
@@ -65,29 +64,40 @@ public class ActividadBean
 		return null;
 	}
 	
-	public String selecActividad(Actividad selec)
+	public String selecEditar(Actividad selec)
 	{
-		this.actEditada = selec;
+		this.actSeleccionada = selec;
 		return "editar_actividad";
+	}
+	
+	public void selecEliminar(Actividad selec)
+	{
+		this.actSeleccionada = selec;
 	}
 	
 	public String editarActividad()
 	{
-		actDao.modificarActividad(actEditada);
+		actDao.modificarActividad(actSeleccionada);
 		return "admin_opOk";
 	}
 
-	public Actividad getActEditada() {
-		return actEditada;
+	public Actividad getActSeleccionada() {
+		return actSeleccionada;
 	}
 
-	public void setActEditada(Actividad actEditada) {
-		this.actEditada = actEditada;
+	public void setActSeleccionada(Actividad actSelec) {
+		this.actSeleccionada = actSelec;
 	}
 	
-	public String eliminarActividad(Actividad Selec)
+//	public String eliminarActividad(Actividad Selec)
+//	{
+//		this.actDao.eliminarActividad(Selec);
+//		return "admin_opOk";
+//	}
+	
+	public String eliminarSelec()
 	{
-		this.actDao.eliminarActividad(Selec);
+		this.actDao.eliminarActividad(this.actSeleccionada);
 		return "admin_opOk";
 	}
 	
