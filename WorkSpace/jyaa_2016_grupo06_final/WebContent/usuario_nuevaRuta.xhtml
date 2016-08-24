@@ -311,13 +311,65 @@
                                 <div><input type="button" class="col-sm-offset-5 col-sm-2" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
 								
                       </div>
-					  <div class="form-group">
-					  		<img id="blah" alt="your image" width="100" height="100" />
-
-								<input type="file" 
-   								 onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
 					  
-					  </div>
+
+						<div id="addImage" class="well" style="margin-top:10px">
+		<div class="container-fluid">
+			<div class="row">
+				<form name="imageForm" method="post" action="/wikiloc/addImage.do" enctype="multipart/form-data"><input type="hidden" name="id" value="14434323" /> 
+					<input type="hidden" name="X-Progress-ID" id="X-Progress-ID" />
+					<p><strong>Elige la foto a subir:</strong><img id="loading" src="/wikiloc/images/loading.gif" alt="loading..." style="display:none;" /></p>
+
+					<div class="col-xs-12">
+						<input type="file" name="imageFile" size="40" value="" id="fileInput" /></div>
+<!-- 					<div class="pbarWrapper col-xs-8" style="display:none"> -->
+<!-- 						<div id="pbar" class="progress"> -->
+<!-- 							<div id="progressBarDisplay" class="progress-bar" role="progressbar" style="width: 0%;">0</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					<div class="pbarWrapper col-xs-4" style="display:none">
+						<button id="cancelUpload" class="btn btn-default btn-xs">Cancelar</button>
+					</div>
+				</form>
+				</div>
+	
+			<div class="row" style="padding-top:20px">
+	<div class="col-xs-2" style="padding-left:0;padding-right:5px;">
+				<a href="#" class="thumbnail">
+					<img src="http://sc.wklcdn.com/images/camera.png" width="75" height="75" class="img-rounded imageEmpty" />
+				</a>
+			</div>			
+			<div class="col-xs-2" style="padding-left:0;padding-right:5px;">
+				<a href="#" class="thumbnail">
+					<img src="http://sc.wklcdn.com/images/camera.png" width="75" height="75" class="img-rounded imageEmpty" />
+				</a>
+			</div>			
+			<div class="col-xs-2" style="padding-left:0;padding-right:5px;">
+				<a href="#" class="thumbnail">
+					<img src="http://sc.wklcdn.com/images/camera.png" width="75" height="75" class="img-rounded imageEmpty" />
+				</a>
+			</div>			
+			<div class="col-xs-2" style="padding-left:0;padding-right:5px;">
+				<a href="#" class="thumbnail">
+					<img src="http://sc.wklcdn.com/images/camera.png" width="75" height="75" class="img-rounded imageEmpty" />
+				</a>
+			</div>			
+			<div class="col-xs-2" style="padding-left:0;padding-right:5px;">
+				<a href="#" class="thumbnail">
+					<img src="http://sc.wklcdn.com/images/camera.png" width="75" height="75" class="img-rounded imageEmpty" />
+				</a>
+			</div>			
+			<div class="col-xs-2" style="padding-left:0;padding-right:5px;">
+				<a href="#" class="thumbnail">
+					<img src="http://sc.wklcdn.com/images/camera.png" width="75" height="75" class="img-rounded imageEmpty" />
+				</a>
+			</div>			
+			</div>
+	</div>
+</div>
+
+
+					  
 <!-- 					  <div class="form-group"> -->
 <!--                                 <label>Fotos</label> -->
 <!--                                 <input type="file" name="foto" /> -->
@@ -328,6 +380,7 @@
 								<div class="col-sm-12">
 									<h:commandButton  class="btn btn-success btn-lg btn-block" value="Crear ruta"  action="#{RutaBean.altaRuta}"></h:commandButton>
 								</div>
+								
 							</div>
 					  
 					  
