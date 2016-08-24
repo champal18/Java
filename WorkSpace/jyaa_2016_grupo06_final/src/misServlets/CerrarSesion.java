@@ -33,11 +33,8 @@ public class CerrarSesion extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession sesion = request.getSession(true);
-		ServletContext context = getServletContext();
-		RequestDispatcher disp = context.getRequestDispatcher("index.html");
 		sesion.invalidate();
-		if(disp!=null)
-			disp.forward(request, response);
+		response.sendRedirect("/jyaa_2016_grupo06_final/faces/index.xhtml");
 	}
 
 	/**
