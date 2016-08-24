@@ -153,12 +153,13 @@
                                 Nombre de ruta
                             </label>
                             <div class="col-sm-3">
-                                <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.ruta.nombre}" 
+                                <p:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.rutaSeleccionada.nombre}" 
+                                placeholder="{RutaBean.rutaSeleccionada.nombre}" 
                                 validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 40"
                                 required="true" requiredMessage="Nombre de ruta es un campo obligatorio">
                                 <f:validateLength minimum="4" maximum="40"/>
                                 <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
-                                </h:inputText>
+                                </p:inputText>
                             </div>
                                 <div class="col-sm-4">
                                     <p:messages for="inputNameRuta" autoUpdate="true" />
@@ -175,13 +176,14 @@
                                     Descripcion
                                 </label>
                                 <div class="col-sm-3">
-                                    <h:inputText styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.ruta.descripcion}" 
+                                    <p:inputText styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.rutaSeleccionada.descripcion}" 
+                                    placeholder="{RutaBean.rutaSeleccionada.descripcion}" 
                                     validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 500"
                                     required="true" requiredMessage="Descripcion es un campo obligatorio">
                                     <f:validateLength minimum="4" maximum="500"/>
                                     <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
                                     
-                                    </h:inputText>
+                                    </p:inputText>
                                   
                                 </div>
                                 <div class="col-sm-4">
@@ -196,7 +198,8 @@
                                         Distancia
                                 </label>
                                 <div class="col-sm-3">
-                                    <p:inputText styleClass="form-control" id="inputDistancia" value="#{RutaBean.ruta.distancia}" placeholder="Ingrese la distancia en kilometros" 
+                                    <p:inputText styleClass="form-control" id="inputDistancia" value="#{RutaBean.rutaSeleccionada.distancia}" 
+                                    placeholder="{RutaBean.rutaSeleccionada.distancia}" 
                                     required="true" requiredMessage="Distancia es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
 <!--                                <f:validateRegex pattern="[0-9]+" /> -->
                                     </p:inputText>
@@ -214,7 +217,7 @@
                                         Fecha de Realizacion
                                 </label>
                                 <div class="col-sm-3">
-                                    <p:inputText styleClass="form-control" id="inputFecha" value="#{RutaBean.ruta.fecha}" placeholder="DD/MM/AAAA" 
+                                    <p:inputText styleClass="form-control" id="inputFecha" value="#{RutaBean.rutaSeleccionada.fecha}" placeholder="{RutaBean.rutaSeleccionada.fecha}"  
                                     required="true" requiredMessage="Fecha de realizacion es un campo obligatorio">  
                                     <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
                                     </p:inputText>
@@ -234,7 +237,7 @@
                                         Privacidad
                                 </label>
                                 <div class="col-sm-3">
-                                    <h:selectOneMenu id="privacidad" value="#{RutaBean.ruta.privacidad}" styleClass="form-control" 
+                                    <h:selectOneMenu id="privacidad" value="#{RutaBean.rutaSeleccionada.privacidad}" styleClass="form-control" 
                                     required="true" requiredMessage="Privacidad es un campo obligatorio">
                                     <f:selectItems value="#{RutaBean.getPrivacidadValues()}" />
                                     </h:selectOneMenu>
@@ -248,7 +251,8 @@
                                         Tiempo Estimado
                                 </label>
                                 <div class="col-sm-3">
-                                    <p:inputText styleClass="form-control" id="inputTiempo" value="#{RutaBean.ruta.tiempo}" placeholder="Ingrese el tiempo en horas" 
+                                    <p:inputText styleClass="form-control" id="inputTiempo" value="#{RutaBean.rutaSeleccionada.tiempo}" 
+                                    placeholder="{RutaBean.rutaSeleccionada.tiempo}"  
                                     required="true" requiredMessage="Tiempo es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
 <!--                                <f:validateRegex pattern="[0-9]+" /> -->
                                     </p:inputText>
@@ -267,7 +271,7 @@
                                         Formato
                                 </label>
                                 <div class="col-sm-3">
-                                    <h:selectOneMenu id="formato" value="#{RutaBean.ruta.formato}" styleClass="form-control" 
+                                    <h:selectOneMenu id="formato" value="#{RutaBean.rutaSeleccionada.formato}" styleClass="form-control" 
                                     required="true" requiredMessage="Formato es un campo obligatorio">
                                     <f:selectItems value="#{RutaBean.getFormatoValues()}" />
                                     </h:selectOneMenu>
@@ -281,7 +285,7 @@
                                         Dificultad
                                 </label>
                                 <div class="col-sm-3">
-                                    <h:selectOneMenu id="dificultad" value="#{RutaBean.ruta.dificultad}" styleClass="form-control" 
+                                    <h:selectOneMenu id="dificultad" value="#{RutaBean.rutaSeleccionada.dificultad}" styleClass="form-control" 
                                     required="true" requiredMessage="Dificultad es un campo obligatorio">
                                     <f:selectItems value="#{RutaBean.getDificultadValues()}" />
                                     </h:selectOneMenu>
@@ -303,9 +307,7 @@
                                     
 <!--                                     <h:selectOneMenu value="#{bean.userName}"> -->
 <!--     								<f:selectItems value="#{bean.users}" var="user" itemValue="#{user.name}" /> -->
-<!-- 									</h:selectOneMenu> -->
-                                    
-                                    
+<!-- 									</h:selectOneMenu> -->  
                                 </div>
                                 
                         </div>
@@ -334,10 +336,9 @@
 					 
 					  		<div class="form-group">
 								<div class="col-sm-6">
-									<h:commandButton  class="btn btn-success btn-lg btn-block" value="Actualizar datos"  action="#{RutaBean.altaRuta}"></h:commandButton>
+									<h:commandButton  class="btn btn-success btn-lg btn-block" value="Actualizar datos"  action="#{RutaBean.editarRuta}"></h:commandButton>
 								</div>
 								<div class="col-sm-6">
-
                         				<a href="/jyaa_2016_grupo06_final/faces/usuario.xhtml">  <button  type="button" class="btn btn-danger btn-lg btn-block">Cancelar</button></a>						
 								</div>
 							</div>

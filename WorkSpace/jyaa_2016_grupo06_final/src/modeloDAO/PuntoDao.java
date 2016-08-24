@@ -134,5 +134,12 @@ public enum PuntoDao implements IPuntoDAO
 		return puntos;
 	}
 	
+	public void limpiarMapa()
+	{
+		puntos = new HashMap<Long,Punto>();
+		Punto.idstatic = 0;
+	}
+	
+	
 	
 }

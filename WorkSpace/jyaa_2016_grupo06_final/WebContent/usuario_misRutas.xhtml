@@ -176,22 +176,33 @@
 								    			</h:column>
 								    			
 								    			<h:column>
+								    				<f:facet name="header">Actividad</f:facet>
+								    				#{r.actividad.nombre}
+								    			</h:column>
+								    			
+								    			<h:column>
 								    				<f:facet name="header">Dificultad</f:facet>
 								    				#{r.dificultad}
 								    			</h:column>
 								    			
 								    			<h:column>
-								    				<f:facet name="header">Fecha de realizacion</f:facet>
- 								    					#{r.fecha}  
-<!--                                    						 <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/> -->
-                                   					
+								    				<f:facet name="header">Fecha de realización</f:facet>
+                                  					<h:outputText value="#{r.fecha}" >  
+                                    				<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+                                  				</h:outputText>
+
 								    			</h:column>
+								    			
 								    			
 <!-- 								    			Boton para editar y cambiar de estado con el BEAN -->
 								    			<h:column>
 								    				<f:facet name="header"> </f:facet>
-														<a href="/jyaa_2016_grupo06_final/faces/usuario_editarRuta.xhtml"><button type="button" class="btn btn-primary">Editar</button></a>
-								    					<h:commandButton value="Eliminar" class="btn btn-danger" action="#{RutaBean.eliminarRuta(r)}" />
+														<h:commandButton value="Editar" class="btn btn-primary" action="#{RutaBean.selecEditar(r)}" />
+<!-- 														<a href="/jyaa_2016_grupo06_final/faces/usuario_editarRuta.xhtml"><button type="button" class="btn btn-primary">Editar</button></a> -->
+								   
+								    					
+								    						<p:commandButton value="Eliminar" onclick="$('#myModal').modal('show');" update=":myForm" immediate="true" action="#{RutaBean.selecEliminar(r)}" />
+								    					
 								    			</h:column>
 								    			
 <!-- 								    			<h:column> -->
@@ -278,6 +289,32 @@
 					</div>
               <!-- FIN DEL PANEL CENTRAL -->
             <!-- /.container-fluid -->
+
+<!--  MODAL --> 
+
+	  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+		    <div class="modal-content">
+		        <h:form id="myForm">
+		            <div class="modal-header">
+		                <h4 class="modal-title">Eliminar ruta</h4>
+		            </div>
+		            <div class="modal-body">
+		                Está seguro?
+		            </div>
+		            <h:panelGroup layout="block" styleClass="modal-footer">
+		                <p:commandLink value="Cancelar" immediate="true" styleClass="btn btn-default" oncomplete="$('#myModal').modal('hide');" />
+		            	<p:commandLink value="Eliminar" styleClass="btn btn-default" action="#{RutaBean.eliminarRutaSeleccionada}" />
+		            </h:panelGroup>
+		        </h:form>
+		    </div>
+		</div>
+	</div>
+
+
+
+
+
 
         </div>
         <!-- /#page-wrapper -->

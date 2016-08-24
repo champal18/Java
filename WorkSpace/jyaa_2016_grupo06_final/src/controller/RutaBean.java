@@ -20,6 +20,7 @@ public class RutaBean {
 
 	private RutaDAO rDao = new RutaDAO();
 	private Ruta ruta = new Ruta();
+	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
 	
 	private boolean control = true;
@@ -68,14 +69,56 @@ public class RutaBean {
 		PuntoDao puntoDao = PuntoDao.instance;
 		puntoDao.guardarPuntos(this.ruta);
 		
+		puntoDao.limpiarMapa();
+		
 		this.control= false;
 		return "usuario_opOk";
 	}
 	
-	public void eliminarRuta(Ruta ruta)	// --> parametro enviado desde el xhtml
+	public String selecEditar(Ruta selec)
 	{
-		rDao.eliminarRuta(ruta);
+		this.rutaSeleccionada = selec;
+		return "editar_ruta";
 	}
+	
+	public void selecEliminar(Ruta selec)
+	{
+		this.rutaSeleccionada = selec;
+	}
+	
+	public Ruta getRutaSeleccionada() {
+		return rutaSeleccionada;
+	}
+
+	public void setRutaSeleccionada(Ruta rutaSeleccionada) {
+		this.rutaSeleccionada = rutaSeleccionada;
+	}
+
+	
+	public String editarRuta()
+	
+	{	Actividad actividad=new Actividad();
+		ActividadDAO aDAO= new ActividadDAO();
+		
+		actividad=aDAO.recuperarActividad(idActividad);
+		
+		rutaSeleccionada.setActividad(actividad);
+		rDao.modificarRuta(rutaSeleccionada);
+		return "usuario_opOk";
+	}
+	
+	public String eliminarRutaSeleccionada()
+	{
+		rDao.eliminarRuta(rutaSeleccionada);
+		return "usuario_opOk";
+	}
+	
+	
+	
+//	public void eliminarRuta(Ruta ruta)	// --> parametro enviado desde el xhtml
+//	{
+//		rDao.eliminarRuta(ruta);
+//	}
 	
 	
 	

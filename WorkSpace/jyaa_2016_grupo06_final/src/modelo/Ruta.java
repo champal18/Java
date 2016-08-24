@@ -52,7 +52,7 @@ public class Ruta
 	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
 	private List<Foto> fotos;
 	
-	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE,CascadeType.REMOVE, CascadeType.REFRESH})
 	private List<Punto> Puntos;
 	
     public Ruta(){}

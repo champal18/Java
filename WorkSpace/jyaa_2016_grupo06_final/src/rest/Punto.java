@@ -17,12 +17,12 @@ public class Punto
 	private long indice;
 	
 	@Transient
-	private static long idstatic;
+	public static long idstatic;
 	
 	public double lat;
 	public double lon;
 	
-	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
 	private Ruta ruta;
 	
 	public Ruta getRuta() {
