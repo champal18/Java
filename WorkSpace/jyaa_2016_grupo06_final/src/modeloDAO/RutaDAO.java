@@ -113,7 +113,7 @@ public class RutaDAO implements IRutaDAO
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Ruta> recuperarRutasCategoria(long idCategoria) {
+	public List<Ruta> recuperarRutasActividad(long idActividad) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
 		EntityManagerFactory emf = single.getEMF();
@@ -122,8 +122,10 @@ public class RutaDAO implements IRutaDAO
 		List<Ruta> rutas = null;
 		
 		try {
-			Query q = em.createQuery("FROM Ruta WHERE actividad_id = '"+idCategoria+"'");
-			rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
+			Query q = em.createQuery("FROM Ruta WHERE actividad_id = '"+idActividad+"'");
+			
+			if(!q.getResultList().isEmpty())
+				rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
 		} catch (Exception e) {
 			rutas = null;
 			System.out.println("Excepcion!");
