@@ -9,9 +9,7 @@ public class Foto
 	private long id;
 	
 	@Lob
-	@Column(name="imagen", nullable=false)
-	private byte[] img;
-//	private String img;
+	private byte[] imagen;
 	
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Ruta ruta;
@@ -32,20 +30,12 @@ public class Foto
 		this.id = id;
 	}
 
-//	public String getImg() {
-//		return img;
-//	}
-//
-//	public void setImg(String img) {
-//		this.img = img;
-//	}
-
 	public byte[] getImg() {
-		return img;
+		return imagen;
 	}
 
 	public void setImg(byte[] img) {
-		this.img = img;
+		this.imagen = img;
 	}
 
 }

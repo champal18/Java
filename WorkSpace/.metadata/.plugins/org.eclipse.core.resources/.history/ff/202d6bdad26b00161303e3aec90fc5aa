@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      lang="es">
+
+<h:head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Crear nueva ruta</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
+	<script src="funciones.js"> </script>
+	<script src="showIMG.js"> </script>
+</h:head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        
+<!--    ACA SE DEFINEN LA BARRA SUPERIOR E IZQUIERDA DEL TEMPLATE -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/jyaa_2016_grupo06_final/faces/usuario.xhtml">JRuteros</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+               
+               
+			<!-- PANEL DE ALERTAS -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+            <!-- FIN DEL PANEL DE ALERTAS -->
+            <!-- DROPDOWN -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> #{sessionScope.usrName} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                        	<a href="/jyaa_2016_grupo06_final/faces/usuario_perfil.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="CerrarSesion"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- FIN DEL DROPDOWN -->
+            
+            <!-- PANEL DE OPCIONES PARA EL USUARIO -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li >
+                        <a href="/jyaa_2016_grupo06_final/faces/usuario_nuevaRuta.xhtml"><i class="glyphicon glyphicon-plus"></i> Agregar ruta</a>
+                    </li>
+                    <li>
+                        <a href="/jyaa_2016_grupo06_final/faces/usuario_misRutas.xhtml"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
+                    </li>
+                    <li>
+                        <a href="/jyaa_2016_grupo06_final/faces/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIN DEL PANEL DE OPCIONES PARA EL USUARIO -->
+            <!-- /.navbar-collapse -->
+        </nav>
+<!--    FIN DE DEFINICION DE LA BARRA SUPERIOR E IZQUIERDA DEL TEMPLATE -->
+
+<!-- PANEL CENTRAL -->
+        <div id="page-wrapper">
+        
+			<!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Agregar una nueva ruta
+                        </h1>
+                      
+                    </div>
+                </div>
+                <!-- /.row -->        
+
+            <div class="container-fluid">
+            		
+					<h:form class="form-horizontal" enctype="multipart/form-data">
+					  
+                       <div class="form-group">
+                            <label for="inputNameRuta" class="col-sm-offset-1 col-sm-2 control-label">
+                                Nombre de ruta
+                            </label>
+                            <div class="col-sm-3">
+                                <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.ruta.nombre}" 
+                                validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 40"
+                                required="true" requiredMessage="Nombre de ruta es un campo obligatorio">
+                                <f:validateLength minimum="4" maximum="40"/>
+                                <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
+                                </h:inputText>
+                            </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputNameRuta" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                        </div>
+
+
+					  
+					  
+					  <div class="form-group">
+                                <label for="inputRutaDesc" class="col-sm-offset-1 col-sm-2 control-label">
+                                    Descripcion
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:inputText styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.ruta.descripcion}" 
+                                    validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 500"
+                                    required="true" requiredMessage="Descripcion es un campo obligatorio">
+                                    <f:validateLength minimum="4" maximum="500"/>
+                                    <f:validateRegex pattern="[A-Za-z0-9 ]+"/>
+                                    
+                                    </h:inputText>
+                                  
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputRutaDesc" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="inputDistancia" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Distancia
+                                </label>
+                                <div class="col-sm-3">
+                                    <p:inputText styleClass="form-control" id="inputDistancia" value="#{RutaBean.ruta.distancia}" placeholder="Ingrese la distancia en kilometros" 
+                                    required="true" requiredMessage="Distancia es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
+<!--                                <f:validateRegex pattern="[0-9]+" /> -->
+                                    </p:inputText>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputDistancia" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                                
+                        </div>
+
+                       <div class="form-group"> 
+                                <label for="inputFecha" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Fecha de Realizacion
+                                </label>
+                                <div class="col-sm-3">
+                                    <p:inputText styleClass="form-control" id="inputFecha" value="#{RutaBean.ruta.fecha}" placeholder="DD/MM/AAAA" 
+                                    required="true" requiredMessage="Fecha de realizacion es un campo obligatorio">  
+                                    <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+                                    </p:inputText>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputFecha" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                            </div>
+
+
+					 
+					  
+							<div class="form-group"> 
+                                <label for="inputPrivacidad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Privacidad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="privacidad" value="#{RutaBean.ruta.privacidad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Privacidad es un campo obligatorio">
+                                    <f:selectItems value="#{RutaBean.getPrivacidadValues()}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                
+                            </div>
+
+
+                        <div class="form-group">
+                                <label for="inputTiempo" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Tiempo Estimado
+                                </label>
+                                <div class="col-sm-3">
+                                    <p:inputText styleClass="form-control" id="inputTiempo" value="#{RutaBean.ruta.tiempo}" placeholder="Ingrese el tiempo en horas" 
+                                    required="true" requiredMessage="Tiempo es un campo obligatorio" validatorMessage="Distancia: solo caracteres numericos">
+<!--                                <f:validateRegex pattern="[0-9]+" /> -->
+                                    </p:inputText>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p:messages for="inputTiempo" autoUpdate="true" />
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
+                                
+                        </div>
+					  
+					 
+					 <div class="form-group"> 
+                                <label for="inputFormato" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Formato
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="formato" value="#{RutaBean.ruta.formato}" styleClass="form-control" 
+                                    required="true" requiredMessage="Formato es un campo obligatorio">
+                                    <f:selectItems value="#{RutaBean.getFormatoValues()}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                
+                            </div>
+					  
+					 
+					  <div class="form-group"> 
+                                <label for="inputDificultad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Dificultad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="dificultad" value="#{RutaBean.ruta.dificultad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Dificultad es un campo obligatorio">
+                                    <f:selectItems value="#{RutaBean.getDificultadValues()}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                
+                        </div>
+
+		
+					  <div class="form-group"> 
+                                <label for="inputActividad" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Actividad
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu id="actividad" value="#{RutaBean.idActividad}" styleClass="form-control" 
+                                    required="true" requiredMessage="Actividad es un campo obligatorio">
+<!--                                     <f:selectItems value="#{ActividadBean.listaActividades}" var="act" itemValue="#{act.id}" itemlabel="#{act.nombre}"/> -->
+                                    <f:selectItems value="#{ActividadBean.getActividadValues()}" />
+                                    </h:selectOneMenu>
+                                    
+<!--                                     <h:selectOneMenu value="#{bean.userName}"> -->
+<!--     								<f:selectItems value="#{bean.users}" var="user" itemValue="#{user.name}" /> -->
+<!-- 									</h:selectOneMenu> -->
+                                    
+                                    
+                                </div>
+                                
+                        </div>
+
+
+					  <div class="form-group">
+                                 <label for="inputMapa" class="col-sm-offset-1 col-sm-2 control-label">
+                                        Mapa
+                                </label>
+                                <div id="googleMap" style="width:500px;height:380px;" ></div>
+                                <div><input type="button" class="col-sm-offset-5 col-sm-2" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
+								
+                      </div>
+						
+
+					  <div class="form-group">
+                                <label>Foto 1</label>
+                                <t:inputFileUpload value="#{RutaBean.file1}" onchange="showMyImage(this)" />
+                                <img id="thumbnil1" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                      </div>
+                     
+					  		<div class="form-group">
+								<div class="col-sm-12">
+									<h:commandButton class="btn btn-success" value="Crear ruta" action="#{RutaBean.altaRuta}"></h:commandButton>
+								</div>
+								
+							</div>
+					  
+					  
+					</h:form>
+                
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- FIN DEL PANEL CENTRAL -->
+        <!-- /#page-wrapper -->
+
+ 
+    </div>
+    
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>
