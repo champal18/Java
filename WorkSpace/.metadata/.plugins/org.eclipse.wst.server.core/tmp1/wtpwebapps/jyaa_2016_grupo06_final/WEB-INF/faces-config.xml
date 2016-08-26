@@ -83,4 +83,12 @@
   </navigation-case>
 </navigation-rule>
 
+<navigation-rule> 
+  <from-view-id>usuario_misRutas.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>editar_ruta</from-outcome>
+      <to-view-id>/faces/usuario_editarRuta.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
 </faces-config>

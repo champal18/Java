@@ -78,6 +78,8 @@ public class RutaBean {
 	public String selecEditar(Ruta selec)
 	{
 		this.rutaSeleccionada = selec;
+		PuntoDao pDao = PuntoDao.instance;
+		pDao.recuperarPuntosRuta(selec.getId());
 		return "editar_ruta";
 	}
 	

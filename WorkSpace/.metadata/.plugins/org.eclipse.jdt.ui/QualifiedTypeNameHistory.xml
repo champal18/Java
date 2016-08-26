@@ -36,7 +36,6 @@
 <fullyQualifiedTypeName name="com.mysql.jdbc.Blob"/>
 <fullyQualifiedTypeName name="modelo.Punto"/>
 <fullyQualifiedTypeName name="interfazDAO.IPuntoDAO"/>
-<fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modelo.Ruta"/>
 <fullyQualifiedTypeName name="interfazDAO.IFotoDAO"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
+<fullyQualifiedTypeName name="rest.Punto"/>
 </qualifiedTypeNameHistroy>

@@ -140,6 +140,40 @@ public enum PuntoDao implements IPuntoDAO
 		Punto.idstatic = 0;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public void recuperarPuntosRuta(long idRuta)
+	{
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Punto> lista = null;
+		
+		try {
+			Query q = em.createQuery("FROM Punto where ruta_id='"+idRuta+"'");
+			lista = Collections.checkedList(q.getResultList(), Punto.class);	
+		} catch (Exception e) {
+			lista = null;
+			System.out.println("Excepcion!");
+		}
+		
+		em.close();
+		
+//		this.limpiarMapa();
+		this.puntos.clear();
+		if(!lista.isEmpty())
+		{
+			int cant = lista.size();
+			int i;
+			for(i=0;i<cant;i++)
+			{
+				this.puntos.put(lista.get(i).getIndice(), lista.get(i));
+			}
+			Punto.idstatic = cant;
+		}
+	}
+	
 	
 	
 }
