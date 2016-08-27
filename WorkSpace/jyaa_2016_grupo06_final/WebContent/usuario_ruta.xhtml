@@ -132,7 +132,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                           Camino de los 7 lagos
+                           #{RutaBean.rutaSeleccionada.nombre}
                         </h1>
                       
                     </div>
@@ -142,13 +142,7 @@
 				Descripción de la ruta
 			</h2>
 			<p>
-				Se denomina Camino de los Siete Lagos a un tramo de la Ruta Nacional 40 (ex 234)1 en la provincia del Neuquén, Argentina.
-				
-				El tramo une a las localidades de San Martín de los Andes y Villa La Angostura y debe su nombre a que se avistan siete lagos durante su recorrido.
-				
-				Posee una longitud de aproximadamente 107 km donde pueden apreciarse las típicas características de la región de los Andes patagónicos: extensos bosques, cerros nevados y lagos.
-				
-				Este camino atraviesa dos parques nacionales: el Lanín y el Nahuel Huapi.			
+				#{RutaBean.rutaSeleccionada.descripcion}			
 			</p>
 			
 			<div class="row">
@@ -160,28 +154,32 @@
 				    <br />
 					<ul>
 						<li>
-							Privacidad: Pública
+							Privacidad: #{RutaBean.rutaSeleccionada.privacidad}
 						</li>
 						<li>
 							Recorrido: --
 						</li>
 						<li>
-							Formato: Circular
+							Formato: #{RutaBean.rutaSeleccionada.formato}
 						</li>
 						<li>
-							Distancia: 200km
+							Distancia: #{RutaBean.rutaSeleccionada.distancia} km
 						</li>
 						<li>
-							Dificultad: Moderado
+							Dificultad: #{RutaBean.rutaSeleccionada.dificultad}
 						</li>
 						<li>
-							Actividad: Ciclismo
+							Actividad: #{RutaBean.rutaSeleccionada.actividad.nombre}
 						</li>
 						<li>
-							Tiempo: 100 horas
+							Tiempo (en horas): #{RutaBean.rutaSeleccionada.tiempo}
 						</li>
 						<li>
-							Fecha de realizacion: 15/03/2015
+<!-- 							Fecha de realizacion: #{RutaBean.rutaSeleccionada.fecha} -->
+								Fecha de realización
+								<h:outputText value="#{RutaBean.rutaSeleccionada.fecha}" >  
+                                <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+                                </h:outputText>
 						</li>
 					</ul>
 					
@@ -189,6 +187,7 @@
 					<div class="checkbox">
                            <label>
                                   <input type="checkbox" value="" />Hice esta ruta
+                                  
                            </label>
                     </div>
 					
@@ -197,7 +196,7 @@
 				
 				<div class="col-md-6">
 				
-					<img class="img-thumbnail" src="http://www.coolors.net/heviajado/blog/wp-content/mapas/ruta7lagos.gif" alt="" />
+					<img class="img-thumbnail" src="http://lorempixel.com/512/512/" alt="" />
 				
 					
 				</div>
@@ -206,10 +205,10 @@
 			
 			
 			<h4>
-				Puntaje promedio: 4,5
+				Puntaje promedio: #{RutaBean.rutaSeleccionada.promedio}
 			</h4>
 			<h4>
-				Cantidad de veces realizada: 2743
+				Cantidad de veces realizada: #{RutaBean.rutaSeleccionada.cantRealizadas}
 			</h4>
 			
 			<div class="form-group">

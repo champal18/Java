@@ -171,8 +171,12 @@
 								    			<h:column>
 								    				<!-- column header -->
 								    				<f:facet name="header">Nombre</f:facet>
-								    				<!-- row record -->
-								    				#{r.nombre}
+<!-- 								    				<a href="/jyaa_2016_grupo06_final/faces/usuario_ruta.xhtml" >#{r.nombre}</a> -->
+								    					
+
+														<h:commandLink action="#{RutaBean.selecMostrar(r)}" value="#{r.nombre}" />
+
+																						    			
 								    			</h:column>
 								    			
 								    			<h:column>
@@ -189,7 +193,7 @@
 								    				<f:facet name="header">Fecha de realización</f:facet>
                                   					<h:outputText value="#{r.fecha}" >  
                                     				<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
-                                  				</h:outputText>
+                                  					</h:outputText>
 
 								    			</h:column>
 								    			

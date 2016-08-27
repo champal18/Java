@@ -108,6 +108,12 @@ public class RutaBean {
 		this.rutaSeleccionada = selec;
 	}
 	
+	public String selecMostrar(Ruta selec)  // VER -- Se podria juntar con selecEliminar y hacer una sola funcion
+	{
+		this.rutaSeleccionada = selec;
+		return "mostrar_ruta";
+	}
+	
 	public Ruta getRutaSeleccionada() {
 		return rutaSeleccionada;
 	}
