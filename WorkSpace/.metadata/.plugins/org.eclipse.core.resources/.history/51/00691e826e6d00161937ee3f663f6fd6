@@ -160,6 +160,7 @@ public enum PuntoDao implements IPuntoDAO
 		
 		em.close();
 		
+//		this.limpiarMapa();
 		this.puntos.clear();
 		if(!lista.isEmpty())
 		{
@@ -171,6 +172,7 @@ public enum PuntoDao implements IPuntoDAO
 				Punto p = new Punto(lista.get(i).lat,lista.get(i).lon);
 				this.puntos.put(p.getIndice(), p);
 			}
+			Punto.idstatic = cant;
 		}
 	}
 	

@@ -160,6 +160,7 @@ public enum PuntoDao implements IPuntoDAO
 		
 		em.close();
 		
+//		this.limpiarMapa();
 		this.puntos.clear();
 		if(!lista.isEmpty())
 		{

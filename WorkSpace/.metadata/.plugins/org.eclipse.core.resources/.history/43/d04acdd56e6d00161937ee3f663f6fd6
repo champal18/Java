@@ -26,6 +26,7 @@ public class PuntoService
 	
 	public List<Punto> getPuntoAsList()
 	{
+		puntoDao = PuntoDao.instance;
 		List<Punto> puntoList = new ArrayList<Punto>();
 		puntoList.addAll(puntoDao.getPuntos().values());
 		return puntoList;
