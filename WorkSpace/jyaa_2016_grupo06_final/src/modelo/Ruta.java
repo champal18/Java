@@ -22,6 +22,7 @@ public class Ruta
 	
 	private String nombre;
 	
+	@Column(length = 1023)
 	private String descripcion;
 	
 	private Privacidad privacidad;

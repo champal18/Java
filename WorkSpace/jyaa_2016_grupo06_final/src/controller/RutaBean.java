@@ -98,6 +98,9 @@ public class RutaBean {
 	public String selecEditar(Ruta selec)
 	{
 		this.rutaSeleccionada = selec;
+		
+		this.idActividad = selec.getActividad().getId();
+		
 		PuntoDao pDao = PuntoDao.instance;
 		pDao.recuperarPuntosRuta(selec.getId());
 		return "editar_ruta";
@@ -131,6 +134,7 @@ public class RutaBean {
 		actividad=aDAO.recuperarActividad(idActividad);
 		
 		rutaSeleccionada.setActividad(actividad);
+		
 		rDao.modificarRuta(rutaSeleccionada);
 		return "usuario_opOk";
 	}
