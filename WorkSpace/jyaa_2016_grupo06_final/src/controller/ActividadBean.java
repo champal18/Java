@@ -12,7 +12,7 @@ public class ActividadBean
 {
 	private ActividadDAO actDao = new ActividadDAO();
 	private Actividad act = new Actividad();
-	private List<Actividad> listaActividades;
+	private List<Actividad> listaActividades = actDao.recuperarActividades();
 	private Actividad actSeleccionada = new Actividad();
 	private boolean control = false;
 	

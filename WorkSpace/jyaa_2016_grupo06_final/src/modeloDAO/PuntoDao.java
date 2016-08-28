@@ -21,30 +21,33 @@ public enum PuntoDao implements IPuntoDAO
 	@Override
 	public void guardarPuntos(Ruta ruta) 
 	{
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
 		
-		int i;
-		for(i=0;i<this.puntos.size();i++)
+		List<Punto> puntoList = new ArrayList<Punto>();
+		puntoList.addAll(this.puntos.values());
+		
+		try
 		{
-			
-			SingletonEMF single = SingletonEMF.getIns();
-			EntityManagerFactory emf = single.getEMF();
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction etx = em.getTransaction();
-			etx.begin();
-			try
+			int cant = puntoList.size();
+			for(int j=0;j<cant;j++)
 			{
-				long j = i;
-				Punto p = puntos.get(j+1);
+				Punto p = new Punto();
+				p = puntoList.get(j);
 				p.setRuta(ruta);
 				em.persist(p);
-			} catch (Exception e)
-			{
-				System.out.println(e.toString());
 			}
-			etx.commit();
-			em.close();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
 		}
+		etx.commit();
+		em.close();
 		
 	}
 
@@ -91,6 +94,29 @@ public enum PuntoDao implements IPuntoDAO
 		em.close();
 		
 	}
+	
+	public void eliminarPuntosRuta(long idRuta)
+	{
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		
+		try
+		{
+			Query q = em.createQuery("delete Punto where ruta_id = '"+idRuta+"'");
+			q.executeUpdate();
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
+		etx.commit();
+		em.close();
+		
+	}
 
 	@Override
 	public Punto recuperarPunto(long id)
@@ -123,7 +149,7 @@ public enum PuntoDao implements IPuntoDAO
 		List<Punto> puntos = null;
 		
 		try {
-			Query q = em.createQuery("FROM Punto where id_ruta='"+idRuta+"'");
+			Query q = em.createQuery("FROM Punto where ruta_id='"+idRuta+"'");
 			puntos = Collections.checkedList(q.getResultList(), Punto.class);	
 		} catch (Exception e) {
 			puntos = null;

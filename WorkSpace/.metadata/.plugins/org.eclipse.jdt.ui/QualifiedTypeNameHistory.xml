@@ -52,7 +52,6 @@
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
-<fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="org.primefaces.model.UploadedFile"/>
 <fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 <fullyQualifiedTypeName name="controller.RutaBean"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFile"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
+<fullyQualifiedTypeName name="rest.Punto"/>
 </qualifiedTypeNameHistroy>

@@ -68,7 +68,6 @@ public class RutaBean {
 		ruta.setRegistroRealizadas(null);
 		ruta.setActividad(actividad);
 		
-//		ruta.setFotos(null);
 		rDao.guardarRuta(ruta);
 		
 		
@@ -136,6 +135,15 @@ public class RutaBean {
 		rutaSeleccionada.setActividad(actividad);
 		
 		rDao.modificarRuta(rutaSeleccionada);
+		
+		PuntoDao puntoDao = PuntoDao.instance;
+		puntoDao.eliminarPuntosRuta(rutaSeleccionada.getId());
+		
+		
+		puntoDao.guardarPuntos(this.ruta);
+		
+		puntoDao.limpiarMapa();
+		
 		return "usuario_opOk";
 	}
 	
