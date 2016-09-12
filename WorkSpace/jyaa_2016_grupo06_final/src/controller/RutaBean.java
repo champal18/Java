@@ -28,6 +28,7 @@ public class RutaBean {
 	private Ruta ruta = new Ruta();
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
+	private UploadedFile file;
 	
 	private boolean control = true;
 
@@ -65,7 +66,6 @@ public class RutaBean {
 		ruta.setPromedio(0);
 		ruta.setCantRealizadas(0);
 		ruta.setOwner(persona);
-		ruta.setRegistroRealizadas(null);
 		ruta.setActividad(actividad);
 		
 		rDao.guardarRuta(ruta);
@@ -203,10 +203,8 @@ public class RutaBean {
 		this.idActividad = idActividad;
 	}
 	
-	// Prueba
-	
-    private UploadedFile file;
-    
+	// Manejo del carga y descarga del archivo
+	    
     public UploadedFile getFile() {
         return file;
     }
@@ -230,5 +228,18 @@ public class RutaBean {
             fDao.guardarFoto(f);
         }
     }
+    
+ // Prueba
+//    private byte[] img;
+//    
+//    public byte[] getImg() {
+//		this.img = this.rutaSeleccionada.getFotos().get(1).getImg();
+//    	return img;
+//	}
+//
+//	public void setImg(byte[] img) {
+//		this.img = img;
+//	}
+    
 	
 }

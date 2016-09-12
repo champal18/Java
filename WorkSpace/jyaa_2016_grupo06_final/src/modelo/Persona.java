@@ -33,18 +33,6 @@ public class Persona {
 	private String nombreUser;
 	
 	private Tipo_USER tipo;
-	
-	@OneToMany(mappedBy="owner", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
-	private List<Ruta> misRutas;
-//	
-	@OneToMany(mappedBy="owner",cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
-	private List<RutaRealizada> rutasRealizadas;
-	
-	// Lista de misRutas y rutasRealizadas
-	/*
-	   * Puede tener 0-N rutas
-	   * Puede tener 0-N rutasRealizadas
-	*/
 
 	public Persona(){}
 	
@@ -61,8 +49,6 @@ public class Persona {
 		this.pass = pass;
 		this.nombreUser = nombreUser;
 		this.tipo = tipo;
-		this.misRutas = misRutas;
-		this.rutasRealizadas = rutasRealizadas;
 		this.habilitado = habilitado;
 	}
 	
@@ -144,22 +130,6 @@ public class Persona {
 
 	public void setTipo(Tipo_USER tipo) {
 		this.tipo = tipo;
-	}
-
-	public List<Ruta> getMisRutas() {
-		return misRutas;
-	}
-
-	public void setMisRutas(List<Ruta> misRutas) {
-		this.misRutas = misRutas;
-	}
-
-	public List<RutaRealizada> getRutasRealizadas() {
-		return rutasRealizadas;
-	}
-
-	public void setRutasRealizadas(List<RutaRealizada> rutasRealizadas) {
-		this.rutasRealizadas = rutasRealizadas;
 	}
 
 	public long getId() {

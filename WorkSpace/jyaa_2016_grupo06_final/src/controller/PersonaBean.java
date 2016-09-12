@@ -14,11 +14,18 @@ public class PersonaBean
 	
 	private PersonaDAO pDao = new PersonaDAO();
 	private Persona usr = new Persona();
+	boolean control = false;
 
 	
 	public PersonaBean(){}
 	
-	public Persona getUsr() {
+	public Persona getUsr()
+	{
+		if(control)
+		{
+			usr = new Persona();
+			control = false;
+		}
 		return usr;
 	}
 
@@ -32,6 +39,7 @@ public class PersonaBean
 		usr.setPass(pass);
 		usr.setHabilitado(true);
 		pDao.guardarPersona(usr);
+		control = true;
 		return "exito";
 	}
 	

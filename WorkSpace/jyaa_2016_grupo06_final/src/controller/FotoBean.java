@@ -32,7 +32,7 @@ public class FotoBean // alta agregarlo al FaceConfig y demas
 //		fDao.guardarFoto(foto);
 		
 		FotoDAO fDao = new FotoDAO();
-		foto = fDao.recuperarFoto();
+		foto = fDao.recuperarFoto((long)1);
 		byte[] byteLeidos = foto.getImg();
 		try{
 			IOUtils.write(byteLeidos, new FileOutputStream("C:/Users/juanpablo/Desktop/2.jpg")); 

@@ -14,8 +14,6 @@ import modeloDAO.RutaDAO;
 
 public class UsrBean 
 {
-	
-	
 	private Persona usrLogin;
 	private PersonaDAO pDao = new PersonaDAO();
 	private RutaDAO rDao=new RutaDAO();
@@ -30,8 +28,6 @@ public class UsrBean
 	public void setListaRutas(List<Ruta> listaRutas) {
 		this.listaRutas = listaRutas;
 	}
-	
-	
 	
 	public String editarPersona()
 	{

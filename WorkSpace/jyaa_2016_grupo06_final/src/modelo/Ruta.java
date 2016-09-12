@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
-import rest.Punto;
-
 @Entity
 public class Ruta 
 {
@@ -43,18 +41,9 @@ public class Ruta
 	private float promedio;
 	
 	private int cantRealizadas;
-	
-	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
-	private List<RutaRealizada> registroRealizadas;
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Persona owner;
-	
-	@OneToMany(mappedBy="ruta", cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
-	private List<Foto> fotos;
-	
-	@OneToMany(mappedBy="ruta", cascade = {CascadeType.REMOVE})
-	private List<Punto> Puntos;
 	
     public Ruta(){}
     
@@ -71,11 +60,9 @@ public class Ruta
     	this.actividad = actividad;
     	this.tiempo = tiempo;
     	this.fecha = fecha;
-    	this.fotos = fotos;
     	
     	this.promedio = promedio;
     	this.cantRealizadas = cantR;
-    	this.registroRealizadas = registroR;
     	this.owner = owner;
     }
 	
@@ -150,14 +137,6 @@ public class Ruta
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	
-	public List<Foto> getFotos() {
-		return fotos;
-	}
-	
-	public void setFotos(List<Foto> fotos) {
-		this.fotos = fotos;
-	}
 
 	public float getPromedio() {
 		return promedio;
@@ -173,14 +152,6 @@ public class Ruta
 
 	public void setCantRealizadas(int cantRealizadas) {
 		this.cantRealizadas = cantRealizadas;
-	}
-
-	public List<RutaRealizada> getRegistroRealizadas() {
-		return registroRealizadas;
-	}
-
-	public void setRegistroRealizadas(List<RutaRealizada> registroRealizadas) {
-		this.registroRealizadas = registroRealizadas;
 	}
 
 	public Persona getOwner() {

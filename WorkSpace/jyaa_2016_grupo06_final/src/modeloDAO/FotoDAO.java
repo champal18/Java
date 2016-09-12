@@ -1,13 +1,16 @@
 package modeloDAO;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import interfazDAO.IFotoDAO;
 import modelo.Foto;
+import modelo.Ruta;
 
 public class FotoDAO implements IFotoDAO
 {
@@ -45,13 +48,30 @@ public class FotoDAO implements IFotoDAO
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Foto> recuperarFotos(long idRuta) {
+	public List<Foto> recuperarFotos(long idRuta)
+	{
 		// TODO Auto-generated method stub
-		return null;
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Foto> fotos = null;
+		
+		try {
+			Query q = em.createQuery("FROM Foto WHERE ruta_id = '"+idRuta+"'");
+			fotos = Collections.checkedList(q.getResultList(), Ruta.class);	
+		} catch (Exception e) {
+			fotos = null;
+			System.out.println("Excepcion!");
+		}
+		
+		em.close();
+		return fotos;
 	}
 	
-	public Foto recuperarFoto() 
+	public Foto recuperarFoto(long id) 
 	{
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -60,8 +80,7 @@ public class FotoDAO implements IFotoDAO
 		Foto f = null;
 		try
 		{
-			long l = 1;
-			f = em.find(Foto.class, l);
+			f = em.find(Foto.class, id);
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());
