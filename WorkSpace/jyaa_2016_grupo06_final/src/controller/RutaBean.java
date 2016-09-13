@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
@@ -21,14 +24,18 @@ import modeloDAO.PersonaDAO;
 import modeloDAO.PuntoDao;
 import modeloDAO.RutaDAO;
 
-public class RutaBean {
-
+public class RutaBean
+{
 
 	private RutaDAO rDao = new RutaDAO();
 	private Ruta ruta = new Ruta();
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
 	private UploadedFile file;
+	private List<Ruta> allRutas;
+	
+	private enum orden {normal,distancia,dificultad,puntuacion,cantRealizaciones};
+	private orden ordenActual = orden.normal;
 	
 	private boolean control = true;
 
@@ -230,16 +237,77 @@ public class RutaBean {
     }
     
  // Prueba
-//    private byte[] img;
-//    
-//    public byte[] getImg() {
-//		this.img = this.rutaSeleccionada.getFotos().get(1).getImg();
-//    	return img;
-//	}
-//
-//	public void setImg(byte[] img) {
-//		this.img = img;
-//	}
+    private byte[] img;
+    
+    public byte[] getImg() {
+    	FotoDAO fDao = new FotoDAO();
+		this.img = fDao.recuperarFotos(this.rutaSeleccionada.getId()).get(0).getImg();
+    	return img;
+	}
+
+	public void setImg(byte[] img) {
+		this.img = img;
+	}
+
+	public List<Ruta> getAllRutas() {
+		switch(this.ordenActual)
+		{
+		case normal:
+			this.allRutas = rDao.recuperarAllRutas();
+			break;
+		case cantRealizaciones:
+			this.allRutas = rDao.recuperarAllRutas();
+			Collections.sort(this.allRutas, Ruta.Comparators.CANTREALIZACIONES);
+			break;
+		case dificultad:
+			this.allRutas = rDao.recuperarAllRutas();
+			Collections.sort(this.allRutas, Ruta.Comparators.DIFICULTAD);
+			break;
+		case distancia:
+			this.allRutas = rDao.recuperarAllRutas();
+			Collections.sort(this.allRutas, Ruta.Comparators.DISTANCIA);
+			break;
+		case puntuacion:
+			this.allRutas = rDao.recuperarAllRutas();
+			Collections.sort(this.allRutas, Ruta.Comparators.PUNTUACION);
+			break;
+		default:
+			this.allRutas = rDao.recuperarAllRutas();
+			break;
+		}
+		return allRutas;
+	}
+
+	public void setAllRutas(List<Ruta> allRutas) {
+		this.allRutas = allRutas;
+	}
+	
+	public String ordenDistancia()
+	{
+		this.ordenActual = orden.distancia;
+		return null;
+	}
+	
+	public String orden(int opcion)
+	{
+		switch(opcion)
+		{
+		case 1:
+			this.ordenActual = orden.distancia;
+			break;
+		case 2:
+			this.ordenActual = orden.dificultad;
+			break;
+		case 3:
+			this.ordenActual = orden.puntuacion;
+			break;
+		case 4:
+			this.ordenActual = orden.cantRealizaciones;
+			break;
+		}
+		
+		return null;
+	}
     
 	
 }

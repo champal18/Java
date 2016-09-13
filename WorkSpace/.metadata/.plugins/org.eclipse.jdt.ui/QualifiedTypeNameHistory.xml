@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="controller.PersonaBean"/>
-<fullyQualifiedTypeName name="java.util.UUID"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="modelo.RutaRealizada"/>
 <fullyQualifiedTypeName name="java.time.LocalDate"/>
@@ -10,7 +8,6 @@
 <fullyQualifiedTypeName name="javax.faces.bean.ApplicationScoped"/>
 <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
 <fullyQualifiedTypeName name="antlr.collections.List"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.faces.model.DataModel"/>
 <fullyQualifiedTypeName name="javax.faces.model.ListDataModel"/>
@@ -31,7 +28,6 @@
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modelo.Ruta"/>
 <fullyQualifiedTypeName name="interfazDAO.IFotoDAO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
@@ -53,11 +49,15 @@
 <fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 <fullyQualifiedTypeName name="controller.RutaBean"/>
 <fullyQualifiedTypeName name="modelo.Foto"/>
-<fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFile"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="modelo.Ruta.Comparators"/>
 </qualifiedTypeNameHistroy>

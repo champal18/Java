@@ -37,13 +37,13 @@ INDEX VERSION 1.127+C:\Users\juanpablo\UNLP\5to año\JAVA\Java\WorkSpace\.metadat
 4135500931.index
 2736341487.index
 3349119677.index
-3897842779.index
-3886922557.index
+1519025507.index
+3850832840.index
 3417200662.index
 2691541741.index
-3850832840.index
+3886922557.index
 1217287756.index
-1519025507.index
+3897842779.index
 3378793719.index
 1330312401.index
 2478914039.index
@@ -52,9 +52,9 @@ INDEX VERSION 1.127+C:\Users\juanpablo\UNLP\5to año\JAVA\Java\WorkSpace\.metadat
 3903179707.index
 3170778162.index
 2637943071.index
-2875341295.index
-3808885696.index
 2962188413.index
+3808885696.index
+2875341295.index
 4186410752.index
 1852965452.index
 3531245863.index
@@ -70,6 +70,7 @@ INDEX VERSION 1.127+C:\Users\juanpablo\UNLP\5to año\JAVA\Java\WorkSpace\.metadat
 662040148.index
 603372342.index
 3393111656.index
+108632119.index
 828269216.index
 177597200.index
 4191071934.index

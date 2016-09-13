@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -169,5 +170,53 @@ public class Ruta
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public int compareTo(Ruta o)
+	{
+		return Comparators.NAME.compare(this, o);
+	}
+	
+	public static class Comparators {
+
+        public static Comparator<Ruta> NAME = new Comparator<Ruta>() {
+            @Override
+            public int compare(Ruta o1, Ruta o2) {
+                return o1.getNombre().compareTo(o2.getNombre());
+            }
+        };
+        public static Comparator<Ruta> DISTANCIA = new Comparator<Ruta>() {
+            @Override
+            public int compare(Ruta o1, Ruta o2) {
+            	 return o1.getDistancia() < o2.getDistancia() ? -1 : o1.getDistancia() == o2.getDistancia() ? 0 : 1;
+            }
+        };
+        public static Comparator<Ruta> PUNTUACION = new Comparator<Ruta>() {
+            @Override
+            public int compare(Ruta o1, Ruta o2) {
+            	 return o1.getPromedio() < o2.getPromedio() ? -1 : o1.getPromedio() == o2.getPromedio() ? 0 : 1;
+            }
+        };
+        public static Comparator<Ruta> DIFICULTAD = new Comparator<Ruta>() {
+            @Override
+            public int compare(Ruta o1, Ruta o2) 
+            {
+            	if(o1.getDificultad().compareTo(o2.getDificultad()) < 0)
+            		return -1;
+            	else
+            	{
+            		if(o1.getDificultad() == o2.getDificultad())
+            			return 0;
+            		else
+            			return 1;
+            	}
+            }
+        };
+        public static Comparator<Ruta> CANTREALIZACIONES = new Comparator<Ruta>() {
+            @Override
+            public int compare(Ruta o1, Ruta o2) {
+            	 return o1.getCantRealizadas() < o2.getCantRealizadas() ? -1 : o1.getCantRealizadas() == o2.getCantRealizadas() ? 0 : 1;
+            }
+        };
+    }
 
 }
