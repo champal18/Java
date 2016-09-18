@@ -1,0 +1,16 @@
+Funciones que faltan implementar:
+
+- URL/Paths. Correctos? (Divididos por filtros de login)
+
+Para usuario:
+- Filtros de busqueda.
+- Busqueda.
+- Hice esta ruta y valoracion.
+- Imagen de la ruta: recup de la BD y cargar mas de una.
+
+Para el admin:
+- Ordenamiento de usuarios.
+- Estadisticas.
+
+Usuario: jruteros.g6@gmail.com
+Pass: jruteros6

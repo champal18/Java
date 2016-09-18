@@ -1,1 +1,27 @@
 1473714366971	Encapsulate field 'allRutas'
+1473881090414	Encapsulate field 'idFiltroAct'
+1473882185889	Encapsulate field 'idFiltroDistancia'
+1473882188803	Encapsulate field 'idFiltroDificultad'
+1473882279011	Encapsulate field 'idFiltroFormato'
+1473883994426	Encapsulate field 'idFiltroDistancia'
+1473883997719	Encapsulate field 'filtroDificultad'
+1473884000885	Encapsulate field 'filtroFormato'
+1474069875819	Delete element
+1474223974299	Move 'admin.xhtml' to 'LoginOk'
+1474224331414	Delete element
+1474224343326	Delete element
+1474224369543	Move 22 resources to 'LoginOk'
+1474225332027	Delete elements
+1474226596950	Move 13 resources to 'LoginUsr'
+1474226604914	Rename resource 'LoginOk'
+1474226638830	Move 7 resources to 'Home'
+1474227464399	Copy folders
+1474227522268	Copy compilation unit
+1474227569035	Copy compilation unit
+1474227580165	Rename type 'filtroLogin'
+1474227586138	Rename type 'filtroLogin2'
+1474227596442	Rename type 'filtroLogin3'
+1474228511400	Rename type 'LoginUsr'
+1474230127115	Encapsulate field 'msj'
+1474231800506	Delete element
+1474232028724	Change method 'postMail'

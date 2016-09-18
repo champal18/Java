@@ -1,0 +1,8 @@
+package modelo;
+
+public class Snippet {
+	public static void main(String[] args) {
+		this.msj = new String();
+	}
+}
+

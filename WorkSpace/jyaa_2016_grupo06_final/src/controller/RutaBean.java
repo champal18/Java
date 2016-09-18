@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
@@ -32,12 +32,20 @@ public class RutaBean
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
 	private UploadedFile file;
-	private List<Ruta> allRutas;
-	
+	private List<Ruta> allRutas = rDao.recuperarAllRutas();;
 	private enum orden {normal,distancia,dificultad,puntuacion,cantRealizaciones};
 	private orden ordenActual = orden.normal;
-	
 	private boolean control = true;
+	
+	// filtrado de actividades
+	
+	private long idFiltroActividad;
+	private long idFiltroDistancia;
+	private Dificultad filtroDificultad;
+	private long filtroFormato;
+//	private Punto puntoFiltro;
+	
+	/////////////
 
 	public RutaBean(){}
 	
@@ -249,32 +257,14 @@ public class RutaBean
 		this.img = img;
 	}
 
-	public List<Ruta> getAllRutas() {
-		switch(this.ordenActual)
-		{
-		case normal:
-			this.allRutas = rDao.recuperarAllRutas();
-			break;
-		case cantRealizaciones:
-			this.allRutas = rDao.recuperarAllRutas();
-			Collections.sort(this.allRutas, Ruta.Comparators.CANTREALIZACIONES);
-			break;
-		case dificultad:
-			this.allRutas = rDao.recuperarAllRutas();
-			Collections.sort(this.allRutas, Ruta.Comparators.DIFICULTAD);
-			break;
-		case distancia:
-			this.allRutas = rDao.recuperarAllRutas();
-			Collections.sort(this.allRutas, Ruta.Comparators.DISTANCIA);
-			break;
-		case puntuacion:
-			this.allRutas = rDao.recuperarAllRutas();
-			Collections.sort(this.allRutas, Ruta.Comparators.PUNTUACION);
-			break;
-		default:
-			this.allRutas = rDao.recuperarAllRutas();
-			break;
-		}
+	public List<Ruta> getAllRutas()
+	{
+//		this.allRutas = rDao.recuperarAllRutas();	// Obtengo las rutas publicas de la BD
+//		
+//		// Primero filtro
+//		filtrar();
+//		// Segundo ordeno
+		ordenar();
 		return allRutas;
 	}
 
@@ -307,6 +297,101 @@ public class RutaBean
 		}
 		
 		return null;
+	}
+	
+	private void ordenar()
+	{
+		switch(this.ordenActual)
+		{
+		case normal:
+			break;
+		case cantRealizaciones:
+			Collections.sort(this.allRutas, Ruta.Comparators.CANTREALIZACIONES);
+			break;
+		case dificultad:
+			Collections.sort(this.allRutas, Ruta.Comparators.DIFICULTAD);
+			break;
+		case distancia:
+			Collections.sort(this.allRutas, Ruta.Comparators.DISTANCIA);
+			break;
+		case puntuacion:
+			Collections.sort(this.allRutas, Ruta.Comparators.PUNTUACION);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	public void filtrar()
+	{
+		
+	}
+
+	public long getIdFiltroAct() {
+		return idFiltroActividad;
+	}
+
+	public void setIdFiltroAct(long idFiltroAct)
+	{
+		this.idFiltroActividad = idFiltroAct;
+		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) {
+		    Ruta ruta = iterator.next();
+		    if (ruta.getActividad().getId()!=idFiltroAct) {
+		        // Remove the current element from the iterator and the list.
+		        iterator.remove();
+		    }
+		}
+	}
+
+	public long getIdFiltroDistancia() {
+		return idFiltroDistancia;
+	}
+
+	public void setIdFiltroDistancia(long idFiltroDistancia) {
+		this.idFiltroDistancia = idFiltroDistancia;
+	}
+
+	public Dificultad getFiltroDificultad() {
+		return filtroDificultad;
+	}
+
+	public void setFiltroDificultad(Dificultad filtroDificultad) {
+		this.filtroDificultad = filtroDificultad;
+	}
+
+	public long getFiltroFormato() {
+		return filtroFormato;
+	}
+
+	public void setFiltroFormato(long filtroFormato)
+	{
+		this.filtroFormato = filtroFormato;
+		switch((int)filtroFormato)
+	    {
+	    case 1:
+	    	for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
+	    	{
+			    Ruta ruta = iterator.next();
+			    if (ruta.getFormato()!=Formato.SoloIda) 
+			    {
+			        // Remove the current element from the iterator and the list.
+			        iterator.remove();
+			    }
+	    	}
+	    	break;
+	    case 2:
+	    	for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
+	    	{
+			    Ruta ruta = iterator.next();
+			    if (ruta.getFormato()!=Formato.Circular) 
+			    {
+			        // Remove the current element from the iterator and the list.
+			        iterator.remove();
+			    }
+	    	}
+	    	break;
+		    
+		}
 	}
     
 	

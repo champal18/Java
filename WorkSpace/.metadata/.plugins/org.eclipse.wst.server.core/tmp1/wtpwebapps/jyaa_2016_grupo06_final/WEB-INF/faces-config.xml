@@ -36,10 +36,10 @@
 	</managed-bean>
 
 <navigation-rule> 
-  <from-view-id>registro.xhtml</from-view-id> 
+  <from-view-id>/Home/registro.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>exito</from-outcome>
-      <to-view-id>/registroExitoso.xhtml</to-view-id> 
+      <to-view-id>/Home/registroExitoso.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -47,7 +47,7 @@
   <from-view-id>usuario_editarPerfil.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editarUsr</from-outcome>
-      <to-view-id>/usuario_perfil.xhtml</to-view-id> 
+      <to-view-id>/LoginUsr/usuario_perfil.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -55,7 +55,7 @@
   <from-view-id>admin_editarPerfil.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editarAdmin</from-outcome>
-      <to-view-id>/admin_perfil.xhtml</to-view-id> 
+      <to-view-id>/LoginAdmin/admin_perfil.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -63,7 +63,7 @@
   <from-view-id>*</from-view-id> 
   <navigation-case>
     <from-outcome>admin_opOk</from-outcome>
-      <to-view-id>/faces/admin_opOk.xhtml</to-view-id> 
+      <to-view-id>/faces/LoginAdmin/admin_opOk.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -71,7 +71,7 @@
   <from-view-id>*</from-view-id> 
   <navigation-case>
     <from-outcome>usuario_opOk</from-outcome>
-      <to-view-id>/faces/usuario_opOk.xhtml</to-view-id> 
+      <to-view-id>/faces/LoginUsr/usuario_opOk.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -79,7 +79,7 @@
   <from-view-id>admin_listaActividades.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editar_actividad</from-outcome>
-      <to-view-id>/faces/admin_editarActividad.xhtml</to-view-id> 
+      <to-view-id>/faces/LoginAdmin/admin_editarActividad.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -87,7 +87,7 @@
   <from-view-id>usuario_misRutas.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editar_ruta</from-outcome>
-      <to-view-id>/faces/usuario_editarRuta.xhtml</to-view-id> 
+      <to-view-id>/faces/LoginUsr/usuario_editarRuta.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
@@ -95,7 +95,7 @@
   <from-view-id>usuario_misRutas.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>mostrar_ruta</from-outcome>
-      <to-view-id>/faces/usuario_ruta.xhtml</to-view-id> 
+      <to-view-id>/faces/LoginUsr/usuario_ruta.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 

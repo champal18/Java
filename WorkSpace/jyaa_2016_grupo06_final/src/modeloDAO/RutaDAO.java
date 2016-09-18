@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 import interfazDAO.IRutaDAO;
+import modelo.Privacidad;
 import modelo.Ruta;
 
 public class RutaDAO implements IRutaDAO
@@ -144,7 +145,7 @@ public class RutaDAO implements IRutaDAO
 		List<Ruta> rutas = null;
 		
 		try {
-			Query q = em.createQuery("FROM Ruta");
+			Query q = em.createQuery("FROM Ruta WHERE privacidad = '"+Privacidad.Publico+"'");
 			
 			if(!q.getResultList().isEmpty())
 				rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
