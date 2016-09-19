@@ -1,0 +1,9 @@
+1474306589331	Delete element
+1474306605432	Delete element
+1474306626781	Delete elements
+1474308832543	Delete elements
+1474310832330	Move 2 resources to 'WebContent'
+1474316522755	Rename field 'marcador'
+1474316536580	Rename method 'cleanMarcador'
+1474316974159	Encapsulate field 'marcadorDistancia'
+1474319258114	Encapsulate field 'cadenaBuscada'

@@ -31,13 +31,9 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
+	<script src="funciones.js"> </script>
 </h:head>
 
 <body>
@@ -137,21 +133,17 @@
 			        	<h3>
 							Búsqueda de rutas
 						</h3>
-						
-					
-<!-- 						<div class="form-group input-group"> -->
-<!-- 	                           <input type="text" class="form-control"> -->
-<!-- 	                           <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span> -->
-<!-- 	                    </div> -->
 	                    	
-	                    <div class="col-lg-6">
-							    <div class="input-group">
-							      <input type="text" class="form-control" placeholder="Busca tu ruta.." />
-							      <span class="input-group-btn">
-							        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-							      </span>
-							    </div><!-- /input-group -->
-							  </div><!-- /.col-lg-6 -->
+	                    <div class="col-md-6">
+							    <h:form>
+							      <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
+							      <h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.buscarRuta()}"></h:commandButton>
+							    </h:form>
+						</div><!-- /.col-lg-6 -->
+<!-- 							      <input type="text" class="form-control" placeholder="Busca tu ruta.." /> -->						
+<!-- 							      <span class="input-group-btn"> -->
+<!-- 							        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button> -->
+<!-- 							      </span> -->
 	            	</div>				
 				
 					<div class="col-md-4">
@@ -159,91 +151,56 @@
 					    <h:form>
 					    <label>Filtrar por:</label>
 						<div class="form-group">
-	                                <label>Cercania</label>
-	                                <div class="checkbox">
-	                                    <label>
-	                                        <input type="checkbox" value="" />Mapa
-	                                    </label>
-	                                </div>
+	                         <label>Cercania</label>
+	                         <div id="googleMap" style="width:150px;height:150px;" ></div>
+	                         <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
 	                    </div>
 	                    
 	                    <div class="form-group">
                      	    <label>Actividad</label><br></br>   
-							<div class="col-sm-6">
-                              	<h:selectOneMenu id="actividad" value="#{RutaBean.idFiltroAct}" styleClass="form-control" 
-                                required="true" requiredMessage="Actividad es un campo obligatorio">
-                                <f:selectItems value="#{ActividadBean.getActividadValues()}" />
-                                </h:selectOneMenu>                                    
-                           	</div>  
+								<h:commandLink value="Cualquier actividad" action="#{RutaBean.setFiltroActividad(null)}" onclick="this.style.color='green'"></h:commandLink><br></br>
+								<ui:repeat value="#{ActividadBean.listaActividades}" var="item">
+									<h:commandLink value="#{item.nombre}" action="#{RutaBean.setFiltroActividad(item)}" onclick="this.style.color='green'"></h:commandLink><br></br>
+								</ui:repeat>
 	                                
 	                    </div>
 	                    
 	                    <div class="form-group">
-                                <br></br> <label>Formato</label>
-                                <h:selectOneRadio value="#{RutaBean.filtroFormato}">
-									<f:selectItem itemValue="1" itemLabel="Solo ida" />
-  									<f:selectItem itemValue="2" itemLabel="Circular" />
-								</h:selectOneRadio>
-
+                                <label>Formato</label><br></br>
+                                <h:commandLink value="Cualquier formato" action="#{RutaBean.setFiltroFormato(0)}" style="#{RutaBean.marcadorFormato[0]}"></h:commandLink><br></br>
+                                <h:commandLink value="Solo ida" action="#{RutaBean.setFiltroFormato(1)}" style="#{RutaBean.marcadorFormato[1]}"></h:commandLink><br></br>
+                                <h:commandLink value="Circular" action="#{RutaBean.setFiltroFormato(2)}" style="#{RutaBean.marcadorFormato[2]}"></h:commandLink><br></br>
 	                    </div>
 	                    
 	                    <div class="form-group">
-	                                <label>Distancia</label>
-	                                <div class="checkbox">
-	                                    <label>
-	                                        <input type="checkbox" value="" />5km - 10km
-	                                    </label>
-	                                </div>
-	                                <div class="checkbox">
-	                                    <label>
-	                                        <input type="checkbox" value="" />10km - 25km
-	                                    </label>
-	                                </div>
-	                                <div class="checkbox">
-	                                    <label>
-	                                        <input type="checkbox" value="" />25km - 50km
-	                                    </label>
-	                                </div>
-	                                 <div class="checkbox">
-	                                    <label>
-	                                        <input type="checkbox" value="" />50km - 100km
-	                                    </label>
-	                                </div>
-	                                <div class="checkbox">
-	                                    <label>
-	                                        <input type="checkbox" value="" />+100km
-	                                    </label>
-	                                </div>
+                       		 <label>Distancia</label>
+                                <br></br><h:commandLink value="Cualquier distancia" action="#{RutaBean.setFiltroDistancia(0)}" style="#{RutaBean.marcadorDistancia[0]}"></h:commandLink><br></br>
+                                <h:commandLink value="0km - 10km" action="#{RutaBean.setFiltroDistancia(1)}" style="#{RutaBean.marcadorDistancia[1]}"></h:commandLink><br></br>
+                                <h:commandLink value="10km - 25km" action="#{RutaBean.setFiltroDistancia(2)}" style="#{RutaBean.marcadorDistancia[2]}"></h:commandLink><br></br>
+                                <h:commandLink value="25km - 50km" action="#{RutaBean.setFiltroDistancia(3)}" style="#{RutaBean.marcadorDistancia[3]}"></h:commandLink><br></br>
+                                <h:commandLink value="50km - 100km" action="#{RutaBean.setFiltroDistancia(4)}" style="#{RutaBean.marcadorDistancia[4]}"></h:commandLink><br></br>
+                                <h:commandLink value="+100km" action="#{RutaBean.setFiltroDistancia(5)}" style="#{RutaBean.marcadorDistancia[5]}"></h:commandLink><br></br>
 	                    </div> 
 	                    
 	                    <div class="form-group">
-	                                <label>Dificultad</label>
-
+                            <label>Dificultad</label>
+							<br></br><h:commandLink value="Cualquier dificultad" action="#{RutaBean.setFiltroDificultad(0)}" style="#{RutaBean.marcadorDificultad[0]}"></h:commandLink><br></br>
+                                <h:commandLink value="Facil" action="#{RutaBean.setFiltroDificultad(1)}" style="#{RutaBean.marcadorDificultad[1]}"></h:commandLink><br></br>
+                                <h:commandLink value="Moderado" action="#{RutaBean.setFiltroDificultad(2)}" style="#{RutaBean.marcadorDificultad[2]}"></h:commandLink><br></br>
+                                <h:commandLink value="Dificil" action="#{RutaBean.setFiltroDificultad(3)}" style="#{RutaBean.marcadorDificultad[3]}"></h:commandLink><br></br>
+                                <h:commandLink value="Muy dificil" action="#{RutaBean.setFiltroDificultad(4)}" style="#{RutaBean.marcadorDificultad[4]}"></h:commandLink><br></br>
+                                <h:commandLink value="Solo expertos" action="#{RutaBean.setFiltroDificultad(5)}" style="#{RutaBean.marcadorDificultad[5]}"></h:commandLink><br></br>
 	                    </div>
-					
-						<h:commandButton value="filtrar" action="#{RutaBean.filtrar}"></h:commandButton>
 					</h:form>
 					</div>
 					<div class="col-md-8">
 					    <label>Ordenar por:</label>
 						<h:form>
 						<div class="btn-group">
-							<button class="btn btn-default" type="button">
-<!-- 								<em class="glyphicon glyphicon-align-left"></em> Distancia -->
 								<p:commandButton value="Distancia" action="#{RutaBean.orden(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-							</button> 
-							<button class="btn btn-default" type="button">
-<!-- 								<em class="glyphicon glyphicon-align-center"></em> Dificultad -->
-								<h:commandButton value="Dificultad" action="#{RutaBean.orden(2)}"></h:commandButton>
-							</button> 
-							<button class="btn btn-default" type="button">
-<!-- 								<em class="glyphicon glyphicon-align-right"></em> Puntuacion -->
-								<h:commandButton value="Puntuacion" action="#{RutaBean.orden(3)}"></h:commandButton>
-							</button> 
-							<button class="btn btn-default" type="button">
-<!-- 								<em class="glyphicon glyphicon-align-justify"></em> Cantidad realizaciones -->
-									<h:commandButton value="Cantidad realizaciones" action="#{RutaBean.orden(4)}"></h:commandButton>
-							</button>
+								<p:commandButton value="Dificultad" action="#{RutaBean.orden(2)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+								<p:commandButton value="Puntuacion" action="#{RutaBean.orden(3)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+								<p:commandButton value="Cantidad realizaciones" action="#{RutaBean.orden(4)}" ajax="false" styleClass="btn btn-primary"  icon="ui-icon-arrow-2-e-w"></p:commandButton>
 						</div>
 						</h:form>
 					<ui:repeat value="#{RutaBean.allRutas}" var="item">
@@ -256,7 +213,7 @@
 	                                </h4>
 	                                <p>#{item.descripcion}</p>
 	                                <p class="pull-right">#{item.dificultad}</p>
-	                                 <p>distancia: #{item.distancia} km</p>
+	                                 <p>dist: #{item.distancia} km</p>
 	                            </div>
 	                            <div class="ratings">
 	                                <p class="pull-right">#{item.cantRealizadas} veces</p>

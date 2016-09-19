@@ -7,8 +7,8 @@ public enum Dificultad {
 
   Dificil,
 
-  SoloExpertos,
+  MuyDificil,
 
-  MuyDificil;
+  SoloExpertos;
 
 }

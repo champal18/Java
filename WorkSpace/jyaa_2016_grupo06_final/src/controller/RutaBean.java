@@ -29,25 +29,35 @@ public class RutaBean
 
 	private RutaDAO rDao = new RutaDAO();
 	private Ruta ruta = new Ruta();
+	
+	private boolean control = true;	// Una vez creada una ruta nueva, se vuelve a llamar al constructor
+	private boolean buscar = false; // Flag que indica que se inicio una busqueda para no renovar la lista de rutas
+	
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
 	private UploadedFile file;
-	private List<Ruta> allRutas = rDao.recuperarAllRutas();;
+	
+	// Listado de rutas de la BD
+	private List<Ruta> allRutas = rDao.recuperarAllRutas();
+	private List<Ruta> backUpRutas = rDao.recuperarAllRutas();
+	
+	// Enumerativo para definir orden actual de la lista
 	private enum orden {normal,distancia,dificultad,puntuacion,cantRealizaciones};
 	private orden ordenActual = orden.normal;
-	private boolean control = true;
 	
-	// filtrado de actividades
-	
-	private long idFiltroActividad;
-	private long idFiltroDistancia;
+	// Filtrado de Rutas
+	private Actividad filtroActividad;
+	private long filtroDistancia;
 	private Dificultad filtroDificultad;
 	private long filtroFormato;
 //	private Punto puntoFiltro;
-	
-	/////////////
 
-	public RutaBean(){}
+	public RutaBean()
+	{
+		marcadorDistancia[0] = "font-weight:bold; color:black";
+		marcadorDificultad[0] = "font-weight:bold; color:black";
+		marcadorFormato[0] = "font-weight:bold; color:black";
+	}
 	
 	public Ruta getRuta() {
 		if(!control)
@@ -93,7 +103,6 @@ public class RutaBean
             try {
 				f.setImg(this.file.getBytes());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             FotoDAO fDao = new FotoDAO();
@@ -154,7 +163,6 @@ public class RutaBean
 		PuntoDao puntoDao = PuntoDao.instance;
 		puntoDao.eliminarPuntosRuta(rutaSeleccionada.getId());
 		
-		
 		puntoDao.guardarPuntos(this.ruta);
 		
 		puntoDao.limpiarMapa();
@@ -167,15 +175,6 @@ public class RutaBean
 		rDao.eliminarRuta(rutaSeleccionada);
 		return "usuario_opOk";
 	}
-	
-	
-	
-//	public void eliminarRuta(Ruta ruta)	// --> parametro enviado desde el xhtml
-//	{
-//		rDao.eliminarRuta(ruta);
-//	}
-	
-	
 	
 	public SelectItem[] getPrivacidadValues()
 	{
@@ -236,7 +235,6 @@ public class RutaBean
             try {
 				f.setImg(this.file.getBytes());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             FotoDAO fDao = new FotoDAO();
@@ -257,20 +255,29 @@ public class RutaBean
 		this.img = img;
 	}
 
+	// Lista de todas las rutas
 	public List<Ruta> getAllRutas()
 	{
-//		this.allRutas = rDao.recuperarAllRutas();	// Obtengo las rutas publicas de la BD
-//		
-//		// Primero filtro
-//		filtrar();
-//		// Segundo ordeno
-		ordenar();
+		if(!buscar)
+		{
+			this.backUpRutas = rDao.recuperarAllRutas();	// Obtengo las rutas publicas de la BD
+			this.allRutas.clear();
+			this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
+			// Primero filtro
+			filtrar();
+			// Segundo ordeno
+			ordenar();
+		}
+		buscar = false;
+		this.cadenaBuscada = new String();
 		return allRutas;
 	}
 
 	public void setAllRutas(List<Ruta> allRutas) {
 		this.allRutas = allRutas;
 	}
+	
+	// Funciones de FILTRADO y ORDENAMIENTO de la lista de rutas
 	
 	public String ordenDistancia()
 	{
@@ -324,50 +331,212 @@ public class RutaBean
 	
 	public void filtrar()
 	{
-		
+		filtroActividad();
+		filtroDistancia();
+		filtroDificultad();
+		filtroFormato();
 	}
-
-	public long getIdFiltroAct() {
-		return idFiltroActividad;
-	}
-
-	public void setIdFiltroAct(long idFiltroAct)
-	{
-		this.idFiltroActividad = idFiltroAct;
-		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) {
-		    Ruta ruta = iterator.next();
-		    if (ruta.getActividad().getId()!=idFiltroAct) {
-		        // Remove the current element from the iterator and the list.
-		        iterator.remove();
-		    }
+	
+	// FILTRO ACTIVIDAD
+	
+	private void filtroActividad()
+	{	
+		if(filtroActividad != null)
+		{
+			for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) {
+			    Ruta ruta = iterator.next();
+			    if (ruta.getActividad().getId() != filtroActividad.getId()) {
+			        // Remove the current element from the iterator and the list.
+			        iterator.remove();
+			    }
+			}
 		}
 	}
 
-	public long getIdFiltroDistancia() {
-		return idFiltroDistancia;
+	public Actividad getFiltroActividad() {
+		return filtroActividad;
 	}
 
-	public void setIdFiltroDistancia(long idFiltroDistancia) {
-		this.idFiltroDistancia = idFiltroDistancia;
+	public void setFiltroActividad(Actividad filtro)
+	{
+		this.filtroActividad = filtro;
+	}
+	
+//	private String[] marcadorActividad = new String[];
+	
+	// FILTRO DISTANCIA
+	
+	private void filtroDistancia()
+	{
+		switch((int)filtroDistancia)
+		{
+		case 0:
+			break;
+		case 1:
+			compararDistancias(0, 10);
+			break;
+		case 2:
+			compararDistancias(10, 25);
+			break;
+		case 3:
+			compararDistancias(25, 50);
+			break;
+		case 4:
+			compararDistancias(50, 100);
+			break;
+		case 5:
+			compararDistancias(100, 100);
+			break;
+		}
+	}
+
+	public long getFiltroDistancia() {
+		return filtroDistancia;
+	}
+
+	public void setFiltroDistancia(long filtroDistancia)
+	{
+		this.filtroDistancia = filtroDistancia;
+		cleanMarcadorDistancia();
+		marcadorDistancia[(int) filtroDistancia] = "font-weight:bold; color:black";
+	}
+	
+	private void compararDistancias(int d1, int d2)
+	{
+		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
+    	{
+		    Ruta ruta = iterator.next();
+		    if(d1 != d2)
+		    {    
+		    	if ((ruta.getDistancia() < d1) || (ruta.getDistancia() > d2))
+			    {
+			        // Remove the current element from the iterator and the list.
+			        iterator.remove();
+			    }
+		    }
+		    else
+		    {
+		    	if (ruta.getDistancia() < d1)
+			    {
+			        // Remove the current element from the iterator and the list.
+			        iterator.remove();
+			    }
+		    }
+	 	}
+	}
+	
+	private String[] marcadorDistancia = new String[6];
+	
+	public String[] getMarcadorDistancia() {
+		return marcadorDistancia;
+	}
+
+	public void setMarcadorDistancia(String[] marcadorDistancia) {
+		this.marcadorDistancia = marcadorDistancia;
+	}
+	
+	private void cleanMarcadorDistancia()
+	{
+		for(int i=0;i<6;i++)
+		{
+			marcadorDistancia[i] = new String();
+		}
+	}
+	
+	// FILTRO DIFICULTAD
+	
+	private void filtroDificultad()
+	{
+		if(this.filtroDificultad != null)
+		{
+			switch(this.filtroDificultad)
+			{
+			case Facil:
+				compararDificultad(Dificultad.Facil);
+				break;
+			case Moderado:
+				compararDificultad(Dificultad.Moderado);
+				break;
+			case Dificil:
+				compararDificultad(Dificultad.Dificil);
+				break;
+			case MuyDificil:
+				compararDificultad(Dificultad.MuyDificil);
+				break;
+			case SoloExpertos:
+				compararDificultad(Dificultad.SoloExpertos);
+				break;
+			}
+		}
 	}
 
 	public Dificultad getFiltroDificultad() {
 		return filtroDificultad;
 	}
-
-	public void setFiltroDificultad(Dificultad filtroDificultad) {
-		this.filtroDificultad = filtroDificultad;
-	}
-
-	public long getFiltroFormato() {
-		return filtroFormato;
-	}
-
-	public void setFiltroFormato(long filtroFormato)
+	
+	public void setFiltroDificultad(int filtroDificultad)
 	{
-		this.filtroFormato = filtroFormato;
+		cleanMarcadorDificultad();
+		marcadorDificultad[filtroDificultad] = "font-weight:bold; color:black";
+		switch((int)filtroDificultad)
+		{
+		case 0:
+			break;
+		case 1:
+			this.filtroDificultad = Dificultad.Facil;
+			break;
+		case 2:
+			this.filtroDificultad = Dificultad.Moderado;
+			break;
+		case 3:
+			this.filtroDificultad = Dificultad.Dificil;
+			break;
+		case 4:
+			this.filtroDificultad = Dificultad.MuyDificil;
+			break;
+		case 5:
+			this.filtroDificultad = Dificultad.SoloExpertos;
+			break;
+		}
+	}
+	
+	private void compararDificultad(Dificultad dif)
+	{
+		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
+    	{
+		    Ruta ruta = iterator.next();
+		    if (ruta.getDificultad() != dif) 
+		    {
+		        // Remove the current element from the iterator and the list.
+		        iterator.remove();
+		    }
+    	}
+	}
+		
+	private String[] marcadorDificultad = new String[6];
+
+	public String[] getMarcadorDificultad() {
+		return marcadorDificultad;
+	}
+
+	public void setMarcadorDificultad(String[] marcadorDificultad) {
+		this.marcadorDificultad = marcadorDificultad;
+	}
+
+	private void cleanMarcadorDificultad()
+	{
+		for(int i=0;i<6;i++)
+		{
+			marcadorDificultad[i] = new String();
+		}
+	}
+
+	private void filtroFormato()
+	{
 		switch((int)filtroFormato)
 	    {
+		case 0:
+			break;
 	    case 1:
 	    	for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
 	    	{
@@ -389,10 +558,61 @@ public class RutaBean
 			        iterator.remove();
 			    }
 	    	}
-	    	break;
-		    
+	    	break;   
 		}
 	}
+	
+	public long getFiltroFormato() {
+		return filtroFormato;
+	}
+
+	public void setFiltroFormato(long filtroFormato)
+	{
+		cleanMarcadorFormato();
+		marcadorFormato[(int) filtroFormato] = "font-weight:bold; color:black";
+		this.filtroFormato = filtroFormato;
+	}
     
+	private String[] marcadorFormato = new String[3];
+
+	public String[] getMarcadorFormato() {
+		return marcadorFormato;
+	}
+	
+	public void setMarcadorFormato(String[] marcadorFormato) {
+		this.marcadorFormato = marcadorFormato;
+	}
+
+	private void cleanMarcadorFormato()
+	{
+		for(int i=0;i<3;i++)
+		{
+			marcadorFormato[i] = new String();
+		}
+	}
+	
+	private String cadenaBuscada = new String();
+	
+	public void buscarRuta()
+	{
+		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
+    	{
+		    Ruta ruta = iterator.next();
+		    if (!ruta.getNombre().contains(cadenaBuscada)) 
+		    {
+		        // Remove the current element from the iterator and the list.
+		        iterator.remove();
+		    }
+    	}
+		this.buscar = true;
+	}
+
+	public String getCadenaBuscada() {
+		return cadenaBuscada;
+	}
+
+	public void setCadenaBuscada(String cadenaBuscada) {
+		this.cadenaBuscada = cadenaBuscada;
+	}
 	
 }

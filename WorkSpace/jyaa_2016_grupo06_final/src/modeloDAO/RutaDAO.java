@@ -7,6 +7,7 @@ import javax.persistence.*;
 import interfazDAO.IRutaDAO;
 import modelo.Privacidad;
 import modelo.Ruta;
+import rest.Punto;
 
 public class RutaDAO implements IRutaDAO
 {
@@ -59,15 +60,17 @@ public class RutaDAO implements IRutaDAO
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction etx = em.getTransaction();
 		etx.begin();
+		Punto p = new Punto();
+		p.setRuta(ruta);
 		try
 		{
 			em.remove(em.find(Ruta.class, ruta.getId()));
+			etx.commit();
+			
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());
 		}
-		
-		etx.commit();
 		em.close();
 	}
 

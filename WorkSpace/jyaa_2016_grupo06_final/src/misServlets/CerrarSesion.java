@@ -32,7 +32,7 @@ public class CerrarSesion extends HttpServlet {
 		
 		HttpSession sesion = request.getSession(true);
 		sesion.invalidate();
-		response.sendRedirect("/jyaa_2016_grupo06_final/faces/index.xhtml");
+		response.sendRedirect("/jyaa_2016_grupo06_final/faces/Home/index.xhtml");
 	}
 
 	/**

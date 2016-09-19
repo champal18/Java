@@ -3,14 +3,19 @@ Funciones que faltan implementar:
 - URL/Paths. Correctos? (Divididos por filtros de login)
 
 Para usuario:
-- Filtros de busqueda.
-- Busqueda.
+- Filtros de busqueda: Marcar boton, actividades (session.setAtribute)?
+- Busqueda. (Reestablecer lista?)
 - Hice esta ruta y valoracion.
 - Imagen de la ruta: recup de la BD y cargar mas de una.
 
 Para el admin:
 - Ordenamiento de usuarios.
-- Estadisticas.
+- Estadisticas:
+	- Usuarios hab/deshabilitados
+	- Rutas publicas/privadas
+	- Cantidad de rutas subidas en periodo de tiempo
+	- Cantidad de usuarios registrados en periodo de tiempo
 
+Cuenta Gmail:
 Usuario: jruteros.g6@gmail.com
 Pass: jruteros6

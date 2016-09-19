@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14684175544550" configfile="/jyaa_2016_grupo06_final/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf14705175099780" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14742270908903 pf14742270908904" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="usuario_misRutas.xhtml" id="pf14720626660360" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf147429969064911 pf14743001916640" path="usuario_misRutas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registro.xhtml" id="pf14742270479460" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14742270479461" path="/Home/registro.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Home/registroExitoso.xhtml" id="pf14742270479462" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14742270479461" path="/Home/registroExitoso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="usuario_editarPerfil.xhtml" id="pf14742270908907" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14742270908908" path="usuario_editarPerfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="LoginUsr/usuario_perfil.xhtml" id="pf14742270908909" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14742270908908" path="/LoginUsr/usuario_perfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin_editarPerfil.xhtml" id="pf147422709089010" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf147422709089011" path="admin_editarPerfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="LoginAdmin/admin_perfil.xhtml" id="pf147422709089012" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf147422709089011" path="/LoginAdmin/admin_perfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/LoginAdmin/admin_opOk.xhtml" id="pf147422709089013" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14742270908903" path="/faces/LoginAdmin/admin_opOk.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/LoginUsr/usuario_opOk.xhtml" id="pf147422709089014" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf14742270908904" path="/faces/LoginUsr/usuario_opOk.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin_listaActividades.xhtml" id="pf147422709089115" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf147422709089116" path="admin_listaActividades.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/LoginAdmin/admin_editarActividad.xhtml" x="169" y="12" id="pf147422709089117" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf147422709089116" path="/faces/LoginAdmin/admin_editarActividad.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="usuario_editarRuta.xhtml" id="pf147429969064912" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf147429969064911" path="usuario_editarRuta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="usuario_ruta.xhtml" id="pf14743001916641" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf14743001916640" path="usuario_ruta.xhtml"/>
+  <links id="pf14742270479461" target="pf14742270479462" source="pf14742270479460" outcome="exito"/>
+  <links id="pf14742270908908" target="pf14742270908909" source="pf14742270908907" outcome="editarUsr"/>
+  <links id="pf147422709089011" target="pf147422709089012" source="pf147422709089010" outcome="editarAdmin"/>
+  <links id="pf14742270908903" target="pf147422709089013" source="pf14705175099780" outcome="admin_opOk"/>
+  <links id="pf14742270908904" target="pf147422709089014" source="pf14705175099780" outcome="usuario_opOk"/>
+  <links id="pf147422709089116" target="pf147422709089117" source="pf147422709089115" outcome="editar_actividad"/>
+  <links id="pf147429969064911" target="pf147429969064912" source="pf14720626660360" outcome="editar_ruta"/>
+  <links id="pf14743001916640" target="pf14743001916641" source="pf14720626660360" outcome="mostrar_ruta"/>
+</pageflow:Pageflow>
