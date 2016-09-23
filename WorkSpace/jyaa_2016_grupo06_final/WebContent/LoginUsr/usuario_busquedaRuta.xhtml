@@ -209,11 +209,15 @@
 	                        <div class="thumbnail">
 	                            <img src="http://www.visitingargentina.com/version3/wp-content/uploads/2013/11/ruta-7-lagos.jpg" alt="" />
 	                            <div class="caption">
-	                                <h4><a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_ruta.xhtml">#{item.nombre}</a>
+	                            <h:form>
+	                            	<h4>
+<!-- 	                                <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_ruta.xhtml">#{item.nombre}</a> -->
+	                                <h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
 	                                </h4>
-	                                <p>#{item.descripcion}</p>
-	                                <p class="pull-right">#{item.dificultad}</p>
-	                                 <p>dist: #{item.distancia} km</p>
+	                            </h:form>
+	                            	<p>Actividad: #{item.actividad.nombre}</p>
+	                                <p>Distancia: #{item.distancia} km</p>
+	                                <p>Dificultad: #{item.dificultad}</p>
 	                            </div>
 	                            <div class="ratings">
 	                                <p class="pull-right">#{item.cantRealizadas} veces</p>

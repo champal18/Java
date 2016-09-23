@@ -96,10 +96,9 @@
 						</label>
 						<div class="col-sm-10">
 							<h:inputText styleClass="form-control" id="nameActividad" value="#{ActividadBean.act.nombre}" 
-		              			validatorMessage="Nombre de actividad: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+		              			validatorMessage="Nombre de actividad: Long. minima: 4 | Long. maxima: 40"
 								required="true" requiredMessage="Nombre de actividad es un campo obligatorio">
-								<f:validateLength minimum="4" maximum="20"/>
-					  			<f:validateRegex pattern="[A-Za-z ]+"/>
+								<f:validateLength minimum="4" maximum="40"/>
 							</h:inputText>
 						</div>
 						<div class="col-sm-4">

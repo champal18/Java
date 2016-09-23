@@ -92,7 +92,7 @@
 </navigation-rule>
 
 <navigation-rule> 
-  <from-view-id>/LoginUsr/usuario_misRutas.xhtml</from-view-id> 
+  <from-view-id>*</from-view-id> 
   <navigation-case>
     <from-outcome>mostrar_ruta</from-outcome>
       <to-view-id>/LoginUsr/usuario_ruta.xhtml</to-view-id> 

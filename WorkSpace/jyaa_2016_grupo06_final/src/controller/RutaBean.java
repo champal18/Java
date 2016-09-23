@@ -248,6 +248,10 @@ public class RutaBean
     public byte[] getImg() {
     	FotoDAO fDao = new FotoDAO();
 		this.img = fDao.recuperarFotos(this.rutaSeleccionada.getId()).get(0).getImg();
+		
+//		InputStream in = new ByteArrayInputStream(img);
+//		BufferedImage bImageFromConvert = ImageIO.read(in);
+		
     	return img;
 	}
 

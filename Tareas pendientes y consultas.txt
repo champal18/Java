@@ -1,20 +1,32 @@
-Funciones que faltan implementar:
+Consultas:
 
-- URL/Paths. Correctos? (Divididos por filtros de login)
+- URL/Paths. Correctos? (Divididos por filtros de login)	ok
 
 Para usuario:
-- Filtros de busqueda: Marcar boton, actividades (session.setAtribute)?
-- Busqueda. (Reestablecer lista?)
+- Filtros de busqueda: Marcar link es correcto? actividades (session.setAtribute)? Mapa? ok
+- Busqueda: (Reestablecer lista con un commandlink?)		ok
+- Hice esta ruta y valoracion.					ok
+- Imagen de la ruta: recup de la BD y cargar mas de una. 	ok
+- Rutas divididas por paginas o todas de corridas?		ok
+
+Para el admin:
+- Estadisticas:							ok
+	- Usuarios hab/deshabilitados
+	- Rutas publicas/privadas
+	- Rutas por actividad.
+	- Cantidad de rutas creadas por mes.
+	- Creacion de usuarios mes a mes.
+
+////////////////////////////////////////////////////////////////////////////////////
+Cosas que faltan hacer:
+
+Para usuario:
 - Hice esta ruta y valoracion.
 - Imagen de la ruta: recup de la BD y cargar mas de una.
 
 Para el admin:
 - Ordenamiento de usuarios.
-- Estadisticas:
-	- Usuarios hab/deshabilitados
-	- Rutas publicas/privadas
-	- Cantidad de rutas subidas en periodo de tiempo
-	- Cantidad de usuarios registrados en periodo de tiempo
+- Estadisticas
 
 Cuenta Gmail:
 Usuario: jruteros.g6@gmail.com

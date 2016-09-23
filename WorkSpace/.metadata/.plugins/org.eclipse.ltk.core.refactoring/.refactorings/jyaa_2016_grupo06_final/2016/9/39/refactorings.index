@@ -7,3 +7,5 @@
 1474316536580	Rename method 'cleanMarcador'
 1474316974159	Encapsulate field 'marcadorDistancia'
 1474319258114	Encapsulate field 'cadenaBuscada'
+1474403349331	Move compilation unit
+1474408929588	Rename resource 'login.jsf'
