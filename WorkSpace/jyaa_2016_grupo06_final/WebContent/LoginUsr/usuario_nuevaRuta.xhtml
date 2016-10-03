@@ -165,13 +165,13 @@
                         	<label for="inputRutaDesc" class="col-sm-offset-1 col-sm-2 control-label">
                                     Descripcion
                            	</label>
-                            <div class="col-sm-3">
-                            	<p:inputTextarea styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.ruta.descripcion}"
-                                validatorMessage="Descripcion: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 1023"
+                            <div class="col-sm-6">
+                            	<h:inputTextarea styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.ruta.descripcion}"
+                            	cols="50" rows="10"
+                                validatorMessage="Descripcion: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 2048"
                                 required="true" requiredMessage="Descripcion es un campo obligatorio">
-                                <f:validateLength minimum="4" maximum="1023"/>
-<!--                            <f:validateRegex pattern="[A-Za-z0-9 ]+"/>                revisar bien las validaciones -->
-                                </p:inputTextarea>
+                                <f:validateLength minimum="4" maximum="2048"/>
+                                </h:inputTextarea>
                           	</div>
                             <div class="col-sm-4">
                        			<p:messages for="inputRutaDesc" autoUpdate="true" />
