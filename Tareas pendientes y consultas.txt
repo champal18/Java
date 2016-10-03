@@ -22,11 +22,12 @@ Cosas que faltan hacer:
 
 Para usuario:
 - Hice esta ruta y valoracion.
-- Imagen de la ruta: recup de la BD y cargar mas de una.
 
 Para el admin:
 - Ordenamiento de usuarios.
 - Estadisticas
+
+Agregar fecha de creacion de ruta y usuario.
 
 Cuenta Gmail:
 Usuario: jruteros.g6@gmail.com

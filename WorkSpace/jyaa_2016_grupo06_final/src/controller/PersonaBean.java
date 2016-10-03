@@ -1,5 +1,8 @@
 package controller;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.faces.model.SelectItem;
@@ -60,6 +63,11 @@ public class PersonaBean
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			// Ingreso la fecha de registro
+			LocalDateTime now = LocalDateTime.now();
+			usr.setFechaRegistro(Date.from(now.atZone(ZoneId.systemDefault()).toInstant()));
+			
 			pDao.guardarPersona(usr);
 			control = true;
 			return "exito";

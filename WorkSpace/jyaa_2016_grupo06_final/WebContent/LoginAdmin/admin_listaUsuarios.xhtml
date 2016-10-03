@@ -92,31 +92,30 @@
         <div class="container-fluid">
             
         <h1>Lista de usuarios<br /><br /></h1>
-		Orden<select name="orden" class="btn btn-default">
-		<option value="nombre">Nombre</option>
-		<option value="antiguedad">Antiguedad</option>
-		<option value="cantRutas">Cantidad de rutas</option>
-		</select>
-		Criterio
-		<select name="orden2" class="btn btn-default">
-		<option value="asc">Ascendente</option>
-		<option value="desc">Descendente</option>
-		</select><br /><br />
-		         
+		<div class="col-sm-3">
+		<label>Ordenar por: </label>
+		     <h:form>  	
+		       	<h:selectOneMenu id="orden" value="#{AdminBean.ordenActual}" styleClass="form-control" onchange="window.location.reload();">
+		       	<f:selectItems value="#{AdminBean.getOrdenValues()}" />
+		       	<f:ajax execute="#{AdminBean.actualizar()}"/>
+		       	</h:selectOneMenu>
+		  	</h:form>
+		     </div>
+		     <div class="col-sm-3">
+		     <label>Criterio: </label>
+	     	<h:form>  	
+		       	<h:selectOneMenu id="criterio" value="#{AdminBean.criterioActual}" styleClass="form-control" onchange="window.location.reload();">
+		       	<f:selectItems value="#{AdminBean.getCriterioValues()}" />
+		       	<f:ajax execute="#{AdminBean.actualizar()}"/>
+		       	</h:selectOneMenu>
+		  	</h:form>
+		</div>
 		<div class="row">	
     		<h:form>
     		<h:dataTable class="table" value="#{AdminBean.listaUsuarios}" var="o"
     			styleClass="order-table"
     			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
-
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">#ID</f:facet>
-    				<!-- row record -->
-    				#{o.id}
-    			</h:column>
+    			rowClasses="order-table-odd-row,order-table-even-row">
     			
     			<h:column>
     				<f:facet name="header">Usuario</f:facet>
@@ -126,6 +125,18 @@
     			<h:column>
     				<f:facet name="header">Mail</f:facet>
     				#{o.mail}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Antigüedad</f:facet>
+    				<h:outputText value="#{o.fechaRegistro}" >  
+              	      <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+		            </h:outputText>
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Rutas creadas</f:facet>
+    				#{AdminBean.obtenerCantRutas(o)}
     			</h:column>
     			
     			<h:column>

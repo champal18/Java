@@ -1,8 +1,11 @@
 package modelo;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+import modeloDAO.RutaDAO;
 
 @Entity
 public class Persona {
@@ -19,6 +22,8 @@ public class Persona {
 	private Integer dni;
 	
 	private Date fechaNac;
+	
+	private Date fechaRegistro;
 	
 	private Sexo sexo;
 	
@@ -147,6 +152,44 @@ public class Persona {
 	public void setHabilitado(boolean habilitado) {
 		this.habilitado = habilitado;
 	}
+
+	public int compareTo(Persona o)
+	{
+		return Comparators.NAME.compare(this, o);
+	}
+	
+	public Date getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	public static class Comparators {
+
+        public static Comparator<Persona> NAME = new Comparator<Persona>() {
+            @Override
+            public int compare(Persona o1, Persona o2) {
+                return o1.getNombreUser().compareTo(o2.getNombreUser());
+            }
+        };
+        public static Comparator<Persona> FECHA = new Comparator<Persona>() {
+            @Override
+            public int compare(Persona o1, Persona o2) {
+                return o1.getFechaRegistro().compareTo(o2.getFechaRegistro());
+            }
+        };
+        public static Comparator<Persona> CANTRUTAS = new Comparator<Persona>() {
+            @Override
+            public int compare(Persona o1, Persona o2) {
+            	RutaDAO rDao = new RutaDAO();
+            	int cant1 = rDao.recuperarRutasUsuario(o1.getId()).size();
+            	int cant2 = rDao.recuperarRutasUsuario(o2.getId()).size();
+            	return cant1 < cant2 ? -1 : cant1 == cant2 ? 0 : 1;
+            }
+        };
+    }
 
   
  }

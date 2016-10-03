@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -96,6 +99,10 @@ public class RutaBean
 		ruta.setCantRealizadas(0);
 		ruta.setOwner(persona);
 		ruta.setActividad(actividad);
+		
+		// Ingreso la fecha de registro en la BD
+		LocalDateTime now = LocalDateTime.now();
+		ruta.setFechaRegistro(Date.from(now.atZone(ZoneId.systemDefault()).toInstant()));
 		
 		rDao.guardarRuta(ruta);
 		
@@ -279,12 +286,6 @@ public class RutaBean
 	}
 	
 	// Funciones de FILTRADO y ORDENAMIENTO de la lista de rutas
-	
-	public String ordenDistancia()
-	{
-		this.ordenActual = orden.distancia;
-		return null;
-	}
 	
 	public String orden(int opcion)
 	{

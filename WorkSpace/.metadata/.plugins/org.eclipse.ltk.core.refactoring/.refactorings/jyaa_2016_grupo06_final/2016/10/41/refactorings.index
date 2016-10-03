@@ -1,2 +1,10 @@
 1475512570146	Copy compilation unit
 1475513330094	Delete element
+1475517214402	Encapsulate field 'backupActividades'
+1475517619027	Encapsulate field 'backupUsuarios'
+1475518732060	Encapsulate field 'criterioActual'
+1475522482548	Encapsulate field 'criterioActual'
+1475523759014	Rename enum constant 'CantRutas'
+1475524360660	Rename enum constant 'Antiguedad'
+1475524717659	Encapsulate field 'fechaRegistro'
+1475524764915	Encapsulate field 'fechaRegistro'

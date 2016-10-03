@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+          version="2.1">
+
+	<managed-bean>
+		<managed-bean-name>PersonaBean</managed-bean-name>
+		<managed-bean-class>controller.PersonaBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>UsrBean</managed-bean-name>
+		<managed-bean-class>controller.UsrBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>AdminBean</managed-bean-name>
+		<managed-bean-class>controller.AdminBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>ActividadBean</managed-bean-name>
+		<managed-bean-class>controller.ActividadBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>RutaBean</managed-bean-name>
+		<managed-bean-class>controller.RutaBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+<navigation-rule> 
+  <from-view-id>/Home/registro.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>exito</from-outcome>
+      <to-view-id>/Home/registroExitoso.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>/LoginUsr/usuario_editarPerfil.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>editarUsr</from-outcome>
+      <to-view-id>/LoginUsr/usuario_perfil.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>/LoginUsr/admin_editarPerfil.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>editarAdmin</from-outcome>
+      <to-view-id>/LoginAdmin/admin_perfil.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>*</from-view-id> 
+  <navigation-case>
+    <from-outcome>admin_opOk</from-outcome>
+      <to-view-id>/faces/LoginAdmin/admin_opOk.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>*</from-view-id> 
+  <navigation-case>
+    <from-outcome>usuario_opOk</from-outcome>
+      <to-view-id>/faces/LoginUsr/usuario_opOk.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>admin_listaActividades.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>editar_actividad</from-outcome>
+      <to-view-id>/faces/LoginAdmin/admin_editarActividad.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>/LoginUsr/usuario_misRutas.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>editar_ruta</from-outcome>
+      <to-view-id>/LoginUsr/usuario_editarRuta.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>*</from-view-id> 
+  <navigation-case>
+    <from-outcome>mostrar_ruta</from-outcome>
+      <to-view-id>/LoginUsr/usuario_ruta.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+</faces-config>

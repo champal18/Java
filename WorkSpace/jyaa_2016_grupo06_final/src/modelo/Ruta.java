@@ -44,6 +44,8 @@ public class Ruta
 	private float promedio;
 	
 	private int cantRealizadas;
+	
+	private Date fechaRegistro;
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Persona owner;
@@ -187,6 +189,14 @@ public class Ruta
 		return Comparators.NAME.compare(this, o);
 	}
 	
+	public Date getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
 	public static class Comparators {
 
         public static Comparator<Ruta> NAME = new Comparator<Ruta>() {
