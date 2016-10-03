@@ -34,6 +34,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
 	<script src="funciones.js"> </script>
+	<style>
+	img.resize
+	{
+	  max-width:100%;
+	  max-height:100%;
+	}
+   </style>
+
 </h:head>
 
 <body>
@@ -139,11 +147,7 @@
 							      <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
 							      <h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.buscarRuta()}"></h:commandButton>
 							    </h:form>
-						</div><!-- /.col-lg-6 -->
-<!-- 							      <input type="text" class="form-control" placeholder="Busca tu ruta.." /> -->						
-<!-- 							      <span class="input-group-btn"> -->
-<!-- 							        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button> -->
-<!-- 							      </span> -->
+						</div>
 	            	</div>				
 				
 					<div class="col-md-4">
@@ -207,11 +211,10 @@
 					
 						<div class="col-sm-4 col-lg-4 col-md-4">
 	                        <div class="thumbnail">
-	                            <img src="http://www.visitingargentina.com/version3/wp-content/uploads/2013/11/ruta-7-lagos.jpg" alt="" />
+	 	                            <img src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" class="resize" /> <!--height="200" width="200" -->
 	                            <div class="caption">
 	                            <h:form>
 	                            	<h4>
-<!-- 	                                <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_ruta.xhtml">#{item.nombre}</a> -->
 	                                <h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
 	                                </h4>
 	                            </h:form>

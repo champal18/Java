@@ -152,6 +152,9 @@ public class RutaBean
 	{
 		this.rutaSeleccionada = selec;
 		
+		PuntoDao pDao = PuntoDao.instance;
+		pDao.recuperarPuntosRuta(selec.getId());
+		
 		// Guardo el id de la ruta seleccionada en la sesion
 		HttpSession session;
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -479,6 +482,7 @@ public class RutaBean
 		switch((int)filtroDificultad)
 		{
 		case 0:
+			this.filtroDificultad = null;
 			break;
 		case 1:
 			this.filtroDificultad = Dificultad.Facil;
@@ -529,6 +533,8 @@ public class RutaBean
 		}
 	}
 
+	// FILTRO FORMATO
+	
 	private void filtroFormato()
 	{
 		switch((int)filtroFormato)

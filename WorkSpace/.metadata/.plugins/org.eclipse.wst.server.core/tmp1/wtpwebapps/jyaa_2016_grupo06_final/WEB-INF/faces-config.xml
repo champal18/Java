@@ -44,7 +44,7 @@
 </navigation-rule>
 
 <navigation-rule> 
-  <from-view-id>usuario_editarPerfil.xhtml</from-view-id> 
+  <from-view-id>/LoginUsr/usuario_editarPerfil.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editarUsr</from-outcome>
       <to-view-id>/LoginUsr/usuario_perfil.xhtml</to-view-id> 
@@ -52,7 +52,7 @@
 </navigation-rule>
 
 <navigation-rule> 
-  <from-view-id>admin_editarPerfil.xhtml</from-view-id> 
+  <from-view-id>/LoginUsr/admin_editarPerfil.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editarAdmin</from-outcome>
       <to-view-id>/LoginAdmin/admin_perfil.xhtml</to-view-id> 

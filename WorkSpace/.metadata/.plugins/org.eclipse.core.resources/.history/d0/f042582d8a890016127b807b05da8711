@@ -42,8 +42,8 @@
 	<style>
 		slide
 		{
-			max-width: 300px;
-			max-height: 150px;
+			width: 300px;
+			height: 150px;
 		}
 	</style>
 
@@ -255,9 +255,8 @@
                   	
         		</div>
         		
-        	<slide>
         	<div class="col-md-6">
-			<div class="carousel slide" id="carousel-651898">
+			<div class="carousel slide" id="carousel-651898" style="width: 300px; height: 150px;">
 				<ol class="carousel-indicators">
 					<li class="active" data-slide-to="0" data-target="#carousel-651898">
 					</li>
@@ -272,19 +271,19 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img class="img-thumbnail" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/1" alt="" style="max-width: 300px; max-height: 150px"/>
+						<img class="media-object" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/1" height="150" width="300"/>
 					</div>
 					<div class="item">
-						<img class="img-thumbnail" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/2" alt="" style="max-width: 300px; max-height: 150px"/>
+						<img class="media-object" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/2" height="150" width="300"/>
 					</div>
 					<div class="item">
-						<img class="img-thumbnail" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/3" alt="" style="max-width: 300px; max-height: 150px"/>
+						<img class="media-object" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/3" height="150" width="300"/>
 					</div>
 					<div class="item">
-						<img class="img-thumbnail" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/4" alt="" style="max-width: 300px; max-height: 150px"/>
+						<img src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/4" height="150" width="300"/>
 					</div>
 					<div class="item">
-						<img class="img-thumbnail" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/5" alt="" style="max-width: 300px; max-height: 150px"/>
+						<img class="media-object" src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadImage/5" height="150" width="300"/>
 					</div>
 				</div> 
 				<a class="left carousel-control" href="#carousel-651898" data-slide="prev">
@@ -294,7 +293,7 @@
 					<span class="glyphicon glyphicon-chevron-right">
 				</span></a>
 			</div>
-		</div></slide>
+		</div>
         		
         		
         		
