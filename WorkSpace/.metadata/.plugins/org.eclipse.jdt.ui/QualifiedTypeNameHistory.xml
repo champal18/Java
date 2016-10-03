@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.faces.model.ListDataModel"/>
-<fullyQualifiedTypeName name="modeloDAO.PersonaDAO"/>
-<fullyQualifiedTypeName name="modelo.Persona"/>
-<fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
-<fullyQualifiedTypeName name="com.sun.net.httpserver.HttpContext"/>
-<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
 <fullyQualifiedTypeName name="modelo.Sexo"/>
 <fullyQualifiedTypeName name="misServlets.LoginUsr"/>
@@ -18,7 +12,6 @@
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modelo.Ruta"/>
 <fullyQualifiedTypeName name="interfazDAO.IFotoDAO"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistry"/>
@@ -30,21 +23,14 @@
 <fullyQualifiedTypeName name="java.io.DataInputStream"/>
 <fullyQualifiedTypeName name="jersey.repackaged.com.google.common.io.ByteStreams"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.IOUtils"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
 <fullyQualifiedTypeName name="org.primefaces.model.UploadedFile"/>
-<fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 <fullyQualifiedTypeName name="controller.RutaBean"/>
-<fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFile"/>
-<fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
 <fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="modelo.Ruta.Comparators"/>
@@ -58,6 +44,20 @@
 <fullyQualifiedTypeName name="javax.mail.AuthenticationFailedException"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="modelo.Foto"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+<fullyQualifiedTypeName name="java.nio.file.Paths"/>
+<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.util.net.URL"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFileConverter"/>
+<fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFile"/>
+<fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.awt.Image"/>
 </qualifiedTypeNameHistroy>

@@ -35,7 +35,11 @@ public class RutaBean
 	
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
+	
+	// Upload de imagen para la BD
 	private UploadedFile file;
+	private UploadedFile[] files = new UploadedFile[5];
+	private int pos = 0;
 	
 	// Listado de rutas de la BD
 	private List<Ruta> allRutas = rDao.recuperarAllRutas();
@@ -95,24 +99,34 @@ public class RutaBean
 		
 		rDao.guardarRuta(ruta);
 		
-		
-		if(file != null) {
-	        
-            Foto f = new Foto();
-            f.setRuta(ruta);
-            try {
-				f.setImg(this.file.getBytes());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-            FotoDAO fDao = new FotoDAO();
-            fDao.guardarFoto(f);
-        }
-		
+		// Subo la imagen a la BD con la ruta asociada
+    	for(int i=0;i<pos;i++)
+    	{
+    		if(files[i] != null)
+    		{
+    			Foto f = new Foto();
+    			f.setRuta(ruta);
+    			try 
+    			{
+    				f.setImg(files[i].getBytes());
+    			} catch (IOException e) {
+    				e.printStackTrace();
+    			}
+    			FotoDAO fDao = new FotoDAO();
+    			fDao.guardarFoto(f);
+    		}
+    	}
+    	
+		// Guardo los puntos correspondientes a la ruta
 		PuntoDao puntoDao = PuntoDao.instance;
 		puntoDao.guardarPuntos(this.ruta);
 		
+		// Limpio los puntos del mapa
 		puntoDao.limpiarMapa();
+		
+		// Limpio el vector de archivos
+		this.pos = 0;
+		this.files = new UploadedFile[5];
 		
 		this.control= false;
 		return "usuario_opOk";
@@ -137,6 +151,13 @@ public class RutaBean
 	public String selecMostrar(Ruta selec)  // VER -- Se podria juntar con selecEliminar y hacer una sola funcion
 	{
 		this.rutaSeleccionada = selec;
+		
+		// Guardo el id de la ruta seleccionada en la sesion
+		HttpSession session;
+		FacesContext context = FacesContext.getCurrentInstance();
+	    session = (HttpSession) context.getExternalContext().getSession(true);
+	    session.setAttribute("idRuta", selec.getId());
+	    
 		return "mostrar_ruta";
 	}
 	
@@ -217,47 +238,20 @@ public class RutaBean
 		this.idActividad = idActividad;
 	}
 	
-	// Manejo del carga y descarga del archivo
-	    
+	// Manejo de carga de las imagenes
+	
     public UploadedFile getFile() {
         return file;
     }
  
-    public void setFile(UploadedFile file) {
-        this.file = file;
+    public void setFile(UploadedFile file)
+    {
+    	if(file != null)
+    	{
+    		this.files[pos] = file;
+    		this.pos++;
+    	}
     }
-     
-    public void upload() {
-        if(file != null) {
-        
-            Foto f = new Foto();
-            f.setRuta(null);
-            try {
-				f.setImg(this.file.getBytes());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-            FotoDAO fDao = new FotoDAO();
-            fDao.guardarFoto(f);
-        }
-    }
-    
- // Prueba
-    private byte[] img;
-    
-    public byte[] getImg() {
-    	FotoDAO fDao = new FotoDAO();
-		this.img = fDao.recuperarFotos(this.rutaSeleccionada.getId()).get(0).getImg();
-		
-//		InputStream in = new ByteArrayInputStream(img);
-//		BufferedImage bImageFromConvert = ImageIO.read(in);
-		
-    	return img;
-	}
-
-	public void setImg(byte[] img) {
-		this.img = img;
-	}
 
 	// Lista de todas las rutas
 	public List<Ruta> getAllRutas()

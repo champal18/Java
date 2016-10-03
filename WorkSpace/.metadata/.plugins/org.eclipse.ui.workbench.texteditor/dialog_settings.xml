@@ -8,14 +8,14 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="alert"/>
+			<item value="selec"/>
+			<item value="se,e++"/>
 			<item value="idFiltroAct"/>
 			<item value="actEditada"/>
 			<item value="actE"/>
 			<item value="actEdi"/>
 			<item value="actualizar"/>
-			<item value="br"/>
-			<item value="media"/>
-			<item value="tipo"/>
 		</list>
 		<list key="replacehistory">
 			<item value="actSeleccionada"/>

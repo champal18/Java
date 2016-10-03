@@ -1,0 +1,99 @@
+package misServlets;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URISyntaxException;
+import java.util.List;
+
+import javax.imageio.ImageIO;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modelo.Foto;
+import modeloDAO.FotoDAO;
+
+/**
+ * Servlet implementation class DownloadImage
+ */
+@WebServlet("/DownloadImage/*")
+public class DownloadImage extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DownloadImage() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FotoDAO fDao = new FotoDAO();
+		byte[] img;
+		
+		HttpSession sesion = request.getSession(true);
+		Long idRuta = (Long) sesion.getAttribute("idRuta");
+		int imageId = Integer.parseInt(String.valueOf(request.getPathInfo().substring(1)));	// Gets string that goes after "/images/".
+		
+		List<Foto> f = fDao.recuperarFotos(idRuta);
+		if(f != null)	// Si posee fotos
+		{
+			if(f.size() < imageId)
+			{
+				response.setContentType("image/jpeg");
+
+				File file = new File("no_image.jpg");
+				BufferedImage bi = ImageIO.read(file);
+				OutputStream out = response.getOutputStream();
+				ImageIO.write(bi, "jpg", out);
+				out.close();
+			}
+			else
+			{
+				img = f.get(imageId).getImg();
+				response.setContentType("image/png");
+				response.getOutputStream().write(img);
+			}
+		}
+		else
+		{
+			response.setContentType("image/jpeg");
+
+			File file = new File("no_image.jpg");
+//			File file;
+//			try {
+////				file = new File(getClass().getResource("no_image.jpg").toURI());
+//				BufferedImage bi = ImageIO.read(file);
+//				OutputStream out = response.getOutputStream();
+//				ImageIO.write(bi, "jpg", out);
+//				out.close();
+//			} catch (URISyntaxException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
+			BufferedImage bi = ImageIO.read(file);
+			OutputStream out = response.getOutputStream();
+			ImageIO.write(bi, "jpg", out);
+			out.close();
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

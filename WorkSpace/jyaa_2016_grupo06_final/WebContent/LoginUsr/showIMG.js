@@ -3,9 +3,9 @@
  */
 
  function showMyImage(fileInput,imageId) {
-	 	alert(1);
-	 	alert(fileInput);
-	 	alert(imageId);
+	 checkFileSize(fileInput);
+	 if(fileInput != null)
+	 {
         var files = fileInput.files;
         for (var i = 0; i < files.length; i++) {           
             var file = files[i];
@@ -22,5 +22,15 @@
                 }; 
             })(img);
             reader.readAsDataURL(file);
-        }    
+        }
+	 }
     }
+ 
+ function checkFileSize(inputFile) {
+	    var max = 1 * 1024 * 1024; // 1MB
+
+	    if (inputFile.files && inputFile.files[0].size > max) {
+	        alert("El archivo es demasiado grande. \n Maximo = 1Mb"); // Do your thing to handle the error.
+	        inputFile.value = null; // Clears the field.
+	    }
+	}

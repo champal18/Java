@@ -140,7 +140,7 @@
 
             <div class="container-fluid">
             		
-					<h:form class="form-horizontal" enctype="multipart/form-data">
+					<h:form id="uploadForm" class="form-horizontal" enctype="multipart/form-data">
 					
                     	<div class="form-group">
                         	<label for="inputNameRuta" class="col-sm-offset-1 col-sm-2 control-label">
@@ -288,10 +288,42 @@
                         	<label class="col-sm-offset-1 col-sm-2 control-label">
                         		Foto 1
                         	</label>
-                            <t:inputFileUpload value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil')" />
-                            <img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                            <t:inputFileUpload id="file1" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil1')" required="false" />
+                            <img id="thumbnil1" style="width:20%; margin-top:10px;"  src="" alt="image" />
                      	</div>
-                     
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 2
+                        	</label>
+                            <t:inputFileUpload id="file2" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil2')" required="false"/>
+                            <img id="thumbnil2" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 3
+                        	</label>
+                            <t:inputFileUpload id="file3" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil3')" required="false"/>
+                            <img id="thumbnil3" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 4
+                        	</label>
+                            <t:inputFileUpload id="file4" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil4')" required="false"/>
+                            <img id="thumbnil4" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 5
+                        	</label>
+                            <t:inputFileUpload id="file5" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil5')" required="false"/>
+                            <img id="thumbnil5" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+               
 					  	<div class="form-group">
 							<div class="col-sm-12">
 								<h:commandButton class="btn btn-success btn-block" value="Crear ruta" action="#{RutaBean.altaRuta}"></h:commandButton>
