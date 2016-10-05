@@ -1,115 +1,93 @@
 package controller;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
-import org.apache.myfaces.custom.fileupload.UploadedFile;
-
-import controller.RutaBean.orden;
 import modelo.Ruta;
-import modelo.Actividad;
-import modelo.Dificultad;
-import modelo.Formato;
-import modelo.Foto;
+import modelo.RutaRealizada;
 import modelo.Persona;
-import modelo.Privacidad;
-import modeloDAO.ActividadDAO;
-import modeloDAO.FotoDAO;
 import modeloDAO.PersonaDAO;
-import modeloDAO.PuntoDao;
 import modeloDAO.RutaDAO;
 import modeloDAO.RutaRealizadaDAO;
 
-public class RutaRealizadaBean {
-	
+public class RutaRealizadaBean 
+{
 	private RutaRealizadaDAO rDao = new RutaRealizadaDAO();
-	private Ruta ruta = new Ruta();
+	private RutaRealizada rutaRealizada = new RutaRealizada();
+	private String fueRealizada = new String();
 	
-	private boolean control = true;	// Una vez creada una ruta nueva, se vuelve a llamar al constructor
-	private boolean buscar = false; // Flag que indica que se inicio una busqueda para no renovar la lista de rutas
-	
-	private Ruta rutaSeleccionada = new Ruta();
-	private long idActividad;
-	
-
-	public RutaRealizadaBean()
+	public RutaRealizada getRutaRealizada()
 	{
-	
-	}
-	
-	public Ruta getRuta() {
-		if(!control)
-		{
-			this.ruta= new Ruta();
-			this.control = true;
-		}
-		return ruta;
+		this.rutaRealizada = new RutaRealizada();
+		return rutaRealizada;
 	}
 
-	public void setRuta(Ruta ruta) {
-		this.ruta = ruta;
+	public void setRutaRealizada(RutaRealizada rutaRealizada) {
+		this.rutaRealizada = rutaRealizada;
 	}
 	
-	public String altaRuta()
+	public RutaRealizadaBean(){}
+	
+	public String altaRutaRealizada()
 	{
-		PersonaDAO pDAO= new PersonaDAO();
-		Persona persona= new Persona();
-		ActividadDAO aDAO= new ActividadDAO();
-		Actividad actividad=new Actividad();
-		
+		// Busco la persona que realizo la ruta en la BD.
 		HttpSession session;
 		FacesContext context = FacesContext.getCurrentInstance();
 	    session = (HttpSession) context.getExternalContext().getSession(true);
-	       
-		Long id = (Long) session.getAttribute("usrId");
+		Long idOwner = (Long) session.getAttribute("usrId");
+		Persona owner = new Persona();
+		PersonaDAO pDao = new PersonaDAO();
+		owner = pDao.recuperarPersona(idOwner);
+		this.rutaRealizada.setOwner(owner);
 		
-		persona=pDAO.recuperarPersona(id);
-		actividad=aDAO.recuperarActividad(idActividad);
+		// Busco la ruta que fue seleccionada en la BD
+		Long idRuta = (Long) session.getAttribute("idRuta");
+		RutaDAO rutaDao = new RutaDAO();
+		Ruta ruta = rutaDao.recuperarRuta(idRuta);
+		this.rutaRealizada.setRuta(ruta);
 		
-		ruta.setPromedio(0);
-		ruta.setCantRealizadas(0);
-		ruta.setOwner(persona);
-		ruta.setActividad(actividad);
+		float valorTotal = ruta.getPromedio() * ruta.getCantRealizadas();
+		ruta.setCantRealizadas(ruta.getCantRealizadas()+1);
+		float promedio = (valorTotal+this.rutaRealizada.getValoracion()) / ruta.getCantRealizadas();
+		ruta.setPromedio(promedio);
 		
-		rDao.guardarRuta(ruta);
+		this.rDao.guardarRuta(this.rutaRealizada);
+		rutaDao.modificarRuta(ruta);
 		
-		// Subo la imagen a la BD con la ruta asociada
-    	for(int i=0;i<pos;i++)
-    	{
-    		if(files[i] != null)
-    		{
-    			Foto f = new Foto();
-    			f.setRuta(ruta);
-    			try 
-    			{
-    				f.setImg(files[i].getBytes());
-    			} catch (IOException e) {
-    				e.printStackTrace();
-    			}
-    			FotoDAO fDao = new FotoDAO();
-    			fDao.guardarFoto(f);
-    		}
-    	}
-    	
-		// Guardo los puntos correspondientes a la ruta
-		PuntoDao puntoDao = PuntoDao.instance;
-		puntoDao.guardarPuntos(this.ruta);
-		
-		// Limpio los puntos del mapa
-		puntoDao.limpiarMapa();
-		
-		// Limpio el vector de archivos
-		this.pos = 0;
-		this.files = new UploadedFile[5];
-		
-		this.control= false;
 		return "usuario_opOk";
 	}
-	
+
+	public String getFueRealizada()
+	{
+		HttpSession session;
+		FacesContext context = FacesContext.getCurrentInstance();
+	    session = (HttpSession) context.getExternalContext().getSession(true);
+		Long idOwner = (Long) session.getAttribute("usrId");
+		Long idRuta = (Long) session.getAttribute("idRuta");
+		
+		RutaDAO rutaDao = new RutaDAO();
+		Ruta ruta = rutaDao.recuperarRuta(idRuta);
+		
+		if(ruta.getOwner().getId() != idOwner)	// Si la ruta seleccionada NO pertenece al usuario que intenta valorar
+		{
+			List<RutaRealizada> lista = this.rDao.fueRealizada(idOwner);
+			if(lista != null)
+			{
+				for (RutaRealizada rutaRealizada : lista) 
+				{
+					if(rutaRealizada.getRuta().getId() == idRuta)
+						return "disabled";
+				}
+			}
+			return "";
+		}
+		else
+			return "disabled";
+	}
+
+	public void setFueRealizada(String fueRealizada) {
+		this.fueRealizada = fueRealizada;
+	}
 }

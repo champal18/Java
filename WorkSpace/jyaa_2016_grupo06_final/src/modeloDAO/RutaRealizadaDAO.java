@@ -1,7 +1,12 @@
 package modeloDAO;
 
+import java.util.Collections;
+import java.util.List;
+
 import javax.persistence.*;
 import interfazDAO.IRutaRealizada;
+import modelo.Privacidad;
+import modelo.Ruta;
 import modelo.RutaRealizada;
 
 public class RutaRealizadaDAO implements IRutaRealizada
@@ -84,6 +89,27 @@ public class RutaRealizadaDAO implements IRutaRealizada
 		em.close();
 		
 		return rutaR;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<RutaRealizada> fueRealizada(long idOwner) {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<RutaRealizada> rutasR = null;
+		
+		try {
+			Query q = em.createQuery("FROM RutaRealizada WHERE owner_id = '"+idOwner+"'"); 
+			if(!q.getResultList().isEmpty())
+				rutasR = Collections.checkedList(q.getResultList(), RutaRealizada.class);
+		} catch (Exception e) {
+			System.out.println("Excepcion porque la Consulta esta vacia!");
+		}
+		
+		em.close();
+		return rutasR;
 	}
 
 }

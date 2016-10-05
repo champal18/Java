@@ -1,0 +1,72 @@
+package controller;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import modelo.Ruta;
+import modelo.RutaRealizada;
+import modelo.Persona;
+import modeloDAO.PersonaDAO;
+import modeloDAO.RutaDAO;
+import modeloDAO.RutaRealizadaDAO;
+
+public class RutaRealizadaBean 
+{
+	private RutaRealizadaDAO rDao = new RutaRealizadaDAO();
+	private RutaRealizada rutaRealizada;
+	
+	private String fueRealizada;
+	
+	public RutaRealizadaBean(){}
+	
+	public RutaRealizada getRuta()
+	{
+		this.rutaRealizada = new RutaRealizada();
+		return rutaRealizada;
+	}
+
+	public void setRuta(RutaRealizada rutaR) 
+	{
+		this.rutaRealizada = rutaR;
+	}
+	
+	public String altaRutaRealizada(Ruta ruta)
+	{
+		// Busco la persona que realizo la ruta.
+		HttpSession session;
+		FacesContext context = FacesContext.getCurrentInstance();
+	    session = (HttpSession) context.getExternalContext().getSession(true);
+		Long idOwner = (Long) session.getAttribute("usrId");
+		Persona owner = new Persona();
+		PersonaDAO pDao = new PersonaDAO();
+		owner = pDao.recuperarPersona(idOwner);
+		this.rutaRealizada.setOwner(owner);
+		
+		Long idRuta = (Long) session.getAttribute("idRuta");
+		RutaDAO rutaDao = new RutaDAO();
+		rutaDao.recuperarRuta(idRuta);
+		this.rutaRealizada.setRuta(ruta);
+		
+		this.rDao.guardarRuta(this.rutaRealizada);
+		
+		return "usuario_opOk";
+	}
+
+	public String getFueRealizada()
+	{
+		HttpSession session;
+		FacesContext context = FacesContext.getCurrentInstance();
+	    session = (HttpSession) context.getExternalContext().getSession(true);
+		Long idOwner = (Long) session.getAttribute("usrId");
+		Long idRuta = (Long) session.getAttribute("idRuta");
+		
+		if(this.rDao.fueRealizada(idRuta, idOwner))
+			return "";
+		else
+			return "disabled";
+	}
+
+	public void setFueRealizada(String fueRealizada) {
+		this.fueRealizada = fueRealizada;
+	}
+}
