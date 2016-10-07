@@ -40,6 +40,12 @@
 		<managed-bean-class>controller.RutaRealizadaBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>EstadisticaBean</managed-bean-name>
+		<managed-bean-class>controller.EstadisticaBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
 <navigation-rule> 
   <from-view-id>/Home/registro.xhtml</from-view-id> 

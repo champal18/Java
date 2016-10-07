@@ -11,11 +11,14 @@ Para usuario:
 
 Para el admin:
 - Estadisticas:							ok
-	- Usuarios hab/deshabilitados
-	- Rutas publicas/privadas
-	- Rutas por actividad.
+	Torta:						
+	- Usuarios hab/deshabilitados		OK
+	- Rutas publicas/privadas		OK
+	Barra:
+	- Rutas por actividad.			OK
+	Lineal:
 	- Cantidad de rutas creadas por mes.
-	- Creacion de usuarios mes a mes.
+	- Creacion de usuarios registrados mes a mes.	OK
 
 ////////////////////////////////////////////////////////////////////////////////////
 Cosas que faltan hacer:

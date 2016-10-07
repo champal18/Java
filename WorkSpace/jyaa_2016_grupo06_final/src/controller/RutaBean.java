@@ -45,8 +45,8 @@ public class RutaBean
 	private int pos = 0;
 	
 	// Listado de rutas de la BD
-	private List<Ruta> allRutas = rDao.recuperarAllRutas();
-	private List<Ruta> backUpRutas = rDao.recuperarAllRutas();
+	private List<Ruta> allRutas = rDao.recuperarAllRutasPublicas();
+	private List<Ruta> backUpRutas = rDao.recuperarAllRutasPublicas();
 	
 	// Enumerativo para definir orden actual de la lista
 	private enum orden {normal,distancia,dificultad,puntuacion,cantRealizaciones};
@@ -268,7 +268,7 @@ public class RutaBean
 	{
 		if(!buscar)
 		{
-			this.backUpRutas = rDao.recuperarAllRutas();	// Obtengo las rutas publicas de la BD
+			this.backUpRutas = rDao.recuperarAllRutasPublicas();	// Obtengo las rutas publicas de la BD
 			this.allRutas.clear();
 			this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
 			// Primero filtro

@@ -139,7 +139,7 @@ public class RutaDAO implements IRutaDAO
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Ruta> recuperarAllRutas() {
+	public List<Ruta> recuperarAllRutasPublicas() {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
 		EntityManagerFactory emf = single.getEMF();
@@ -149,6 +149,29 @@ public class RutaDAO implements IRutaDAO
 		
 		try {
 			Query q = em.createQuery("FROM Ruta WHERE privacidad = '"+Privacidad.Publico+"'");
+			
+			if(!q.getResultList().isEmpty())
+				rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
+		} catch (Exception e) {
+			rutas = null;
+			System.out.println("Excepcion!");
+		}
+		
+		em.close();
+		return rutas;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Ruta> recuperarAllRutas() {
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Ruta> rutas = null;
+		
+		try {
+			Query q = em.createQuery("FROM Ruta");
 			
 			if(!q.getResultList().isEmpty())
 				rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
