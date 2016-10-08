@@ -237,6 +237,9 @@
 					</li>
 					<li>
 						Fecha de subida: 
+						<h:outputText value="#{RutaBean.rutaSeleccionada.fechaRegistro}" >  
+		           		<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="America/Argentina/Catamarca"/>
+		           		</h:outputText> 
 					</li>
 					<li>
 						Fecha de realización: 

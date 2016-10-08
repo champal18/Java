@@ -28,8 +28,9 @@ public class EstadisticaBean implements Serializable
 	private PieChartModel pieModelUsrHabilitados;
 	private PieChartModel pieModelRutasPublicas;
 	private HorizontalBarChartModel barModelRutasPorActividad;
-	private LineChartModel lineModelRutasPorActividad;
-
+	private LineChartModel lineModelUsuariosPorMes;
+	private LineChartModel lineModelRutasPorMes;
+	
 	public EstadisticaBean(){}
 
 	@PostConstruct
@@ -42,7 +43,8 @@ public class EstadisticaBean implements Serializable
         createPieModelUsrHabilitados();
         createPieModelRutasPublicas();
         createbarModelRutasPorActividad();
-        createLineModelRutasPorActividad();
+        createLineModelUsuariosPorMes();
+        createLineModelRutasPorMes();
     }
 	
 	// GRAFICO DE USUARIOS HABILITADOS/DESHABILITADOS
@@ -179,19 +181,19 @@ public class EstadisticaBean implements Serializable
 	
 	//GRAFICO LINEAL DE USUARIOS REGISTRADOS POR MES
 	
-	public LineChartModel getLineModelRutasPorActividad() {
-		createLineModelRutasPorActividad();
-		return lineModelRutasPorActividad;
+	public LineChartModel getLineModelUsuariosPorMes() {
+		createLineModelUsuariosPorMes();
+		return lineModelUsuariosPorMes;
 	}
 
-	public void setLineModelRutasPorActividad(LineChartModel lineModelRutasPorActividad) {
-		this.lineModelRutasPorActividad = lineModelRutasPorActividad;
+	public void setLineModelUsuariosPorMes(LineChartModel lineModelUsuariosPorMes) {
+		this.lineModelUsuariosPorMes = lineModelUsuariosPorMes;
 	}
 	
 	@SuppressWarnings("deprecation")
-	private void createLineModelRutasPorActividad() 
+	private void createLineModelUsuariosPorMes() 
 	{	 
-		lineModelRutasPorActividad = new LineChartModel();
+		lineModelUsuariosPorMes = new LineChartModel();
 		
         ChartSeries usuarios = new ChartSeries();
         int[] cantPorMes = {0,0,0,0,0,0,0,0,0,0,0,0};
@@ -230,12 +232,12 @@ public class EstadisticaBean implements Serializable
         	pos++;
         }
  
-        lineModelRutasPorActividad.addSeries(usuarios);
+        lineModelUsuariosPorMes.addSeries(usuarios);
 		
-		lineModelRutasPorActividad.setTitle("Registro de Usuarios del ultimo año");
-		lineModelRutasPorActividad.setShowPointLabels(true);
-		lineModelRutasPorActividad.getAxes().put(AxisType.X, new CategoryAxis("Meses"));
-		Axis yAxis = lineModelRutasPorActividad.getAxis(AxisType.Y);
+		lineModelUsuariosPorMes.setTitle("Registro de Usuarios del ultimo año");
+		lineModelUsuariosPorMes.setShowPointLabels(true);
+		lineModelUsuariosPorMes.getAxes().put(AxisType.X, new CategoryAxis("Meses"));
+		Axis yAxis = lineModelUsuariosPorMes.getAxis(AxisType.Y);
         yAxis.setLabel("Usuarios");
         yAxis.setMin(0);
         
@@ -244,4 +246,76 @@ public class EstadisticaBean implements Serializable
         yAxis.setTickFormat("%d");	// Configuro el formato entero para el eje
         yAxis.setTickInterval("1");
     }
+	
+	
+	//GRAFICO LINEAL DE RUTAS CREADAS POR MES
+	
+		public LineChartModel getLineModelRutasPorMes() {
+			createLineModelRutasPorMes();
+			return lineModelRutasPorMes;
+		}
+
+		public void setLineModelRutasPorMes(LineChartModel lineModelRutasPorMes) {
+			this.lineModelRutasPorMes = lineModelRutasPorMes;
+		}
+		
+		@SuppressWarnings("deprecation")
+		private void createLineModelRutasPorMes() 
+		{	 
+			lineModelRutasPorMes = new LineChartModel();
+			
+	        ChartSeries rutas = new ChartSeries();
+	        int[] cantPorMes = {0,0,0,0,0,0,0,0,0,0,0,0};
+	        String[] nombreMeses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", 
+	        		"Octubre", "Noviembre", "Diciembre"};
+	        
+	        int thisYear = LocalDateTime.now().getYear();
+	        int thisMont = LocalDateTime.now().getMonthValue();		// Retorna entre 0-11
+	        
+	       RutaDAO rDao = new RutaDAO();
+	        List<Ruta> allRutas = rDao.recuperarAllRutas();
+	        
+	        for(Ruta r : allRutas)
+	        {
+	        	if((r.getFechaRegistro().getYear()+1900) == thisYear)	// getYear retorna el año AñoActual-1900
+	        	{
+	        		cantPorMes[r.getFechaRegistro().getMonth()]++;	// getMonth retorna entre 1-12
+	        	}
+	        	else
+	        	{
+	        		if((r.getFechaRegistro().getYear()+1900) == (thisYear-1))	// Si pertenece al año anterior y al mes posterior al actual
+	        		{
+	        			if(r.getFechaRegistro().getMonth()>(thisMont-1))		
+	        				cantPorMes[r.getFechaRegistro().getMonth()]++;
+	        		}
+	        	}
+	        		
+	        }
+	        
+	        int pos = thisMont;	// Comienzo desde el mes siguiente al actual	
+	        for(int i=0;i<12;i++)
+	        {
+	        	if(pos == 12)	// Si ya proceso diciembre reinicio la posicion
+	        		pos = 0;
+	        	rutas.set(nombreMeses[pos], cantPorMes[pos]);
+	        	pos++;
+	        }
+	 
+	        lineModelRutasPorMes.addSeries(rutas);
+			
+			lineModelRutasPorMes.setTitle("Rutas creadas en el ultimo año");
+			lineModelRutasPorMes.setShowPointLabels(true);
+			lineModelRutasPorMes.getAxes().put(AxisType.X, new CategoryAxis("Meses"));
+			Axis yAxis = lineModelRutasPorMes.getAxis(AxisType.Y);
+	        yAxis.setLabel("Rutas");
+	        yAxis.setMin(0);
+	        
+	        Arrays.sort(cantPorMes);
+	        yAxis.setMax(cantPorMes[cantPorMes.length-1]*2);
+	        yAxis.setTickFormat("%d");	// Configuro el formato entero para el eje
+	        yAxis.setTickInterval("1");
+	    }
+	
+	
+	
 }

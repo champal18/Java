@@ -141,16 +141,23 @@
 			        	<h3>
 							Búsqueda de rutas
 						</h3>
-	                    	
-	                    <div class="col-md-6">
+	               </div>  	
+	               <div class="col-md-12">
+	                    
+							   
 							    <h:form>
+							    	<div class="col-md-5">
 							      <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
+							      </div>
+							      <div class="col-md-6">
 							      <h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.buscarRuta()}"></h:commandButton>
+								</div>							    
 							    </h:form>
-						</div>
+							   
+						
 	            	</div>				
 				
-					<div class="col-md-4">
+					<div class="col-md-3">
 					    <br />
 					    <h:form>
 					    <label>Filtrar por:</label>
@@ -198,6 +205,7 @@
 					</h:form>
 					</div>
 					<div class="col-md-8">
+						<br />
 					    <label>Ordenar por:</label>
 						<h:form>
 						<div class="btn-group">
@@ -209,30 +217,25 @@
 						</h:form>
 					<ui:repeat value="#{RutaBean.allRutas}" var="item">
 					
-						<div class="col-sm-4 col-lg-4 col-md-4">
+						<div class="col-md-4">
 	                        <div class="thumbnail">
-	 	                            <img src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 200px; height: 150px;" /> <!--height="200" width="200" -->
-	                            <div class="caption">
-	                            <h:form>
-	                            	<h4>
-	                                <h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
-	                                </h4>
-	                            </h:form>
-	                            	<p>Actividad: #{item.actividad.nombre}</p>
-	                                <p>Distancia: #{item.distancia} km</p>
-	                                <p>Dificultad: #{item.dificultad}</p>
-	                            </div>
-	                            <div class="ratings">
-	                                <p class="pull-right">#{item.cantRealizadas} veces</p>
-	                                <p>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                </p>
-	                 
-	                            </div>
+	 	                            <img src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 200px; height: 150px;" />
+	                           		<div class="caption">
+		                            	<h:form>
+		                            		<h4>
+		                                	<h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
+		                                	</h4>
+		                            	</h:form>
+		                            	<p>Actividad: #{item.actividad.nombre}</p>
+		                                <p>Distancia: #{item.distancia} km</p>
+		                                <p>Dificultad: #{item.dificultad}</p>
+		                                <p>Pje promedio:#{item.promedio} - #{item.cantRealizadas} veces</p>
+		                           </div>
+<!-- 		                            	<div class="ratings"> -->
+<!-- 		                                	<p class="pull-right">#{item.cantRealizadas} veces</p> -->
+<!-- 		                                	<p class="pull-left">Puntaje promedio:#{item.promedio}</p> -->
+<!-- 		                            	</div> -->
+	                             	
 	                        </div>
 	                    </div>
 						
