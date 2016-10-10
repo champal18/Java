@@ -18,7 +18,6 @@
     <title>Busqueda de rutas</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="changeButton.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
@@ -33,7 +32,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
-	<script src="funciones.js"> </script>
+	<script src="funcionesBusquedaPorPunto.js"> </script>
 	<style>
 	img.resize
 	{
@@ -141,16 +140,23 @@
 			        	<h3>
 							Búsqueda de rutas
 						</h3>
-	                    	
-	                    <div class="col-md-6">
+	               </div>  	
+	               <div class="col-md-12">
+	                    
+							   
 							    <h:form>
+							    	<div class="col-md-5">
 							      <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
+							      </div>
+							      <div class="col-md-6">
 							      <h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.buscarRuta()}"></h:commandButton>
+								</div>							    
 							    </h:form>
-						</div>
+							   
+						
 	            	</div>				
 				
-					<div class="col-md-4">
+					<div class="col-md-3">
 					    <br />
 					    <h:form>
 					    <label>Filtrar por:</label>
@@ -158,6 +164,9 @@
 	                         <label>Cercania</label>
 	                         <div id="googleMap" style="width:150px;height:150px;" ></div>
 	                         <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
+	                         <h:form>
+	                         	<h:commandButton class="btn btn-success btn-block" value="Buscar por radio" action="#{RutaBean.filtroRadio()}"></h:commandButton>
+	                         </h:form>
 	                    </div>
 	                    
 	                    <div class="form-group">
@@ -198,6 +207,7 @@
 					</h:form>
 					</div>
 					<div class="col-md-8">
+						<br />
 					    <label>Ordenar por:</label>
 						<h:form>
 						<div class="btn-group">
@@ -209,30 +219,25 @@
 						</h:form>
 					<ui:repeat value="#{RutaBean.allRutas}" var="item">
 					
-						<div class="col-sm-4 col-lg-4 col-md-4">
+						<div class="col-md-4">
 	                        <div class="thumbnail">
-	 	                            <img src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 200px; height: 150px;" /> <!--height="200" width="200" -->
-	                            <div class="caption">
-	                            <h:form>
-	                            	<h4>
-	                                <h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
-	                                </h4>
-	                            </h:form>
-	                            	<p>Actividad: #{item.actividad.nombre}</p>
-	                                <p>Distancia: #{item.distancia} km</p>
-	                                <p>Dificultad: #{item.dificultad}</p>
-	                            </div>
-	                            <div class="ratings">
-	                                <p class="pull-right">#{item.cantRealizadas} veces</p>
-	                                <p>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                    <span class="glyphicon glyphicon-star"></span>
-	                                </p>
-	                 
-	                            </div>
+	 	                            <img src="http://localhost:8080/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 200px; height: 150px;" />
+	                           		<div class="caption">
+		                            	<h:form>
+		                            		<h4>
+		                                	<h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
+		                                	</h4>
+		                            	</h:form>
+		                            	<p>Actividad: #{item.actividad.nombre}</p>
+		                                <p>Distancia: #{item.distancia} km</p>
+		                                <p>Dificultad: #{item.dificultad}</p>
+		                                <p>Pje promedio:#{item.promedio} - #{item.cantRealizadas} veces</p>
+		                           </div>
+<!-- 		                            	<div class="ratings"> -->
+<!-- 		                                	<p class="pull-right">#{item.cantRealizadas} veces</p> -->
+<!-- 		                                	<p class="pull-left">Puntaje promedio:#{item.promedio}</p> -->
+<!-- 		                            	</div> -->
+	                             	
 	                        </div>
 	                    </div>
 						
@@ -259,11 +264,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

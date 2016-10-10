@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.primefaces.model.UploadedFile"/>
-<fullyQualifiedTypeName name="controller.RutaBean"/>
-<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
-<fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
 <fullyQualifiedTypeName name="modelo.Ruta.Comparators"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
@@ -13,7 +9,6 @@
 <fullyQualifiedTypeName name="modelo.Emailer"/>
 <fullyQualifiedTypeName name="javax.mail.AuthenticationFailedException"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-<fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="modelo.Foto"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
@@ -37,7 +32,6 @@
 <fullyQualifiedTypeName name="modelo.RutaRealizada"/>
 <fullyQualifiedTypeName name="controller.EstadisticaBean"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.PieChartModel"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
@@ -58,6 +52,12 @@
 <fullyQualifiedTypeName name="modeloDAO.PersonaDAO"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.DateTimeAtCompleted"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.LineChartModel"/>
+<fullyQualifiedTypeName name="restBusquedaPorPunto.puntoBuscado"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="rest.puntoBuscado"/>
+<fullyQualifiedTypeName name="rest.Punto"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 </qualifiedTypeNameHistroy>

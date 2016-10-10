@@ -1,0 +1,16 @@
+package restBusquedaPorPunto;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import rest.Punto;
+
+public enum puntoBuscado 
+{
+	instance;
+	
+	private Map<Long, Punto> puntos = new HashMap<Long,Punto>();
+	
+	
+
+}

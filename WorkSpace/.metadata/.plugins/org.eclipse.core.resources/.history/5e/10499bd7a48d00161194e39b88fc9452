@@ -1,0 +1,48 @@
+package restBusquedaPorPunto;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import rest.Punto;
+
+public class PuntoService 
+{
+	private puntoBuscado punto;
+	
+	public PuntoService()
+	{
+		punto = puntoBuscado.instance;
+	}
+	
+	public void createPunto(Punto p)
+	{
+		this.punto.getPuntoBuscado().put(p.getIndice(), p);
+	}
+	
+	public Map<Long, Punto> getPuntos()
+	{
+		return this.punto.getPuntoBuscado();
+	}
+	
+	public List<Punto> getPuntoAsList()
+	{
+		List<Punto> puntoList = new ArrayList<Punto>();
+		puntoList.addAll(this.punto.getPuntoBuscado().values());
+		return puntoList;
+	}
+	
+	public int getPuntosCount()
+	{
+		return this.punto.getPuntoBuscado().size();
+	}
+	
+	public void deletePunto(long id) 
+	{
+		this.punto.getPuntoBuscado().clear();
+	}
+	
+	public void deleteAllPuntos() 
+	{
+		punto.getPuntoBuscado().clear();
+	}
+}

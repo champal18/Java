@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
@@ -26,6 +27,8 @@ import modeloDAO.FotoDAO;
 import modeloDAO.PersonaDAO;
 import modeloDAO.PuntoDao;
 import modeloDAO.RutaDAO;
+import rest.Punto;
+import rest.puntoBuscado;
 
 public class RutaBean
 {
@@ -58,6 +61,7 @@ public class RutaBean
 	private Dificultad filtroDificultad;
 	private long filtroFormato;
 //	private Punto puntoFiltro;
+	private boolean filtroRadio;
 
 	public RutaBean()
 	{
@@ -266,11 +270,17 @@ public class RutaBean
 	// Lista de todas las rutas
 	public List<Ruta> getAllRutas()
 	{
+		PuntoDao.instance.limpiarMapa();
 		if(!buscar)
 		{
 			this.backUpRutas = rDao.recuperarAllRutasPublicas();	// Obtengo las rutas publicas de la BD
 			this.allRutas.clear();
 			this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
+			if(filtroRadio)
+			{
+				busquedaRadial();
+				filtroRadio = false;
+			}
 			// Primero filtro
 			filtrar();
 			// Segundo ordeno
@@ -596,6 +606,8 @@ public class RutaBean
 		}
 	}
 	
+	// Busqueda por texto
+	
 	private String cadenaBuscada = new String();
 	
 	public void buscarRuta()
@@ -618,6 +630,52 @@ public class RutaBean
 
 	public void setCadenaBuscada(String cadenaBuscada) {
 		this.cadenaBuscada = cadenaBuscada;
+	}
+	
+	// Busqueda radial a un punto seleccionado
+	
+	public void busquedaRadial()
+	{
+		int distanciaMax = 100000;	// 100 KM
+		
+		puntoBuscado pBuscado = puntoBuscado.instance;
+		Punto p1 = pBuscado.getPuntoBuscado();
+		
+		PuntoDao pDao = PuntoDao.instance;
+		List<Punto> allPuntos = pDao.recuperarAllPuntos();
+		
+		List<Ruta> rutasDentroDelRadio = new ArrayList<>();
+		
+		for (Iterator<Punto> iterator = allPuntos.iterator(); iterator.hasNext();)
+    	{
+			// Se calcula la distancia en metros entre el punto seleccionado y los de la BD
+			Punto p2 = iterator.next();
+		    long R = 6378137; // Earth’s mean radius in meter
+		    double dLat = (p2.lat - p1.lat)*Math.PI/180;
+		    double dLong = (p2.lon - p1.lon)*Math.PI/180;
+		    double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+		      Math.cos(p1.lat*Math.PI/180) * Math.cos(p2.lat*Math.PI/180) *
+		      Math.sin(dLong / 2) * Math.sin(dLong / 2);
+		    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		    double d = R * c; // the distance in meter
+		    
+		    if (d < distanciaMax)	// Si la distancia entre puntos es menor a la buscada
+		    {
+		    	if(!rutasDentroDelRadio.contains(p2.getRuta()))
+		    		{
+		    			rutasDentroDelRadio.add(p2.getRuta());
+		    		}
+		    }
+    	}
+		this.allRutas.clear();
+		this.allRutas.addAll(rutasDentroDelRadio);
+    }
+	
+	public String filtroRadio()
+	{
+		if(puntoBuscado.instance.getPuntoBuscado() != null)
+			this.filtroRadio = true;
+		return null;
 	}
 	
 }

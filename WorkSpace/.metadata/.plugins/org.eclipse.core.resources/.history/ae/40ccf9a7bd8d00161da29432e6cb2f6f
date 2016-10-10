@@ -1,0 +1,32 @@
+package rest;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import rest.Punto;
+
+public enum puntoBuscado 
+{
+	instance;
+	
+//	private Map<Long, Punto> puntoBuscado = new HashMap<Long,Punto>();
+	Punto puntoBuscado;
+
+	public Punto getPuntoBuscado() {
+		return puntoBuscado;
+	}
+
+	public void setPuntoBuscado(Punto puntoBuscado) {
+		this.puntoBuscado = puntoBuscado;
+	}
+	
+	public Punto getPunto()
+	{
+//		List<Punto> puntoList = new ArrayList<Punto>();
+//		puntoList.addAll(puntoBuscado.values());
+//		return puntoList.get(0);
+		return this.puntoBuscado.get((long)1);
+	}
+}

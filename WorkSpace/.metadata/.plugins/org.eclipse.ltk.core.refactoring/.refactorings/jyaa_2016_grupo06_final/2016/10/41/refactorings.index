@@ -17,3 +17,12 @@
 1475860737347	Rename method 'createpieModelRutasPorActividad'
 1475860844367	Encapsulate field 'lineModelRutasPorActividad'
 1475862618621	Rename local variable 'meses'
+1475958589156	Copy compilation units
+1475958652837	Delete element
+1475959352145	Encapsulate field 'puntos'
+1475959508436	Rename field 'puntos'
+1475959524310	Encapsulate field 'puntoBuscado'
+1475965869979	Rename type 'PuntoResource'
+1475965874474	Rename type 'PuntoService'
+1475965899541	Copy compilation units
+1475965912189	Delete element

@@ -200,6 +200,27 @@ public enum PuntoDao implements IPuntoDAO
 		}
 	}
 	
-	
+	@SuppressWarnings({ "unchecked" })
+	public List<Punto> recuperarAllPuntos()
+	{
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Punto> lista = null;
+		
+		try {
+			Query q = em.createQuery("FROM Punto");
+			lista = Collections.checkedList(q.getResultList(), Punto.class);	
+		} catch (Exception e) {
+			lista = null;
+			System.out.println("Excepcion!");
+		}
+		
+		em.close();
+		
+		return lista;
+	}
 	
 }
