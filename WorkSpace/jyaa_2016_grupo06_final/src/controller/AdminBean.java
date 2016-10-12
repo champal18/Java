@@ -26,7 +26,7 @@ public class AdminBean
 	private List<Persona> backupUsuarios = pDao.recuperarUsuarios();
 
 	// Enumerativo para definir orden actual de la lista
-	private enum orden {Alfabeticamente, Antigüedad, Cantidad_De_Rutas};
+	private enum orden {Alfabeticamente, Antiguedad, Cantidad_De_Rutas};
 	private enum criterio {Ascendente, Descendente};
 
 	// Ordenamiento actual
@@ -112,7 +112,7 @@ public class AdminBean
 		case Alfabeticamente:
 			Collections.sort(this.listaUsuarios, Persona.Comparators.NAME);
 			break;
-		case Antigüedad:
+		case Antiguedad:
 			Collections.sort(this.listaUsuarios, Persona.Comparators.FECHA);
 			break;
 		case Cantidad_De_Rutas:
