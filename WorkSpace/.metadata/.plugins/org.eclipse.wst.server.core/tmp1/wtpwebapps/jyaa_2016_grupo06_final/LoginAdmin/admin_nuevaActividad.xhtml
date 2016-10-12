@@ -24,11 +24,8 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </h:head>
 
@@ -84,37 +81,48 @@
         </nav>
         <div id="page-wrapper">
 
-            <div class="container-fluid">
-            <div class="col-lg-5">
-               	<h:form class="form-horizontal" role="form" action="NuevaActividad" method = "post">
+       		<div class="container-fluid">
+            
+           		<div class="row">
+           			<div class="col-lg-12">
+            
+            			<h3>
+						Agregar nuevas actividades
+						</h3>
+            		</div>
+            	</div>
+            	<div class="row">
+           			 <div class="col-lg-5">
+               			<h:form class="form-horizontal" role="form" action="NuevaActividad" method = "post">
 				
-				
-					<div class="form-group">
+							<div class="form-group">
 						 
-						<label for="nameActividad" class="col-sm control-label">
-							Nombre de la actividad
-						</label>
-						<div class="col-sm-10">
-							<h:inputText styleClass="form-control" id="nameActividad" value="#{ActividadBean.act.nombre}" 
-		              			validatorMessage="Nombre de actividad: Long. minima: 4 | Long. maxima: 40"
-								required="true" requiredMessage="Nombre de actividad es un campo obligatorio">
-								<f:validateLength minimum="4" maximum="40"/>
-							</h:inputText>
-						</div>
-						<div class="col-sm-4">
-	            			<p:messages for="nameActividad" autoUpdate="true" />
-	            		</div>
-					</div>
+							<label for="nameActividad" class="col-sm control-label">
+								Nombre de la actividad
+							</label>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" id="nameActividad" value="#{ActividadBean.act.nombre}" 
+		              				validatorMessage="Nombre de actividad: Long. minima: 4 | Long. maxima: 40"
+									required="true" requiredMessage="Nombre de actividad es un campo obligatorio">
+									<f:validateLength minimum="4" maximum="40"/>
+								</h:inputText>
+							</div>
+							<div class="col-sm-4">
+	            				<p:messages for="nameActividad" autoUpdate="true" />
+	            			</div>
+							</div>
 				
-					<div class="form-group">
-						<div class="col-sm-offset-0 col-sm-10">
-							<h:commandButton class="btn btn-primary" value="AGREGAR" action="#{ActividadBean.altaActividad}"></h:commandButton>
-						</div>
-					</div>
+							<div class="form-group">
+								<div class="col-sm-offset-0 col-sm-10">
+								<p:commandButton styleClass="btn btn-primary" value="AGREGAR" action="#{ActividadBean.altaActividad}" ajax="false"></p:commandButton>
+								</div>
+							</div>
 				
-				</h:form>
-      		</div>
-
+						</h:form>
+      				</div>
+				</div>
+			
+				
             </div>
             <!-- /.container-fluid -->
 
@@ -124,16 +132,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

@@ -24,11 +24,8 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </h:head>
 
@@ -113,8 +110,10 @@
 							<br><p:messages for="nameActividad" autoUpdate="true" /></br>
 							<div class="form-group">
 								<div class="col-sm-10">
-									<p:commandButton value="Editar" onclick="$('#myModal').modal('show');" immediate="true" />	
-									<a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_listaActividades.xhtml"><button type="button" class="btn btn-primary">CANCELAR</button></a>
+									<p:commandButton value="Editar" onclick="$('#myModal').modal('show');" immediate="true"/>	
+<!-- 									<a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_listaActividades.xhtml"><button type="button" class="btn btn-primary">CANCELAR</button></a> -->
+									<p:button outcome="listaActividades" value="Cancelar">
+									</p:button>
 								</div>
 							</div>			
 						</h:form>
@@ -150,17 +149,6 @@
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

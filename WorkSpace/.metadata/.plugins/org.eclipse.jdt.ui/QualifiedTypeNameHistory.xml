@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
@@ -19,7 +17,6 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFileConverter"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.custom.fileupload.UploadedFile"/>
-<fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="jersey.repackaged.com.google.common.collect.Lists"/>
@@ -34,7 +31,6 @@
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
-<fullyQualifiedTypeName name="modelo.Ruta"/>
 <fullyQualifiedTypeName name="modelo.Privacidad"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.HorizontalBarChartModel"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.ChartSeries"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
 <fullyQualifiedTypeName name="modelo.Foto"/>
+<fullyQualifiedTypeName name="controller.AdminBean.criterio"/>
+<fullyQualifiedTypeName name="modelo.Ruta"/>
+<fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+<fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 </qualifiedTypeNameHistroy>

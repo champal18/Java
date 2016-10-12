@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      lang="es">
+
+<h:head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Admin Home</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet" />
+    
+<!--        jQuery -->
+<!--     <script src="js/jquery.js"></script> -->
+
+<!--     Bootstrap Core JavaScript -->
+<!--     <script src="js/bootstrap.min.js"></script> -->
+
+</h:head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin.xhtml">JRuteros</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> #{sessionScope.usrName} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_perfil.xhtml"><i class="glyphicon glyphicon-user"></i> Perfil </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/jyaa_2016_grupo06_final/faces/CerrarSesion"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_nuevaActividad.xhtml"><i class="glyphicon glyphicon-plus"></i> Agregar actividad</a>
+                    </li>
+                    <li>
+                        <a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_listaActividades.xhtml"><i class="glyphicon glyphicon-list-alt"></i> Listado de actividades</a>
+                    </li>
+                    <li>
+                        <a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_listaUsuarios.xhtml"><i class="glyphicon glyphicon-user"></i> Listado de usuarios</a>
+                    </li>
+                    <li>
+                        <a href="/jyaa_2016_grupo06_final/faces/LoginAdmin/admin_estadisticas.xhtml"><i class="glyphicon glyphicon-briefcase"></i> Estadísticas</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                <div class="jumbotron">
+                    <h1>Hola, #{sessionScope.usrName}!</h1>
+                    <p>Bienvenido a tu página de inicio de JRuteros</p>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+</html>

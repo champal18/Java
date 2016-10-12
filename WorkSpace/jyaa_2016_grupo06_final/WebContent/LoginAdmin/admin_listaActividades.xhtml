@@ -23,12 +23,9 @@
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet" />
-
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </h:head>
 
@@ -115,22 +112,19 @@
 						<!--	Boton para cambiar de estado con el BEAN	-->
 		    			<h:column>
 		    				<f:facet name="header">Cambiar estado</f:facet>
-		    				<h:commandButton value="Cambiar" action="#{ActividadBean.habilitarActividad(o)}" />
+		    				<p:commandButton value="Cambiar" action="#{ActividadBean.habilitarActividad(o)}" ajax="false" />
 		    			</h:column>
 		    			
 						<!--	Boton para cambiar de estado con el BEAN	-->
 		    			<h:column>
 		    				<f:facet name="header">Modificar</f:facet>
-		    				<h:commandButton value="Editar" action="#{ActividadBean.selecEditar(o)}" />
+		    				<p:commandButton value="Editar" action="#{ActividadBean.selecEditar(o)}" ajax="false" />
 		    			</h:column>
 		    			
 						<!--	Boton para cambiar de estado con el BEAN	-->
 		    			<h:column>
 		    				<f:facet name="header">Eliminar</f:facet>
-							<h:form>
-							<!-- <h:commandButton value="Eliminar" onclick="$('#myModal').modal('show');" update=":myForm" immediate="true" action="#{ActividadBean.selecEliminar(o)}" /> -->
 								<p:commandButton value="Eliminar" onclick="$('#myModal').modal('show');" update=":myForm" immediate="true" action="#{ActividadBean.selecEliminar(o)}" />	
-							</h:form>
 		    			</h:column> 			
 		    		
 		    		</h:dataTable>
@@ -157,6 +151,7 @@
 		                <p:commandLink value="Cancelar" immediate="true" styleClass="btn btn-default" oncomplete="$('#myModal').modal('hide');" />
 		            	<p:commandLink value="Eliminar" styleClass="btn btn-default" action="#{ActividadBean.eliminarSelec}" />
 		            </h:panelGroup>
+		            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 		        </h:form>
 		    </div>
 		</div>
@@ -168,17 +163,6 @@
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

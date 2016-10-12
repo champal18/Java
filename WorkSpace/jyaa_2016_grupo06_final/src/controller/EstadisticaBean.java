@@ -18,6 +18,7 @@ import modelo.Actividad;
 import modelo.Persona;
 import modelo.Privacidad;
 import modelo.Ruta;
+import modelo.Tipo_USER;
 import modeloDAO.ActividadDAO;
 import modeloDAO.PersonaDAO;
 import modeloDAO.RutaDAO;
@@ -68,13 +69,19 @@ public class EstadisticaBean implements Serializable
         
         PersonaDAO pDao = new PersonaDAO();
         List<Persona> allPersonas = pDao.recuperarUsuarios();
-        for (Persona persona : allPersonas)
+        if(allPersonas != null)
         {
-        	if(persona.getHabilitado())
-        		habilitado++;
-        	else
-        		deshabilitado++;
-        }
+	        for (Persona persona : allPersonas)
+	        {
+	        	if(persona.getTipo() == Tipo_USER.Usuario)
+	        	{	
+	        		if(persona.getHabilitado())
+		        		habilitado++;
+		        	else
+		        		deshabilitado++;
+	        	}
+	        }
+		}
          
         pieModelUsrHabilitados.set("Habilitados", habilitado);
         pieModelUsrHabilitados.set("Deshabilitado", deshabilitado);
@@ -104,14 +111,16 @@ public class EstadisticaBean implements Serializable
         
         RutaDAO rDao = new RutaDAO();
         List<Ruta> allRutas = rDao.recuperarAllRutas();
-        for (Ruta ruta : allRutas)
+        if(allRutas != null)
         {
-        	if(ruta.getPrivacidad() == Privacidad.Publico)
-        		publicas++;
-        	else
-        		privadas++;
+	        for (Ruta ruta : allRutas)
+	        {
+	        	if(ruta.getPrivacidad() == Privacidad.Publico)
+	        		publicas++;
+	        	else
+	        		privadas++;
+	        }
         }
-         
         pieModelRutasPublicas.set("Publicas", publicas);
         pieModelRutasPublicas.set("Privadas", privadas);
         
@@ -138,27 +147,30 @@ public class EstadisticaBean implements Serializable
 		RutaDAO rDao = new RutaDAO();
 		List<Ruta> allRutas = rDao.recuperarAllRutas();
 		
-		int[] cantidadPorActividad = new int[allActividades.size()];
-		for(int i=0;i<cantidadPorActividad.length;i++)
-		{
-			cantidadPorActividad[i] = 0;
-		}
-		int pos = 0;
-		
 		ChartSeries actividades = new ChartSeries();
 		actividades.setLabel("Rutas");
+		int[] cantidadPorActividad = null;
 		
-		for(Actividad act : allActividades)
+		if((allActividades != null) && (allRutas != null))
 		{
-			for(Ruta ruta : allRutas)
+			cantidadPorActividad = new int[allActividades.size()];
+			for(int i=0;i<cantidadPorActividad.length;i++)
 			{
-				if(ruta.getActividad().getId() == act.getId())
-					cantidadPorActividad[pos]++;
+				cantidadPorActividad[i] = 0;
 			}
-			actividades.set(act.getNombre(), cantidadPorActividad[pos]);
-			pos++;
+			int pos = 0;
+			
+			for(Actividad act : allActividades)
+			{
+				for(Ruta ruta : allRutas)
+				{
+					if(ruta.getActividad().getId() == act.getId())
+						cantidadPorActividad[pos]++;
+				}
+				actividades.set(act.getNombre(), cantidadPorActividad[pos]);
+				pos++;
+			}
 		}
-        
         barModelRutasPorActividad.addSeries(actividades);
          
         barModelRutasPorActividad.setTitle("Cantidad de Rutas por Actividad");
@@ -169,8 +181,11 @@ public class EstadisticaBean implements Serializable
         xAxis.setLabel("Rutas");
         xAxis.setMin(0);
         
-        Arrays.sort(cantidadPorActividad);
-        xAxis.setMax((cantidadPorActividad[cantidadPorActividad.length-1])*2);
+        if(cantidadPorActividad != null)
+        {
+        	Arrays.sort(cantidadPorActividad);
+        	xAxis.setMax((cantidadPorActividad[cantidadPorActividad.length-1])*2);
+		}
         xAxis.setTickFormat("%d");
         xAxis.setTickInterval("1");
          
@@ -205,24 +220,27 @@ public class EstadisticaBean implements Serializable
         
         PersonaDAO pDao = new PersonaDAO();
         List<Persona> allUsuarios = pDao.recuperarUsuarios();
-        
-        for(Persona p : allUsuarios)
+        if(allUsuarios != null)
         {
-        	if((p.getFechaRegistro().getYear()+1900) == thisYear)	// getYear retorna el año AñoActual-1900
-        	{
-        		cantPorMes[p.getFechaRegistro().getMonth()]++;	// getMonth retorna entre 1-12
-        	}
-        	else
-        	{
-        		if((p.getFechaRegistro().getYear()+1900) == (thisYear-1))	// Si pertenece al año anterior y al mes posterior al actual
-        		{
-        			if(p.getFechaRegistro().getMonth()>(thisMont-1))		
-        				cantPorMes[p.getFechaRegistro().getMonth()]++;
-        		}
-        	}
-        		
+	        for(Persona p : allUsuarios)
+	        {
+	        	if(p.getTipo() == Tipo_USER.Usuario)
+	        	{
+		        	if((p.getFechaRegistro().getYear()+1900) == thisYear)	// getYear retorna el aï¿½o Aï¿½oActual-1900
+		        	{
+		        		cantPorMes[p.getFechaRegistro().getMonth()]++;	// getMonth retorna entre 1-12
+		        	}
+		        	else
+		        	{
+		        		if((p.getFechaRegistro().getYear()+1900) == (thisYear-1))	// Si pertenece al aï¿½o anterior y al mes posterior al actual
+		        		{
+		        			if(p.getFechaRegistro().getMonth()>(thisMont-1))		
+		        				cantPorMes[p.getFechaRegistro().getMonth()]++;
+		        		}
+		        	}
+	        	}
+	        }
         }
-        
         int pos = thisMont;	// Comienzo desde el mes siguiente al actual	
         for(int i=0;i<12;i++)
         {
@@ -234,7 +252,7 @@ public class EstadisticaBean implements Serializable
  
         lineModelUsuariosPorMes.addSeries(usuarios);
 		
-		lineModelUsuariosPorMes.setTitle("Registro de Usuarios del ultimo año");
+		lineModelUsuariosPorMes.setTitle("Registro de Usuarios del ultimo aÃ±o");
 		lineModelUsuariosPorMes.setShowPointLabels(true);
 		lineModelUsuariosPorMes.getAxes().put(AxisType.X, new CategoryAxis("Meses"));
 		Axis yAxis = lineModelUsuariosPorMes.getAxis(AxisType.Y);
@@ -272,26 +290,27 @@ public class EstadisticaBean implements Serializable
 	        int thisYear = LocalDateTime.now().getYear();
 	        int thisMont = LocalDateTime.now().getMonthValue();		// Retorna entre 0-11
 	        
-	       RutaDAO rDao = new RutaDAO();
-	        List<Ruta> allRutas = rDao.recuperarAllRutas();
-	        
-	        for(Ruta r : allRutas)
+	        RutaDAO rDao = new RutaDAO();
+	       	List<Ruta> allRutas = rDao.recuperarAllRutas();
+	        if(allRutas != null)
 	        {
-	        	if((r.getFechaRegistro().getYear()+1900) == thisYear)	// getYear retorna el año AñoActual-1900
-	        	{
-	        		cantPorMes[r.getFechaRegistro().getMonth()]++;	// getMonth retorna entre 1-12
-	        	}
-	        	else
-	        	{
-	        		if((r.getFechaRegistro().getYear()+1900) == (thisYear-1))	// Si pertenece al año anterior y al mes posterior al actual
-	        		{
-	        			if(r.getFechaRegistro().getMonth()>(thisMont-1))		
-	        				cantPorMes[r.getFechaRegistro().getMonth()]++;
-	        		}
-	        	}
-	        		
+		        for(Ruta r : allRutas)
+		        {
+		        	if((r.getFechaRegistro().getYear()+1900) == thisYear)	// getYear retorna el aï¿½o Aï¿½oActual-1900
+		        	{
+		        		cantPorMes[r.getFechaRegistro().getMonth()]++;	// getMonth retorna entre 1-12
+		        	}
+		        	else
+		        	{
+		        		if((r.getFechaRegistro().getYear()+1900) == (thisYear-1))	// Si pertenece al aï¿½o anterior y al mes posterior al actual
+		        		{
+		        			if(r.getFechaRegistro().getMonth()>(thisMont-1))		
+		        				cantPorMes[r.getFechaRegistro().getMonth()]++;
+		        		}
+		        	}
+		        		
+		        }
 	        }
-	        
 	        int pos = thisMont;	// Comienzo desde el mes siguiente al actual	
 	        for(int i=0;i<12;i++)
 	        {
@@ -303,7 +322,7 @@ public class EstadisticaBean implements Serializable
 	 
 	        lineModelRutasPorMes.addSeries(rutas);
 			
-			lineModelRutasPorMes.setTitle("Rutas creadas en el ultimo año");
+			lineModelRutasPorMes.setTitle("Rutas creadas en el ultimo aÃ±o");
 			lineModelRutasPorMes.setShowPointLabels(true);
 			lineModelRutasPorMes.getAxes().put(AxisType.X, new CategoryAxis("Meses"));
 			Axis yAxis = lineModelRutasPorMes.getAxis(AxisType.Y);

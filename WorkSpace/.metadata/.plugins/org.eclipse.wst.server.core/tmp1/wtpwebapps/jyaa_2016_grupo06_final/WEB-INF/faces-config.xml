@@ -88,7 +88,7 @@
 </navigation-rule>
 
 <navigation-rule> 
-  <from-view-id>admin_listaActividades.xhtml</from-view-id> 
+  <from-view-id>/LoginAdmin/admin_listaActividades.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editar_actividad</from-outcome>
       <to-view-id>/faces/LoginAdmin/admin_editarActividad.xhtml</to-view-id> 
@@ -108,6 +108,14 @@
   <navigation-case>
     <from-outcome>mostrar_ruta</from-outcome>
       <to-view-id>/LoginUsr/usuario_ruta.xhtml</to-view-id> 
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule> 
+  <from-view-id>/LoginAdmin/admin_editarActividad.xhtml</from-view-id> 
+  <navigation-case>
+    <from-outcome>listaActividades</from-outcome>
+      <to-view-id>/LoginAdmin/admin_listaActividades.xhtml</to-view-id> 
   </navigation-case>
 </navigation-rule>
 
