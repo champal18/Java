@@ -10,10 +10,10 @@ public class RutaRealizada
 	private long id;
 	private int valoracion;
 	
-	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Ruta ruta;
 	
-	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	private Persona owner;
 	/*
 	 * Puede ser una sola ruta

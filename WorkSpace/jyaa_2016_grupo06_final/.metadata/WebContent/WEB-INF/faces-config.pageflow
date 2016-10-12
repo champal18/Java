@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14684175544550" configfile="/jyaa_2016_grupo06_final/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="370" id="pf14705175099780" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf14742270908903 pf14742270908904 pf14743895367740" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="usuario_misRutas.xhtml" x="122" y="754" id="pf14720626660360" referenceLink="//@navigationRule.7/@fromViewId|" path="usuario_misRutas.xhtml"/>

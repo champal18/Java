@@ -149,6 +149,12 @@ public class RutaBean
 		
 		this.idActividad = selec.getActividad().getId();
 		
+		// Guardo el id de la ruta seleccionada en la sesion
+		HttpSession session;
+		FacesContext context = FacesContext.getCurrentInstance();
+	    session = (HttpSession) context.getExternalContext().getSession(true);
+	    session.setAttribute("idRuta", selec.getId());
+		
 		PuntoDao pDao = PuntoDao.instance;
 		pDao.recuperarPuntosRuta(selec.getId());
 		return "editar_ruta";
@@ -184,7 +190,7 @@ public class RutaBean
 	}
 
 	
-	public String editarRuta()
+	public String editarRuta() throws IOException
 	
 	{	Actividad actividad=new Actividad();
 		ActividadDAO aDAO= new ActividadDAO();
@@ -198,9 +204,40 @@ public class RutaBean
 		PuntoDao puntoDao = PuntoDao.instance;
 		puntoDao.eliminarPuntosRuta(rutaSeleccionada.getId());
 		
-		puntoDao.guardarPuntos(this.ruta);
+		puntoDao.guardarPuntos(this.rutaSeleccionada);
 		
 		puntoDao.limpiarMapa();
+		
+		FotoDAO fDao = new FotoDAO();
+		List<Foto> fotos = fDao.recuperarFotos(rutaSeleccionada.getId());
+		
+		for(int i=0;i<5;i++)
+    	{
+    		if(files[i] != null)
+    		{
+    			if(i<fotos.size())
+    			{	
+    				Foto f = fotos.get(i);
+	    			f.setImg(files[i].getBytes());
+	    			fotos.set(i, f);
+    			}
+    			else
+    			{
+					Foto f = new Foto();
+					f.setImg(files[i].getBytes());
+					f.setRuta(rutaSeleccionada);
+					fotos.add(f);
+    			}
+    		}
+    	}
+		for(Foto f : fotos)
+		{
+			fDao.modificarFoto(f);
+		}
+		
+		// Limpio el vector de archivos
+		this.files = new UploadedFile[5];
+		pos = 0;
 		
 		return "usuario_opOk";
 	}
@@ -257,34 +294,41 @@ public class RutaBean
     public UploadedFile getFile() {
         return file;
     }
- 
+    
     public void setFile(UploadedFile file)
     {
     	if(file != null)
     	{
     		this.files[pos] = file;
-    		this.pos++;
     	}
+    	else
+    	{
+    		this.files[pos] = null;
+    	}
+    	pos++;
     }
 
 	// Lista de todas las rutas
 	public List<Ruta> getAllRutas()
 	{
 		PuntoDao.instance.limpiarMapa();
-		if(!buscar)
+		if((!buscar))
 		{
 			this.backUpRutas = rDao.recuperarAllRutasPublicas();	// Obtengo las rutas publicas de la BD
-			this.allRutas.clear();
-			this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
-			if(filtroRadio)
+			if(backUpRutas != null)
 			{
-				busquedaRadial();
-				filtroRadio = false;
+				this.allRutas.clear();
+				this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
+				if(filtroRadio)
+				{
+					busquedaRadial();
+					filtroRadio = false;
+				}
+				// Primero filtro
+				filtrar();
+				// Segundo ordeno
+				ordenar();
 			}
-			// Primero filtro
-			filtrar();
-			// Segundo ordeno
-			ordenar();
 		}
 		buscar = false;
 		this.cadenaBuscada = new String();

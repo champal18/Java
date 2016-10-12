@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -34,13 +34,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
 	<script src="funciones.js"> </script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<script src="showIMG.js"> </script>
 
 </h:head>
 
@@ -103,7 +97,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="http://localhost:8080/jyaa_2016_grupo06_final/faces/CerrarSesion"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a>
+                            <a href="/jyaa_2016_grupo06_final/faces/CerrarSesion"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a>
                         </li>
                     </ul>
                	</li>
@@ -146,7 +140,7 @@
 
             <div class="container-fluid">
             		
-				<h:form class="form-horizontal">
+				<h:form class="form-horizontal" enctype="multipart/form-data">
 					  
                 	<div class="form-group">
                     	<label for="inputNameRuta" class="col-sm-offset-1 col-sm-2 control-label">
@@ -294,14 +288,51 @@
                         <div><input type="button" class="col-sm-offset-5 col-sm-2" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
 					</div>
 
-<!-- 					<div class="form-group"> -->
-<!--                     	<label class="col-sm-offset-1 col-sm-2 control-label"> -->
-<!--                         		Foto 1 -->
-<!--                         </label> -->
-<!--                         <h:graphicImage value="#{RutaBean.img}"/> -->
-<!--                        	<t:inputFileUpload value="#{RutaBean.file}" onchange="showMyImage(this)" /> -->
-<!--                        	<img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image" /> -->
-<!--                     </div> -->
+					<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 1
+                        	</label>
+                        	<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/1" alt="image" />
+                            <t:inputFileUpload id="file1" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil1')" required="false" />
+                            <img id="thumbnil1" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 2
+                        	</label>
+                            <img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/2" alt="image" />
+                            <t:inputFileUpload id="file2" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil2')" required="false"/>
+                            <img id="thumbnil2" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 3
+                        	</label>
+                            <img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/3" alt="image" />
+                            <t:inputFileUpload id="file3" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil3')" required="false"/>
+                            <img id="thumbnil3" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 4
+                        	</label>
+                            <img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/4" alt="image" />
+                            <t:inputFileUpload id="file4" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil4')" required="false"/>
+                            <img id="thumbnil4" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+                     	
+                     	<div class="form-group">
+                        	<label class="col-sm-offset-1 col-sm-2 control-label">
+                        		Foto 5
+                        	</label>
+                           	<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/5" alt="image" />
+                            <t:inputFileUpload id="file5" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil5')" required="false"/>
+                            <img id="thumbnil5" style="width:20%; margin-top:10px;"  src="" alt="image" />
+                     	</div>
+
 					  
 					<div class="form-group">
 						<div class="col-sm-6">
@@ -332,12 +363,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
 </body>
 
 </html>

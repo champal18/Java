@@ -59,9 +59,9 @@ public class filtroLoginHome implements Filter {
 			if(sesion.getAttribute("tipo") != null)
 			{
 				if(sesion.getAttribute("tipo").equals("usr"))
-					rsp.sendRedirect("http://localhost:8080/jyaa_2016_grupo06_final/faces/LoginUsr/usuario.xhtml");
+					rsp.sendRedirect("/jyaa_2016_grupo06_final/faces/LoginUsr/usuario.xhtml");
 				else
-					rsp.sendRedirect("http://localhost:8080/jyaa_2016_grupo06_final/faces/LoginAdmin/admin.xhtml");
+					rsp.sendRedirect("/jyaa_2016_grupo06_final/faces/LoginAdmin/admin.xhtml");
 			}
 			else
 				chain.doFilter(request, response);

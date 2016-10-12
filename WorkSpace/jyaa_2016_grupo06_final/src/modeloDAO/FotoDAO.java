@@ -10,7 +10,6 @@ import javax.persistence.Query;
 
 import interfazDAO.IFotoDAO;
 import modelo.Foto;
-import modelo.Ruta;
 
 public class FotoDAO implements IFotoDAO
 {
@@ -37,9 +36,24 @@ public class FotoDAO implements IFotoDAO
 	}
 
 	@Override
-	public void modificarFoto(Foto f) {
+	public void modificarFoto(Foto f) 
+	{
 		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		try
+		{
+			em.merge(f);
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
 		
+		etx.commit();
+		em.close();
 	}
 
 	@Override
@@ -61,7 +75,7 @@ public class FotoDAO implements IFotoDAO
 		
 		try {
 			Query q = em.createQuery("FROM Foto WHERE ruta_id = '"+idRuta+"'");
-			fotos = Collections.checkedList(q.getResultList(), Ruta.class);	
+			fotos = Collections.checkedList(q.getResultList(), Foto.class);	
 		} catch (Exception e) {
 			fotos = null;
 			System.out.println("Excepcion!");

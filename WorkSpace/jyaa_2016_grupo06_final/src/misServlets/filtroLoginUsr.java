@@ -58,11 +58,11 @@ public class filtroLoginUsr implements Filter {
 			// Si el atributo es igual a null o no es el usuario "juan" se redirecciona a login.html
 			if(sesion.getAttribute("tipo") == null)
 			{
-				rsp.sendRedirect("http://localhost:8080/jyaa_2016_grupo06_final/faces/Home/login.xhtml");
+				rsp.sendRedirect("/jyaa_2016_grupo06_final/faces/Home/login.xhtml");
 			}
 			else if(sesion.getAttribute("tipo").equals("adm"))
 			{
-				rsp.sendRedirect("http://localhost:8080/jyaa_2016_grupo06_final/faces/LoginAdmin/admin.xhtml");
+				rsp.sendRedirect("/jyaa_2016_grupo06_final/faces/LoginAdmin/admin.xhtml");
 			}
 				
 			chain.doFilter(request, response);
