@@ -36,7 +36,7 @@ public class RutaBean
 	private RutaDAO rDao = new RutaDAO();
 	private Ruta ruta = new Ruta();
 	
-	private boolean control = true;	// Una vez creada una ruta nueva, se vuelve a llamar al constructor
+	private boolean control = false;	// Una vez creada una ruta nueva, se vuelve a llamar al constructor
 	private boolean buscar = false; // Flag que indica que se inicio una busqueda para no renovar la lista de rutas
 	
 	private Ruta rutaSeleccionada = new Ruta();
@@ -71,6 +71,9 @@ public class RutaBean
 	}
 	
 	public Ruta getRuta() {
+		PuntoDao puntoDao=PuntoDao.instance;
+		// Limpio los puntos del mapa
+		puntoDao.limpiarMapa();
 		if(!control)
 		{
 			this.ruta= new Ruta();

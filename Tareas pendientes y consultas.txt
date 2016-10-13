@@ -1,36 +1,20 @@
 Consultas:
 
-- URL/Paths. Correctos? (Divididos por filtros de login)	ok
-
-Para usuario:
-- Filtros de busqueda: Marcar link es correcto? actividades (session.setAtribute)? Mapa? ok
-- Busqueda: (Reestablecer lista con un commandlink?)		ok
-- Hice esta ruta y valoracion.					ok
-- Imagen de la ruta: recup de la BD y cargar mas de una. 	ok
-- Rutas divididas por paginas o todas de corridas?		ok
-
-Para el admin:
-- Estadisticas:							ok
-	Torta:						
-	- Usuarios hab/deshabilitados		OK
-	- Rutas publicas/privadas		OK
-	Barra:
-	- Rutas por actividad.			OK
-	Lineal:
-	- Cantidad de rutas creadas por mes.
-	- Creacion de usuarios registrados mes a mes.	OK
+- Editar ruta (interpretacion de la funcionalidad)
 
 ////////////////////////////////////////////////////////////////////////////////////
 Cosas que faltan hacer:
 
+
 Para usuario:
-- Hice esta ruta y valoracion.
+- Paginacion en la busqueda de rutas
+-subir mapa kml en el formulario de nueva ruta
+
+
+
 
 Para el admin:
-- Ordenamiento de usuarios.
-- Estadisticas
 
-Agregar fecha de creacion de ruta y usuario.
 
 Cuenta Gmail:
 Usuario: jruteros.g6@gmail.com

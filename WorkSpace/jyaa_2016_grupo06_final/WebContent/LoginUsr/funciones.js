@@ -71,13 +71,12 @@ function dibujarMarker(dato) {
 
 	if(cont==0)
 	{
-		mapProp = {
-				center : new google.maps.LatLng(dato.lat, dato.lon, 18),
-				zoom : 10,
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			};
-		map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+			
+		map.setZoom(10);
+		map.setCenter({lat: dato.lat, lng: dato.lon});
 		cont++;
+		latp=dato.lat;
+		lonp=dato.lon;
 	}
 	
 	
@@ -116,20 +115,20 @@ function dibujarRecorrido() {
 	flightPath.setMap(map);
 }
 
-function dibujarRecorridoCircular() {
-
-	markers = puntos;
-	markers[markers.length] = puntos[0];
-
-	var flightPath = new google.maps.Polyline({
-		path : markers,
-		strokeColor : "#0000FF",
-		strokeOpacity : 0.8,
-		strokeWeight : 2
-	});
-
-	flightPath.setMap(map);
-}
+//function dibujarRecorridoCircular() {
+//
+//	markers = puntos;
+//	markers[markers.length] = puntos[0];
+//
+//	var flightPath = new google.maps.Polyline({
+//		path : markers,
+//		strokeColor : "#0000FF",
+//		strokeOpacity : 0.8,
+//		strokeWeight : 2
+//	});
+//
+//	flightPath.setMap(map);
+//}
 
 function limpiarMapa() {
 
@@ -157,7 +156,30 @@ function borrarMarker(id) {
 		url : myURI+"/"+id ,
 		type : "DELETE",
 		success : function(result) {
-			initialize();
+			initialize2();
 		}
 	});
+	
+}
+
+var latp;
+var lonp;
+
+function initialize2() {
+	
+	var mapProp2 = {
+			center : new google.maps.LatLng(latp, lonp, 18),
+			zoom : 10,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+	
+	map = new google.maps.Map(document.getElementById("googleMap"), mapProp2);
+
+	map.addListener('click', function(e) {
+		agregarMarker(e.latLng, map);
+
+	});
+
+	puntos = [];
+	obtenerMarkers();
 }
