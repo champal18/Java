@@ -24,11 +24,8 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+ 	<!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -139,7 +136,7 @@
             <!-- /.row -->        
 
             <div class="container-fluid">
-            		
+           	<div class="row">	
 				<h:form class="form-horizontal" enctype="multipart/form-data">
 					  
                 	<div class="form-group">
@@ -149,10 +146,10 @@
                         <div class="col-sm-3">
                         	<p:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.rutaSeleccionada.nombre}" 
                            	placeholder="{RutaBean.rutaSeleccionada.nombre}" 
-                           	validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 40"
+                           	validatorMessage="Nombre de ruta: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 60"
                           	required="true" requiredMessage="Nombre de ruta es un campo obligatorio">
-                         	<f:validateLength minimum="4" maximum="40"/>
-                          	<f:validateRegex pattern="[A-Za-z0-9 ]+"/>
+                         	<f:validateLength minimum="4" maximum="60"/>
+<!--                           	<f:validateRegex pattern="[A-Za-z0-9 ]+"/> -->
                           	</p:inputText>
                       	</div>
                         <div class="col-sm-4">
@@ -165,14 +162,13 @@
                    		<label for="inputRutaDesc" class="col-sm-offset-1 col-sm-2 control-label">
                                     Descripcion
                        	</label>
-                       	<div class="col-sm-3">
-                      		<p:inputText styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.rutaSeleccionada.descripcion}" 
-                   			placeholder="{RutaBean.rutaSeleccionada.descripcion}" 
-                   			validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 500"
+                       	<div class="col-sm-6">
+                      		<h:inputTextarea styleClass="form-control" id="inputRutaDesc" value="#{RutaBean.rutaSeleccionada.descripcion}" 
+                   			cols="50" rows="10" placeholder="{RutaBean.rutaSeleccionada.descripcion}" 
+                   			validatorMessage="Nombre de usuario: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 3000"
                      		required="true" requiredMessage="Descripcion es un campo obligatorio">
-                         	<f:validateLength minimum="4" maximum="500"/>
-                          	<f:validateRegex pattern="[A-Za-z0-9 ]+"/>
-                            </p:inputText>
+                         	<f:validateLength minimum="4" maximum="3000"/>    
+                            </h:inputTextarea>
                       	</div>
                         <div class="col-sm-4">
                      		<p:messages for="inputRutaDesc" autoUpdate="true" />
@@ -295,7 +291,7 @@
                         	<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/1" alt="image" />
                             <t:inputFileUpload id="file1" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil1')" required="false" />
                             <img id="thumbnil1" style="width:20%; margin-top:10px;"  src="" alt="image" />
-                     	</div>
+                  	</div>
                      	
                      	<div class="form-group">
                         	<label class="col-sm-offset-1 col-sm-2 control-label">
@@ -344,25 +340,19 @@
 					</div>
 					  
 				</h:form>
-                
+            
+            </div>    
             </div>
             <!-- /.container-fluid -->
 		
 	
         </div>
-        
-        <!-- FIN DEL PANEL CENTRAL -->
-        
-        <!-- /#page-wrapper -->
+       	<!-- FIN DEL PANEL CENTRAL -->
+       
 
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

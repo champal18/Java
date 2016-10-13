@@ -46,6 +46,8 @@ function obtenerMarkers(dibujar) {
 	});
 }
 
+var cont = 0;
+
 function dibujarMarker(dato) {
 
 	var position = new google.maps.LatLng(dato.lat, dato.lon);
@@ -67,6 +69,18 @@ function dibujarMarker(dato) {
 
 	puntos[puntos.length] = position;
 
+	if(cont==0)
+	{
+		mapProp = {
+				center : new google.maps.LatLng(dato.lat, dato.lon, 18),
+				zoom : 10,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			};
+		map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+		cont++;
+	}
+	
+	
 	marker.setMap(map);
 }
 

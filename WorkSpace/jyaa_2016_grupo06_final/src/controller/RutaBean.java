@@ -659,7 +659,8 @@ public class RutaBean
 		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
     	{
 		    Ruta ruta = iterator.next();
-		    if (!ruta.getNombre().contains(cadenaBuscada)) 
+		    String lower= ruta.getNombre().toLowerCase();
+		    if (!lower.contains(cadenaBuscada.toLowerCase())) 
 		    {
 		        // Remove the current element from the iterator and the list.
 		        iterator.remove();
@@ -694,7 +695,7 @@ public class RutaBean
     	{
 			// Se calcula la distancia en metros entre el punto seleccionado y los de la BD
 			Punto p2 = iterator.next();
-		    long R = 6378137; // Earth’s mean radius in meter
+		    long R = 6378137; // Earthï¿½s mean radius in meter
 		    double dLat = (p2.lat - p1.lat)*Math.PI/180;
 		    double dLong = (p2.lon - p1.lon)*Math.PI/180;
 		    double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
