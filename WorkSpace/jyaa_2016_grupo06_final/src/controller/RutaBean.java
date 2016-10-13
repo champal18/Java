@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -14,7 +15,9 @@ import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
 import org.apache.myfaces.custom.fileupload.UploadedFile;
+import org.apache.myfaces.shared_tomahawk.util.Assert;
 
+import de.micromata.opengis.kml.v_2_2_0.*;
 import modelo.Ruta;
 import modelo.Actividad;
 import modelo.Dificultad;
@@ -46,6 +49,10 @@ public class RutaBean
 	private UploadedFile file;
 	private UploadedFile[] files = new UploadedFile[5];
 	private int pos = 0;
+	
+	// CARGA DE ARCHIVO KML
+	private UploadedFile fileKML;
+	private boolean upKML = false;
 	
 	// Listado de rutas de la BD
 	private List<Ruta> allRutas = rDao.recuperarAllRutasPublicas();
@@ -130,9 +137,21 @@ public class RutaBean
     			fDao.guardarFoto(f);
     		}
     	}
-    	
-		// Guardo los puntos correspondientes a la ruta
+    	// Guardo los puntos correspondientes a la ruta
 		PuntoDao puntoDao = PuntoDao.instance;
+    			
+    	if(upKML)	// Si se cargo un archivo KML cargo los puntos
+    	{
+    		try {
+    			puntoDao.limpiarMapa();
+				parseKml();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		upKML = false;
+    	}
+    	this.fileKML = null;
 		puntoDao.guardarPuntos(this.ruta);
 		
 		// Limpio los puntos del mapa
@@ -206,6 +225,19 @@ public class RutaBean
 		
 		PuntoDao puntoDao = PuntoDao.instance;
 		puntoDao.eliminarPuntosRuta(rutaSeleccionada.getId());
+		
+		if(upKML)	// Si se cargo un archivo KML cargo los puntos
+    	{
+    		try {
+    			puntoDao.limpiarMapa();
+				parseKml();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		upKML = false;
+    	}
+    	this.fileKML = null;
 		
 		puntoDao.guardarPuntos(this.rutaSeleccionada);
 		
@@ -725,5 +757,73 @@ public class RutaBean
 			this.filtroRadio = true;
 		return null;
 	}
+	
+	// CARGA DE ARCHIVO KML
+	
+	public UploadedFile getFileKML() {
+		return fileKML;
+	}
+
+	public void setFileKML(UploadedFile fileKML) {
+		this.fileKML = fileKML;
+		if(fileKML != null)
+			upKML = true;
+	}
+	
+	public void parseKml() throws IOException {
+	    InputStream is = fileKML.getInputStream();
+	    Assert.notNull(is);
+	    Kml kml = Kml.unmarshal(is);
+	    Feature feature = kml.getFeature();
+	    parseFeature(feature);
+	}
+
+	private void parseFeature(Feature feature) {
+	    if(feature != null) {
+	        if(feature instanceof Document) 
+	        {
+	            Document document = (Document) feature;
+	            List<Feature> featureList = document.getFeature();
+	            for(Feature documentFeature : featureList) {
+	                if(documentFeature instanceof Placemark)
+	                {
+	                    Placemark placemark = (Placemark) documentFeature;
+	                    Geometry geometry = placemark.getGeometry();
+	                    parseGeometry(geometry);
+	                }
+	            }
+	        }
+	    }
+	}
+
+	private void parseGeometry(Geometry geometry) 
+	{
+	    if(geometry != null) 
+	    {
+	        if(geometry instanceof LineString) 
+	        {
+	        	LineString polygon = (LineString) geometry;
+	        	List<Coordinate> coordinates =polygon.getCoordinates();
+	        	if(coordinates != null) 
+	        	{
+                    for(Coordinate coordinate : coordinates) 
+                    {
+                        parseCoordinate(coordinate);
+                    }
+              	}
+	        }
+	    }
+	}
+
+	private void parseCoordinate(Coordinate coordinate) {
+		PuntoDao puntoDao = PuntoDao.instance;
+	    if(coordinate != null)
+	    {
+	        Punto p = new Punto(coordinate.getLatitude(), coordinate.getLongitude());
+	        puntoDao.getPuntos().put(p.getIndice(), p);
+	    }
+	}
+	
+	
 	
 }

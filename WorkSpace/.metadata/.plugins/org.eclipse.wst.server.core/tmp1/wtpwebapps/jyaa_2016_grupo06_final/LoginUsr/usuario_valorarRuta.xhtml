@@ -23,11 +23,8 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -127,68 +124,55 @@
 <!-- PANEL CENTRAL -->
 
         <div id="page-wrapper">
-        <div class="row">
-       		<div class="col-md-12">	
-         
-
-             	<h3>
-					#{sessionScope.usrName}, haz tu valoracion para la ruta "#{RutaBean.rutaSeleccionada.nombre}"
-				</h3>
-				<br />
-				<br />
-			</div>
-			<div class="col-md-4">	
-<!-- 				<label class="pull-center">¿Que puntaje le darias a esta ruta?</label> -->
-				
-				<h:form>	               
-	               <div class="form-group"> 
-	               
-						<h4 style="margin-top:0">¿Que puntaje le darias a esta ruta?</h4>
-    					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-       						<p:outputLabel for="console" value="Puntuación:" />
-        					<p:selectOneRadio id="console" value="#{RutaRealizadaBean.rutaRealizada.valoracion}">
-            					<f:selectItem itemLabel="1" itemValue="1" />
-            					<f:selectItem itemLabel="2" itemValue="2" />
-            					<f:selectItem itemLabel="3" itemValue="3" />
-            					<f:selectItem itemLabel="4" itemValue="4" />
-            					<f:selectItem itemLabel="5" itemValue="5" />
-        					</p:selectOneRadio>
-    					</h:panelGrid>               
-	               
-						
-						
-					</div>
-					<div class="form-group">
-							<div class="col-sm-6">
-								<h:commandButton class="btn btn-success" value="Realizar valoracion" action="#{RutaRealizadaBean.altaRutaRealizada}"></h:commandButton>
-							</div>	
-					</div>
-				</h:form>
-				
-<!-- 				<h:form> -->
-<!-- 						    <p:growl id="messages" showDetail="true" /> -->
-						 
-<!-- 						    <h:panelGrid columns="2" cellpadding="5"> -->
-<!-- 						        <h:outputText value="Puntuación:" /> -->
-<!-- 						        <p:rating value="##{RutaRealizadaBean.rutaRealizada.valoracion}" /> -->
-						
-<!-- 						    </h:panelGrid> -->
-						 
-<!-- 						    <p:commandButton value="Confirmar valoracion" update="display" oncomplete="PF('dlg').show()" style="margin:5px" /> -->
-			
-<!-- 						</h:form> -->
-				
+	        <div class="row">
+	       		<div class="col-md-12">	
+	             	<h3>
+						#{sessionScope.usrName}, haz tu valoracion para la ruta "#{RutaBean.rutaSeleccionada.nombre}"
+					</h3>
+					<br />
+					<br />
 				</div>
-				
+				<div class="col-md-4">	
+					<label>¿Que puntaje le darias a esta ruta?</label>
+					
+					<h:form>	               
+		               <div class="form-group"> 
+		               
+	<!-- 						<h4 style="margin-top:0">¿Que puntaje le darias a esta ruta?</h4> -->
+	<!--     					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"> -->
+	<!--        						<p:outputLabel for="console" value="Puntuación:" /> -->
+	<!--         					<p:selectOneRadio id="console" value="#{RutaRealizadaBean.rutaRealizada.valoracion}"> -->
+	<!--             					<f:selectItem itemLabel="1" itemValue="1" /> -->
+	<!--             					<f:selectItem itemLabel="2" itemValue="2" /> -->
+	<!--             					<f:selectItem itemLabel="3" itemValue="3" /> -->
+	<!--             					<f:selectItem itemLabel="4" itemValue="4" /> -->
+	<!--             					<f:selectItem itemLabel="5" itemValue="5" /> -->
+	<!--         					</p:selectOneRadio> -->
+	<!--     					</h:panelGrid>                -->
+		               
+							<h:panelGrid styleClass="panelGridCenter" columns="2" cellpadding="5">
+					       		<h:outputText value="Puntuacion:" />
+					        	<p:rating value="#{RutaRealizadaBean.rutaRealizada.valoracion}" />
+							</h:panelGrid>
+						</div>
+						<div class="form-group">
+								<div class="col-sm-6">
+									<h:commandButton class="btn btn-success" value="Realizar valoracion" action="#{RutaRealizadaBean.altaRutaRealizada}"></h:commandButton>
+								</div>	
+						</div>
+					</h:form>
+					
+				</div>
+					
 				<div class="col-md-12">	
 					<div class="col-md-6">	
 						<a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_busquedaRuta.xhtml"> <h3>Buscar otras rutas</h3></a>
 					</div>
 					<div class="col-md-6">	
 						<a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_ruta.xhtml"> <h3>Volver a la ruta</h3></a>
-            		</div>
+	            	</div>
 				</div>
-        </div>
+	        </div>
         </div>
         <!-- FIN DEL PANEL CENTRAL -->
         
@@ -199,16 +183,7 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
 

@@ -80,26 +80,30 @@
         <div class="container-fluid">
             
         <h1>Lista de usuarios<br /><br /></h1>
-		<div class="col-sm-6">
-		<label>Ordenar por: </label>
-			<h:form>
-				<div class="btn-group">
-					<p:commandButton value="Alfabéticamente" action="#{AdminBean.setOrden(0)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-					<p:commandButton value="Antigüedad" action="#{AdminBean.setOrden(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-					<p:commandButton value="Cantidad de rutas" action="#{AdminBean.setOrden(2)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-				</div>
-			</h:form>
-	     </div>
-		     <div class="col-sm-6">
-		     <label>Criterio: </label>
+		<div class="row">
+			<div class="col-sm-6">
+				<label>Ordenar por: </label>
+				<h:form>
+					<div class="btn-group">
+						<p:commandButton value="Alfabéticamente" action="#{AdminBean.setOrden(0)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+						<p:commandButton value="Antigüedad" action="#{AdminBean.setOrden(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+						<p:commandButton value="Cantidad de rutas" action="#{AdminBean.setOrden(2)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+					</div>
+				</h:form>
+		     </div>
+			 <div class="col-sm-6">
+			     <label>Criterio: </label>
 				<h:form>
 				<div class="btn-group">
 					<p:commandButton value="Ascendente" action="#{AdminBean.setCriterio(0)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
 					<p:commandButton value="Descendente" action="#{AdminBean.setCriterio(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
 				</div>
 				</h:form>
+			</div>
 		</div>
+		<p:separator />
 		<div class="row">	
+			
     		<h:form>
     		<h:dataTable class="table" value="#{AdminBean.listaUsuarios}" var="o"
     			styleClass="order-table"

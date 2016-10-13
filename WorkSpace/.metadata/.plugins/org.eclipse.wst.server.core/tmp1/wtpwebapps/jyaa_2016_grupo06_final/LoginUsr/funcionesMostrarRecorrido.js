@@ -60,7 +60,7 @@ function dibujarMarker(dato) {
 	{
 		mapProp = {
 				center : new google.maps.LatLng(dato.lat, dato.lon, 18),
-				zoom : 15,
+				zoom : 10,
 				mapTypeId : google.maps.MapTypeId.ROADMAP
 			};
 		map = new google.maps.Map(document.getElementById("googleMap"), mapProp);

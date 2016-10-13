@@ -83,6 +83,16 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
+            	<div class="row">
+            		<div class="col-lg-12">
+            			<h2>
+							Editar actividad
+						</h2>
+            			
+            		</div>
+           	 
+            
+            	</div>
             <div class="col-lg-5">	
 				<div class="panel panel-info">
 					<div class="panel-heading">
@@ -102,10 +112,9 @@
 					<div class="panel-body">
 						<h:form styleClass="form-horizontal">
 							<h:inputText styleClass="form-control" id="nameActividad" value="#{ActividadBean.actSeleccionada.nombre}" 
-			              			validatorMessage="Nombre de actividad: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 20"
+			              			validatorMessage="Nombre de actividad: caracteres alfabeticos | Long. minima: 4 | Long. maxima: 25"
 									required="true" requiredMessage="Nombre de actividad es un campo obligatorio">
-									<f:validateLength minimum="4" maximum="20"/>
-						  			<f:validateRegex pattern="[A-Za-z]+"/>
+									<f:validateLength minimum="4" maximum="25"/>
 								</h:inputText>
 							<br><p:messages for="nameActividad" autoUpdate="true" /></br>
 							<div class="form-group">

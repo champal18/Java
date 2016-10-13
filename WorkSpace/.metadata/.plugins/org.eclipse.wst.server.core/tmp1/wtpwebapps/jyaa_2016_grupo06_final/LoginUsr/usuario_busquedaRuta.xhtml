@@ -24,11 +24,8 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
@@ -137,38 +134,61 @@
 				
 				
 					<div class="col-md-12">
-			        	<h3>
+			        	<h2>
 							Búsqueda de rutas
-						</h3>
-	               </div>  	
+						</h2>
+	               </div>
+	                 
+	               <div class="row">  	
 	               <div class="col-md-12">
 	                    
 							   
 							    <h:form>
-							    	<div class="col-md-5">
+							    	<div class="col-md-6">
 							      <h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
 							      </div>
-							      <div class="col-md-6">
+							      <div class="col-md-2">
 							      <h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.buscarRuta()}"></h:commandButton>
 <!-- 							      <p:commandButton value="Edit" icon="fa fa-fw fa-search" type="button"/> -->
 								</div>							    
 							    </h:form>
 							   
 						
+	            	</div>
 	            	</div>				
 				
-					<div class="col-md-3">
+					<div class="col-md-2">
 					    <br />
 					    <h:form>
 					    <label>Filtrar por:</label>
+					    
+					    <p:separator />
+					    
 						<div class="form-group">
 	                         <label>Cercania</label>
-	                         <div id="googleMap" style="width:150px;height:150px;" ></div>
+	                         <div id="googleMap" style="width:170px;height:170px;" ></div>
 	                         <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
-	                         <h:form>
-	                         	<h:commandButton class="btn btn-success btn-block" value="Buscar por radio" action="#{RutaBean.filtroRadio()}"></h:commandButton>
-	                         </h:form>
+	                         <br />
+	                         
+	                         
+<!-- 	                         	<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"> -->
+<!--        							<p:outputLabel for="console" value="Radio:" /> -->
+<!--         						<p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px"> -->
+<!--             						<f:selectItem itemLabel="25" itemValue="25" /> -->
+<!--             						<f:selectItem itemLabel="50" itemValue="50" /> -->
+<!--             						<f:selectItem itemLabel="100" itemValue="100" /> -->
+<!--            							<f:selectItem itemLabel="500" itemValue="500" /> -->
+<!--         						</p:selectOneMenu> -->
+<!-- 	                        	 </h:panelGrid> -->
+	                         
+<!-- 	                         	<h:commandButton class="btn btn-success" value="Buscar por radio" action="#{RutaBean.filtroRadio()}"></h:commandButton> -->
+	                         	<div class="btn-group">
+	                         	<p:commandButton value="Buscar por radio" action="#{RutaBean.filtroRadio()}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+	                         	</div>
+	                         
 	                    </div>
+	                    
+	                    <p:separator />
 	                    
 	                    <div class="form-group">
                      	    <label>Actividad</label><br></br>   
@@ -179,12 +199,16 @@
 	                                
 	                    </div>
 	                    
+	                    <p:separator />
+	                    
 	                    <div class="form-group">
                                 <label>Formato</label><br></br>
                                 <h:commandLink value="Cualquier formato" action="#{RutaBean.setFiltroFormato(0)}" style="#{RutaBean.marcadorFormato[0]}"></h:commandLink><br></br>
                                 <h:commandLink value="Solo ida" action="#{RutaBean.setFiltroFormato(1)}" style="#{RutaBean.marcadorFormato[1]}"></h:commandLink><br></br>
                                 <h:commandLink value="Circular" action="#{RutaBean.setFiltroFormato(2)}" style="#{RutaBean.marcadorFormato[2]}"></h:commandLink><br></br>
 	                    </div>
+	                    
+	                    <p:separator />
 	                    
 	                    <div class="form-group">
                        		 <label>Distancia</label>
@@ -195,6 +219,8 @@
                                 <h:commandLink value="50km - 100km" action="#{RutaBean.setFiltroDistancia(4)}" style="#{RutaBean.marcadorDistancia[4]}"></h:commandLink><br></br>
                                 <h:commandLink value="+100km" action="#{RutaBean.setFiltroDistancia(5)}" style="#{RutaBean.marcadorDistancia[5]}"></h:commandLink><br></br>
 	                    </div> 
+	                    
+	                    <p:separator />
 	                    
 	                    <div class="form-group">
                             <label>Dificultad</label>
@@ -207,22 +233,40 @@
 	                    </div>
 					</h:form>
 					</div>
-					<div class="col-md-8">
+					<div class="col-md-10">
 						<br />
+						<div class="row">
+						
+						<div class="col-sm-7">
 					    <label>Ordenar por:</label>
 						<h:form>
 						<div class="btn-group">
-								<p:commandButton value="Distancia" action="#{RutaBean.orden(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-								<p:commandButton value="Dificultad" action="#{RutaBean.orden(2)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-								<p:commandButton value="Puntuacion" action="#{RutaBean.orden(3)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-								<p:commandButton value="Cantidad realizaciones" action="#{RutaBean.orden(4)}" ajax="false" styleClass="btn btn-primary"  icon="ui-icon-arrow-2-e-w"></p:commandButton>
+								<p:commandButton value="Distancia" action="#{RutaBean.orden(1)}" ajax="false" styleClass="btn btn-primary" ></p:commandButton>
+								<p:commandButton value="Dificultad" action="#{RutaBean.orden(2)}" ajax="false" styleClass="btn btn-primary"></p:commandButton>
+								<p:commandButton value="Puntaje" action="#{RutaBean.orden(3)}" ajax="false" styleClass="btn btn-primary" ></p:commandButton>
+								<p:commandButton value="Realizaciones" action="#{RutaBean.orden(4)}" ajax="false" styleClass="btn btn-primary" ></p:commandButton>
 						</div>
 						</h:form>
+						</div>
+						<div class="col-md-5">
+						<label>Criterio:</label>
+						<h:form>
+						<div class="btn-group">
+								<p:commandButton value="Ascendente" action="#{RutaBean.orden(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-circle-arrow-n"></p:commandButton>
+								<p:commandButton value="Descendente" action="#{RutaBean.orden(2)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-circle-arrow-s"></p:commandButton>
+						</div>
+						</h:form>
+						</div>
+						
+						</div>
+						<p:separator />
+					
+						
 					<ui:repeat value="#{RutaBean.allRutas}" var="item">
 					
 						<div class="col-md-4">
 	                        <div class="thumbnail">
-	 	                            <img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 200px; height: 150px;" />
+	 	                            <img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 240px; height: 190px;" />
 	                           		<div class="caption">
 		                            	<h:form>
 		                            		<h4>
@@ -234,11 +278,7 @@
 		                                <p>Dificultad: #{item.dificultad}</p>
 		                                <p>Pje promedio:#{item.promedio} - #{item.cantRealizadas} veces</p>
 		                           </div>
-<!-- 		                            	<div class="ratings"> -->
-<!-- 		                                	<p class="pull-right">#{item.cantRealizadas} veces</p> -->
-<!-- 		                                	<p class="pull-left">Puntaje promedio:#{item.promedio}</p> -->
-<!-- 		                            	</div> -->
-	                             	
+
 	                        </div>
 	                    </div>
 						
@@ -260,11 +300,7 @@
 
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
 </body>
 
