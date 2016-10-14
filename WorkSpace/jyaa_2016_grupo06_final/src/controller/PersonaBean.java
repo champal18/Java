@@ -27,11 +27,7 @@ public class PersonaBean
 	
 	public Persona getUsr()
 	{
-		if(control)
-		{
-			usr = new Persona();
-			control = false;
-		}
+		usr = new Persona();
 		return usr;
 	}
 
@@ -69,7 +65,6 @@ public class PersonaBean
 			usr.setFechaRegistro(Date.from(now.atZone(ZoneId.systemDefault()).toInstant()));
 			
 			pDao.guardarPersona(usr);
-			control = true;
 			return "exito";
 		}
 	}

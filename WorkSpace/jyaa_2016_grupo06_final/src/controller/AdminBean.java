@@ -2,6 +2,8 @@ package controller;
 
 import java.util.Collections;
 import java.util.List;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;

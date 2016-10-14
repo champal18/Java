@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="modelo.Emailer"/>
 <fullyQualifiedTypeName name="javax.mail.AuthenticationFailedException"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
@@ -34,9 +33,7 @@
 <fullyQualifiedTypeName name="org.primefaces.model.chart.Axis"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.AxisType"/>
 <fullyQualifiedTypeName name="modeloDAO.ActividadDAO"/>
-<fullyQualifiedTypeName name="modelo.Actividad"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.CategoryAxis"/>
@@ -46,7 +43,6 @@
 <fullyQualifiedTypeName name="org.primefaces.model.chart.LineChartModel"/>
 <fullyQualifiedTypeName name="restBusquedaPorPunto.puntoBuscado"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="rest.puntoBuscado"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="de.micromata.opengis.kml.v_2_2_0.Geometry"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.shared_tomahawk.util.Assert"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="modelo.Actividad"/>
 </qualifiedTypeNameHistroy>

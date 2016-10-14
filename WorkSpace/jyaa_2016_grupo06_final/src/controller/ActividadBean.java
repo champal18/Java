@@ -50,9 +50,12 @@ public class ActividadBean
 	public void setAct(Actividad act) {
 		this.act = act;
 	}
-
-	public List<Actividad> getListaActividades() {
+	
+	public List<Actividad> getListaActividades() 
+	{
 		this.listaActividades = actDao.recuperarActividades();
+		if(listaActividades.isEmpty())
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No existe registro de actividades creadas!"));
 		return listaActividades;
 	}
 
@@ -88,7 +91,17 @@ public class ActividadBean
 	
 	public String editarActividad()
 	{
+		for(Actividad actLista : listaActividades)
+		{
+			if(this.act.getNombre().toLowerCase().equals(actLista.getNombre().toLowerCase()))
+			{
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Ya existe una actividad con este nombre!"));
+				return null;
+			}
+		}
+		this.actSeleccionada.setNombre(this.act.getNombre());
 		actDao.modificarActividad(actSeleccionada);
+		this.act = new Actividad();
 		return "admin_opOk";
 	}
 
@@ -119,6 +132,5 @@ public class ActividadBean
 	    }
 	    return items;
 	}
-	
 	
 }
