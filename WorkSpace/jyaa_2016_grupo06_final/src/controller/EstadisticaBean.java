@@ -343,7 +343,5 @@ public class EstadisticaBean implements Serializable
 	        yAxis.setTickFormat("%d");	// Configuro el formato entero para el eje
 	        yAxis.setTickInterval("1");
 	    }
-	
-	
-	
+
 }

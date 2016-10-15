@@ -179,7 +179,7 @@
 		            </div>
 		            <h:panelGroup layout="block" styleClass="modal-footer">
 		                <p:commandLink value="Cancelar" immediate="true" styleClass="btn btn-default" oncomplete="$('#myModal').modal('hide');" />
-		            	<p:commandLink value="Eliminar" styleClass="btn btn-default" action="#{RutaBean.eliminarRutaSeleccionada}" />
+		            	<p:commandLink value="Eliminar" styleClass="btn btn-default" action="#{RutaBean.eliminarRutaSeleccionada}" ajax="false" />
 		            </h:panelGroup>
 		        </h:form>
 		    </div>

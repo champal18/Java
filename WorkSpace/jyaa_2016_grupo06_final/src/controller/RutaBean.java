@@ -18,6 +18,7 @@ import org.apache.myfaces.custom.fileupload.UploadedFile;
 import org.apache.myfaces.shared_tomahawk.util.Assert;
 
 import de.micromata.opengis.kml.v_2_2_0.*;
+import jersey.repackaged.com.google.common.collect.Lists;
 import modelo.Ruta;
 import modelo.Actividad;
 import modelo.Dificultad;
@@ -39,8 +40,10 @@ public class RutaBean
 	private RutaDAO rDao = new RutaDAO();
 	private Ruta ruta = new Ruta();
 	
+	// Flags
 	private boolean control = false;	// Una vez creada una ruta nueva, se vuelve a llamar al constructor
 	private boolean buscar = false; // Flag que indica que se inicio una busqueda para no renovar la lista de rutas
+	private boolean cambio = true;
 	
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
@@ -59,16 +62,24 @@ public class RutaBean
 	private List<Ruta> backUpRutas = rDao.recuperarAllRutasPublicas();
 	
 	// Enumerativo para definir orden actual de la lista
-	private enum orden {normal,distancia,dificultad,puntuacion,cantRealizaciones};
-	private orden ordenActual = orden.normal;
+	private enum orden {distancia,dificultad,puntuacion,cantRealizaciones};
+	private orden ordenActual = orden.distancia;	// Por defecto la lista se ordena por distancia
+	private boolean criterioDesc = true;			// Flag que indica el criterio Ascendente o Descendente
 	
 	// Filtrado de Rutas
 	private Actividad filtroActividad;
 	private long filtroDistancia;
 	private Dificultad filtroDificultad;
 	private long filtroFormato;
-//	private Punto puntoFiltro;
 	private boolean filtroRadio;
+	
+	// Marcadores para marcar modo de filtrado
+	private String[] marcadorDificultad = new String[6];
+	private String[] marcadorFormato = new String[3];
+	private String[] marcadorDistancia = new String[6];
+	
+	// Cadena para la busqueda por texto
+	private String cadenaBuscada = new String();
 
 	public RutaBean()
 	{
@@ -77,12 +88,13 @@ public class RutaBean
 		marcadorFormato[0] = "font-weight:bold; color:black";
 	}
 	
-	public Ruta getRuta() {
-		PuntoDao puntoDao=PuntoDao.instance;
-		// Limpio los puntos del mapa
-		puntoDao.limpiarMapa();
+	public Ruta getRuta()
+	{
 		if(!control)
 		{
+			PuntoDao puntoDao=PuntoDao.instance;
+			// Limpio los puntos del mapa
+			puntoDao.limpiarMapa();
 			this.ruta= new Ruta();
 			this.control = true;
 		}
@@ -146,7 +158,6 @@ public class RutaBean
     			puntoDao.limpiarMapa();
 				parseKml();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     		upKML = false;
@@ -210,11 +221,10 @@ public class RutaBean
 	public void setRutaSeleccionada(Ruta rutaSeleccionada) {
 		this.rutaSeleccionada = rutaSeleccionada;
 	}
-
 	
 	public String editarRuta() throws IOException
-	
-	{	Actividad actividad=new Actividad();
+	{	
+		Actividad actividad=new Actividad();
 		ActividadDAO aDAO= new ActividadDAO();
 		
 		actividad=aDAO.recuperarActividad(idActividad);
@@ -232,7 +242,6 @@ public class RutaBean
     			puntoDao.limpiarMapa();
 				parseKml();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     		upKML = false;
@@ -359,10 +368,14 @@ public class RutaBean
 					busquedaRadial();
 					filtroRadio = false;
 				}
-				// Primero filtro
-				filtrar();
-				// Segundo ordeno
-				ordenar();
+				if(cambio)
+				{
+					// Primero filtro
+					filtrar();
+					// Segundo ordeno
+					ordenar();
+					cambio = false;
+				}
 			}
 		}
 		buscar = false;
@@ -378,6 +391,7 @@ public class RutaBean
 	
 	public String orden(int opcion)
 	{
+		cambio = true;
 		switch(opcion)
 		{
 		case 1:
@@ -401,8 +415,6 @@ public class RutaBean
 	{
 		switch(this.ordenActual)
 		{
-		case normal:
-			break;
 		case cantRealizaciones:
 			Collections.sort(this.allRutas, Ruta.Comparators.CANTREALIZACIONES);
 			break;
@@ -415,10 +427,70 @@ public class RutaBean
 		case puntuacion:
 			Collections.sort(this.allRutas, Ruta.Comparators.PUNTUACION);
 			break;
-		default:
+		}
+		if(!criterioDesc)
+		{
+			this.allRutas = Lists.reverse(allRutas);
+		}
+	}
+	
+	public void setCriterio(int id)
+	{
+		cambio = true;
+		switch(id)
+		{
+		case 0: 
+			criterioDesc = true;
+			break;
+		case 1:
+			criterioDesc = false;
 			break;
 		}
 	}
+	
+	public String getCriterioStyle(int id)
+	{
+		if(id==0)	// Si esta en orden Descendente
+		{
+			if(criterioDesc)
+				return "btn btn-info";
+			else
+				return "btn btn-primary";
+		}
+		else	// Si esta en orden Ascendente
+		{
+			if(!criterioDesc)
+				return "btn btn-info";
+			else
+				return "btn btn-primary";
+		}
+	}
+	
+	public String getOrdenStyle(int opcion)
+	{
+		switch(opcion)
+		{
+		case 1:
+			if(this.ordenActual == orden.distancia)
+				return "btn btn-info";
+			break;
+		case 2:
+			if(this.ordenActual == orden.dificultad)
+				return "btn btn-info";
+			break;
+		case 3:
+			if(this.ordenActual == orden.puntuacion)
+				return "btn btn-info";
+			break;
+		case 4:
+			if(this.ordenActual == orden.cantRealizaciones)
+				return "btn btn-info";
+			break;
+		}
+		return "btn btn-primary";
+	}
+	
+	// FILTRADO
 	
 	public void filtrar()
 	{
@@ -451,10 +523,23 @@ public class RutaBean
 	public void setFiltroActividad(Actividad filtro)
 	{
 		this.filtroActividad = filtro;
+		cambio = true;
 	}
 	
-//	private String[] marcadorActividad = new String[];
-	
+	public String getMarcadorActividad(long id) 
+	{
+		if((id==0)&&(this.filtroActividad == null))
+				return "font-weight:bold; color:black";
+		if(this.filtroActividad != null)
+		{
+			if(id == this.filtroActividad.getId())
+				return "font-weight:bold; color:black";
+			else
+				return new String();
+		}
+		return new String();
+	}
+
 	// FILTRO DISTANCIA
 	
 	private void filtroDistancia()
@@ -487,6 +572,7 @@ public class RutaBean
 
 	public void setFiltroDistancia(long filtroDistancia)
 	{
+		cambio = true;
 		this.filtroDistancia = filtroDistancia;
 		cleanMarcadorDistancia();
 		marcadorDistancia[(int) filtroDistancia] = "font-weight:bold; color:black";
@@ -515,8 +601,6 @@ public class RutaBean
 		    }
 	 	}
 	}
-	
-	private String[] marcadorDistancia = new String[6];
 	
 	public String[] getMarcadorDistancia() {
 		return marcadorDistancia;
@@ -567,6 +651,7 @@ public class RutaBean
 	
 	public void setFiltroDificultad(int filtroDificultad)
 	{
+		cambio = true;
 		cleanMarcadorDificultad();
 		marcadorDificultad[filtroDificultad] = "font-weight:bold; color:black";
 		switch((int)filtroDificultad)
@@ -605,8 +690,6 @@ public class RutaBean
     	}
 	}
 		
-	private String[] marcadorDificultad = new String[6];
-
 	public String[] getMarcadorDificultad() {
 		return marcadorDificultad;
 	}
@@ -662,13 +745,12 @@ public class RutaBean
 
 	public void setFiltroFormato(long filtroFormato)
 	{
+		cambio = true;
 		cleanMarcadorFormato();
 		marcadorFormato[(int) filtroFormato] = "font-weight:bold; color:black";
 		this.filtroFormato = filtroFormato;
 	}
     
-	private String[] marcadorFormato = new String[3];
-
 	public String[] getMarcadorFormato() {
 		return marcadorFormato;
 	}
@@ -686,8 +768,6 @@ public class RutaBean
 	}
 	
 	// Busqueda por texto
-	
-	private String cadenaBuscada = new String();
 	
 	public void buscarRuta()
 	{
@@ -823,7 +903,5 @@ public class RutaBean
 	        puntoDao.getPuntos().put(p.getIndice(), p);
 	    }
 	}
-	
-	
-	
+
 }

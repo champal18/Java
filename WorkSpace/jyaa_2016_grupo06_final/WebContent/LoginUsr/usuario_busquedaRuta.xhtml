@@ -156,9 +156,9 @@
 	                    
 	                    <div class="form-group">
                      	    <label>Actividad</label><br></br>   
-								<h:commandLink value="Cualquier actividad" action="#{RutaBean.setFiltroActividad(null)}" onclick="this.style.color='green'"></h:commandLink><br></br>
+								<h:commandLink value="Cualquier actividad" action="#{RutaBean.setFiltroActividad(null)}" style="#{RutaBean.getMarcadorActividad(0)}"></h:commandLink><br></br>
 								<ui:repeat value="#{ActividadBean.listaActividades}" var="item">
-									<h:commandLink value="#{item.nombre}" action="#{RutaBean.setFiltroActividad(item)}" onclick="this.style.color='green'"></h:commandLink><br></br>
+									<h:commandLink value="#{item.nombre}" action="#{RutaBean.setFiltroActividad(item)}" style="#{RutaBean.getMarcadorActividad(item.id)}"></h:commandLink><br></br>
 								</ui:repeat>
 	                                
 	                    </div>
@@ -205,10 +205,10 @@
 					    <label>Ordenar por:</label>
 						<h:form>
 						<div class="btn-group">
-								<p:commandButton value="Distancia" action="#{RutaBean.orden(1)}" ajax="false" styleClass="btn btn-primary" ></p:commandButton>
-								<p:commandButton value="Dificultad" action="#{RutaBean.orden(2)}" ajax="false" styleClass="btn btn-primary"></p:commandButton>
-								<p:commandButton value="Puntaje" action="#{RutaBean.orden(3)}" ajax="false" styleClass="btn btn-primary" ></p:commandButton>
-								<p:commandButton value="Realizaciones" action="#{RutaBean.orden(4)}" ajax="false" styleClass="btn btn-primary" ></p:commandButton>
+								<p:commandButton value="Distancia" action="#{RutaBean.orden(1)}" ajax="false" styleClass="#{RutaBean.getOrdenStyle(1)}" ></p:commandButton>
+								<p:commandButton value="Dificultad" action="#{RutaBean.orden(2)}" ajax="false" styleClass="#{RutaBean.getOrdenStyle(2)}"></p:commandButton>
+								<p:commandButton value="Puntaje" action="#{RutaBean.orden(3)}" ajax="false" styleClass="#{RutaBean.getOrdenStyle(3)}" ></p:commandButton>
+								<p:commandButton value="Realizaciones" action="#{RutaBean.orden(4)}" ajax="false" styleClass="#{RutaBean.getOrdenStyle(4)}" ></p:commandButton>
 						</div>
 						</h:form>
 						</div>
@@ -216,8 +216,8 @@
 						<label>Criterio:</label>
 						<h:form>
 						<div class="btn-group">
-								<p:commandButton value="Ascendente" action="#{RutaBean.orden(1)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-circle-arrow-n"></p:commandButton>
-								<p:commandButton value="Descendente" action="#{RutaBean.orden(2)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-circle-arrow-s"></p:commandButton>
+								<p:commandButton value="Ascendente" action="#{RutaBean.setCriterio(1)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(1)}" icon="ui-icon-circle-arrow-n"></p:commandButton>
+								<p:commandButton value="Descendente" action="#{RutaBean.setCriterio(0)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(0)}" icon="ui-icon-circle-arrow-s"></p:commandButton>
 						</div>
 						</h:form>
 						</div>

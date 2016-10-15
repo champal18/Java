@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -7,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import modelo.Actividad;
+import modelo.Ruta;
 import modeloDAO.ActividadDAO;
 import modeloDAO.RutaDAO;
 
@@ -129,6 +132,30 @@ public class ActividadBean
 	    for(i=0;i<listaActividades.size();i++)
 	    {
 	      items[i] = new SelectItem(listaActividades.get(i).getId(), listaActividades.get(i).getNombre());
+	    }
+	    return items;
+	}
+	
+	public SelectItem[] getActividadHabilitadasValues()
+	{
+		List<Actividad> actDisponibles = new ArrayList<>();
+		actDisponibles.addAll(actDao.recuperarActividades());
+		
+		for (Iterator<Actividad> iterator = actDisponibles.iterator(); iterator.hasNext();) 
+    	{
+		    Actividad a = iterator.next();
+		    if (!a.getHabilitada()) 
+		    {
+		        // Remove the current element from the iterator and the list.
+		        iterator.remove();
+		    }
+    	}
+
+		SelectItem[] items = new SelectItem[actDisponibles.size()];
+	    int i = 0;
+	    for(i=0;i<actDisponibles.size();i++)
+	    {
+	      items[i] = new SelectItem(actDisponibles.get(i).getId(), actDisponibles.get(i).getNombre());
 	    }
 	    return items;
 	}

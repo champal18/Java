@@ -23,7 +23,6 @@
 <fullyQualifiedTypeName name="modelo.RutaRealizada"/>
 <fullyQualifiedTypeName name="controller.EstadisticaBean"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.PieChartModel"/>
-<fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
@@ -32,7 +31,6 @@
 <fullyQualifiedTypeName name="org.primefaces.model.chart.ChartSeries"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.Axis"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.AxisType"/>
-<fullyQualifiedTypeName name="modeloDAO.ActividadDAO"/>
 <fullyQualifiedTypeName name="modeloDAO.RutaDAO"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -45,7 +43,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="rest.puntoBuscado"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
 <fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
 <fullyQualifiedTypeName name="modelo.Foto"/>
@@ -57,7 +54,10 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.shared_tomahawk.util.Assert"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="modeloDAO.ActividadDAO"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

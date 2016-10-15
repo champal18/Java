@@ -16,8 +16,6 @@ import modeloDAO.PersonaDAO;
 
 public class PersonaBean 
 {
-	
-	
 	private PersonaDAO pDao = new PersonaDAO();
 	private Persona usr = new Persona();
 	boolean control = false;
@@ -27,7 +25,11 @@ public class PersonaBean
 	
 	public Persona getUsr()
 	{
-		usr = new Persona();
+		if(!control)
+		{
+			usr = new Persona();
+			control = true;
+		}
 		return usr;
 	}
 
@@ -65,6 +67,7 @@ public class PersonaBean
 			usr.setFechaRegistro(Date.from(now.atZone(ZoneId.systemDefault()).toInstant()));
 			
 			pDao.guardarPersona(usr);
+			control = false;
 			return "exito";
 		}
 	}
