@@ -50,8 +50,12 @@ public class RutaRealizadaBean
 		
 		float valorTotal = ruta.getPromedio() * ruta.getCantRealizadas();
 		ruta.setCantRealizadas(ruta.getCantRealizadas()+1);
+		
 		float promedio = (valorTotal+this.rutaRealizada.getValoracion()) / ruta.getCantRealizadas();
-		ruta.setPromedio(promedio);
+		int aux = (int)(promedio*100);
+		float prom = aux/100f;
+		
+		ruta.setPromedio(prom);
 		
 		this.rDao.guardarRuta(this.rutaRealizada);
 		rutaDao.modificarRuta(ruta);

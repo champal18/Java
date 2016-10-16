@@ -80,7 +80,7 @@ public class RutaBean
 	
 	// Cadena para la busqueda por texto
 	private String cadenaBuscada = new String();
-
+	
 	public RutaBean()
 	{
 		marcadorDistancia[0] = "font-weight:bold; color:black";
@@ -100,6 +100,7 @@ public class RutaBean
 		}
 		return ruta;
 	}
+	
 
 	public void setRuta(Ruta ruta) {
 		this.ruta = ruta;
@@ -380,6 +381,7 @@ public class RutaBean
 		}
 		buscar = false;
 		this.cadenaBuscada = new String();
+
 		return allRutas;
 	}
 
@@ -428,7 +430,7 @@ public class RutaBean
 			Collections.sort(this.allRutas, Ruta.Comparators.PUNTUACION);
 			break;
 		}
-		if(!criterioDesc)
+		if(criterioDesc)
 		{
 			this.allRutas = Lists.reverse(allRutas);
 		}

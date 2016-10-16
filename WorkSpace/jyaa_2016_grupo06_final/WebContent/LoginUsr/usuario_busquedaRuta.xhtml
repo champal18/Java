@@ -228,13 +228,14 @@
 						
 					<ui:repeat value="#{RutaBean.allRutas}" var="item">
 					
-						<div class="col-md-4">
+						<div class="col-lg-4">
 	                        <div class="thumbnail">
 	 	                            <img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 240px; height: 190px;" />
 	                           		<div class="caption">
 		                            	<h:form>
 		                            		<h4>
-		                                	<h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
+		                                	<p:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
+
 		                                	</h4>
 		                            	</h:form>
 		                            	<p>Actividad: #{item.actividad.nombre}</p>
@@ -248,6 +249,7 @@
 						
 				</ui:repeat>
                     	
+    
                 </div>
 		
 		
