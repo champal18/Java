@@ -26,6 +26,7 @@ import modelo.Formato;
 import modelo.Foto;
 import modelo.Persona;
 import modelo.Privacidad;
+import modelo.RepeatPaginator;
 import modeloDAO.ActividadDAO;
 import modeloDAO.FotoDAO;
 import modeloDAO.PersonaDAO;
@@ -80,6 +81,21 @@ public class RutaBean
 	
 	// Cadena para la busqueda por texto
 	private String cadenaBuscada = new String();
+	
+	
+	
+	
+	
+	//Paginator
+	private RepeatPaginator paginator=new RepeatPaginator(allRutas);
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public RutaBean()
 	{
@@ -177,6 +193,20 @@ public class RutaBean
 		return "usuario_opOk";
 	}
 	
+	
+	
+	
+	
+    public RepeatPaginator getPaginator() {
+        return paginator;
+    }
+	
+	
+    
+    
+    
+    
+    
 	public String selecEditar(Ruta selec)
 	{
 		this.rutaSeleccionada = selec;
@@ -377,11 +407,12 @@ public class RutaBean
 					ordenar();
 					cambio = false;
 				}
+				
 			}
 		}
 		buscar = false;
 		this.cadenaBuscada = new String();
-
+		
 		return allRutas;
 	}
 

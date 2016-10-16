@@ -226,28 +226,44 @@
 						<p:separator />
 					
 						
-					<ui:repeat value="#{RutaBean.allRutas}" var="item">
+                    
+
+			
+			
+			
+			
+			
+			
+					    <h:form>
+					        <ui:repeat value="#{RutaBean.paginator.model}" var="item">
+					            <div class="col-md-4">
+			                        <div class="thumbnail">
+			 	                            <img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 240px; height: 190px;" />
+			                           		<div class="caption">
+<!-- 				                            	<h:form> -->
+				                            		<h4>
+				                                	<h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
+				                                	</h4>
+<!-- 				                            	</h:form> -->
+				                            	<p>Actividad: #{item.actividad.nombre}</p>
+				                                <p>Distancia: #{item.distancia} km</p>
+				                                <p>Dificultad: #{item.dificultad}</p>
+				                                <p>Pje promedio:#{item.promedio} - #{item.cantRealizadas} veces</p>
+				                           </div>
+		
+			                        </div>
+			                    </div>
+					        </ui:repeat>
+					        <h:commandButton value="&lt; prev" action="#{RutaBean.paginator.prev}"/>
+					        <h:outputText value="#{RutaBean.paginator.pageIndex} / #{RutaBean.paginator.pages}"/>
+					        <h:commandButton value="next &gt;" action="#{RutaBean.paginator.next}"/>
+					        <h:inputHidden value="#{RutaBean.paginator.pageIndex}"/>
+					    </h:form>
 					
-						<div class="col-lg-4">
-	                        <div class="thumbnail">
-	 	                            <img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 240px; height: 190px;" />
-	                           		<div class="caption">
-		                            	<h:form>
-		                            		<h4>
-		                                	<p:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
+				
 
-		                                	</h4>
-		                            	</h:form>
-		                            	<p>Actividad: #{item.actividad.nombre}</p>
-		                                <p>Distancia: #{item.distancia} km</p>
-		                                <p>Dificultad: #{item.dificultad}</p>
-		                                <p>Pje promedio:#{item.promedio} - #{item.cantRealizadas} veces</p>
-		                           </div>
-
-	                        </div>
-	                    </div>
-						
-				</ui:repeat>
+			
+                    
                     	
     
                 </div>
