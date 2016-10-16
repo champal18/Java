@@ -3,6 +3,7 @@ package controller;
 import java.util.Collections;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
@@ -181,44 +182,6 @@ public class AdminBean
 		}
 		this.flagOrden = false;
 		return null;
-	}
-	
-	public String getCriterioStyle(int id)
-	{
-		if(id==0)	// Si esta en orden Descendente
-		{
-			if(criterioActual == criterio.Descendente)
-				return "btn btn-info";
-			else
-				return "btn btn-primary";
-		}
-		else	// Si esta en orden Ascendente
-		{
-			if(criterioActual == criterio.Ascendente)
-				return "btn btn-info";
-			else
-				return "btn btn-primary";
-		}
-	}
-	
-	public String getOrdenStyle(int opcion)
-	{
-		switch(opcion)
-		{
-		case 1:
-			if(this.ordenActual == orden.Alfabeticamente)
-				return "btn btn-info";
-			break;
-		case 2:
-			if(this.ordenActual == orden.Antiguedad)
-				return "btn btn-info";
-			break;
-		case 3:
-			if(this.ordenActual == orden.Cantidad_De_Rutas)
-				return "btn btn-info";
-			break;
-		}
-		return "btn btn-primary";
 	}
 	
 }

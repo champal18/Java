@@ -89,8 +89,8 @@
 			     <label>Criterio: </label>
 				<h:form>
 				<div class="btn-group">
-					<p:commandButton value="Ascendente" action="#{AdminBean.setCriterio(0)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(1)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-					<p:commandButton value="Descendente" action="#{AdminBean.setCriterio(1)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(0)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+					<p:commandButton value="Ascendente" action="#{AdminBean.setCriterio(0)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(0)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+					<p:commandButton value="Descendente" action="#{AdminBean.setCriterio(1)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(1)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
 				</div>
 				</h:form>
 			</div>
