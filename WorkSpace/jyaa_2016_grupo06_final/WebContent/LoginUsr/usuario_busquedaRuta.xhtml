@@ -17,7 +17,7 @@
 
     <title>Busqueda de rutas</title>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
@@ -36,6 +36,10 @@
 	  max-width:100%;
 	  max-height:100%;
 	}
+	
+	.customTitleBar > .ui-panel-titlebar {
+    background: #0044cc;
+    }
    </style>
 
 </h:head>
@@ -226,46 +230,33 @@
 						<p:separator />
 					
 						
-                    
-
-			
-			
-			
-			
-			
-			
-					    <h:form>
-					        <ui:repeat value="#{RutaBean.paginator.model}" var="item">
-					            <div class="col-md-4">
-			                        <div class="thumbnail">
-			 	                            <img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{item.id}" style="width: 240px; height: 190px;" />
-			                           		<div class="caption">
-<!-- 				                            	<h:form> -->
-				                            		<h4>
-				                                	<h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{item.nombre}" />
-				                                	</h4>
-<!-- 				                            	</h:form> -->
-				                            	<p>Actividad: #{item.actividad.nombre}</p>
-				                                <p>Distancia: #{item.distancia} km</p>
-				                                <p>Dificultad: #{item.dificultad}</p>
-				                                <p>Pje promedio:#{item.promedio} - #{item.cantRealizadas} veces</p>
-				                           </div>
-		
-			                        </div>
-			                    </div>
-					        </ui:repeat>
-					        <h:commandButton value="&lt; prev" action="#{RutaBean.paginator.prev}"/>
-					        <h:outputText value="#{RutaBean.paginator.pageIndex} / #{RutaBean.paginator.pages}"/>
-					        <h:commandButton value="next &gt;" action="#{RutaBean.paginator.next}"/>
-					        <h:inputHidden value="#{RutaBean.paginator.pageIndex}"/>
-					    </h:form>
-					
-				
-
-			
-                    
-                    	
-    
+       		<h:form id="form">
+			    <p:dataGrid var="ruta" value="#{RutaBean.allRutas}" columns="3" layout="grid"
+			        rows="6" paginator="true" id="ruta"
+			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			        rowsPerPageTemplate="6,9,12,15">
+			 
+			        <f:facet name="header">
+			            Rutas en el sistema
+			        </f:facet>
+			 
+			        <p:panel header="#{ruta.nombre}" style="text-align:center" styleClass="customTitleBar" >
+			            <h:panelGrid columns="1" style="width:100%">
+			                <h4>
+                               	<h:commandLink action="#{RutaBean.selecMostrar(item)}" value="#{ruta.nombre}" />
+				            </h4>
+			 				<img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{ruta.id}" style="width: 240px; height: 190px;" />
+			                <p>Actividad: #{ruta.actividad.nombre}</p>
+                            <p>Distancia: #{ruta.distancia} km</p>
+                            <p>Dificultad: #{ruta.dificultad}</p>
+                            <p>Pje promedio:#{ruta.promedio} - #{ruta.cantRealizadas} veces</p>
+			 
+			            </h:panelGrid>
+			        </p:panel>
+			 
+			    </p:dataGrid>
+		    </h:form>
+	
                 </div>
 		
 		

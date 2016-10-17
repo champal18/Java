@@ -38,7 +38,15 @@ public class RepeatPaginator {
         updateModel();
     }
 
-    public void updateModel() {
+    public List<?> getOrigModel() {
+		return origModel;
+	}
+
+	public void setOrigModel(List<?> origModel) {
+		this.origModel = origModel;
+	}
+
+	public void updateModel() {
         int fromIndex = getFirst();
         int toIndex = getFirst() + records;
 

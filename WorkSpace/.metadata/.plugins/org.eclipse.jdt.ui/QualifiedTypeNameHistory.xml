@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="modelo.Emailer"/>
 <fullyQualifiedTypeName name="javax.mail.AuthenticationFailedException"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="java.io.File"/>
@@ -24,7 +23,6 @@
 <fullyQualifiedTypeName name="controller.EstadisticaBean"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.PieChartModel"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
 <fullyQualifiedTypeName name="modelo.Privacidad"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.HorizontalBarChartModel"/>
@@ -40,7 +38,6 @@
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="org.primefaces.model.chart.LineChartModel"/>
 <fullyQualifiedTypeName name="restBusquedaPorPunto.puntoBuscado"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="rest.puntoBuscado"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="modelo.RepeatPaginator"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

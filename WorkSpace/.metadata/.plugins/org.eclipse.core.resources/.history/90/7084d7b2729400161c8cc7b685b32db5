@@ -1,0 +1,27 @@
+package modelo;
+
+import java.io.Serializable;
+import java.util.List;
+
+public class DataGridView implements Serializable {
+    
+    private List<Ruta> cars;
+     
+    private Ruta selectedRuta;
+   
+    public List<Car> getCars() {
+        return cars;
+    }
+ 
+    public void setService(CarService service) {
+        this.service = service;
+    }
+ 
+    public Car getSelectedCar() {
+        return selectedCar;
+    }
+ 
+    public void setSelectedCar(Car selectedCar) {
+        this.selectedCar = selectedCar;
+    }
+}

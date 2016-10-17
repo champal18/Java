@@ -47,6 +47,9 @@ function obtenerMarkers(dibujar) {
 
 function dibujarMarker(dato)
 {	
+	if(dato != null)
+	{
+	
 	var position = new google.maps.LatLng(dato.lat, dato.lon);
 
 	var marker = new google.maps.Marker({
@@ -60,16 +63,17 @@ function dibujarMarker(dato)
 
 	puntos[0] = position;
 
-	mapProp = {
-			center : new google.maps.LatLng(dato.lat, dato.lon),
-			zoom : 5,
-			mapTypeId : google.maps.MapTypeId.ROADMAP
-		};
 	
-	map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+		mapProp = {
+				center : new google.maps.LatLng(dato.lat, dato.lon),
+				zoom : 5,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			};
+		
+		map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 	
 	marker.setMap(map);
-	
+	}
 }
 
 function agregarMarker(latLng)
