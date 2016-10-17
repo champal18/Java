@@ -103,5 +103,27 @@ public class FotoDAO implements IFotoDAO
 		
 		return f;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Foto> recuperarAllFotos()
+	{
+		// TODO Auto-generated method stub
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		
+		List<Foto> fotos = null;
+		
+		try {
+			Query q = em.createQuery("FROM Foto");
+			fotos = Collections.checkedList(q.getResultList(), Foto.class);	
+		} catch (Exception e) {
+			fotos = null;
+			System.out.println("Excepcion!");
+		}
+		
+		em.close();
+		return fotos;
+	}
 
 }

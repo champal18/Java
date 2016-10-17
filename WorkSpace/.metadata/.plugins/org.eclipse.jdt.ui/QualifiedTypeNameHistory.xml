@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.mail.AuthenticationFailedException"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
@@ -41,8 +40,6 @@
 <fullyQualifiedTypeName name="rest.puntoBuscado"/>
 <fullyQualifiedTypeName name="rest.Punto"/>
 <fullyQualifiedTypeName name="modeloDAO.PuntoDao"/>
-<fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
-<fullyQualifiedTypeName name="modelo.Foto"/>
 <fullyQualifiedTypeName name="controller.AdminBean.criterio"/>
 <fullyQualifiedTypeName name="modelo.Ruta"/>
 <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="modelo.RepeatPaginator"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="modelo.Foto"/>
+<fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

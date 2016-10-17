@@ -1,14 +1,17 @@
 package controller;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
+import modelo.Foto;
 import modelo.Persona;
 import modelo.Ruta;
 import modelo.Sexo;
+import modeloDAO.FotoDAO;
 import modeloDAO.PersonaDAO;
 import modeloDAO.RutaDAO;
 
@@ -73,6 +76,43 @@ public class UsrBean
 
 	public void setpDao(PersonaDAO pDao) {
 		this.pDao = pDao;
+	}
+	
+	// Fotos RANDOM para la pagina de inicio
+	long[] ids = {0,0,0,0,0};
+	
+	public long getId(int indice)
+	{
+		FotoDAO fDao = new FotoDAO();
+		List<Foto> listFotos = fDao.recuperarAllFotos();
+		if(listFotos == null)
+			return (long)0;
+		else
+		{
+			int cant = listFotos.size();
+			Random rnd = new Random();
+			boolean control = true;
+			while(control)
+			{
+				int valor = (int)(rnd.nextDouble() * cant + 1);
+				boolean repetido = false;
+				for(int i=0;i<5;i++)
+				{
+					if(ids[i]==valor)
+					{
+						repetido = true;
+						break;
+					}
+				}
+				if(!repetido)
+				{
+					ids[indice] = valor;
+					control = false;
+				}
+			}
+		}
+		Foto f = listFotos.get((int)ids[indice]);
+		return f.getId();
 	}
 
 }
