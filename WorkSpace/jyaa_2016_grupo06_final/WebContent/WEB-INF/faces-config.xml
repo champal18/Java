@@ -64,7 +64,7 @@
 </navigation-rule>
 
 <navigation-rule> 
-  <from-view-id>/LoginUsr/admin_editarPerfil.xhtml</from-view-id> 
+  <from-view-id>/LoginAdmin/admin_editarPerfil.xhtml</from-view-id> 
   <navigation-case>
     <from-outcome>editarAdmin</from-outcome>
       <to-view-id>/LoginAdmin/admin_perfil.xhtml</to-view-id> 

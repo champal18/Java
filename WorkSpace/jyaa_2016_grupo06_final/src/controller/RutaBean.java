@@ -83,51 +83,6 @@ public class RutaBean
 	private String cadenaBuscada = new String();
 	
 	
-	
-	
-	
-	//Paginator
-	private RepeatPaginator paginator; //=new RepeatPaginator(allRutas);
-	
-	public RepeatPaginator getPaginator()
-    {
-        PuntoDao.instance.limpiarMapa();
-		if((!buscar))
-		{
-			this.backUpRutas = rDao.recuperarAllRutasPublicas();	// Obtengo las rutas publicas de la BD
-			if(backUpRutas != null)
-			{
-				this.allRutas.clear();
-				this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
-				if(filtroRadio)
-				{
-					busquedaRadial();
-					filtroRadio = false;
-					this.paginator = new RepeatPaginator(allRutas);
-				}
-				if(cambio)
-				{
-					// Primero filtro
-					filtrar();
-					// Segundo ordeno
-					ordenar();
-					cambio = false;
-					this.paginator = new RepeatPaginator(allRutas);
-//					this.paginator.setOrigModel(allRutas);
-				}
-			}
-		}
-		buscar = false;
-		this.cadenaBuscada = new String();
-        return this.paginator;
-    }
-	
-	
-	
-	
-	
-	
-	
 	public RutaBean()
 	{
 		marcadorDistancia[0] = "font-weight:bold; color:black";
