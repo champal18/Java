@@ -1,0 +1,139 @@
+package controller;
+
+import java.util.List;
+import java.util.Random;
+
+import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
+
+import modelo.Foto;
+import modelo.Persona;
+import modelo.Ruta;
+import modelo.Sexo;
+import modeloDAO.FotoDAO;
+import modeloDAO.PersonaDAO;
+import modeloDAO.RutaDAO;
+
+public class UsrBean 
+{
+	private Persona usrLogin;
+	private PersonaDAO pDao = new PersonaDAO();
+	private RutaDAO rDao=new RutaDAO();
+	private List<Ruta> listaRutas; 
+	
+	public List<Ruta> getListaRutas()
+	{
+		this.listaRutas =  rDao.recuperarRutasUsuario(this.getUsrLogin().getId());
+		return listaRutas;
+	}
+
+	public void setListaRutas(List<Ruta> listaRutas) {
+		this.listaRutas = listaRutas;
+	}
+	
+	public String editarPersona()
+	{
+		pDao.modificarPersona(usrLogin);
+		return "editarUsr";
+	}
+	
+	public SelectItem[] getGenderValues()
+	{
+		SelectItem[] items = new SelectItem[Sexo.values().length];
+	    int i = 0;
+	    for(Sexo g: Sexo.values())
+	    {
+	      items[i++] = new SelectItem(g, g.name());
+	    }
+	    return items;
+	}
+	
+	public Persona getUsrLogin()
+	{
+		if(this.usrLogin == null)
+		{	
+			HttpSession session;
+			FacesContext context = FacesContext.getCurrentInstance();
+		    session = (HttpSession) context.getExternalContext().getSession(true);
+		       
+			Long id = (Long) session.getAttribute("usrId");
+			if(id != null)
+			{
+				this.usrLogin = pDao.recuperarPersona(id);
+			}
+		}
+		return usrLogin;
+	}
+
+	public void setUsrLogin(Persona usrLogin) {
+		this.usrLogin = usrLogin;
+	}
+
+	public PersonaDAO getpDao() {
+		return pDao;
+	}
+
+	public void setpDao(PersonaDAO pDao) {
+		this.pDao = pDao;
+	}
+	
+	// Fotos RANDOM para la pagina de inicio
+	long[] ids = {0,0,0,0,0};
+	
+	public long getId(int indice)
+	{
+		FotoDAO fDao = new FotoDAO();
+		List<Foto> listFotos = fDao.recuperarAllFotos();
+		if(listFotos == null)
+			return (long)0;
+		else
+		{
+			Random rnd = new Random();
+			int cant = listFotos.size();
+			System.out.println("cantidad="+cant);
+			if(((cant%2)==0) || (indice<4))
+			{
+				int inicio = indice*(cant/5);
+				int fin = inicio + (cant/5) - 1;
+				int valor = (int)(rnd.nextDouble() * fin + inicio);
+				ids[indice] = valor;
+				System.out.println(valor);
+				System.out.println(inicio + " y " + fin);
+			}
+			else
+			{
+				int inicio = indice*(cant/5);
+				int fin = cant-1;
+				int valor = (int)(rnd.nextDouble() * fin + inicio);
+				ids[indice] = valor;
+				System.out.println(valor);
+				System.out.println("Caso impar final: " + inicio + " y " + fin);
+			}
+			
+			
+//			boolean control = true;
+//			while(control)
+//			{
+//				int valor = (int)(rnd.nextDouble() * cant + 1);
+//				boolean repetido = false;
+//				for(int i=0;i<5;i++)
+//				{
+//					if(ids[i]==valor)
+//					{
+//						repetido = true;
+//						break;
+//					}
+//				}
+//				if(!repetido)
+//				{
+//					ids[indice] = valor;
+//					control = false;
+//				}
+//			}
+		}
+		Foto f = listFotos.get((int)ids[indice]);
+		return f.getId();
+	}
+
+}

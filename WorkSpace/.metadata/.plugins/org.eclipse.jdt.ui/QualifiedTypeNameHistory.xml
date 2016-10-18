@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="java.nio.file.Paths"/>
@@ -48,9 +46,7 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="org.apache.myfaces.shared_tomahawk.util.Assert"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="modeloDAO.ActividadDAO"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="modelo.Persona"/>
 <fullyQualifiedTypeName name="modelo.Actividad"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="modelo.Foto"/>
 <fullyQualifiedTypeName name="modeloDAO.FotoDAO"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ThreadLocalRandom"/>
+<fullyQualifiedTypeName name="modelo.Dificultad"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

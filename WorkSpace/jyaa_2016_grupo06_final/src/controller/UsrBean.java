@@ -1,7 +1,7 @@
 package controller;
 
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
@@ -90,25 +90,19 @@ public class UsrBean
 		else
 		{
 			int cant = listFotos.size();
-			Random rnd = new Random();
-			boolean control = true;
-			while(control)
+			if(((cant%2)==0) || (indice<4))
 			{
-				int valor = (int)(rnd.nextDouble() * cant + 1);
-				boolean repetido = false;
-				for(int i=0;i<5;i++)
-				{
-					if(ids[i]==valor)
-					{
-						repetido = true;
-						break;
-					}
-				}
-				if(!repetido)
-				{
-					ids[indice] = valor;
-					control = false;
-				}
+				int inicio = indice*(cant/5);
+				int fin = inicio + (cant/5) - 1;
+				int valor = ThreadLocalRandom.current().nextInt(inicio, fin + 1);
+				ids[indice] = valor;
+			}
+			else
+			{
+				int inicio = indice*(cant/5);
+				int fin = cant-1;
+				int valor = ThreadLocalRandom.current().nextInt(inicio, fin + 1);
+				ids[indice] = valor;
 			}
 		}
 		Foto f = listFotos.get((int)ids[indice]);

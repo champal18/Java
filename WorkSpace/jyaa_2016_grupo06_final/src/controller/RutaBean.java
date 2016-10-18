@@ -26,7 +26,6 @@ import modelo.Formato;
 import modelo.Foto;
 import modelo.Persona;
 import modelo.Privacidad;
-import modelo.RepeatPaginator;
 import modeloDAO.ActividadDAO;
 import modeloDAO.FotoDAO;
 import modeloDAO.PersonaDAO;
@@ -74,10 +73,7 @@ public class RutaBean
 	private long filtroFormato;
 	private boolean filtroRadio;
 	
-	// Marcadores para marcar modo de filtrado
-	private String[] marcadorDificultad = new String[6];
-	private String[] marcadorFormato = new String[3];
-	private String[] marcadorDistancia = new String[6];
+	private int distancia = 25000;		// Distancia MAXIMA para el filtrado de rutas en un determinado radio
 	
 	// Cadena para la busqueda por texto
 	private String cadenaBuscada = new String();
@@ -85,9 +81,7 @@ public class RutaBean
 	
 	public RutaBean()
 	{
-		marcadorDistancia[0] = "font-weight:bold; color:black";
-		marcadorDificultad[0] = "font-weight:bold; color:black";
-		marcadorFormato[0] = "font-weight:bold; color:black";
+		
 	}
 	
 	public Ruta getRuta()
@@ -566,7 +560,7 @@ public class RutaBean
 			compararDistancias(50, 100);
 			break;
 		case 5:
-			compararDistancias(100, 100);
+			compararDistancias(100, 10000);
 			break;
 		}
 	}
@@ -579,8 +573,6 @@ public class RutaBean
 	{
 		cambio = true;
 		this.filtroDistancia = filtroDistancia;
-		cleanMarcadorDistancia();
-		marcadorDistancia[(int) filtroDistancia] = "font-weight:bold; color:black";
 	}
 	
 	private void compararDistancias(int d1, int d2)
@@ -607,20 +599,14 @@ public class RutaBean
 	 	}
 	}
 	
-	public String[] getMarcadorDistancia() {
-		return marcadorDistancia;
-	}
-
-	public void setMarcadorDistancia(String[] marcadorDistancia) {
-		this.marcadorDistancia = marcadorDistancia;
-	}
-	
-	private void cleanMarcadorDistancia()
+	public String getStyleDistancia(long num)
 	{
-		for(int i=0;i<6;i++)
+		if(this.filtroDistancia == num)
 		{
-			marcadorDistancia[i] = new String();
+			return "font-weight:bold; color:black";
 		}
+		else
+			return "";
 	}
 	
 	// FILTRO DIFICULTAD
@@ -657,8 +643,6 @@ public class RutaBean
 	public void setFiltroDificultad(int filtroDificultad)
 	{
 		cambio = true;
-		cleanMarcadorDificultad();
-		marcadorDificultad[filtroDificultad] = "font-weight:bold; color:black";
 		switch((int)filtroDificultad)
 		{
 		case 0:
@@ -694,21 +678,37 @@ public class RutaBean
 		    }
     	}
 	}
-		
-	public String[] getMarcadorDificultad() {
-		return marcadorDificultad;
-	}
-
-	public void setMarcadorDificultad(String[] marcadorDificultad) {
-		this.marcadorDificultad = marcadorDificultad;
-	}
-
-	private void cleanMarcadorDificultad()
+	
+	public String getStyleDificultad(int filtroD)
 	{
-		for(int i=0;i<6;i++)
+		switch((int)filtroD)
 		{
-			marcadorDificultad[i] = new String();
+		case 0:
+			if(this.filtroDificultad == null)
+			return "font-weight:bold; color:black";
+			break;
+		case 1:
+			if(this.filtroDificultad == Dificultad.Facil)
+				return "font-weight:bold; color:black";
+			break;
+		case 2:
+			if(this.filtroDificultad == Dificultad.Moderado)
+				return "font-weight:bold; color:black";
+			break;
+		case 3:
+			if(this.filtroDificultad == Dificultad.Dificil)
+				return "font-weight:bold; color:black";
+			break;
+		case 4:
+			if(this.filtroDificultad == Dificultad.MuyDificil)
+				return "font-weight:bold; color:black";
+			break;
+		case 5:
+			if(this.filtroDificultad == Dificultad.SoloExpertos)
+				return "font-weight:bold; color:black";
+			break;
 		}
+		return "";
 	}
 
 	// FILTRO FORMATO
@@ -751,27 +751,19 @@ public class RutaBean
 	public void setFiltroFormato(long filtroFormato)
 	{
 		cambio = true;
-		cleanMarcadorFormato();
-		marcadorFormato[(int) filtroFormato] = "font-weight:bold; color:black";
 		this.filtroFormato = filtroFormato;
 	}
-    
-	public String[] getMarcadorFormato() {
-		return marcadorFormato;
-	}
 	
-	public void setMarcadorFormato(String[] marcadorFormato) {
-		this.marcadorFormato = marcadorFormato;
-	}
-
-	private void cleanMarcadorFormato()
+	public String getStyleFormato(long filtroF)
 	{
-		for(int i=0;i<3;i++)
+		if(filtroF == this.filtroFormato)
 		{
-			marcadorFormato[i] = new String();
+			return "font-weight:bold; color:black";
 		}
+		else
+			return "";
 	}
-	
+    
 	// Busqueda por texto
 	
 	public void buscarRuta()
@@ -799,10 +791,16 @@ public class RutaBean
 	
 	// Busqueda radial a un punto seleccionado
 	
+	public int getDistancia() {
+		return distancia;
+	}
+
+	public void setDistancia(int distancia) {
+		this.distancia = distancia*1000;
+	}
+	
 	public void busquedaRadial()
-	{
-		int distanciaMax = 100000;	// 100 KM
-		
+	{	
 		puntoBuscado pBuscado = puntoBuscado.instance;
 		Punto p1 = pBuscado.getPuntoBuscado();
 		
@@ -824,7 +822,7 @@ public class RutaBean
 		    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		    double d = R * c; // the distance in meter
 		    
-		    if (d < distanciaMax)	// Si la distancia entre puntos es menor a la buscada
+		    if (d < distancia)	// Si la distancia entre puntos es menor a la buscada
 		    {
 		    	if(!rutasDentroDelRadio.contains(p2.getRuta()))
 		    		{
@@ -907,6 +905,23 @@ public class RutaBean
 	        Punto p = new Punto(coordinate.getLatitude(), coordinate.getLongitude());
 	        puntoDao.getPuntos().put(p.getIndice(), p);
 	    }
+	}
+	
+	public String getTitulo(String nombreRuta)
+	{
+		int tamMaximo = 60;
+		if(nombreRuta.length()<tamMaximo)
+		{
+			int iterar = tamMaximo - nombreRuta.length();
+			String subString = new String();
+			for(int i=0;i<iterar;i++)
+				subString=subString+" ";
+			return nombreRuta+subString;
+		}
+		else
+		{
+			return nombreRuta.substring(0, tamMaximo);
+		}
 	}
 
 }
