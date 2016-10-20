@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import interfazDAO.IActividadDAO;
 import modelo.Actividad;
+import modelo.Ruta;
 
 public class ActividadDAO implements IActividadDAO
 {
@@ -109,7 +110,9 @@ public class ActividadDAO implements IActividadDAO
 		
 		try {
 			Query q = em.createQuery("FROM Actividad");
-			acts = Collections.checkedList(q.getResultList(), Actividad.class);	
+//			acts = Collections.checkedList(q.getResultList(), Actividad.class);	
+			if(!q.getResultList().isEmpty())
+				acts = Collections.checkedList(q.getResultList(), Actividad.class);	
 		} catch (Exception e) {
 			acts = null;
 			System.out.println("Excepcion!");

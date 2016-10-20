@@ -10,6 +10,8 @@ import javax.persistence.Query;
 
 import interfazDAO.IFotoDAO;
 import modelo.Foto;
+import modelo.Ruta;
+import rest.Punto;
 
 public class FotoDAO implements IFotoDAO
 {
@@ -57,10 +59,26 @@ public class FotoDAO implements IFotoDAO
 	}
 
 	@Override
-	public void eliminarFoto(Foto f) {
+	public void eliminarFoto(Foto f) 
+	{
 		// TODO Auto-generated method stub
-		
+		SingletonEMF single = SingletonEMF.getIns();
+		EntityManagerFactory emf = single.getEMF();
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();
+		try
+		{
+			em.remove(em.find(Foto.class, f.getId()));
+			etx.commit();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		em.close();
 	}
+		
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -116,7 +134,8 @@ public class FotoDAO implements IFotoDAO
 		
 		try {
 			Query q = em.createQuery("FROM Foto");
-			fotos = Collections.checkedList(q.getResultList(), Foto.class);	
+			if(!q.getResultList().isEmpty())
+				fotos = Collections.checkedList(q.getResultList(), Ruta.class);	
 		} catch (Exception e) {
 			fotos = null;
 			System.out.println("Excepcion!");

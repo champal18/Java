@@ -30,16 +30,45 @@
 		<script src="funcionesBusquedaPorPunto.js"> </script>
 		<style>
 		
-		img.resize
-		{
-		  max-width:100%;
-		  max-height:100%;
-		}
+			img.resize
+			{
+			  max-width:100%;
+			  max-height:100%;
+			}
+			
+			.customTitleBar > .ui-panel-titlebar {
+		    background: #337ab7;
+		    }
+		    
+		    .ui-button.regCommandButton { 
+		    color: #9d9d9d;
+		    background: #222;
+		  	background-color: transparent;
+		  	cursor: auto;
+		  	
+		  	box-sizing: border-box;
+		  
+			height: 50px;
+		    width: 225px; 
 		
-		.customTitleBar > .ui-panel-titlebar {
-	    background: #337ab7;
-	    }
-	   </style>
+		    font-family: Helvetica Neue",Helvetica,Arial,sans-serif;
+		    font-size:14px;
+		    font-style:normal;
+		    
+		    line-height: 20px;
+		    padding-bottom: 15px;
+		    padding-left: 15px;
+		    padding-right: 15px;
+		    padding-top: 15px;
+		    position: relative;
+		    
+		    text-align: left;
+		    text-decoration: none;
+		    display: block;
+    
+    
+		}
+		</style>
 	</h:head>
 
 	<body>
@@ -82,6 +111,7 @@
 		                </li>
 		                <li>
 		                	<a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+		                	<h:form><p:commandButton value="Buscar" action="#{RutaBean.refreshBusqueda()}" styleClass="regCommandButton" ajax="false"></p:commandButton></h:form>
 		                </li>
 		           	</ul>
 		        </div>
@@ -108,7 +138,7 @@
 									<h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
 								</div>
 								<div class="col-md-2">
-									<h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.buscarRuta()}"></h:commandButton>
+									<h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.setBuscar(true)}"></h:commandButton>
 								</div>							    
 							</h:form>
 						</div>
@@ -123,22 +153,22 @@
 							   	<div class="form-group">
 			                    	<label>Cercania</label>
 			                        <div id="googleMap" style="width:170px;height:170px;" ></div>
-			                        <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" /></div>
+			                        <div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa" styleClass="width=170px" /></div>
 			                        <br />   
 			                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 			       				<p:outputLabel for="console" value="Radio:" />
 			        				<h:selectOneMenu id="console" value="#{RutaBean.distancia}" style="width:125px">
-			            				<f:selectItem itemLabel="25" itemValue="25" />
-			            				<f:selectItem itemLabel="50" itemValue="50" />
-			            				<f:selectItem itemLabel="100" itemValue="100" />
-			           				<f:selectItem itemLabel="500" itemValue="500" />
+			            				<f:selectItem itemLabel="25 km" itemValue="25" />
+			            				<f:selectItem itemLabel="50 km " itemValue="50" />
+			            				<f:selectItem itemLabel="100 km" itemValue="100" />
+			           				<f:selectItem itemLabel="500 km" itemValue="500" />
 			        				</h:selectOneMenu>
 			                    </h:panelGrid>
-		<!-- 	                   	<h:commandButton class="btn btn-success" value="Buscar por radio" action="#{RutaBean.filtroRadio()}"></h:commandButton> -->
 			                        
 			                        <div class="btn-group">
-			                        	<p:commandButton value="Buscar por radio" action="#{RutaBean.filtroRadio()}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-			                       	</div>  
+			                        	<p:commandButton value="Filtrar por radio" action="#{RutaBean.filtroRadio(true)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(0)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+			                        	<p:commandButton value="Desactivar filtro por radio" action="#{RutaBean.filtroRadio(false)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(1)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+			                       	</div> 
 			                    </div>
 			                    
 			                    <p:separator />
@@ -156,8 +186,8 @@
 			                    <div class="form-group">
 		                     		<label>Formato</label><br></br>
 		                          	<h:commandLink value="Cualquier formato" action="#{RutaBean.setFiltroFormato(0)}" style="#{RutaBean.getStyleFormato(0)}"></h:commandLink><br></br>
-		                           	<h:commandLink value="Solo ida" action="#{RutaBean.setFiltroFormato(1)}" style="#{RutaBean.getStyleFormato(2)}"></h:commandLink><br></br>
-		                           	<h:commandLink value="Circular" action="#{RutaBean.setFiltroFormato(2)}" style="#{RutaBean.getStyleFormato(1)}"></h:commandLink><br></br>
+		                           	<h:commandLink value="Solo ida" action="#{RutaBean.setFiltroFormato(1)}" style="#{RutaBean.getStyleFormato(1)}"></h:commandLink><br></br>
+		                           	<h:commandLink value="Circular" action="#{RutaBean.setFiltroFormato(2)}" style="#{RutaBean.getStyleFormato(2)}"></h:commandLink><br></br>
 			                    </div>
 			                    
 			                    <p:separator />
@@ -227,7 +257,7 @@
 					         		<p:panel>
 					            		<h:panelGrid columns="1" style="width:100%">
 					               			<h4>
-		                               			<h:commandLink action="#{RutaBean.selecMostrar(ruta)}" value="#{RutaBean.getTitulo(ruta.nombre)}" style="font-weight:bold; color:blue" />
+		                               			<h:commandLink action="#{RutaBean.selecMostrar(ruta)}" value="#{ruta.nombre}" style="font-weight:bold; color:blue;"/>
 						            		</h4>
 						 					<img src="/jyaa_2016_grupo06_final/DownloadSmallImage/#{ruta.id}" style="width: 240px; height: 190px;" />
 						                	<p>Actividad: #{ruta.actividad.nombre}</p>

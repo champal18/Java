@@ -40,6 +40,16 @@ body {
     line-height: normal;
 }
 
+.stroke {
+text-align: center;
+color: white;
+background: white;
+font-family: Georgia, serif;
+font-size: 40px;
+letter-spacing: 0;
+text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;

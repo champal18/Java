@@ -57,7 +57,7 @@ public class ActividadBean
 	public List<Actividad> getListaActividades() 
 	{
 		this.listaActividades = actDao.recuperarActividades();
-		if(listaActividades.isEmpty())
+		if(listaActividades == null)
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No existe registro de actividades creadas!"));
 		return listaActividades;
 	}
@@ -127,37 +127,46 @@ public class ActividadBean
 	
 	public SelectItem[] getActividadValues()
 	{
-		SelectItem[] items = new SelectItem[listaActividades.size()];
-	    int i = 0;
-	    for(i=0;i<listaActividades.size();i++)
-	    {
-	      items[i] = new SelectItem(listaActividades.get(i).getId(), listaActividades.get(i).getNombre());
-	    }
-	    return items;
+		if(listaActividades != null)
+		{
+			SelectItem[] items = new SelectItem[listaActividades.size()];
+		    int i = 0;
+		    for(i=0;i<listaActividades.size();i++)
+		    {
+		      items[i] = new SelectItem(listaActividades.get(i).getId(), listaActividades.get(i).getNombre());
+		    }
+		    return items;
+		}
+		else 
+			return new SelectItem[0];
 	}
 	
 	public SelectItem[] getActividadHabilitadasValues()
 	{
-		List<Actividad> actDisponibles = new ArrayList<>();
-		actDisponibles.addAll(actDao.recuperarActividades());
+		List<Actividad> actDisponibles = actDao.recuperarActividades();
 		
-		for (Iterator<Actividad> iterator = actDisponibles.iterator(); iterator.hasNext();) 
-    	{
-		    Actividad a = iterator.next();
-		    if (!a.getHabilitada()) 
+		if(actDisponibles != null)
+		{
+			for (Iterator<Actividad> iterator = actDisponibles.iterator(); iterator.hasNext();) 
+	    	{
+			    Actividad a = iterator.next();
+			    if (!a.getHabilitada()) 
+			    {
+			        // Remove the current element from the iterator and the list.
+			        iterator.remove();
+			    }
+	    	}
+	
+			SelectItem[] items = new SelectItem[actDisponibles.size()];
+		    int i = 0;
+		    for(i=0;i<actDisponibles.size();i++)
 		    {
-		        // Remove the current element from the iterator and the list.
-		        iterator.remove();
+		      items[i] = new SelectItem(actDisponibles.get(i).getId(), actDisponibles.get(i).getNombre());
 		    }
-    	}
-
-		SelectItem[] items = new SelectItem[actDisponibles.size()];
-	    int i = 0;
-	    for(i=0;i<actDisponibles.size();i++)
-	    {
-	      items[i] = new SelectItem(actDisponibles.get(i).getId(), actDisponibles.get(i).getNombre());
-	    }
-	    return items;
+		    return items;
+		}
+		else
+			return new SelectItem[0];
 	}
 	
 }

@@ -85,9 +85,6 @@ public class EstadisticaBean implements Serializable
 	        	}
 	        }
 		}
-        else
-        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No existe registro de usuarios creados!"));
-         
         pieModelUsrHabilitados.set("Habilitados", habilitado);
         pieModelUsrHabilitados.set("Deshabilitado", deshabilitado);
         
@@ -126,8 +123,6 @@ public class EstadisticaBean implements Serializable
 	        		privadas++;
 	        }
         }
-        else
-        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No existe registro de rutas publicas creadas!"));
         pieModelRutasPublicas.set("Publicas", publicas);
         pieModelRutasPublicas.set("Privadas", privadas);
         
@@ -146,7 +141,8 @@ public class EstadisticaBean implements Serializable
 		this.barModelRutasPorActividad = pieModelRutasPorActividad;
 	}
 	
-	private void createbarModelRutasPorActividad() {
+	private void createbarModelRutasPorActividad()
+	{
 		barModelRutasPorActividad = new HorizontalBarChartModel();
  
 		ActividadDAO aDao = new ActividadDAO();
@@ -156,51 +152,70 @@ public class EstadisticaBean implements Serializable
 		
 		ChartSeries actividades = new ChartSeries();
 		actividades.setLabel("Rutas");
-		int[] cantidadPorActividad = null;
 		
-		if((allActividades != null) && (allRutas != null))
+		if(allActividades != null)
 		{
+			int[] cantidadPorActividad = null;
 			cantidadPorActividad = new int[allActividades.size()];
 			for(int i=0;i<cantidadPorActividad.length;i++)
 			{
 				cantidadPorActividad[i] = 0;
 			}
 			int pos = 0;
-			
-			for(Actividad act : allActividades)
+			if(allRutas != null)
 			{
-				for(Ruta ruta : allRutas)
+				for(Actividad act : allActividades)
 				{
-					if(ruta.getActividad().getId() == act.getId())
-						cantidadPorActividad[pos]++;
+					for(Ruta ruta : allRutas)
+					{
+						if(ruta.getActividad().getId() == act.getId())
+							cantidadPorActividad[pos]++;
+					}
+					actividades.set(act.getNombre(), cantidadPorActividad[pos]);
+					pos++;
 				}
-				actividades.set(act.getNombre(), cantidadPorActividad[pos]);
-				pos++;
 			}
+			else
+			{
+				for(Actividad act : allActividades)
+				{
+					actividades.set(act.getNombre(), cantidadPorActividad[pos]);
+					pos++;
+				}
+			}
+			Axis xAxis = barModelRutasPorActividad.getAxis(AxisType.X);
+	        xAxis.setLabel("Rutas");
+	        xAxis.setMin(0);
+	        xAxis.setTickFormat("%d");
+	        xAxis.setTickInterval("1");
+	         
+	        Axis yAxis = barModelRutasPorActividad.getAxis(AxisType.Y);
+	        yAxis.setLabel("Actividades");
+	        barModelRutasPorActividad.addSeries(actividades);
+	         
+	        barModelRutasPorActividad.setTitle("Cantidad de Rutas por Actividad");
+	        barModelRutasPorActividad.setLegendPosition("e");
+	        barModelRutasPorActividad.setStacked(true);
 		}
 		else
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No existe registro de actividades creadas!"));
-        barModelRutasPorActividad.addSeries(actividades);
-         
-        barModelRutasPorActividad.setTitle("Cantidad de Rutas por Actividad");
-        barModelRutasPorActividad.setLegendPosition("e");
-        barModelRutasPorActividad.setStacked(true);
-        
-        Axis xAxis = barModelRutasPorActividad.getAxis(AxisType.X);
-        xAxis.setLabel("Rutas");
-        xAxis.setMin(0);
-        
-        if(cantidadPorActividad != null)
-        {
-        	Arrays.sort(cantidadPorActividad);
-        	xAxis.setMax((cantidadPorActividad[cantidadPorActividad.length-1])*2);
+		{
+			actividades.set("Vacio", 0);
+			Axis xAxis = barModelRutasPorActividad.getAxis(AxisType.X);
+	        xAxis.setLabel("Rutas");
+	        xAxis.setMin(0);
+	        xAxis.setTickFormat("%d");
+	        xAxis.setTickInterval("1");
+	         
+	        Axis yAxis = barModelRutasPorActividad.getAxis(AxisType.Y);
+	        yAxis.setLabel("Actividades");
+	        barModelRutasPorActividad.addSeries(actividades);
+	         
+	        barModelRutasPorActividad.setTitle("Cantidad de Rutas por Actividad");
+	        barModelRutasPorActividad.setLegendPosition("e");
+	        barModelRutasPorActividad.setStacked(true);
 		}
-        xAxis.setTickFormat("%d");
-        xAxis.setTickInterval("1");
-         
-        Axis yAxis = barModelRutasPorActividad.getAxis(AxisType.Y);
-        yAxis.setLabel("Actividades"); 
-       
+		
+		
     }
 	
 	//GRAFICO LINEAL DE USUARIOS REGISTRADOS POR MES
@@ -269,7 +284,10 @@ public class EstadisticaBean implements Serializable
         yAxis.setMin(0);
         
         Arrays.sort(cantPorMes);
-        yAxis.setMax(cantPorMes[cantPorMes.length-1]*2);
+        if(cantPorMes[cantPorMes.length-1]!=0)
+        	yAxis.setMax(cantPorMes[cantPorMes.length-1]*2);
+        else
+        	yAxis.setMax(1);
         yAxis.setTickFormat("%d");	// Configuro el formato entero para el eje
         yAxis.setTickInterval("1");
     }
@@ -339,7 +357,10 @@ public class EstadisticaBean implements Serializable
 	        yAxis.setMin(0);
 	        
 	        Arrays.sort(cantPorMes);
-	        yAxis.setMax(cantPorMes[cantPorMes.length-1]*2);
+	        if(cantPorMes[cantPorMes.length-1] != 0)
+	        	yAxis.setMax(cantPorMes[cantPorMes.length-1]*2);
+	        else
+	        	yAxis.setMax(1);
 	        yAxis.setTickFormat("%d");	// Configuro el formato entero para el eje
 	        yAxis.setTickInterval("1");
 	    }

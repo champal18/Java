@@ -43,8 +43,7 @@ public class RutaBean
 	// Flags
 	private boolean control = false;	// Una vez creada una ruta nueva, se vuelve a llamar al constructor
 	private boolean buscar = false; // Flag que indica que se inicio una busqueda para no renovar la lista de rutas
-	private boolean cambio = true;
-	
+
 	private Ruta rutaSeleccionada = new Ruta();
 	private long idActividad;
 	
@@ -73,7 +72,7 @@ public class RutaBean
 	private long filtroFormato;
 	private boolean filtroRadio;
 	
-	private int distancia = 25000;		// Distancia MAXIMA para el filtrado de rutas en un determinado radio
+	private int distancia = 25;		// Distancia MAXIMA para el filtrado de rutas en un determinado radio
 	
 	// Cadena para la busqueda por texto
 	private String cadenaBuscada = new String();
@@ -338,13 +337,16 @@ public class RutaBean
     
     public void setFile(UploadedFile file)
     {
-    	if(file != null)
+    	if(pos<5)
     	{
-    		this.files[pos] = file;
-    	}
-    	else
-    	{
-    		this.files[pos] = null;
+    		if(file != null)
+	    	{
+	    		this.files[pos] = file;
+	    	}
+	    	else
+	    	{
+	    		this.files[pos] = null;
+	    	}
     	}
     	pos++;
     }
@@ -352,33 +354,16 @@ public class RutaBean
 	// Lista de todas las rutas
 	public List<Ruta> getAllRutas()
 	{
-		PuntoDao.instance.limpiarMapa();
-		if((!buscar))
+		this.backUpRutas = rDao.recuperarAllRutasPublicas();	// Obtengo las rutas publicas de la BD
+		if(backUpRutas != null)
 		{
-			this.backUpRutas = rDao.recuperarAllRutasPublicas();	// Obtengo las rutas publicas de la BD
-			if(backUpRutas != null)
-			{
-				this.allRutas.clear();
-				this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
-				if(filtroRadio)
-				{
-					busquedaRadial();
-					filtroRadio = false;
-				}
-				if(cambio)
-				{
-					// Primero filtro
-					filtrar();
-					// Segundo ordeno
-					ordenar();
-					cambio = false;
-				}
-				
-			}
+			this.allRutas.clear();
+			this.allRutas.addAll(backUpRutas);				// Comienzo con la lista sin ordenar ni filtrar
+			// Primero filtro
+			filtrar();
+			// Segundo ordeno
+			ordenar();
 		}
-		buscar = false;
-		this.cadenaBuscada = new String();
-		
 		return allRutas;
 	}
 
@@ -390,7 +375,6 @@ public class RutaBean
 	
 	public String orden(int opcion)
 	{
-		cambio = true;
 		switch(opcion)
 		{
 		case 1:
@@ -435,7 +419,6 @@ public class RutaBean
 	
 	public void setCriterio(int id)
 	{
-		cambio = true;
 		switch(id)
 		{
 		case 0: 
@@ -493,6 +476,9 @@ public class RutaBean
 	
 	public void filtrar()
 	{
+		buscarRuta();
+		if(filtroRadio)
+			busquedaRadial();
 		filtroActividad();
 		filtroDistancia();
 		filtroDificultad();
@@ -522,7 +508,6 @@ public class RutaBean
 	public void setFiltroActividad(Actividad filtro)
 	{
 		this.filtroActividad = filtro;
-		cambio = true;
 	}
 	
 	public String getMarcadorActividad(long id) 
@@ -571,7 +556,6 @@ public class RutaBean
 
 	public void setFiltroDistancia(long filtroDistancia)
 	{
-		cambio = true;
 		this.filtroDistancia = filtroDistancia;
 	}
 	
@@ -642,7 +626,6 @@ public class RutaBean
 	
 	public void setFiltroDificultad(int filtroDificultad)
 	{
-		cambio = true;
 		switch((int)filtroDificultad)
 		{
 		case 0:
@@ -750,7 +733,6 @@ public class RutaBean
 
 	public void setFiltroFormato(long filtroFormato)
 	{
-		cambio = true;
 		this.filtroFormato = filtroFormato;
 	}
 	
@@ -766,6 +748,14 @@ public class RutaBean
     
 	// Busqueda por texto
 	
+	public boolean isBuscar() {
+		return buscar;
+	}
+
+	public void setBuscar(boolean buscar) {
+		this.buscar = buscar;
+	}
+	
 	public void buscarRuta()
 	{
 		for (Iterator<Ruta> iterator = this.allRutas.iterator(); iterator.hasNext();) 
@@ -778,7 +768,6 @@ public class RutaBean
 		        iterator.remove();
 		    }
     	}
-		this.buscar = true;
 	}
 
 	public String getCadenaBuscada() {
@@ -796,7 +785,7 @@ public class RutaBean
 	}
 
 	public void setDistancia(int distancia) {
-		this.distancia = distancia*1000;
+		this.distancia = distancia;
 	}
 	
 	public void busquedaRadial()
@@ -822,9 +811,9 @@ public class RutaBean
 		    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		    double d = R * c; // the distance in meter
 		    
-		    if (d < distancia)	// Si la distancia entre puntos es menor a la buscada
+		    if (d < (distancia*1000))	// Si la distancia entre puntos es menor a la buscada
 		    {
-		    	if(!rutasDentroDelRadio.contains(p2.getRuta()))
+		    	if((!rutasDentroDelRadio.contains(p2.getRuta())) && (p2.getRuta().getPrivacidad() == Privacidad.Publico))
 		    		{
 		    			rutasDentroDelRadio.add(p2.getRuta());
 		    		}
@@ -834,11 +823,31 @@ public class RutaBean
 		this.allRutas.addAll(rutasDentroDelRadio);
     }
 	
-	public String filtroRadio()
+	public String filtroRadio(boolean bool)
 	{
-		if(puntoBuscado.instance.getPuntoBuscado() != null)
-			this.filtroRadio = true;
+		if(bool)
+		{
+			if(puntoBuscado.instance.getPuntoBuscado() != null)
+				this.filtroRadio = true;
+		}
+		else
+			this.filtroRadio = bool;
 		return null;
+	}
+	
+	public String filtroRadioStyle(int id)
+	{	
+		if(id==0)
+		{
+			if(filtroRadio)
+				return "btn btn-info";
+		}
+		else
+		{
+			if(!filtroRadio)
+				return "btn btn-info";
+		}
+		return "btn btn-primary";
 	}
 	
 	// CARGA DE ARCHIVO KML
@@ -907,21 +916,44 @@ public class RutaBean
 	    }
 	}
 	
-	public String getTitulo(String nombreRuta)
+	public String refreshBusqueda()
 	{
-		int tamMaximo = 60;
-		if(nombreRuta.length()<tamMaximo)
+		this.filtroActividad = null;
+		this.filtroDificultad = null;
+		this.filtroDistancia = 0;
+		this.filtroFormato = 0;
+		this.filtroRadio = false;
+		this.cadenaBuscada = new String();
+		PuntoDao.instance.limpiarMapa();
+		buscar = false;
+		
+		return "busquedaRutas";
+	}
+	
+	public String getTitulo(String cadena)
+	{
+		int tamanoMaximo = 40;
+		if(cadena.length()>tamanoMaximo)
 		{
-			int iterar = tamMaximo - nombreRuta.length();
-			String subString = new String();
-			for(int i=0;i<iterar;i++)
-				subString=subString+" ";
-			return nombreRuta+subString;
+			String result = cadena.substring(0,39);
+			result = result + "...";
+			return result;
 		}
-		else
+		return cadena;
+	}
+	
+	public void eliminarFoto(int id)
+	{
+		FotoDAO fDao = new FotoDAO();
+		List<Foto> lista = fDao.recuperarFotos(rutaSeleccionada.getId());
+		if(lista!=null)
 		{
-			return nombreRuta.substring(0, tamMaximo);
-		}
+			if(lista.size()>id)
+			{
+				Foto f = lista.get(id);
+				fDao.eliminarFoto(f);
+			}
+		}	
 	}
 
 }

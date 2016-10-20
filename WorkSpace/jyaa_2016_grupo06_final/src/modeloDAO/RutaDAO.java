@@ -60,8 +60,7 @@ public class RutaDAO implements IRutaDAO
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction etx = em.getTransaction();
 		etx.begin();
-		Punto p = new Punto();
-		p.setRuta(ruta);
+
 		try
 		{
 			em.remove(em.find(Ruta.class, ruta.getId()));
