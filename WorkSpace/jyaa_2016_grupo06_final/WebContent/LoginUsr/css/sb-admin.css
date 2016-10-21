@@ -22,14 +22,8 @@ body {
 }
 
 #page-wrapper {
+	min-height:700px;
 	height: 100%;
-    width: 100%;
-    padding: 0;
-    background-color: #fff;
-}
-
-#page-wrapper2 {
-	height: 700px;
     width: 100%;
     padding: 0;
     background-color: #fff;

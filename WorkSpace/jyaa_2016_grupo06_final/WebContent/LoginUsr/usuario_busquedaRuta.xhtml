@@ -46,16 +46,18 @@
 		  	background-color: transparent;
 		  	cursor: auto;
 		  	
-		  	box-sizing: border-box;
+/* 		  	border: none; */
+			
+			
+ 		  	box-sizing: border-box; 
 		  
 			height: 50px;
 		    width: 225px; 
 		
 		    font-family: Helvetica Neue",Helvetica,Arial,sans-serif;
-		    font-size:14px;
 		    font-style:normal;
 		    
-		    line-height: 20px;
+		   
 		    padding-bottom: 15px;
 		    padding-left: 15px;
 		    padding-right: 15px;
@@ -134,18 +136,19 @@
 			         <div class="row">  	
 			         	<div class="col-lg-12">
 			            	<h:form>
-								<div class="col-md-6">
+								<div class="col-lg-6">
 									<h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
 								</div>
-								<div class="col-md-2">
-									<h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.setBuscar(true)}"></h:commandButton>
+								<div class="col-lg-2">
+<!-- 									<h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.setBuscar(true)}"></h:commandButton> -->
+									<p:commandButton value="Buscar" action="#{RutaBean.setBuscar(true)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-search"></p:commandButton>
 								</div>							    
 							</h:form>
 						</div>
 			       	</div>				
 						
 					<div class="row">	
-						<div class="col-md-2">
+						<div class="col-lg-2">
 							<br />
 							<h:form>
 								<label>Filtrar por:</label>
@@ -166,8 +169,12 @@
 			                    </h:panelGrid>
 			                        
 			                        <div class="btn-group">
-			                        	<p:commandButton value="Filtrar por radio" action="#{RutaBean.filtroRadio(true)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(0)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-			                        	<p:commandButton value="Desactivar filtro por radio" action="#{RutaBean.filtroRadio(false)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(1)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+			                        	<div class="col-lg-12">
+			                        	<p:commandButton value="Filtrar por radio" action="#{RutaBean.filtroRadio(true)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(0)}" style="width:170px"></p:commandButton>
+										</div> 
+										<div class="col-lg-12">
+			                        	<p:commandButton value="Desactivar filtro por radio" action="#{RutaBean.filtroRadio(false)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(1)}" style="width:170px;font-size:13px"></p:commandButton>
+			                       	</div> 
 			                       	</div> 
 			                    </div>
 			                    
