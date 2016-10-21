@@ -67,7 +67,9 @@
 	                        <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_misRutas.xhtml"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
 	                    </li>
 	                    <li>
-	                        <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+	                        <h:form>
+		                		<p:commandButton value="Buscar" action="#{RutaBean.refreshBusqueda()}" ajax="false" styleClass="regCommandButton" icon="fa fa-fw fa-search"></p:commandButton>
+		                	</h:form>
 	                    </li>
 	                </ul>
 	            </div>
@@ -101,7 +103,7 @@
 										<img class="media-object" src="/jyaa_2016_grupo06_final/DownloadImageId/#{UsrBean.getId(0)}" style="width: 100%;height: 350px;"/>
 										<div class="carousel-caption">
 											<h3>
-												Descubre el mundo
+												Explora el mundo
 											</h3>
 											<p style="font-size: larger">
 												Las mejores rutas para vivir experiencias inolvidables
@@ -112,10 +114,10 @@
 										<img class="media-object" src="/jyaa_2016_grupo06_final/DownloadImageId/#{UsrBean.getId(1)}" style="width: 100%;height: 350px;"/>
 										<div class="carousel-caption">
 											<h3>
-												Descubre el mundo
+												Descubre nuevas aventuras
 											</h3>
 											<p style="font-size: larger">
-												Las mejores rutas para vivir experiencias inolvidables
+												Encontrá las mejores rutas estés donde estés, gracias a nuestro motor de busqueda por geolocalización
 											</p>
 										</div>
 									</div>
@@ -126,7 +128,7 @@
 												Sencillez y eficacia
 											</h3>
 											<p style="font-size: larger">
-												La forma más sencilla para buscar y crear rutas
+												La forma más practica para encontrar y realizar la actividad que buscas
 											</p>
 										</div>
 									</div>
@@ -137,7 +139,7 @@
 												Comparte tu experiencia
 											</h3>
 											<p style="font-size: larger">
-												Crea tus propias rutas y ayuda para que la comunidad de JRuteros siga creciendo
+												Crea tus propias rutas y ayuda para JRuteros siga creciendo
 											</p>
 										</div>
 									</div>
@@ -148,7 +150,7 @@
 												Recomenda las rutas realizadas
 											</h3>
 											<p style="font-size: larger">
-												Podes valorar las rutas en base a tu experiencia
+												¿Te animaste a realizar una ruta? Dale un puntaje. Tu opinión ayuda a toda la comunidad JRuteros
 											</p>
 										</div>
 									</div>

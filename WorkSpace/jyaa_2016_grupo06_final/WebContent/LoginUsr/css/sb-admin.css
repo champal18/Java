@@ -237,3 +237,52 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+
+/* Formato boton lateral personalizado*/
+
+.customTitleBar > .ui-panel-titlebar {
+	background: #337ab7;
+}
+		    
+form .ui-button.regCommandButton { 
+	color: #999;
+	background: #222;
+
+	cursor: auto;
+		  	
+		  	
+		  	
+	border-color: #222;
+	border-style: none;
+			
+ 	box-sizing: border-box; 
+		  
+	height: 50px;
+	width: 225px; 
+		
+	font-family: Helvetica Neue",Helvetica,Arial,sans-serif;
+		    
+		    
+	padding: 10px 15px 10px 38px;
+		    
+	position: relative;
+		    
+	text-align: left;
+	text-decoration: none;
+	text-shadow:none;
+		   	
+	box-shadow:none;
+		   
+	display: block;
+}
+			
+form .ui-button.regCommandButton:focus{		 
+	color: #fff;
+   	background-color: #000 !important;
+} 
+			 
+form .ui-button.regCommandButton:hover{			 
+	color: #fff;
+   	background-color: #000 !important;
+}

@@ -28,49 +28,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfXZWVwtmXLKWCbxtSvkAUyX9Gg_L-bA"> </script>
 		<script src="funcionesBusquedaPorPunto.js"> </script>
-		<style>
-		
-			img.resize
-			{
-			  max-width:100%;
-			  max-height:100%;
-			}
-			
-			.customTitleBar > .ui-panel-titlebar {
-		    background: #337ab7;
-		    }
-		    
-		    .ui-button.regCommandButton { 
-		    color: #9d9d9d;
-		    background: #222;
-		  	background-color: transparent;
-		  	cursor: auto;
-		  	
-/* 		  	border: none; */
-			
-			
- 		  	box-sizing: border-box; 
-		  
-			height: 50px;
-		    width: 225px; 
-		
-		    font-family: Helvetica Neue",Helvetica,Arial,sans-serif;
-		    font-style:normal;
-		    
-		   
-		    padding-bottom: 15px;
-		    padding-left: 15px;
-		    padding-right: 15px;
-		    padding-top: 15px;
-		    position: relative;
-		    
-		    text-align: left;
-		    text-decoration: none;
-		    display: block;
-    
-    
-		}
-		</style>
 	</h:head>
 
 	<body>
@@ -105,6 +62,7 @@
 		       	<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		       	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		      		<ul class="nav navbar-nav side-nav">
+		      		
 		            	<li >
 		                	<a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_nuevaRuta.xhtml"><i class="glyphicon glyphicon-plus"></i> Agregar ruta</a>
 		               	</li>
@@ -112,8 +70,9 @@
 		             		<a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_misRutas.xhtml"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
 		                </li>
 		                <li>
-		                	<a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
-		                	<h:form><p:commandButton value="Buscar" action="#{RutaBean.refreshBusqueda()}" styleClass="regCommandButton" ajax="false"></p:commandButton></h:form>
+		               		<h:form>
+		                		<p:commandButton value="Buscar" action="#{RutaBean.refreshBusqueda()}" ajax="false" styleClass="regCommandButton" icon="fa fa-fw fa-search"></p:commandButton>
+		                	</h:form>
 		                </li>
 		           	</ul>
 		        </div>
@@ -140,8 +99,7 @@
 									<h:inputText styleClass="form-control" id="inputNameRuta" value="#{RutaBean.cadenaBuscada}" />
 								</div>
 								<div class="col-lg-2">
-<!-- 									<h:commandButton class="btn btn-primary" value="Buscar ruta" action="#{RutaBean.setBuscar(true)}"></h:commandButton> -->
-									<p:commandButton value="Buscar" action="#{RutaBean.setBuscar(true)}" ajax="false" styleClass="btn btn-primary" icon="ui-icon-search"></p:commandButton>
+									<p:commandButton value="Buscar" action="#{RutaBean.setBuscar(true)}" ajax="false" styleClass="btn btn-primary" icon="fa fa-fw fa-search"></p:commandButton>
 								</div>							    
 							</h:form>
 						</div>
@@ -169,12 +127,12 @@
 			                    </h:panelGrid>
 			                        
 			                        <div class="btn-group">
-			                        	<div class="col-lg-12">
-			                        	<p:commandButton value="Filtrar por radio" action="#{RutaBean.filtroRadio(true)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(0)}" style="width:170px"></p:commandButton>
+			                        	<div>
+			                        		<p:commandButton value="Filtrar por radio" action="#{RutaBean.filtroRadio(true)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(0)}" style="width:150px"></p:commandButton>
 										</div> 
-										<div class="col-lg-12">
-			                        	<p:commandButton value="Desactivar filtro por radio" action="#{RutaBean.filtroRadio(false)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(1)}" style="width:170px;font-size:13px"></p:commandButton>
-			                       	</div> 
+										<div>
+			                        		<p:commandButton value="Desactivar filtro" action="#{RutaBean.filtroRadio(false)}" ajax="false" styleClass="#{RutaBean.filtroRadioStyle(1)}" style="width:150px"></p:commandButton>
+			                       		</div> 
 			                       	</div> 
 			                    </div>
 			                    
@@ -241,8 +199,8 @@
 									<label>Criterio:</label>
 									<h:form>
 										<div class="btn-group">
-											<p:commandButton value="Ascendente" action="#{RutaBean.setCriterio(1)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(1)}" icon="ui-icon-circle-arrow-n"></p:commandButton>
-											<p:commandButton value="Descendente" action="#{RutaBean.setCriterio(0)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(0)}" icon="ui-icon-circle-arrow-s"></p:commandButton>
+											<p:commandButton value="Ascendente" action="#{RutaBean.setCriterio(1)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(1)}" icon="fa fa-fw fa-arrow-up"></p:commandButton>
+											<p:commandButton value="Descendente" action="#{RutaBean.setCriterio(0)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(0)}" icon="fa fa-fw fa-arrow-down"></p:commandButton>
 										</div>
 									</h:form>
 								</div>
