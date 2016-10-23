@@ -4,15 +4,10 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.*;
-import interfazDAO.IRutaRealizada;
-import modelo.Privacidad;
-import modelo.Ruta;
 import modelo.RutaRealizada;
 
-public class RutaRealizadaDAO implements IRutaRealizada
+public class RutaRealizadaDAO
 {
-
-	@Override
 	public void guardarRuta(RutaRealizada rutaR) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -32,7 +27,6 @@ public class RutaRealizadaDAO implements IRutaRealizada
 		em.close();
 	}
 
-	@Override
 	public void modificarRuta(RutaRealizada rutaR) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -52,7 +46,6 @@ public class RutaRealizadaDAO implements IRutaRealizada
 		em.close();
 	}
 
-	@Override
 	public void eliminarRuta(RutaRealizada rutaR) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -72,7 +65,6 @@ public class RutaRealizadaDAO implements IRutaRealizada
 		em.close();
 	}
 
-	@Override
 	public RutaRealizada recuperarRutaRealizada(long id) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();

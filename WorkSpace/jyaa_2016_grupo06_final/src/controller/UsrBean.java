@@ -90,19 +90,29 @@ public class UsrBean
 		else
 		{
 			int cant = listFotos.size();
-			if(((cant%2)==0) || (indice<4))
+			if(cant<5)
 			{
-				int inicio = indice*(cant/5);
-				int fin = inicio + (cant/5) - 1;
-				int valor = ThreadLocalRandom.current().nextInt(inicio, fin + 1);
-				ids[indice] = valor;
+				if((indice)<cant)
+					ids[indice] = indice;
+				else
+					return (long)0;
 			}
 			else
 			{
-				int inicio = indice*(cant/5);
-				int fin = cant-1;
-				int valor = ThreadLocalRandom.current().nextInt(inicio, fin + 1);
-				ids[indice] = valor;
+				if(((cant%2)==0) || (indice<4))
+				{
+					int inicio = indice*(cant/5);
+					int fin = inicio + (cant/5) - 1;
+					int valor = ThreadLocalRandom.current().nextInt(inicio, fin + 1);
+					ids[indice] = valor;
+				}
+				else
+				{
+					int inicio = indice*(cant/5);
+					int fin = cant-1;
+					int valor = ThreadLocalRandom.current().nextInt(inicio, fin + 1);
+					ids[indice] = valor;
+				}
 			}
 		}
 		Foto f = listFotos.get((int)ids[indice]);

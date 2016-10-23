@@ -8,15 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import interfazDAO.IFotoDAO;
 import modelo.Foto;
-import modelo.Ruta;
-import rest.Punto;
 
-public class FotoDAO implements IFotoDAO
+public class FotoDAO
 {
 
-	@Override
 	public void guardarFoto(Foto f)
 	{
 		// TODO Auto-generated method stub
@@ -37,7 +33,6 @@ public class FotoDAO implements IFotoDAO
 		em.close();
 	}
 
-	@Override
 	public void modificarFoto(Foto f) 
 	{
 		// TODO Auto-generated method stub
@@ -58,7 +53,6 @@ public class FotoDAO implements IFotoDAO
 		em.close();
 	}
 
-	@Override
 	public void eliminarFoto(Foto f) 
 	{
 		// TODO Auto-generated method stub
@@ -81,7 +75,6 @@ public class FotoDAO implements IFotoDAO
 		
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Foto> recuperarFotos(long idRuta)
 	{
 		// TODO Auto-generated method stub
@@ -93,7 +86,8 @@ public class FotoDAO implements IFotoDAO
 		
 		try {
 			Query q = em.createQuery("FROM Foto WHERE ruta_id = '"+idRuta+"'");
-			fotos = Collections.checkedList(q.getResultList(), Foto.class);	
+			if(!q.getResultList().isEmpty())
+				fotos = Collections.checkedList(q.getResultList(), Foto.class);	
 		} catch (Exception e) {
 			fotos = null;
 			System.out.println("Excepcion!");
@@ -135,7 +129,7 @@ public class FotoDAO implements IFotoDAO
 		try {
 			Query q = em.createQuery("FROM Foto");
 			if(!q.getResultList().isEmpty())
-				fotos = Collections.checkedList(q.getResultList(), Ruta.class);	
+				fotos = Collections.checkedList(q.getResultList(), Foto.class);	
 		} catch (Exception e) {
 			fotos = null;
 			System.out.println("Excepcion!");

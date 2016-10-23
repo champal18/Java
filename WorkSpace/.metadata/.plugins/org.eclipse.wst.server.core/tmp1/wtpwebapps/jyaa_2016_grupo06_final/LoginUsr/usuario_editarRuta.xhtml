@@ -73,7 +73,9 @@
 	                        <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_misRutas.xhtml"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
 	                    </li>
 	                    <li>
-	                        <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+	                        <h:form>
+		                		<p:commandButton value="Buscar" action="#{RutaBean.refreshBusqueda()}" ajax="false" styleClass="regCommandButton" icon="fa fa-fw fa-search"></p:commandButton>
+		                	</h:form>
 	                    </li>
 	                </ul>
 	            </div>
@@ -265,6 +267,9 @@
 		                        		Foto 1(actual)
 		                        </label>
 		                        <img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/1" alt="image" />
+		                  		<div class="col-lg-offset-5">
+		                  			<h:commandLink value="Eliminar Foto 1" action="#{RutaBean.eliminarFoto(0)}"></h:commandLink>
+		                  		</div>
 		                  	</div>
 	                  	
 		                  	<div class="form-group">
@@ -274,12 +279,15 @@
 		                        <t:inputFileUpload id="file1" value="#{RutaBean.file}" onchange="showMyImage(this,'thumbnil1')" required="false" />
 		                        <img id="thumbnil1" style="width:20%; margin-top:10px;"  src="" alt="image" />
 		                  	</div>
-	                     	
+		                 	
 		                    <div class="form-group">
 		                       	<label class="col-lg-offset-3 col-lg-2 control-label">
 		                        		Foto 2(actual)
 		                       	</label>
 		                      	<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/2" alt="image" />
+		                    	<div class="col-lg-offset-5">
+		                  			<h:commandLink value="Eliminar Foto 2" action="#{RutaBean.eliminarFoto(1)}"></h:commandLink>
+		                  		</div>
 		                    </div>
 	                     	
 		                  	<div class="form-group">
@@ -295,6 +303,9 @@
 	                        		Foto 3(actual)
 	                       		</label>
 	                       		<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/3" alt="image" />
+	                   			<div class="col-lg-offset-5">
+		                  			<h:commandLink value="Eliminar Foto 3" action="#{RutaBean.eliminarFoto(2)}"></h:commandLink>
+		                  		</div>
 	                   		</div>
 	                     	
 	                  		<div class="form-group">
@@ -310,6 +321,9 @@
 	                        		Foto 4(actual)
 	                       		</label>
 	                        	<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/4" alt="image" />
+	                   			<div class="col-lg-offset-5">
+		                  			<h:commandLink value="Eliminar Foto 4" action="#{RutaBean.eliminarFoto(3)}"></h:commandLink>
+		                  		</div>
 	                   		</div>
 	                     	
 	                   		<div class="form-group">
@@ -325,6 +339,9 @@
 	                        		Foto 5(actual)
 	                       		</label>
 	                       		<img style="width:20%; margin-top:10px;"  src="/jyaa_2016_grupo06_final/DownloadImage/5" alt="image" />
+	                   			<div class="col-lg-offset-5">
+		                  			<h:commandLink value="Eliminar Foto 5" action="#{RutaBean.eliminarFoto(4)}"></h:commandLink>
+		                  		</div>
 	                   		</div>
 	                   	
 	                 		<div class="form-group">

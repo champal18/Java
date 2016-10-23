@@ -8,14 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import interfazDAO.IActividadDAO;
 import modelo.Actividad;
-import modelo.Ruta;
 
-public class ActividadDAO implements IActividadDAO
+public class ActividadDAO
 {
 
-	@Override
 	public void guardarActividad(Actividad act) 
 	{
 		// TODO Auto-generated method stub
@@ -36,7 +33,6 @@ public class ActividadDAO implements IActividadDAO
 		em.close();
 	}
 
-	@Override
 	public void modificarActividad(Actividad act) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -57,7 +53,6 @@ public class ActividadDAO implements IActividadDAO
 		
 	}
 
-	@Override
 	public void eliminarActividad(Actividad act) 
 	{
 		// TODO Auto-generated method stub
@@ -78,7 +73,6 @@ public class ActividadDAO implements IActividadDAO
 		em.close();
 	}
 
-	@Override
 	public Actividad recuperarActividad(long id) 
 	{
 		// TODO Auto-generated method stub

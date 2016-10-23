@@ -184,8 +184,21 @@ public class Persona {
             @Override
             public int compare(Persona o1, Persona o2) {
             	RutaDAO rDao = new RutaDAO();
-            	int cant1 = rDao.recuperarRutasUsuario(o1.getId()).size();
-            	int cant2 = rDao.recuperarRutasUsuario(o2.getId()).size();
+            	List<Ruta> lista = rDao.recuperarRutasUsuario(o1.getId());
+            	
+            	int cant1;
+            	if(lista != null)
+            		cant1 = lista.size();
+            	else
+            		cant1 = 0;
+            	lista = rDao.recuperarRutasUsuario(o2.getId());
+            	
+            	int cant2;
+            	if(lista != null)
+            		cant2 = lista.size();
+            	else
+            		cant2 = 0;
+            	
             	return cant1 < cant2 ? -1 : cant1 == cant2 ? 0 : 1;
             }
         };

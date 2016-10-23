@@ -68,7 +68,9 @@
 	                        <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_misRutas.xhtml"><i class="glyphicon glyphicon-globe"></i> Mis rutas</a>
 	                    </li>
 	                    <li>
-	                        <a href="/jyaa_2016_grupo06_final/faces/LoginUsr/usuario_busquedaRuta.xhtml"><i class="glyphicon glyphicon-search"></i> Buscar</a>
+	                        <h:form>
+		                		<p:commandButton value="Buscar" action="#{RutaBean.refreshBusqueda()}" ajax="false" styleClass="regCommandButton" icon="fa fa-fw fa-search"></p:commandButton>
+		                	</h:form>
 	                    </li>
 	                </ul>
 	            </div>

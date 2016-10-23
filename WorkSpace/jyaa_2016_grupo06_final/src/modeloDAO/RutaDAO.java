@@ -4,15 +4,12 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.*;
-import interfazDAO.IRutaDAO;
 import modelo.Privacidad;
 import modelo.Ruta;
-import rest.Punto;
 
-public class RutaDAO implements IRutaDAO
+public class RutaDAO
 {
 
-	@Override
 	public void guardarRuta(Ruta ruta) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -32,7 +29,6 @@ public class RutaDAO implements IRutaDAO
 		em.close();
 	}
 
-	@Override
 	public void modificarRuta(Ruta ruta) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -52,7 +48,6 @@ public class RutaDAO implements IRutaDAO
 		em.close();
 	}
 
-	@Override
 	public void eliminarRuta(Ruta ruta) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -73,7 +68,6 @@ public class RutaDAO implements IRutaDAO
 		em.close();
 	}
 
-	@Override
 	public Ruta recuperarRuta(long id) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -93,7 +87,6 @@ public class RutaDAO implements IRutaDAO
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Ruta> recuperarRutasUsuario(long id) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -104,7 +97,8 @@ public class RutaDAO implements IRutaDAO
 		
 		try {
 			Query q = em.createQuery("FROM Ruta WHERE owner_id = '"+id+"'");
-			rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
+			if(!q.getResultList().isEmpty())
+				rutas = Collections.checkedList(q.getResultList(), Ruta.class);	
 		} catch (Exception e) {
 			rutas = null;
 			System.out.println("Excepcion!");

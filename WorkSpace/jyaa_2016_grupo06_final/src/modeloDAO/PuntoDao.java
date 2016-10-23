@@ -3,11 +3,10 @@ package modeloDAO;
 import java.util.*;
 
 import javax.persistence.*;
-import interfazDAO.IPuntoDAO;
 import modelo.Ruta;
 import rest.Punto;
 
-public enum PuntoDao implements IPuntoDAO
+public enum PuntoDao
 { 
 	instance;
 
@@ -18,7 +17,6 @@ public enum PuntoDao implements IPuntoDAO
 		return puntos;
 	}
 
-	@Override
 	public void guardarPuntos(Ruta ruta) 
 	{
 		// TODO Auto-generated method stub		
@@ -51,7 +49,6 @@ public enum PuntoDao implements IPuntoDAO
 		
 	}
 
-	@Override
 	public void modificarPunto(Punto p)
 	{
 		// TODO Auto-generated method stub
@@ -73,7 +70,6 @@ public enum PuntoDao implements IPuntoDAO
 		
 	}
 
-	@Override
 	public void eliminarPunto(Punto p)
 	{
 		// TODO Auto-generated method stub
@@ -118,7 +114,6 @@ public enum PuntoDao implements IPuntoDAO
 		
 	}
 
-	@Override
 	public Punto recuperarPunto(long id)
 	{
 		// TODO Auto-generated method stub
@@ -150,7 +145,8 @@ public enum PuntoDao implements IPuntoDAO
 		
 		try {
 			Query q = em.createQuery("FROM Punto where ruta_id='"+idRuta+"'");
-			puntos = Collections.checkedList(q.getResultList(), Punto.class);	
+			if(!q.getResultList().isEmpty())
+				puntos = Collections.checkedList(q.getResultList(), Punto.class);	
 		} catch (Exception e) {
 			puntos = null;
 			System.out.println("Excepcion!");
@@ -212,7 +208,8 @@ public enum PuntoDao implements IPuntoDAO
 		
 		try {
 			Query q = em.createQuery("FROM Punto");
-			lista = Collections.checkedList(q.getResultList(), Punto.class);	
+			if(!q.getResultList().isEmpty())
+				lista = Collections.checkedList(q.getResultList(), Punto.class);	
 		} catch (Exception e) {
 			lista = null;
 			System.out.println("Excepcion!");

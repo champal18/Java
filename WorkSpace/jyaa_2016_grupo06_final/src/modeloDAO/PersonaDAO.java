@@ -4,13 +4,11 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.*;
-import interfazDAO.IPersonaDAO;
 import modelo.Persona;
 
-public class PersonaDAO implements IPersonaDAO
+public class PersonaDAO
 {
-
-	@Override
+	
 	public void guardarPersona(Persona p) 
 	{
 		// TODO Auto-generated method stub
@@ -31,7 +29,6 @@ public class PersonaDAO implements IPersonaDAO
 		em.close();
 	}
 
-	@Override
 	public void modificarPersona(Persona p) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -52,7 +49,6 @@ public class PersonaDAO implements IPersonaDAO
 		
 	}
 
-	@Override
 	public void eliminarPersona(Persona p) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -72,7 +68,6 @@ public class PersonaDAO implements IPersonaDAO
 		em.close();
 	}
 
-	@Override
 	public Persona recuperarPersona(long id) {
 		// TODO Auto-generated method stub
 		SingletonEMF single = SingletonEMF.getIns();
@@ -123,7 +118,8 @@ public class PersonaDAO implements IPersonaDAO
 		
 		try {
 			Query q = em.createQuery("FROM Persona");
-			usrs = Collections.checkedList(q.getResultList(), Persona.class);	
+			if(!q.getResultList().isEmpty())
+				usrs = Collections.checkedList(q.getResultList(), Persona.class);	
 		} catch (Exception e) {
 			usrs = null;
 			System.out.println("Excepcion!");
