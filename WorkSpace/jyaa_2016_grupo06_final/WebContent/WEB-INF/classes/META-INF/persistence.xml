@@ -12,25 +12,25 @@
 	<class>modelo.Ruta</class>
 	<class>modelo.Foto</class>
 	<class>rest.Punto</class>
-<!-- 	<properties> -->
-<!-- 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> -->
-<!-- 		<property name="hibernate.connection.url" value="jdbc:mysql://mysql.java.linti.unlp.edu.ar/jyaa_sala_bd6"/> -->
-<!-- 		<property name="hibernate.connection.username" value="jyaa_sala_usr6"/> -->
-<!-- 		<property name="hibernate.connection.password" value="jyaa_sala_pwd6"/> -->
-<!-- 		<property name="hibernate.connection.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/> -->
-<!-- 		<property name="hibernate.hbm2ddl.auto" value="update" /> -->
-<!-- 	</properties> -->
-<!-- </persistence-unit> -->
-
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-		<property name="hibernate.connection.url" value="jdbc:mysql://localhost/jyaa"/>
-		<property name="hibernate.connection.username" value="root"/>
-		<property name="hibernate.connection.password" value=""/>
+		<property name="hibernate.connection.url" value="jdbc:mysql://mysql.java.linti.unlp.edu.ar/jyaa_sala_bd6"/>
+		<property name="hibernate.connection.username" value="jyaa_sala_usr6"/>
+		<property name="hibernate.connection.password" value="jyaa_sala_pwd6"/>
 		<property name="hibernate.connection.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 		<property name="hibernate.hbm2ddl.auto" value="update" />
 	</properties>
 </persistence-unit>
+
+<!-- 	<properties> -->
+<!-- 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> -->
+<!-- 		<property name="hibernate.connection.url" value="jdbc:mysql://localhost/jyaa"/> -->
+<!-- 		<property name="hibernate.connection.username" value="root"/> -->
+<!-- 		<property name="hibernate.connection.password" value=""/> -->
+<!-- 		<property name="hibernate.connection.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/> -->
+<!-- 		<property name="hibernate.hbm2ddl.auto" value="update" /> -->
+<!-- 	</properties> -->
+<!-- </persistence-unit> -->
 
 
 </persistence>
