@@ -199,8 +199,8 @@
 									<label>Criterio:</label>
 									<h:form>
 										<div class="btn-group">
-											<p:commandButton value="Ascendente" action="#{RutaBean.setCriterio(1)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(1)}" icon="fa fa-fw fa-arrow-up"></p:commandButton>
-											<p:commandButton value="Descendente" action="#{RutaBean.setCriterio(0)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(0)}" icon="fa fa-fw fa-arrow-down"></p:commandButton>
+											<p:commandButton value="Ascendente" action="#{RutaBean.setCriterio(1)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(1)}" icon="fa fa-fw fa-sort-amount-asc"></p:commandButton>
+											<p:commandButton value="Descendente" action="#{RutaBean.setCriterio(0)}" ajax="false" styleClass="#{RutaBean.getCriterioStyle(0)}" icon="fa fa-fw fa-sort-amount-desc"></p:commandButton>
 										</div>
 									</h:form>
 								</div>
@@ -217,8 +217,6 @@
 					        	<f:facet name="header">
 					            	Listado de rutas
 					        	</f:facet>
-					 
-		<!-- 			        	<p:panel header="#{ruta.nombre}" style="text-align:center" styleClass="customTitleBar" > -->
 					         		<p:panel>
 					            		<h:panelGrid columns="1" style="width:100%">
 					               			<h4>

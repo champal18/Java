@@ -143,7 +143,8 @@
 									<div class="col-sm-10">
 										<p:inputText styleClass="form-control" id="inputDni" value="#{UsrBean.usrLogin.dni}" 
 											placeholder="#{UsrBean.usrLogin.dni}"
-											required="true" requiredMessage="DNI es un campo obligatorio" validatorMessage="Dni: solo caracteres numericos">
+											required="true" requiredMessage="DNI es un campo obligatorio" converterMessage="Dni: solo caracteres numericos" validatorMessage="DNI: Long. minima: 7">
+											<f:validateLength minimum="7" />
 										</p:inputText>
 										<p:messages for="inputDni" autoUpdate="true" />
 									</div>

@@ -81,9 +81,9 @@
 							<label>Ordenar por: </label>
 							<h:form>
 								<div class="btn-group">
-									<p:commandButton value="Alfabéticamente" action="#{AdminBean.setOrden(0)}" ajax="false" styleClass="#{AdminBean.getOrdenStyle(1)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-									<p:commandButton value="Antigüedad" action="#{AdminBean.setOrden(1)}" ajax="false" styleClass="#{AdminBean.getOrdenStyle(2)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-									<p:commandButton value="Cantidad de rutas" action="#{AdminBean.setOrden(2)}" ajax="false" styleClass="#{AdminBean.getOrdenStyle(3)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+									<p:commandButton value="Alfabéticamente" action="#{AdminBean.setOrden(0)}" ajax="false" styleClass="#{AdminBean.getOrdenStyle(1)}" icon="fa fa-fw fa-sort-alpha-asc"></p:commandButton>
+									<p:commandButton value="Antigüedad" action="#{AdminBean.setOrden(1)}" ajax="false" styleClass="#{AdminBean.getOrdenStyle(2)}" icon="fa fa-fw fa-calendar"></p:commandButton>
+									<p:commandButton value="Cantidad de rutas" action="#{AdminBean.setOrden(2)}" ajax="false" styleClass="#{AdminBean.getOrdenStyle(3)}" icon="fa fa-fw fa-sort-numeric-asc"></p:commandButton>
 								</div>
 							</h:form>
 			    	 	</div>
@@ -91,8 +91,8 @@
 				     	<label>Criterio: </label>
 							<h:form>
 								<div class="btn-group">
-									<p:commandButton value="Ascendente" action="#{AdminBean.setCriterio(0)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(1)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
-									<p:commandButton value="Descendente" action="#{AdminBean.setCriterio(1)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(0)}" icon="ui-icon-arrow-2-e-w"></p:commandButton>
+									<p:commandButton value="Ascendente" action="#{AdminBean.setCriterio(0)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(1)}" icon="fa fa-fw fa-sort-amount-asc"></p:commandButton>
+									<p:commandButton value="Descendente" action="#{AdminBean.setCriterio(1)}" ajax="false" styleClass="#{AdminBean.getCriterioStyle(0)}" icon="fa fa-fw fa-sort-amount-desc"></p:commandButton>
 								</div>
 							</h:form>
 						</div>
